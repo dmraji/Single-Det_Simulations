@@ -1,3 +1,0 @@
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI/Geant4Sim/build/CMakeFiles/ALL_BUILD.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI/Geant4Sim/build/CMakeFiles/CodedAperture.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI/Geant4Sim/build/CMakeFiles/ZERO_CHECK.dir

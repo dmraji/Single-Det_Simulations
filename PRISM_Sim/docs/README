@@ -1,0 +1,15 @@
+Simluation of PRISM
+
+- Detectors are CZT, world is vacuum
+
+- Basic physics is included (Compton, Photoelectric, Pair Production, Rayleigh..)
+
+- If photon hits detector and has photoabsorption reaction, we tally into ROOT histogram
+  - ROOT histogram can then be read by python script in the analysis directory
+  - another python script is used to perform the reconstruction
+
+- can be run by running $ ./CodedAperture in the /Debug directory
+  - macros exist that will run particles at every angle in -30,30 in theta and phi
+    - see the response_loop* macros
+
+- output will be in the form of a root file names totalresponse.root
