@@ -87,7 +87,7 @@ int main(int argc, char** argv)
 // Write response to file
 TH3D * response = new TH3D("response", "response", 361, -180.5, 180.5, 181, -90.5, 90.5, 192, 0.5, 192.5);
 response = SteppingAction::Instance()->GetTotalResponseHist();
-TFile * ff = new TFile("totalresponse.root","RECREATE");
+TFile * ff = new TFile("output/totalresponse.root","RECREATE");
 response->Write();
 ff->Write();
 ff->Close();
