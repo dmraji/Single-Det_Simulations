@@ -58,19 +58,37 @@ add_executable(${name} ${name}.cc ${sources} ${headers})
 # link the Geant4 libraries to the executable
 target_link_libraries(${name} ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
-# copy over geometry and macro folders
-file(GLOB geofiles RELATIVE ${PROJECT_SOURCE_DIR}/geo ${PROJECT_SOURCE_DIR}/geo/*.txt)
-file(GLOB macrofiles RELATIVE ${PROJECT_SOURCE_DIR}/macros ${PROJECT_SOURCE_DIR}/macros/*.mac)
-foreach(geofile ${geofiles})
-	set (geopath ${PROJECT_SOURCE_DIR}/geo/${geofile})
-	configure_file(${geopath}
-                    ${PROJECT_BINARY_DIR}/geo/${geofile}
-                    @ONLY)
-endforeach()
-foreach(macrofile ${macrofiles})
-	set (macropath ${PROJECT_SOURCE_DIR}/macros/${macrofile})
-	configure_file(${macropath}
-                    ${PROJECT_BINARY_DIR}/macros/${macrofile}
-                    @ONLY)
-endforeach()
+## copy over geometry files
+#file(GLOB_RECURSE geofiles RELATIVE ${PROJECT_SOURCE_DIR}/geo ${PROJECT_SOURCE_DIR}/geo/*.txt)
+#foreach(geofile ${geofiles})
+#	set (geopath ${PROJECT_SOURCE_DIR}/geo/${geofile})
+#	configure_file(${geopath}
+#                    ${PROJECT_BINARY_DIR}/geo/${geofile}
+#                    @ONLY)
+## copy over macros
+#file(GLOB_RECURSE macrofiles RELATIVE ${PROJECT_SOURCE_DIR}/macros ${PROJECT_SOURCE_DIR}/macros/*)
+#foreach(macrofile ${macrofiles})
+#	set (macropath ${PROJECT_SOURCE_DIR}/macros/${macrofile})
+#	configure_file(${macropath}
+#                    ${PROJECT_BINARY_DIR}/macros/${macrofile}
+#                    @ONLY)
+#endforeach()
+#
+## copy over doc
+#file(GLOB_RECURSE docfiles RELATIVE ${PROJECT_SOURCE_DIR}/docs ${PROJECT_SOURCE_DIR}/docs/*)
+#foreach(docfile ${docfiles})
+#	set (docpath ${PROJECT_SOURCE_DIR}/docs/${docfile})
+#	configure_file(${docpath}
+#                    ${PROJECT_BINARY_DIR}/docs/${docfile}
+#                    @ONLY)
+#endforeach()
+#
+##copy over analysis files
+#file(GLOB_RECURSE analysisfiles RELATIVE ${PROJECT_SOURCE_DIR}/analysis ${PROJECT_SOURCE_DIR}/analysis/*)
+#foreach(analysisfile ${analysisfiles})
+#	set (analysispath ${PROJECT_SOURCE_DIR}/analysis/${analysisfile})
+#	configure_file(${analysispath}
+#                    ${PROJECT_BINARY_DIR}/analysis/${analysisfile}
+#                    @ONLY)
+#endforeach()
                     

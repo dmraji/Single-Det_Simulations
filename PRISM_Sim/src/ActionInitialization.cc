@@ -5,6 +5,7 @@
 #include "EventAction.hh"
 #include "TrackingAction.hh"
 #include "SteppingAction.hh"
+#include "StackingAction.hh"
 
 //============================================================================//
 
@@ -17,7 +18,6 @@ ActionInitialization::~ActionInitialization(){}
 //============================================================================//
 
 void ActionInitialization::BuildForMaster() const {
-    // all threads have same pointer to class instance
     SetUserAction(new RunAction);
 }
 
@@ -35,6 +35,8 @@ void ActionInitialization::Build() const {
     SetUserAction(new TrackingAction);
 
     SetUserAction(new SteppingAction);
+    
+    SetUserAction(new StackingAction);
     
 
 }

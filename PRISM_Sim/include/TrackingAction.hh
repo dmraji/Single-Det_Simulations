@@ -6,8 +6,6 @@
 
 class G4Track;
 
-
-
 class TrackingAction : public G4UserTrackingAction
 {
 public:
@@ -15,7 +13,6 @@ public:
 	~TrackingAction();
 
 	static TrackingAction* Instance();
-
 
 public:
 	void PreUserTrackingAction(const G4Track*);

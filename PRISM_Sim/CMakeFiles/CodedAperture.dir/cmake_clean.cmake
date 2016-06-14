@@ -7,6 +7,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o"
   "CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o"
   "CMakeFiles/CodedAperture.dir/src/RunAction.cc.o"
+  "CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o"
   "CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o"
   "CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o"
   "CodedAperture.pdb"

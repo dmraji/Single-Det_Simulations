@@ -7,6 +7,5 @@
 
 /dir/setTheta {theta}
 /dir/setPhi {phi}
-/run/beamOn 10
+/run/beamOn 10000
 
-#takes 50 minutes to run…

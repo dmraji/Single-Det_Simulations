@@ -26,7 +26,6 @@ public:
 	static DetectorConstruction* Instance();
 
 public:
-    // Public functions
 	G4VPhysicalVolume* Construct();
 
     inline const G4double& GetWorldDimensions() const { return world_dim; }
@@ -34,24 +33,24 @@ public:
     inline const G4ThreeVector& GetTargetDimension() const { return detector_dim; }
 
 protected:
-    // Protected functions
     virtual G4VPhysicalVolume* ConstructWorld();
     virtual void ConstructMaterials();
 
 protected:
-    // Protected variables
+    // Physical volume for world
     G4VPhysicalVolume* worldPhys;
     // world material
     G4Material* mworld;
     // backplane detector material
     G4Material* mdetector;
 
-    // world is a sphere so we need radius
+    // World is a sphere so we need radius
     G4double world_dim;
-    // backplane detector is a box, so we need x, y , z
+    // detector are cubes, need xyz
     G4ThreeVector detector_dim;
-    // backplane detector position
+    // detector position
     G4ThreeVector detector_pos;
+    // detector rotation
     G4RotationMatrix detector_rot;
     
 

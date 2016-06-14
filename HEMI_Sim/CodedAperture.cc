@@ -22,7 +22,14 @@
 // User Defined headers for classes
 #include "DetectorConstruction.hh"
 #include "ActionInitialization.hh"
+#include "PhysicsList.hh"
+typedef PhysicsList ThePhysicsList;
 
+#include "SteppingAction.hh"
+#include "TFile.h"
+#include "TH3.h"
+
+/*
 #ifdef CUSTOM_PHYSICS_LIST
     #include "PhysicsList.hh"
     typedef P1PhysicsList ThePhysicsList;
@@ -30,6 +37,7 @@
     #include "QGSP_BERT.hh"
     typedef QGSP_BERT ThePhysicsList;
 #endif
+*/
 
 int main(int argc, char** argv)
 {
@@ -68,6 +76,21 @@ int main(int argc, char** argv)
 		delete ui;
 #endif
 	}
+    
+    
+    
+    // Write response to file
+    TH3D * response = new TH3D("response", "response", 61, -30.5, 30.5, 61, -30.5, 30.5, 64, 0.5, 64.5);
+    response = SteppingAction::Instance()->GetTotalResponseHist();
+    TFile * ff = new TFile("totalresponse.root","RECREATE");
+    response->Write();
+    ff->Write();
+    ff->Close();
+    
+    
+    
+    
+    
 
 #ifdef G4VIS_USE
 	delete visManager;

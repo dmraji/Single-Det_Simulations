@@ -38,34 +38,23 @@ SteppingAction::~SteppingAction()
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
     
-    
-    G4Track* track = step->GetTrack();
-    
-    // Fill histograms
-    //G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-    
+    //G4Track* track = step->GetTrack();
+    //track->SetTrackStatus(fStopAndKill);
+
     if(step->GetPreStepPoint()->GetPhysicalVolume()->GetName() == "Mask"){
-        
-        //analysisManager->FillH2(runnumber, step->GetPreStepPoint()->GetPhysicalVolume()->GetObjectTranslation().x()/CLHEP::cm, step->GetPreStepPoint()->GetPhysicalVolume()->GetObjectTranslation().y()/CLHEP::cm);
         
         //totalresponse->Fill(PrimaryGeneratorAction::Instance()->GetTheta(), PrimaryGeneratorAction::Instance()->GetPhi(), step->GetPreStepPoint()->GetPhysicalVolume()->GetCopyNo());
 
-        track->SetTrackStatus(fStopAndKill);
-
     }
   
-    if (step->GetPreStepPoint()->GetPhysicalVolume()->GetName() == "Backplane"){
+    if (step->GetPreStepPoint()->GetPhysicalVolume()->GetName() == "Backplane" && step->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName() == "phot"){
         
         //analysisManager->FillH2(runnumber+1, step->GetPreStepPoint()->GetPhysicalVolume()->GetObjectTranslation().x()/CLHEP::cm, step->GetPreStepPoint()->GetPhysicalVolume()->GetObjectTranslation().y()/CLHEP::cm);
         
         totalresponse->Fill(PrimaryGeneratorAction::Instance()->GetTheta(), PrimaryGeneratorAction::Instance()->GetPhi(), step->GetPreStepPoint()->GetPhysicalVolume()->GetCopyNo());
         //individualresponse->Fill(PrimaryGeneratorAction::Instance()->GetTheta(), PrimaryGeneratorAction::Instance()->GetPhi(), step->GetPreStepPoint()->GetPhysicalVolume()->GetCopyNo());
 
-        track->SetTrackStatus(fStopAndKill);
-
     }
-    
-    
     
     
 }

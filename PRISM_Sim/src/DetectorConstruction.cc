@@ -58,7 +58,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 void DetectorConstruction::ConstructMaterials() {
     
-    
     // Define CZT material
     G4Element* elCd = new G4Element("Cadmium"  ,"Cd", 48., 112.411*CLHEP::g/CLHEP::mole);
     G4Element* elZn = new G4Element("Zinc"     ,"Zn", 30., 65.39  *CLHEP::g/CLHEP::mole);
@@ -77,7 +76,6 @@ void DetectorConstruction::ConstructMaterials() {
     
     // Make the world a vacuum
     mworld = nist->FindOrBuildMaterial("G4_Galactic");
-    // or make the world filled with air
     //mworld = nist->FindOrBuildMaterial("G4_AIR");
 
 
@@ -87,7 +85,7 @@ void DetectorConstruction::ConstructMaterials() {
 
 G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     
-    world_dim    = 0.5*CLHEP::m;    // set a world volume sphere with 0.5m radius
+    world_dim    = 0.5*CLHEP::m;                                                  // set a world volume sphere with 0.5m radius
     detector_dim = G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm);    // detector detectors are 1 cm cubes
     
     
@@ -121,17 +119,17 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // Create detectors
     // ---------------------------------------
     
-    G4VSolid* detectorSolid = new G4Box("DetectorSolid",     // name
-                                      detector_dim.x(), // x half-length
-                                      detector_dim.y(), // y half-length
-                                      detector_dim.z()  // z half-length
+    G4VSolid* detectorSolid = new G4Box("DetectorSolid",    // name
+                                      detector_dim.x(),     // x half-length
+                                      detector_dim.y(),     // y half-length
+                                      detector_dim.z()      // z half-length
                                       );
 
     // Create 192 logical volumes (so we can have different colors)
     std::vector<G4LogicalVolume*> logvols;
     for (int i = 0; i < 192; i++){
-        logvols.push_back(new G4LogicalVolume(detectorSolid, // target solid
-                                              mdetector,     // target material
+        logvols.push_back(new G4LogicalVolume(detectorSolid,    // target solid
+                                              mdetector,        // target material
                                               "DetectorLog"     // name
                                               ));
     }

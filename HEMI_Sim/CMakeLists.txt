@@ -37,16 +37,16 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 #------------------------------------------------------------------------------#
 #   By default, use the generic physics list
-option(CUSTOM_PHYSICS_LIST "If enabled, physics list is PhysicsList.
-                            If disabled, physics list is G4GenericPhysicsList" OFF)
-if(NOT CUSTOM_PHYSICS_LIST)
-    set(_physics_file PhysicsList)
-    list(REMOVE_ITEM sources ${PROJECT_SOURCE_DIR}/src/${_physics_file}.cc)
-    list(REMOVE_ITEM headers ${PROJECT_SOURCE_DIR}/include/${_physics_file}.hh)
-else()
-    add_definitions(-DCUSTOM_PHYSICS_LIST)
-endif()
-#------------------------------------------------------------------------------#
+#option(CUSTOM_PHYSICS_LIST "If enabled, physics list is PhysicsList.
+#                            If disabled, physics list is G4GenericPhysicsList" OFF)
+#if(NOT CUSTOM_PHYSICS_LIST)
+#    set(_physics_file PhysicsList)
+#    list(REMOVE_ITEM sources ${PROJECT_SOURCE_DIR}/src/${_physics_file}.cc)
+#    list(REMOVE_ITEM headers ${PROJECT_SOURCE_DIR}/include/${_physics_file}.hh)
+#else()
+#    add_definitions(-DCUSTOM_PHYSICS_LIST)
+#endif()
+##------------------------------------------------------------------------------#
 
 # create the executable
 add_executable(${name} ${name}.cc ${sources} ${headers})

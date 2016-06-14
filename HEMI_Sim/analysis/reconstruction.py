@@ -16,8 +16,8 @@ mlem = True
 crosscorr = True
     
 # Select plot or save
-plot = True
-save = False
+plot = False
+save = True
 
 # Load in system response matrix
 response=pickle.load(open("systemarray.p","rb"))
@@ -36,10 +36,10 @@ if (save):
 
 
 # Define angles of interest
-#theta = [-20,-10,0,10,20,-20,-10,0,10,20,-20,-10,0,10,20,-20,-10,0,10,20,-20,-10,0,10,20]
-#phi   = [-20,-20,-20,-20,-20,-10,-10,-10,-10,-10,0,0,0,0,0,10,10,10,10,10,20,20,20,20,20]
-theta = [0]
-phi =[0]
+theta = [-20,-10,0,10,20,-20,-10,0,10,20,-20,-10,0,10,20,-20,-10,0,10,20,-20,-10,0,10,20]
+phi   = [-20,-20,-20,-20,-20,-10,-10,-10,-10,-10,0,0,0,0,0,10,10,10,10,10,20,20,20,20,20]
+#theta = [0]
+#phi =[0]
 
 for i in range(0,len(theta)):
 

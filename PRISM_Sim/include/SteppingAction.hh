@@ -8,8 +8,6 @@
 
 class G4Step;
 
-
-
 class SteppingAction : public G4UserSteppingAction
 {
 public:
@@ -25,7 +23,7 @@ public:
     // Total response matrix for theta, phi, and detector ID
     TH3D * totalresponse = new TH3D("totalresponse", "totalresponse", 361, -180.5, 180.5, 181, -90.5, 90.5, 192, 0.5, 192.5);
     inline TH3D * GetTotalResponseHist(){return totalresponse;}
-    
+
     int pe_num;
     int compt_num;
     inline int GetPENum(){return pe_num;}

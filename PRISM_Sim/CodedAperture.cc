@@ -45,7 +45,7 @@ typedef PhysicsList ThePhysicsList;
  
 int main(int argc, char** argv)
 {
-
+    
 	CLHEP::HepRandom::setTheEngine(new CLHEP::RanecuEngine);
 
 	TheRunManager* runManager = new TheRunManager();

@@ -16,8 +16,6 @@
 #include "G4Material.hh"
 
 
-
-
 //==================================================================================================
 
 DetectorConstruction* DetectorConstruction::fgInstance = 0;
@@ -61,14 +59,29 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 void DetectorConstruction::ConstructMaterials()
 {
+
+    // Define CZT material
+    G4Element* elCd = new G4Element("Cadmium"  ,"Cd", 48., 112.411*CLHEP::g/CLHEP::mole);
+    G4Element* elZn = new G4Element("Zinc"     ,"Zn", 30., 65.39  *CLHEP::g/CLHEP::mole);
+    G4Element* elTe = new G4Element("Tellurium","Te", 52., 127.6  *CLHEP::g/CLHEP::mole);
+    
+    G4Material* CZT = new G4Material("CZT", 5.78*CLHEP::g/CLHEP::cm3, 3);
+    CZT->AddElement(elCd, 9);
+    CZT->AddElement(elZn, 1);
+    CZT->AddElement(elTe, 10);
+    
+    // Assign to detector material (mask and backplane)
+    mbackplane = CZT;
+    mmask = CZT;
+    
     // the NIST manager has simple materials
     G4NistManager* nist = G4NistManager::Instance();
+    
     // Make the world a vacuum
     mworld = nist->FindOrBuildMaterial("G4_Galactic");
-    // Make detctors vacuum as well
-    mbackplane = nist->FindOrBuildMaterial("G4_Galactic");
-    mmask = nist->FindOrBuildMaterial("G4_Galactic");
-
+    //mworld = nist->FindOrBuildMaterial("G4_AIR");
+    
+    
 }
 
 //==================================================================================================
@@ -77,7 +90,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
 {
     
     
-    world_dim     = G4ThreeVector(0.3*CLHEP::m,  0.3*CLHEP::m,  0.5*CLHEP::m);     // set a world volume cube with 0.2x0.2x0.5
+    world_dim     = G4ThreeVector(0.3*CLHEP::m,  0.3*CLHEP::m,  0.3*CLHEP::m);     // set a world volume cube with 0.2x0.2x0.5
     backplane_dim = G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm);    // backplane detectors are 1 cm cubes
     mask_dim      = G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm);    // mask detectors are 1x1x1 cm cubes
     
@@ -273,10 +286,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
     mask_vis_att->SetForceSolid(true);
     mask_vis_att->SetVisibility(true);
     maskLog->SetVisAttributes(mask_vis_att);
-    
-    
-    
-    
     
 
     // because the mother volumes keep track of their daughters, we have a heirarchy

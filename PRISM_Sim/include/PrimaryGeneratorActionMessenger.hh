@@ -6,12 +6,9 @@
 #include "G4UIcommand.hh"
 #include "G4UImessenger.hh"
 
-
 class PrimaryGeneratorAction;
 class G4UIdirectory;
 class G4UIcmdWithADouble;
-
-//==================================================================================================
 
 class PrimaryGeneratorActionMessenger : public G4UImessenger {
     
@@ -32,8 +29,5 @@ private:
 
     
 };
-
-//==================================================================================================
-
 
 #endif

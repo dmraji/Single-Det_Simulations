@@ -8,7 +8,7 @@ import pickle
 
 # Import system response matrix from ROOT file
 import ROOT as ROOT
-f1 = ROOT.TFile("../Geant4Sim/build/Debug/totalresponse.root")
+f1 = ROOT.TFile("../totalresponse.root")
 sysresponse = f1.Get("totalresponse")
     
 print "Reading in system matrix..."

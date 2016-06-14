@@ -118,7 +118,7 @@ void RunAction::EndOfRunAction(const G4Run* /*aRun*/)
     //SteppingAction::Instance()->ClearIndividualResponseHist();
     */
     
-
+/*
     if (PrimaryGeneratorAction::Instance()->GetTheta() == 30 && PrimaryGeneratorAction::Instance()->GetPhi() == 30){
         //analysisManager->Write();
         //analysisManager->CloseFile();
@@ -130,6 +130,8 @@ void RunAction::EndOfRunAction(const G4Run* /*aRun*/)
         ff->Write();
         ff->Close();
     }
+ 
+ */
     
 }
 

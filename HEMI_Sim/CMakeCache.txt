@@ -184,10 +184,6 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//If enabled, physics list is PhysicsList.
-//\n                            If disabled, physics list is G4GenericPhysicsList
-CUSTOM_PHYSICS_LIST:BOOL=OFF
-
 //Value Computed by CMake
 CodedAperture_BINARY_DIR:STATIC=/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim
 

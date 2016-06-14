@@ -7,10 +7,7 @@
 class ActionInitialization : public G4VUserActionInitialization
 {
 public:
-	// Constructor and Destructors
 	ActionInitialization();
-	// Virtual destructors are required by abstract classes 
-	// so add it by default, just in case
 	virtual ~ActionInitialization();
 
 public:

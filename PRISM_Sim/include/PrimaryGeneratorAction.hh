@@ -5,14 +5,13 @@
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "PrimaryGeneratorActionMessenger.hh"
 
-class G4Event;
-class G4ParticleGun;
-
 #include "G4ThreeVector.hh"
 #include "Randomize.hh"
 #include "G4UnitsTable.hh"
 #include "G4PhysicalConstants.hh"
 
+class G4Event;
+class G4ParticleGun;
 class DetectorConstruction;
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction

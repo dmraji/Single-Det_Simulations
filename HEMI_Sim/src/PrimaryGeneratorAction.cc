@@ -31,14 +31,14 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
     gun = new G4ParticleGun(nparticles);
 
     G4ParticleTable* ptable = G4ParticleTable::GetParticleTable();
-    G4ParticleDefinition* particle = ptable->FindParticle("geantino");
+    G4ParticleDefinition* particle = ptable->FindParticle("gamma");
     if(!particle) G4Exception("PrimaryGeneratorAction", "null pointer to particle",
                               FatalException, "Find particle did not return a particle");
     // Set the particle gun default to a 1 MeV geantino at (0, 0, 0) heading in
     // direction of (0, 0, 1)
     gun->SetParticleDefinition(particle);
     gun->SetParticlePosition(G4ThreeVector(0.*CLHEP::cm, 0.*CLHEP::cm, 0.5*CLHEP::m));
-    gun->SetParticleEnergy(1.*CLHEP::MeV);
+    gun->SetParticleEnergy(60.*CLHEP::keV);
     gun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
     
     
@@ -83,12 +83,12 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     
     
     // Far field source at angle to origin 
-        G4double z0 = 30;
+        G4double z0 = 20;
         G4double x0 = z0*sin(theta*(CLHEP::pi/180.));
         G4double y0 = z0*sin(phi*(CLHEP::pi/180.));
     
-        G4double x = (x0 + 15. * (G4UniformRand()-0.5))*CLHEP::cm;
-        G4double y = (y0 + 15. * (G4UniformRand()-0.5))*CLHEP::cm;
+        G4double x = (x0 + 25. * (G4UniformRand()-0.5))*CLHEP::cm;
+        G4double y = (y0 + 25. * (G4UniformRand()-0.5))*CLHEP::cm;
         G4double z = z0*CLHEP::cm;
     
         G4double px0 = -x0;

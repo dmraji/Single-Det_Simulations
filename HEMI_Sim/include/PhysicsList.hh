@@ -1,12 +1,10 @@
-#ifndef p1physicslist_hh
-#define p1physicslist_hh 1
-
-
+#ifndef physicslist_hh
+#define physicslist_hh 1
 
 #include "globals.hh" 
 #include "G4VUserPhysicsList.hh"
-
-
+#include "G4VModularPhysicsList.hh"
+#include "G4VPhysicsConstructor.hh"
 
 
 class PhysicsList : public G4VUserPhysicsList
@@ -17,10 +15,10 @@ public:
 
 	static PhysicsList* Instance();
 
-
 public:
 	void ConstructParticle();
 	void ConstructProcess();
+    void ConstructEM();
 	void SetCuts();
 
 

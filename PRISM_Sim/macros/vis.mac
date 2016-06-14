@@ -72,5 +72,8 @@
 #
 /tracking/verbose 1
 
+/dir/setTheta 0
+/dir/setPhi 0
+
 /run/beamOn 10
 

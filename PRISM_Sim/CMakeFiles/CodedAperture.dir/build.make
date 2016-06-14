@@ -236,9 +236,32 @@ CMakeFiles/CodedAperture.dir/src/RunAction.cc.o.provides: CMakeFiles/CodedApertu
 
 CMakeFiles/CodedAperture.dir/src/RunAction.cc.o.provides.build: CMakeFiles/CodedAperture.dir/src/RunAction.cc.o
 
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o: src/StackingAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeFiles" $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc"
+
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc" > CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i
+
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc" -o CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s
+
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.requires:
+.PHONY : CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.requires
+
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.provides: CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.provides.build
+.PHONY : CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.provides
+
+CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.provides.build: CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o
+
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o: src/SteppingAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeFiles" $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeFiles" $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SteppingAction.cc"
 
@@ -261,7 +284,7 @@ CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o: src/TrackingAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeFiles" $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeFiles" $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/TrackingAction.cc"
 
@@ -292,6 +315,7 @@ CodedAperture_OBJECTS = \
 "CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o" \
 "CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o" \
 "CMakeFiles/CodedAperture.dir/src/RunAction.cc.o" \
+"CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o" \
 "CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o" \
 "CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o"
 
@@ -306,6 +330,7 @@ CodedAperture: CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o
 CodedAperture: CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o
 CodedAperture: CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o
 CodedAperture: CMakeFiles/CodedAperture.dir/src/RunAction.cc.o
+CodedAperture: CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o
 CodedAperture: CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o
 CodedAperture: CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o
 CodedAperture: CMakeFiles/CodedAperture.dir/build.make
@@ -384,6 +409,7 @@ CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/PhysicsL
 CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o.requires
 CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o.requires
 CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/RunAction.cc.o.requires
+CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.requires
 CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o.requires
 CMakeFiles/CodedAperture.dir/requires: CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o.requires
 .PHONY : CMakeFiles/CodedAperture.dir/requires
