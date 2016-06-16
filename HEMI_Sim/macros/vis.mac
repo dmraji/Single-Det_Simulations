@@ -1,4 +1,4 @@
-/run/verbose 2
+/run/verbose 0
 #
 # Use this open statement to create an OpenGL view:
 /vis/open OGLS 1200x800-0+0
@@ -70,7 +70,7 @@
 # For file-based drivers, use this to create an empty detector view:
 #/vis/viewer/flush
 #
-/tracking/verbose 1
+/tracking/verbose 0
 
 /dir/setTheta 0
 /dir/setPhi 0

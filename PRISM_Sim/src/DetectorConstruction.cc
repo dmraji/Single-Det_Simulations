@@ -1,5 +1,8 @@
 #include "DetectorConstruction.hh"
 
+#include "G4SDManager.hh"
+#include "SensitiveDetector.hh"
+
 #include "G4RunManager.hh"
 #include "G4Box.hh"
 #include "G4Tubs.hh"
@@ -34,14 +37,21 @@ DetectorConstruction::DetectorConstruction()
 : worldPhys(0), mworld(0), mdetector(0),
   world_dim(0.5*CLHEP::m),                                                     // default world is a 0.5 m radius sphere
   detector_dim(G4ThreeVector(1.0*CLHEP::cm, 1.0*CLHEP::cm, 1.0*CLHEP::cm)),    // default detector is 1 cc cube
-  detector_pos(G4ThreeVector(0.))                                              // default position at 0, 0, 0
+  detector_pos(G4ThreeVector(0.))                                             // default position at 0, 0, 0
 {
+    
+    // Create a new messenger class
+    detectorconstructionmessenger = new DetectorConstructionMessenger(this);
+    
 	fgInstance = this;
 }
 
 //==================================================================================================
 
 DetectorConstruction::~DetectorConstruction() {
+    
+    // Delete messenger class
+    delete detectorconstructionmessenger;
     
 	fgInstance = 0;
 }
@@ -127,7 +137,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
     // Create 192 logical volumes (so we can have different colors)
     std::vector<G4LogicalVolume*> logvols;
+    //std::string logname = "DetLog";
     for (int i = 0; i < 192; i++){
+        //logname += std::to_string(i+1);
         logvols.push_back(new G4LogicalVolume(detectorSolid,    // target solid
                                               mdetector,        // target material
                                               "DetectorLog"     // name
@@ -210,12 +222,22 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
         logvols[i]->SetVisAttributes(detector_vis_att);
     }
 
-
-    
     
     return worldPhys;
 }
 
-//==================================================================================================
+
+void DetectorConstruction::ConstructSDandField(){
+    
+    // Sensitive detectors
+    G4String SDname = "PRISM_SIM/SD";
+    SensitiveDetector* SD = new SensitiveDetector(SDname,"HitsCollection");
+    SetSensitiveDetector("DetectorLog", SD, true);
+    
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+
 
 

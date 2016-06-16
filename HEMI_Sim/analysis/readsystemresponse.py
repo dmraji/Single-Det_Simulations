@@ -23,7 +23,7 @@ for detbin in range(1,64+1):
 
 #_response /= np.sum(_response)
 
-pickle.dump(_response, open("systemarray_new.p","wb"))
+pickle.dump(_response, open("systemarray.p","wb"))
 
 
 

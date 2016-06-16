@@ -83,7 +83,8 @@ int main(int argc, char** argv)
 #endif
 	}
 
-    
+ 
+/*
 // Write response to file
 TH3D * response = new TH3D("response", "response", 361, -180.5, 180.5, 181, -90.5, 90.5, 192, 0.5, 192.5);
 response = SteppingAction::Instance()->GetTotalResponseHist();
@@ -94,7 +95,7 @@ ff->Close();
     
 G4cout << "\n\nTotal number of PE absorptions = " << SteppingAction::Instance()->GetPENum() << "\n";
 G4cout << "Total number of Compton scatters = " << SteppingAction::Instance()->GetComptonNum() << "\n\n";
-    
+*/
     
     
     

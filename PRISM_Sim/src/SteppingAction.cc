@@ -33,11 +33,12 @@ SteppingAction::~SteppingAction() {
 
 //==================================================================================================
 
-void SteppingAction::UserSteppingAction(const G4Step* step) {
+void SteppingAction::UserSteppingAction(const G4Step* /*step*/) {
     
     //G4Track* track = step->GetTrack();
     //track->SetTrackStatus(fStopAndKill);
     
+    /*
     // If it hits detector and is a photoelectric absorption, tally
     if(atoi(step->GetPreStepPoint()->GetPhysicalVolume()->GetName()) && step->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName() == "phot"){
         pe_num++;
@@ -50,6 +51,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step) {
         compt_num++;
         //G4cout << "Comton scatter\n";
     }
+    */
 
 }
 

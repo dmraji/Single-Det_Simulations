@@ -22,7 +22,6 @@ public:
 private:
 	static EventAction* fgInstance;
 
-
 };
 
 #endif

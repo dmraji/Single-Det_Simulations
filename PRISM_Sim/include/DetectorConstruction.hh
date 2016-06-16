@@ -3,6 +3,8 @@
 
 #include "globals.hh" 
 #include "G4VUserDetectorConstruction.hh"
+#include "SensitiveDetector.hh"
+#include "DetectorConstructionMessenger.hh"
 
 class G4Box;
 class G4Tubs;
@@ -15,7 +17,6 @@ class G4Material;
 #include "G4RotationMatrix.hh"
 #include "G4TwoVector.hh"
 
-#include <set>
 
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
@@ -24,6 +25,8 @@ public:
 	~DetectorConstruction();
 
 	static DetectorConstruction* Instance();
+    
+    DetectorConstructionMessenger * detectorconstructionmessenger;
 
 public:
 	G4VPhysicalVolume* Construct();
@@ -31,7 +34,9 @@ public:
     inline const G4double& GetWorldDimensions() const { return world_dim; }
     inline const G4ThreeVector& GetTargetPosition() const { return detector_pos; }
     inline const G4ThreeVector& GetTargetDimension() const { return detector_dim; }
-
+    
+    virtual void ConstructSDandField();
+    
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();
     virtual void ConstructMaterials();
@@ -56,7 +61,6 @@ protected:
 
 private:
 	static DetectorConstruction* fgInstance;
-
 
 
 };
