@@ -7,14 +7,14 @@
 
 #include <iomanip>
 
-G4ThreadLocal G4Allocator<Hit>* HitAllocator=0;
+G4ThreadLocal G4Allocator<Hit>* HitAllocator = 0;
 
 //==================================================================================================
 
 Hit::Hit()
 : G4VHit(),
   fTrackID(-1),
-  fE(0.),
+  fEnergy(0.),
   fPos(G4ThreeVector()),
   fVol(G4String()),
   fProc(G4String())
@@ -29,7 +29,7 @@ Hit::~Hit() {}
 Hit::Hit(const Hit& right): G4VHit(){
     
     fTrackID   = right.fTrackID;
-    fE         = right.fE;
+    fEnergy    = right.fEnergy;
     fPos       = right.fPos;
     fVol       = right.fVol;
     fProc      = right.fProc;
@@ -40,7 +40,7 @@ Hit::Hit(const Hit& right): G4VHit(){
 const Hit& Hit::operator=(const Hit& right){
     
     fTrackID   = right.fTrackID;
-    fE         = right.fE;
+    fEnergy    = right.fEnergy;
     fPos       = right.fPos;
     fVol       = right.fVol;
     fProc      = right.fProc;
@@ -77,11 +77,14 @@ void Hit::Draw(){
 void Hit::Print(){
     
     G4cout
-    << "    TrackID: " << fTrackID << "\n"
-    << "    E: " << std::setw(2) << G4BestUnit(fE,"Energy") << "\n"
-    << "    Position: " << std::setw(2) << G4BestUnit( fPos,"Length") << "\n"
-    << "    DetectorID: " << fVol << "\n"
-    << "    Process: " << fProc << "\n";
+    << "\t\tTrackID: "          << fTrackID           << "\n"
+    << "\t\tTime: "             << fTime/CLHEP::ns    << " ns\n"
+    << "\t\tInitial Energy: "   << fEnergy/CLHEP::keV << " keV\n"
+    << "\t\tPosition: "         << fPos/CLHEP::cm     << " cm\n"
+    << "\t\tDetectorID: "       << fVol               << "\n"
+    << "\t\tProcess: "          << fProc              << "\n"
+    << "\t\tPrevious Process: " << fPrevProc          << "\n";
+
 }
 
 //================================================================================================

@@ -25,6 +25,7 @@ EventAction* EventAction::Instance() {
 
 EventAction::EventAction() {
     
+    HCollID = -1;
 	fgInstance = this;
 }
 
@@ -37,31 +38,54 @@ EventAction::~EventAction() {
 
 //==================================================================================================
 
-void EventAction::BeginOfEventAction(const G4Event* /*evt*/) {}
+void EventAction::BeginOfEventAction(const G4Event* /*evt*/) {
+
+    G4SDManager * SDman = G4SDManager::GetSDMpointer();
+    if(HCollID < 0){
+        HCollID = SDman->GetCollectionID("fHitsCollection");
+    }
+}
 
 //==================================================================================================
 
 void EventAction::EndOfEventAction(const G4Event* evt) {
-
-    G4cout << ">>> Event " << evt->GetEventID() << "\n";
     
+    G4bool indiv = false;
+
+    /*
     // Print out everything
     G4VHitsCollection* hc = evt->GetHCofThisEvent()->GetHC(0);
+    G4cout << ">>> Event " << evt->GetEventID() << "\n";
     G4cout << "    " << hc->GetSize() << " hits stored in this event\n";
     hc->PrintAllHits();
+    */
+
     
-    /*
-    // Print out select things from the HitsCollection (this also shows how we access information)
-    HitsCollection * HC;
-    HC = (HitsCollection*)(hc);
+    // Print out from the HitsCollection
+    HitsCollection * HC = (HitsCollection*)(evt->GetHCofThisEvent()->GetHC(HCollID));
     if ( HC ) {
         int n_hit = HC->entries();
-        for ( int i = 0 ; i < n_hit; i++){
-            G4cout << (*HC)[i]->GetProcess() << "\n";
-            // ...
+        G4cout << "\n>>> Event " << evt->GetEventID() << " [" << n_hit << " hit(s)]\n";
+        for (int i = 0 ; i < n_hit; i++){
+            G4cout << "\tHit number: " << i+1 << "\n";
+            
+            //Print out everything
+            if(!indiv){(*HC)[i]->Print();}
+            
+            //Print out individually (also shows how to access individual hit information)
+            else {
+                G4cout
+                << "\t\tTrackID: "          << (*HC)[i]->GetTrackID()            << "\n"
+                << "\t\tTime: "             << (*HC)[i]->GetTime()/CLHEP::ns     << " ns\n"
+                << "\t\tInitial Energy: "   << (*HC)[i]->GetEnergy()/CLHEP::keV  << " keV\n"
+                << "\t\tPosition: "         << (*HC)[i]->GetPos()/CLHEP::cm      << " cm\n"
+                << "\t\tDetectorID: "       << (*HC)[i]->GetVol()                << "\n"
+                << "\t\tProcess: "          << (*HC)[i]->GetProcess()            << "\n"
+                << "\t\tPrevious Process: " << (*HC)[i]->GetPrevProcess()        << "\n";
+            }
         }
     }
-    */
+    
 
 }
 

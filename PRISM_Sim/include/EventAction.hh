@@ -21,6 +21,7 @@ public:
 
 private:
 	static EventAction* fgInstance;
+    G4int HCollID;
 
 };
 

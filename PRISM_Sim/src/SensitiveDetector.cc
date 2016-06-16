@@ -5,6 +5,7 @@
 #include "G4SDManager.hh"
 #include "G4ios.hh"
 #include "G4VProcess.hh"
+#include "PrimaryGeneratorAction.hh"
 
 //==================================================================================
 
@@ -22,32 +23,35 @@ SensitiveDetector::~SensitiveDetector()
 
 //==================================================================================
 
-void SensitiveDetector::Initialize(G4HCofThisEvent* hce)
+void SensitiveDetector::Initialize(G4HCofThisEvent* HCE)
 {
-    // Create hits collection
+    static int HCID = -1;
     
+    // Create hits collection
     fHitsCollection= new HitsCollection(SensitiveDetectorName, collectionName[0]);
     
     // Add this collection in hce
+    if(HCID < 0){HCID = GetCollectionID(0);}         //G4int HCID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+    HCE->AddHitsCollection(HCID, fHitsCollection);
     
-    G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-    hce->AddHitsCollection( hcID, fHitsCollection );
-    
-
 }
 
 //==================================================================================
 
 G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
-
+    
     class Hit* newHit = new class Hit();
     
-    newHit->SetTrackID (aStep->GetTrack()->GetTrackID());
-    newHit->SetE       (aStep->GetPreStepPoint()->GetTotalEnergy());
-    newHit->SetPos     (aStep->GetPostStepPoint()->GetPosition());
-    newHit->SetVol     (aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
-    newHit->SetProcess (aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName());
+    newHit->SetTrackID     (aStep->GetTrack()->GetTrackID());
+    newHit->SetEnergy      (aStep->GetPreStepPoint()->GetTotalEnergy());
+    newHit->SetPos         (aStep->GetPostStepPoint()->GetPosition());
+    newHit->SetVol         (aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
+    newHit->SetProcess     (aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName());
+    newHit->SetPrevProcess (aStep->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName());
+    newHit->SetTheta       (PrimaryGeneratorAction::Instance()->GetTheta());
+    newHit->SetPhi         (PrimaryGeneratorAction::Instance()->GetPhi());
+    newHit->SetTime        (aStep->GetPreStepPoint()->GetLocalTime());
 
     fHitsCollection->insert( newHit );
     
@@ -60,12 +64,14 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
 
 void SensitiveDetector::EndOfEvent(G4HCofThisEvent*)
 {
+    /*
     if ( verboseLevel >= 1 ) {
         G4int nofHits = fHitsCollection->entries();
         G4cout << "\n-------->Hits Collection: in this event they are " << nofHits
         << " hits in the tracker chambers: " << G4endl;
         for ( G4int i=0; i<nofHits; i++ ) (*fHitsCollection)[i]->Print();
     }
+    */
 }
 
 //==================================================================================

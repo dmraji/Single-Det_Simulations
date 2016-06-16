@@ -37,7 +37,7 @@ DetectorConstruction::DetectorConstruction()
 : worldPhys(0), mworld(0), mdetector(0),
   world_dim(0.5*CLHEP::m),                                                     // default world is a 0.5 m radius sphere
   detector_dim(G4ThreeVector(1.0*CLHEP::cm, 1.0*CLHEP::cm, 1.0*CLHEP::cm)),    // default detector is 1 cc cube
-  detector_pos(G4ThreeVector(0.))                                             // default position at 0, 0, 0
+  detector_pos(G4ThreeVector(0.))                                              // default position at 0, 0, 0
 {
     
     // Create a new messenger class
@@ -190,23 +190,43 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     }
     
     
-    // Place 192 detectors
-    for (int i = 0; i < 192; i++){
-        std::string name = std::to_string(i+1);
+    // ---------------------------------------
+    // Place masked detectors (192 slots)
+    // ---------------------------------------
+
+    // Get a random mask
+    std::vector<G4int> _mask = GetMask();
+    
+    // Put it into hex form for storage later...
+    G4String mask_hex = BinToHex(_mask);
+    
+    // Here is the method to put the hex string back into a binary array
+    //
+    //std::vector<G4int> _mask_ = HexToBin(mask_hex);
+    
+    // Loop through mask vector
+    for (int i = 0; i < int(_mask.size()); i++){
         
-        detector_pos = centers[i];
-        G4Transform3D transform = G4Transform3D(rotationmat[i],detector_pos);
+        // Detctor ID are just numbers
+        std::string detID = std::to_string(i+1);
         
-        new G4PVPlacement(transform,                // the placement of the volume in center
-                          name,                     // name
-                          logvols[i],              // the corresponding logical volume -- gives
-                                                   //   volume the material (and the dimensions
-                                                   //   via the solid assigned to the logical volume)
-                          worldPhys,               // inside the world so the world is the mother
-                                                   //   physical volume,
-                          false,                   // many = false (no copies)
-                          0                        // the replica id number (only > 0 if copies exist)
-                          );
+        // if mask value is 1 then fill, if not leave empty
+        if (_mask[i]){
+        
+            detector_pos = centers[i];
+            G4Transform3D transform = G4Transform3D(rotationmat[i],detector_pos);
+        
+            new G4PVPlacement(transform,               // the placement of the volume in center
+                              detID,                    // name
+                              logvols[i],              // the corresponding logical volume -- gives
+                                                       //   volume the material (and the dimensions
+                                                       //   via the solid assigned to the logical volume)
+                              worldPhys,               // inside the world so the world is the mother
+                                                       //   physical volume,
+                              false,                   // many = false (no copies)
+                              0                        // the replica id number (only > 0 if copies exist)
+                              );
+        }
     }
 
 
@@ -226,18 +246,89 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     return worldPhys;
 }
 
+//==================================================================================================
 
 void DetectorConstruction::ConstructSDandField(){
     
     // Sensitive detectors
     G4String SDname = "PRISM_SIM/SD";
-    SensitiveDetector* SD = new SensitiveDetector(SDname,"HitsCollection");
+    SensitiveDetector* SD = new SensitiveDetector(SDname,"fHitsCollection");
     SetSensitiveDetector("DetectorLog", SD, true);
     
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//==================================================================================================
 
 
+std::vector<G4int> DetectorConstruction::GetMask(){
+    
+    std::vector<G4int> mask;
+    G4double rand;
+    
+    // Get random number, convert to 1 or 0, fill mask array
+    for (int q = 0; q < 192; q++){
+        rand = G4UniformRand();
+        if (rand > 0.5){mask.push_back(1);}
+        else {mask.push_back(0);}
+    }
+    
+    return mask;
+}
 
+//==================================================================================================
+
+G4String DetectorConstruction::BinToHex(std::vector<G4int> mask){
+    
+    // Digit to hex table
+    const char *hex_dig[] = {"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"};
+    
+    G4String hex_;
+    
+    // Loop through mask arry, convert chucks of 4 into respective hex form, append to string
+    for (int q = 0; q < int(mask.size()/4); q++){
+        int idx = 8*mask[0+(q*4)] + 4*mask[1+(q*4)] + 2*mask[2+(q*4)] + mask[3+(q*4)];
+        hex_.append(hex_dig[idx]);
+    }
+
+    return hex_;
+}
+
+//==================================================================================================
+
+std::vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
+    
+    std::vector<G4int> mask;
+
+    // Loop through hex string and create a binary string with hex to binary table
+    G4String mask_string = "";
+    for (int i = 0; i < int(hex_.length()); ++i)
+    {
+        switch (hex_[i])
+        {
+            case '0': mask_string.append ("0000"); break;
+            case '1': mask_string.append ("0001"); break;
+            case '2': mask_string.append ("0010"); break;
+            case '3': mask_string.append ("0011"); break;
+            case '4': mask_string.append ("0100"); break;
+            case '5': mask_string.append ("0101"); break;
+            case '6': mask_string.append ("0110"); break;
+            case '7': mask_string.append ("0111"); break;
+            case '8': mask_string.append ("1000"); break;
+            case '9': mask_string.append ("1001"); break;
+            case 'a': mask_string.append ("1010"); break;
+            case 'b': mask_string.append ("1011"); break;
+            case 'c': mask_string.append ("1100"); break;
+            case 'd': mask_string.append ("1101"); break;
+            case 'e': mask_string.append ("1110"); break;
+            case 'f': mask_string.append ("1111"); break;
+        }
+    }
+    
+    // Convert string into an int array
+    for (int i = 0; i < 192; i++){mask.push_back((G4int)mask_string[i]-48);}
+    
+    return mask;
+}
+    
+//==================================================================================================
 

@@ -25,27 +25,34 @@ public:
     virtual void Print();
     
     // Set methods
-    void SetTrackID  (G4int track)      { fTrackID = track; };
-    void SetE        (G4double de)      { fE = de; };
-    void SetPos      (G4ThreeVector xyz){ fPos = xyz; };
-    void SetVol      (G4String volname) { fVol = volname; };
-    void SetProcess  (G4String procname){ fProc = procname; };
-    
+    void SetTrackID     (G4int track)          {fTrackID = track;}
+    void SetEnergy      (G4double de)          {fEnergy = de;}
+    void SetPos         (G4ThreeVector xyz)    {fPos = xyz;}
+    void SetVol         (G4String volname)     {fVol = volname;}
+    void SetProcess     (G4String procname)    {fProc = procname;}
+    void SetPrevProcess (G4String prevprocname){fPrevProc = prevprocname;}
+    void SetTheta       (G4double theta)       {fTheta = theta;}
+    void SetPhi         (G4double phi)         {fPhi = phi;}
+    void SetTime        (G4double time)        {fTime = time;}
     
     // Get methods
-    G4int GetTrackID() const     { return fTrackID; };
-    G4double GetEd() const       { return fE; };
-    G4ThreeVector GetPos() const { return fPos; };
-    G4String GetVol() const      { return fVol; };
-    G4String GetProcess() const  { return fProc; };
+    G4int GetTrackID() const        {return fTrackID;}
+    G4double GetEnergy() const      {return fEnergy;}
+    G4ThreeVector GetPos() const    {return fPos;}
+    G4String GetVol() const         {return fVol;}
+    G4String GetProcess() const     {return fProc;}
+    G4String GetPrevProcess() const {return fPrevProc;}
+    G4double GetTheta() const       {return fTheta;}
+    G4double GetPhi() const         {return fPhi;}
+    G4double GetTime() const        {return fTime;}
 
 private:
     
     G4int         fTrackID;
-    G4double      fE;
+    G4double      fEnergy;
     G4ThreeVector fPos;
-    G4String      fVol;
-    G4String      fProc;
+    G4String      fVol, fProc, fPrevProc;
+    G4double      fTheta, fPhi, fTime;
     
 };
 

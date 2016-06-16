@@ -37,6 +37,10 @@ public:
     
     virtual void ConstructSDandField();
     
+    std::vector<G4int> GetMask();
+    G4String BinToHex(std::vector<G4int>);
+    std::vector<G4int> HexToBin(G4String);
+    
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();
     virtual void ConstructMaterials();
