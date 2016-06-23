@@ -36,9 +36,19 @@ DetectorConstruction* DetectorConstruction::Instance() {
 DetectorConstruction::DetectorConstruction()
 : worldPhys(0), mworld(0), mdetector(0),
   world_dim(0.5*CLHEP::m),                                                     // default world is a 0.5 m radius sphere
-  detector_dim(G4ThreeVector(1.0*CLHEP::cm, 1.0*CLHEP::cm, 1.0*CLHEP::cm)),    // default detector is 1 cc cube
-  detector_pos(G4ThreeVector(0.))                                              // default position at 0, 0, 0
+  detector_dim(G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm)),    // default detector is 1 cc cube (use half sizes)
+  detector_pos(G4ThreeVector(0.)),                                             // default position at 0, 0, 0
+  _checkoverlaps(false)                                                        // by default, dont check overlaps while constructing
 {
+ 
+    // Get a random mask
+    _mask = GetRandomMask();
+    
+    // Put it into hex form for storage later...
+    G4String mask_hex = BinToHex(_mask);
+    
+    // Here is the method to put the hex string back into a binary array
+        //std::vector<G4int> _mask_ = HexToBin(mask_hex);
     
     // Create a new messenger class
     detectorconstructionmessenger = new DetectorConstructionMessenger(this);
@@ -94,9 +104,6 @@ void DetectorConstruction::ConstructMaterials() {
 //==================================================================================================
 
 G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
-    
-    world_dim    = 0.5*CLHEP::m;                                                  // set a world volume sphere with 0.5m radius
-    detector_dim = G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm);    // detector detectors are 1 cm cubes
     
     
     // ---------------------------------------
@@ -193,16 +200,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // ---------------------------------------
     // Place masked detectors (192 slots)
     // ---------------------------------------
-
-    // Get a random mask
-    std::vector<G4int> _mask = GetMask();
-    
-    // Put it into hex form for storage later...
-    G4String mask_hex = BinToHex(_mask);
-    
-    // Here is the method to put the hex string back into a binary array
-    //
-    //std::vector<G4int> _mask_ = HexToBin(mask_hex);
     
     // Loop through mask vector
     for (int i = 0; i < int(_mask.size()); i++){
@@ -216,16 +213,21 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
             detector_pos = centers[i];
             G4Transform3D transform = G4Transform3D(rotationmat[i],detector_pos);
         
-            new G4PVPlacement(transform,               // the placement of the volume in center
-                              detID,                    // name
-                              logvols[i],              // the corresponding logical volume -- gives
-                                                       //   volume the material (and the dimensions
-                                                       //   via the solid assigned to the logical volume)
-                              worldPhys,               // inside the world so the world is the mother
-                                                       //   physical volume,
-                              false,                   // many = false (no copies)
-                              0                        // the replica id number (only > 0 if copies exist)
-                              );
+            G4PVPlacement *p = new G4PVPlacement(transform,               // the placement of the volume in center
+                                                 detID,                   // name
+                                                 logvols[i],              // the corresponding logical volume -- gives
+                                                                          //   volume the material (and the dimensions
+                                                                          //   via the solid assigned to the logical volume)
+                                                 worldPhys,               // inside the world so the world is the mother
+                                                                          //   physical volume,
+                                                 false,                   // many = false (no copies)
+                                                 0                        // the replica id number (only > 0 if copies exist)
+                                                 );
+            
+            // Check for overlapping geometry
+            if (_checkoverlaps){
+                p->CheckOverlaps();
+            }
         }
     }
 
@@ -260,7 +262,7 @@ void DetectorConstruction::ConstructSDandField(){
 //==================================================================================================
 
 
-std::vector<G4int> DetectorConstruction::GetMask(){
+std::vector<G4int> DetectorConstruction::GetRandomMask(){
     
     std::vector<G4int> mask;
     G4double rand;
@@ -273,6 +275,13 @@ std::vector<G4int> DetectorConstruction::GetMask(){
     }
     
     return mask;
+}
+
+//==================================================================================================
+
+void DetectorConstruction::SetMask(std::vector<G4int> inputmask){
+    
+    _mask = inputmask;
 }
 
 //==================================================================================================
@@ -330,5 +339,26 @@ std::vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
     return mask;
 }
     
+//==================================================================================================
+
+void DetectorConstruction::UpdateGeometry(){
+    
+    G4RunManager::GetRunManager()->DefineWorldVolume(ConstructWorld());
+}
+
+//==================================================================================================
+
+void DetectorConstruction::SetDetDim(G4ThreeVector dim){
+    
+    detector_dim = G4ThreeVector((dim.x()/2.)*CLHEP::cm, (dim.y()/2.)*CLHEP::cm, (dim.z()/2.)*CLHEP::cm);
+}
+
+//==================================================================================================
+
+void DetectorConstruction::CheckOverlapsOn(){
+    
+    _checkoverlaps = true;
+}
+
 //==================================================================================================
 

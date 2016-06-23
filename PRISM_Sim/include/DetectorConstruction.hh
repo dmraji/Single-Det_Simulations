@@ -37,9 +37,16 @@ public:
     
     virtual void ConstructSDandField();
     
-    std::vector<G4int> GetMask();
+    std::vector<G4int> GetRandomMask();
+    void SetMask(std::vector<G4int>);
     G4String BinToHex(std::vector<G4int>);
     std::vector<G4int> HexToBin(G4String);
+    
+    void UpdateGeometry();
+    void SetDetDim(G4ThreeVector);
+
+    void CheckOverlapsOn();
+    
     
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();
@@ -62,9 +69,15 @@ protected:
     // detector rotation
     G4RotationMatrix detector_rot;
     
+    // bool to check overlapping geometry (can be time consuming... default is false)
+    //   can be turned on with CheckOverlapsOn()
+    bool _checkoverlaps;
+    
 
 private:
 	static DetectorConstruction* fgInstance;
+    
+    std::vector<G4int> _mask;
 
 
 };

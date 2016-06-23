@@ -33,6 +33,7 @@ Hit::Hit(const Hit& right): G4VHit(){
     fPos       = right.fPos;
     fVol       = right.fVol;
     fProc      = right.fProc;
+    //fDOI       = right.fDOI;
 }
 
 //==================================================================================================
@@ -44,6 +45,7 @@ const Hit& Hit::operator=(const Hit& right){
     fPos       = right.fPos;
     fVol       = right.fVol;
     fProc      = right.fProc;
+    //fDOI       = right.fDOI;
     
     return *this;
 }
@@ -77,13 +79,14 @@ void Hit::Draw(){
 void Hit::Print(){
     
     G4cout
-    << "\t\tTrackID: "          << fTrackID           << "\n"
-    << "\t\tTime: "             << fTime/CLHEP::ns    << " ns\n"
-    << "\t\tInitial Energy: "   << fEnergy/CLHEP::keV << " keV\n"
-    << "\t\tPosition: "         << fPos/CLHEP::cm     << " cm\n"
-    << "\t\tDetectorID: "       << fVol               << "\n"
-    << "\t\tProcess: "          << fProc              << "\n"
-    << "\t\tPrevious Process: " << fPrevProc          << "\n";
+    << "\t\tTrackID: "                    << fTrackID           << "\n"
+    << "\t\tTime: "                       << fTime/CLHEP::ns    << " ns\n"
+    << "\t\tInitial Energy: "             << fEnergy/CLHEP::keV << " keV\n"
+    << "\t\tPosition: "                   << fPos/CLHEP::cm     << " cm\n"
+    << "\t\tDetectorID: "                 << fVol               << "\n"
+    << "\t\tProcess: "                    << fProc              << "\n"
+    << "\t\tPrevious Process: "           << fPrevProc          << "\n";
+    //<< "\t\tDepth of Interaction (DOI): " << fDOI               << "\n";
 
 }
 

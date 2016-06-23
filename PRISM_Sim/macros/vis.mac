@@ -28,13 +28,13 @@
 /vis/viewer/set/viewpointVector 0.5 0.5 1.
 #
 # Specify zoom value:
-#/vis/viewer/zoom 5.
+/vis/viewer/zoom 8.
 #
 # Specify style (surface or wireframe):
 #/vis/viewer/set/style wireframe
 #
 # Draw coordinate axes:
-/vis/scene/add/axes 0 0 0 1 m
+/vis/scene/add/axes 0 0 0 0.3 m
 #
 # Draw smooth trajectories at end of event, showing trajectory points
 # as markers 2 pixels wide:
@@ -72,8 +72,11 @@
 #
 /tracking/verbose 1
 
-/dir/setTheta 0
-/dir/setPhi 0
+#/PRISM_SIM/direction/setTheta 0
+#/PRISM_SIM/direction/setPhi 0
+#/PRISM_SIM/geom/setMask 7c230fcd94d6536dc503fec3391da998977bb3fb0d50a3a2
+#/PRISM_SIM/geom/randomMask
 
 /run/beamOn 10
+
 

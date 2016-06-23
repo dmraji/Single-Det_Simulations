@@ -15,15 +15,15 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
 : G4UImessenger(), fPrimaryGeneratorAction(generator)
 {
     
-    fDirectory = new G4UIdirectory("/dir/");
-    fDirectory->SetGuidance("UI commands specific to this example.");
+    fDirectory = new G4UIdirectory("/PRISM_SIM/direction/");
+    fDirectory->SetGuidance("Direction of incoming rays");
     
-    fThetaCmd = new G4UIcmdWithADouble("/dir/setTheta",this);
+    fThetaCmd = new G4UIcmdWithADouble("/PRISM_SIM/direction/setTheta",this);
     fThetaCmd->SetGuidance("Set the theta of far field souce");
     fThetaCmd->SetParameterName("theta",false);
     fThetaCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
     
-    fPhiCmd = new G4UIcmdWithADouble("/dir/setPhi",this);
+    fPhiCmd = new G4UIcmdWithADouble("/PRISM_SIM/direction/setPhi",this);
     fPhiCmd->SetGuidance("Set the phi of far field souce");
     fPhiCmd->SetParameterName("phi",false);
     fPhiCmd->AvailableForStates(G4State_PreInit,G4State_Idle);

@@ -52,6 +52,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     newHit->SetTheta       (PrimaryGeneratorAction::Instance()->GetTheta());
     newHit->SetPhi         (PrimaryGeneratorAction::Instance()->GetPhi());
     newHit->SetTime        (aStep->GetPreStepPoint()->GetLocalTime());
+    //newHit->SetDOI         (aStep->GetPreStepPoint()->GetPosition());
 
     fHitsCollection->insert( newHit );
     

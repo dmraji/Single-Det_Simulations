@@ -5,6 +5,6 @@
 
 ######
 
-/dir/setTheta {theta}
-/dir/setPhi {phi}
+/PRISM_SIM/direction/setTheta {theta}
+/PRISM_SIM/direction/setPhi {phi}
 /run/beamOn 100
