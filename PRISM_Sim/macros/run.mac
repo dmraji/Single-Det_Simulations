@@ -4,5 +4,10 @@
 /run/verbose 0
 /event/verbose 0
 
+# Set number of threads
+#/run/numberOfThreads 4
+
+/gun/energy 1 MeV
+
 # Beam on
-/run/beamOn 100
+/run/beamOn 100000

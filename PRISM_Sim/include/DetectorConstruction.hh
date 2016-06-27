@@ -47,6 +47,8 @@ public:
 
     void CheckOverlapsOn();
     
+    std::vector<G4ThreeVector> centers;
+    std::vector<G4ThreeVector> GetDetCenters();
     
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();

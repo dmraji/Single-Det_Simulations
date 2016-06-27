@@ -34,7 +34,7 @@ public:
     void SetTheta       (G4double theta)       {fTheta = theta;}
     void SetPhi         (G4double phi)         {fPhi = phi;}
     void SetTime        (G4double time)        {fTime = time;}
-    //void SetDOI         (G4double doi)         {fDOI = doi;}
+    void SetDOI         (G4double doi)         {fDOI = doi;}
     
     // Get methods
     G4int GetTrackID() const        {return fTrackID;}
@@ -46,12 +46,12 @@ public:
     G4double GetTheta() const       {return fTheta;}
     G4double GetPhi() const         {return fPhi;}
     G4double GetTime() const        {return fTime;}
-    //G4double GetDOI() const         {return fDOI;}
+    G4double GetDOI() const         {return fDOI;}
     
 private:
     
     G4int         fTrackID;
-    G4double      fEnergy, fTheta, fPhi, fTime; //fDOI;
+    G4double      fEnergy, fTheta, fPhi, fTime, fDOI;
     G4ThreeVector fPos;
     G4String      fVol, fProc, fPrevProc;
     

@@ -155,7 +155,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     
    
     // Pull in detector center verticies from file
-    std::vector<G4ThreeVector> centers;
     std::ifstream myfile("geo/centervertices.txt");
     double x_, y_, z_;
     std::string line;
@@ -343,7 +342,9 @@ std::vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
 
 void DetectorConstruction::UpdateGeometry(){
     
-    G4RunManager::GetRunManager()->DefineWorldVolume(ConstructWorld());
+    //G4RunManager::GetRunManager()->DefineWorldVolume(ConstructWorld());
+    G4RunManager::GetRunManager()->ReinitializeGeometry();
+    
 }
 
 //==================================================================================================
@@ -358,6 +359,13 @@ void DetectorConstruction::SetDetDim(G4ThreeVector dim){
 void DetectorConstruction::CheckOverlapsOn(){
     
     _checkoverlaps = true;
+}
+
+//==================================================================================================
+
+std::vector<G4ThreeVector> DetectorConstruction::GetDetCenters(){
+    
+    return centers;
 }
 
 //==================================================================================================

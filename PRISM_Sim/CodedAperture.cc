@@ -1,4 +1,3 @@
-// Geant4 header files
 #ifdef G4MULTITHREADED
     #include "G4MTRunManager.hh"
     typedef G4MTRunManager TheRunManager;
@@ -19,19 +18,11 @@
 #endif
 
 
-
-
-
 // User Defined headers for classes
 #include "DetectorConstruction.hh"
 #include "ActionInitialization.hh"
 #include "PhysicsList.hh"
 typedef PhysicsList ThePhysicsList;
-
-#include "SteppingAction.hh"
-#include "TFile.h"
-#include "TH3.h"
-
 
 /*
 #ifdef CUSTOM_PHYSICS_LIST
@@ -56,15 +47,19 @@ int main(int argc, char** argv)
 
     runManager->SetUserInitialization(new ActionInitialization);
    
-    
 	runManager->Initialize();
     
-    
-
-#ifdef G4VIS_USE
-	G4VisManager* visManager = new G4VisExecutive;
-	visManager->Initialize();
-#endif
+  
+    /*
+     #ifdef G4MULTITHREADED
+        runManager->SetNumberOfThreads(4);
+     #endif
+     */
+ 
+    #ifdef G4VIS_USE
+        G4VisManager* visManager = new G4VisExecutive;
+        visManager->Initialize();
+    #endif
 
 	G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
@@ -72,15 +67,18 @@ int main(int argc, char** argv)
 		G4String command = "/control/execute ";
 		G4String fileName = argv[1];
 		UImanager->ApplyCommand(command+fileName);
-	} else {
-#ifdef G4UI_USE
+	}
+    
+    else {
+        
+    #ifdef G4UI_USE
 		G4UIExecutive* ui = new G4UIExecutive(argc,argv);
-#ifdef G4VIS_USE
+    #ifdef G4VIS_USE
 		UImanager->ApplyCommand("/control/execute macros/vis.mac");
-#endif
+    #endif
 		ui->SessionStart();
 		delete ui;
-#endif
+    #endif
 	}
 
  
@@ -99,10 +97,11 @@ G4cout << "Total number of Compton scatters = " << SteppingAction::Instance()->G
     
     
     
-#ifdef G4VIS_USE
-	delete visManager;
-#endif
-	delete runManager;
+    #ifdef G4VIS_USE
+        delete visManager;
+    #endif
+    
+    delete runManager;
 
 	return 0;
 }

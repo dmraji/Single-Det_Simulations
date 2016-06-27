@@ -1,5 +1,6 @@
 #include "SteppingAction.hh"
 #include "PrimaryGeneratorAction.hh"
+#include "DetectorConstruction.hh"
 
 #include "G4RunManager.hh"
 #include "RunAction.hh"
@@ -52,6 +53,8 @@ void SteppingAction::UserSteppingAction(const G4Step* /*step*/) {
         //G4cout << "Comton scatter\n";
     }
     */
+    
+    
 
 }
 

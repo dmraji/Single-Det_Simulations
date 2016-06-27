@@ -19,7 +19,7 @@ public:
 public:
 	void BeginOfRunAction(const G4Run*);
 	void EndOfRunAction(const G4Run*);
-
+    
 
 private:
 	static RunAction* fgInstance;

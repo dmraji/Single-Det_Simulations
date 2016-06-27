@@ -15,6 +15,7 @@ Hit::Hit()
 : G4VHit(),
   fTrackID(-1),
   fEnergy(0.),
+  fDOI(0.),
   fPos(G4ThreeVector()),
   fVol(G4String()),
   fProc(G4String())
@@ -33,7 +34,7 @@ Hit::Hit(const Hit& right): G4VHit(){
     fPos       = right.fPos;
     fVol       = right.fVol;
     fProc      = right.fProc;
-    //fDOI       = right.fDOI;
+    fDOI       = right.fDOI;
 }
 
 //==================================================================================================
@@ -45,7 +46,7 @@ const Hit& Hit::operator=(const Hit& right){
     fPos       = right.fPos;
     fVol       = right.fVol;
     fProc      = right.fProc;
-    //fDOI       = right.fDOI;
+    fDOI       = right.fDOI;
     
     return *this;
 }
@@ -85,8 +86,8 @@ void Hit::Print(){
     << "\t\tPosition: "                   << fPos/CLHEP::cm     << " cm\n"
     << "\t\tDetectorID: "                 << fVol               << "\n"
     << "\t\tProcess: "                    << fProc              << "\n"
-    << "\t\tPrevious Process: "           << fPrevProc          << "\n";
-    //<< "\t\tDepth of Interaction (DOI): " << fDOI               << "\n";
+    << "\t\tPrevious Process: "           << fPrevProc          << "\n"
+    << "\t\tDepth of Interaction (DOI): " << fDOI/CLHEP::mm     << " mm\n";
 
 }
 

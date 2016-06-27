@@ -76,7 +76,11 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
     // Cone emission
       //gun->SetParticleMomentumDirection(this->GetConeMomentumDirection());
     
-    // Far field source at angle to origin 
+    // Far field source at angle to origin
+    
+        // first select random theta and phi from healpix? In this case
+        // we will have just one run and we can store all of the information easily
+    
         G4double z0 = 30;
         G4double x0 = z0*sin(theta*(CLHEP::pi/180.));
         G4double y0 = z0*sin(phi*(CLHEP::pi/180.));
@@ -120,6 +124,17 @@ void PrimaryGeneratorAction::SetPhi(G4double phi_){
 }
 
 //==================================================================================================
+/*
+std::vector<G4double> PrimaryGeneratorAction::GetRandHEALPixThetaPhi(){
+    
+    
+    std::vector<G4double> HPThetaPhi;
+    
+    return HPThetaPhi;
+}
+*/
+//==================================================================================================
+
 
 
 

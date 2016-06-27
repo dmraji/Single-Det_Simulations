@@ -6,6 +6,8 @@
 #include "G4ios.hh"
 #include "G4VProcess.hh"
 #include "PrimaryGeneratorAction.hh"
+#include "DetectorConstruction.hh"
+
 
 //==================================================================================
 
@@ -18,8 +20,7 @@ SensitiveDetector::SensitiveDetector(const G4String& name,const G4String& hitsCo
 
 //==================================================================================
 
-SensitiveDetector::~SensitiveDetector()
-{}
+SensitiveDetector::~SensitiveDetector(){}
 
 //==================================================================================
 
@@ -52,7 +53,11 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     newHit->SetTheta       (PrimaryGeneratorAction::Instance()->GetTheta());
     newHit->SetPhi         (PrimaryGeneratorAction::Instance()->GetPhi());
     newHit->SetTime        (aStep->GetPreStepPoint()->GetLocalTime());
-    //newHit->SetDOI         (aStep->GetPreStepPoint()->GetPosition());
+    
+    
+    G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) - 1];
+    G4ThreeVector intpos = aStep->GetPostStepPoint()->GetPosition();
+    newHit->SetDOI         ((intpos-detcent).dot(detcent)/detcent.mag() + 0.5*CLHEP::cm);
 
     fHitsCollection->insert( newHit );
     

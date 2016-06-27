@@ -17,12 +17,12 @@ G4ClassificationOfNewTrack
 
 StackingAction::ClassifyNewTrack(const G4Track* track){
   
-    //keep primary particle
+    // Keep primary particle
     if (track->GetParentID() == 0){
         return fUrgent;
     }
   
-  //kill secondary electrons
+    // Kill secondary electrons
     if (track->GetDefinition() == G4Electron::Electron()){
         return fKill;
     }
