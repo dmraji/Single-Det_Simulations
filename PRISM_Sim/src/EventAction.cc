@@ -56,8 +56,7 @@ void EventAction::EndOfEventAction(const G4Event* evt) {
     HitsCollection * HC = (HitsCollection*)(evt->GetHCofThisEvent()->GetHC(HCollID));
 
     // Get analysis manager
-    G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-    G4int tupleID;
+    G4AnalysisManager* analysis = G4AnalysisManager::Instance();
     
     if ( HC ) {
         int n_hit = HC->entries();
@@ -66,46 +65,54 @@ void EventAction::EndOfEventAction(const G4Event* evt) {
             //G4cout << "\tHit number: " << i+1 << "\n";
             
             //Print out everything
-            //(*HC)[i]->Print();
+                //(*HC)[i]->Print();
             
             
-            // Fill analaysismanager ntuples
-            tupleID = 0;
-            analysisManager->FillNtupleIColumn(tupleID,evt->GetEventID()); tupleID++;
-            analysisManager->FillNtupleIColumn(tupleID,i+1); tupleID++;
-            analysisManager->FillNtupleDColumn(tupleID,(*HC)[i]->GetTime()/CLHEP::ns); tupleID++;
-            analysisManager->FillNtupleDColumn(tupleID,(*HC)[i]->GetEnergy()/CLHEP::keV); tupleID++;
-            analysisManager->FillNtupleIColumn(tupleID,atoi((*HC)[i]->GetVol())); tupleID++;
+            // Bin the DOI values into 0.5mm wide bins
+            G4double doi = (*HC)[i]->GetDOI();
+            G4int doibin = 0;
+            if      (doi <  0.5*CLHEP::mm)                       {doibin = 1; }   // These first two are the most common, put
+            else if (doi >  9.5*CLHEP::mm)                       {doibin = 20;}   //   them at the beginning to avoid scanning all statements
+            else if (doi >= 0.5*CLHEP::mm && doi < 1.0*CLHEP::mm){doibin = 2; }
+            else if (doi >= 1.0*CLHEP::mm && doi < 1.5*CLHEP::mm){doibin = 3; }
+            else if (doi >= 1.5*CLHEP::mm && doi < 2.0*CLHEP::mm){doibin = 4; }
+            else if (doi >= 2.0*CLHEP::mm && doi < 2.5*CLHEP::mm){doibin = 5; }
+            else if (doi >= 2.5*CLHEP::mm && doi < 3.0*CLHEP::mm){doibin = 6; }
+            else if (doi >= 3.0*CLHEP::mm && doi < 3.5*CLHEP::mm){doibin = 7; }
+            else if (doi >= 3.5*CLHEP::mm && doi < 4.0*CLHEP::mm){doibin = 8; }
+            else if (doi >= 4.0*CLHEP::mm && doi < 4.5*CLHEP::mm){doibin = 9; }
+            else if (doi >= 4.5*CLHEP::mm && doi < 5.0*CLHEP::mm){doibin = 10;}
+            else if (doi >= 5.0*CLHEP::mm && doi < 5.5*CLHEP::mm){doibin = 11;}
+            else if (doi >= 5.5*CLHEP::mm && doi < 6.0*CLHEP::mm){doibin = 12;}
+            else if (doi >= 6.0*CLHEP::mm && doi < 6.5*CLHEP::mm){doibin = 13;}
+            else if (doi >= 6.5*CLHEP::mm && doi < 7.0*CLHEP::mm){doibin = 14;}
+            else if (doi >= 7.0*CLHEP::mm && doi < 7.5*CLHEP::mm){doibin = 15;}
+            else if (doi >= 7.5*CLHEP::mm && doi < 8.0*CLHEP::mm){doibin = 16;}
+            else if (doi >= 8.0*CLHEP::mm && doi < 8.5*CLHEP::mm){doibin = 17;}
+            else if (doi >= 8.5*CLHEP::mm && doi < 9.0*CLHEP::mm){doibin = 18;}
+            else if (doi >= 9.0*CLHEP::mm && doi < 9.5*CLHEP::mm){doibin = 19;}
             
-            if      ((*HC)[i]->GetProcess() == "Transportation"){analysisManager->FillNtupleIColumn(tupleID,0);}
-            else if ((*HC)[i]->GetProcess() == "phot"          ){analysisManager->FillNtupleIColumn(tupleID,1);}
-            else if ((*HC)[i]->GetProcess() == "Rayl"          ){analysisManager->FillNtupleIColumn(tupleID,2);}
-            else if ((*HC)[i]->GetProcess() == "compt"         ){analysisManager->FillNtupleIColumn(tupleID,3);} tupleID++;
-
             
-            if      ((*HC)[i]->GetPrevProcess() == "Transportation"){analysisManager->FillNtupleIColumn(tupleID,0);}
-            else if ((*HC)[i]->GetPrevProcess() == "phot"          ){analysisManager->FillNtupleIColumn(tupleID,1);}
-            else if ((*HC)[i]->GetPrevProcess() == "Rayl"          ){analysisManager->FillNtupleIColumn(tupleID,2);}
-            else if ((*HC)[i]->GetPrevProcess() == "compt"         ){analysisManager->FillNtupleIColumn(tupleID,3);} tupleID++;
-
-            analysisManager->FillNtupleDColumn(tupleID,(*HC)[i]->GetDOI()/CLHEP::mm); tupleID++;
-            //analysisManager->FillNtupleIColumn(tupleID,(*HC)[i]->GetTrackID()); tupleID++;
-            analysisManager->AddNtupleRow();
+            //
+            // Fill analaysis ntuples
+            //
+            analysis->FillNtupleIColumn(0, evt->GetEventID());                    // Event number
+            analysis->FillNtupleIColumn(1, i+1);                                  // Hit number
+          //analysis->FillNtupleIColumn(2, (*HC)[i]->GetTrackID());               // Track ID
+            analysis->FillNtupleDColumn(2, (*HC)[i]->GetTime()/CLHEP::ns);        // global time
+            analysis->FillNtupleDColumn(3, (*HC)[i]->GetEnergy()/CLHEP::keV);     // energy
+            analysis->FillNtupleIColumn(4, atoi((*HC)[i]->GetVol()));             // hit detector id
+            analysis->FillNtupleSColumn(5, (*HC)[i]->GetProcess());               // interaction
+            analysis->FillNtupleSColumn(6, (*HC)[i]->GetPrevProcess());           // previous interaction
+          //analysis->FillNtupleIColumn(7, (*HC)[i]->GetDOI());                   // depth of interaction (raw value)
+            analysis->FillNtupleIColumn(7, doibin);                               // depth of interaction (bin)
+            analysis->FillNtupleDColumn(8, (*HC)[i]->GetPos().x());               // x position
+            analysis->FillNtupleDColumn(9, (*HC)[i]->GetPos().y());               // y position
+            analysis->FillNtupleDColumn(10,(*HC)[i]->GetPos().z());               // z position
+            analysis->FillNtupleDColumn(11,(*HC)[i]->GetTheta());                 // y position
+            analysis->FillNtupleDColumn(12,(*HC)[i]->GetPhi());                   // z position
             
-            G4cout << "\t\tDepth of Interaction (DOI): "   << (*HC)[i]->GetDOI()/CLHEP::mm      << " mm\n";
-
-            /*
-             //Print out individually (also shows how to access individual hit information)
-             G4cout
-             << "\t\tTrackID: "                      << (*HC)[i]->GetTrackID()            << "\n"
-             << "\t\tTime: "                         << (*HC)[i]->GetTime()/CLHEP::ns     << " ns\n"
-             << "\t\tInitial Energy: "               << (*HC)[i]->GetEnergy()/CLHEP::keV  << " keV\n"
-             << "\t\tPosition: "                     << (*HC)[i]->GetPos()/CLHEP::cm      << " cm\n"
-             << "\t\tDetectorID: "                   << (*HC)[i]->GetVol()                << "\n"
-             << "\t\tProcess: "                      << (*HC)[i]->GetProcess()            << "\n"
-             << "\t\tPrevious Process: "             << (*HC)[i]->GetPrevProcess()        << "\n"
-             << "\t\tDepth of Interaction (DOI): "   << (*HC)[i]->GetDOI()/CLHEP::mm      << " mm\n";
-            */
+            analysis->AddNtupleRow();
             
             }
         }

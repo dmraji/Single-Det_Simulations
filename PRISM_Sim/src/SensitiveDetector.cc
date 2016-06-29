@@ -44,21 +44,37 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
     class Hit* newHit = new class Hit();
     
-    newHit->SetTrackID     (aStep->GetTrack()->GetTrackID());
-    newHit->SetEnergy      (aStep->GetPreStepPoint()->GetTotalEnergy());
-    newHit->SetPos         (aStep->GetPostStepPoint()->GetPosition());
-    newHit->SetVol         (aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
-    newHit->SetProcess     (aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName());
-    newHit->SetPrevProcess (aStep->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName());
-    newHit->SetTheta       (PrimaryGeneratorAction::Instance()->GetTheta());
-    newHit->SetPhi         (PrimaryGeneratorAction::Instance()->GetPhi());
-    newHit->SetTime        (aStep->GetPreStepPoint()->GetLocalTime());
+    // Track ID
+    newHit->SetTrackID(aStep->GetTrack()->GetTrackID());
     
+    // Incident energy
+    newHit->SetEnergy(aStep->GetPreStepPoint()->GetTotalEnergy());
     
+    // XYZ Position
+    newHit->SetPos(aStep->GetPostStepPoint()->GetPosition());
+    
+    // Detector ID
+    newHit->SetVol(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
+    
+    // Interaction Process
+    newHit->SetProcess(aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName());
+    
+    // Previous Interaction
+    newHit->SetPrevProcess(aStep->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName());
+    
+    // Incident theta and phi angle's (replace with HEALpix index at some point)
+    newHit->SetTheta(PrimaryGeneratorAction::Instance()->GetTheta());
+    newHit->SetPhi  (PrimaryGeneratorAction::Instance()->GetPhi());
+    
+    // Local time
+    newHit->SetTime(aStep->GetPreStepPoint()->GetLocalTime());
+    
+    // Depth of interaction
     G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) - 1];
     G4ThreeVector intpos = aStep->GetPostStepPoint()->GetPosition();
-    newHit->SetDOI         ((intpos-detcent).dot(detcent)/detcent.mag() + 0.5*CLHEP::cm);
-
+    newHit->SetDOI((intpos-detcent).dot(detcent)/detcent.mag() + 0.500*CLHEP::cm);
+    
+    // Add the newHit to the HitCollection
     fHitsCollection->insert( newHit );
     
     //newHit->Print();
@@ -68,17 +84,9 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
 
 //==================================================================================
 
-void SensitiveDetector::EndOfEvent(G4HCofThisEvent*)
-{
-    /*
-    if ( verboseLevel >= 1 ) {
-        G4int nofHits = fHitsCollection->entries();
-        G4cout << "\n-------->Hits Collection: in this event they are " << nofHits
-        << " hits in the tracker chambers: " << G4endl;
-        for ( G4int i=0; i<nofHits; i++ ) (*fHitsCollection)[i]->Print();
-    }
-    */
-}
+void SensitiveDetector::EndOfEvent(G4HCofThisEvent*){}
 
 //==================================================================================
+
+
 

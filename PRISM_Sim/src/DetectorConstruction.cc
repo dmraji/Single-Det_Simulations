@@ -35,7 +35,7 @@ DetectorConstruction* DetectorConstruction::Instance() {
 
 DetectorConstruction::DetectorConstruction()
 : worldPhys(0), mworld(0), mdetector(0),
-  world_dim(0.5*CLHEP::m),                                                     // default world is a 0.5 m radius sphere
+  world_dim(30*CLHEP::cm),                                                     // default world is a 50 cm radius sphere
   detector_dim(G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm)),    // default detector is 1 cc cube (use half sizes)
   detector_pos(G4ThreeVector(0.)),                                             // default position at 0, 0, 0
   _checkoverlaps(false)                                                        // by default, dont check overlaps while constructing
@@ -166,23 +166,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
         myfile.close();
     }
     
-/*
-    std::vector<G4ThreeVector> rotations;
-    std::ifstream myfile2("../geo/rotationangles.txt");
-    if (myfile2.is_open()){
-        while (getline(myfile2,line)){
-            std::istringstream(line) >> x_ >> y_ >> z_;
-            rotations.push_back(G4ThreeVector(x_, y_ ,z_));
-        }
-        myfile2.close();
-    }
- 
-    detector_rot = G4RotationMatrix();
-    detector_rot.rotateX(rotations[i].x());
-    detector_rot.rotateY(rotations[i].y());
-    detector_rot.rotateZ(rotations[i].z());
-*/
-    
     // Pull in rotation matrices from file
     std::vector<G4RotationMatrix> rotationmat;
     std::ifstream myfile3("geo/rotationmatrices.txt");
@@ -242,6 +225,12 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
         detector_vis_att->SetVisibility(true);
         logvols[i]->SetVisAttributes(detector_vis_att);
     }
+    
+    G4VisAttributes* world_vis_att = new G4VisAttributes(G4Color(1.,0.,0.));
+    world_vis_att->SetForceWireframe(true);
+    world_vis_att->SetVisibility(true);
+    worldLog->SetVisAttributes(world_vis_att);
+    
 
     
     return worldPhys;

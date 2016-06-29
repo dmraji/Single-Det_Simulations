@@ -7,6 +7,8 @@
 
 #include <iomanip>
 
+using namespace std;
+
 G4ThreadLocal G4Allocator<Hit>* HitAllocator = 0;
 
 //==================================================================================================
@@ -15,6 +17,8 @@ Hit::Hit()
 : G4VHit(),
   fTrackID(-1),
   fEnergy(0.),
+  fTheta(0.),
+  fPhi(0.),
   fDOI(0.),
   fPos(G4ThreeVector()),
   fVol(G4String()),
@@ -35,6 +39,8 @@ Hit::Hit(const Hit& right): G4VHit(){
     fVol       = right.fVol;
     fProc      = right.fProc;
     fDOI       = right.fDOI;
+    fTheta     = right.fTheta;
+    fPhi       = right.fPhi;
 }
 
 //==================================================================================================
@@ -47,6 +53,8 @@ const Hit& Hit::operator=(const Hit& right){
     fVol       = right.fVol;
     fProc      = right.fProc;
     fDOI       = right.fDOI;
+    fTheta     = right.fTheta;
+    fPhi       = right.fPhi;
     
     return *this;
 }

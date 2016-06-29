@@ -6,6 +6,8 @@
 #include "G4Allocator.hh"
 #include "G4ThreeVector.hh"
 
+using namespace std;
+
 class Hit : public G4VHit
 {
 public:
@@ -37,16 +39,16 @@ public:
     void SetDOI         (G4double doi)         {fDOI = doi;}
     
     // Get methods
-    G4int GetTrackID() const        {return fTrackID;}
-    G4double GetEnergy() const      {return fEnergy;}
-    G4ThreeVector GetPos() const    {return fPos;}
-    G4String GetVol() const         {return fVol;}
-    G4String GetProcess() const     {return fProc;}
-    G4String GetPrevProcess() const {return fPrevProc;}
-    G4double GetTheta() const       {return fTheta;}
-    G4double GetPhi() const         {return fPhi;}
-    G4double GetTime() const        {return fTime;}
-    G4double GetDOI() const         {return fDOI;}
+    G4int GetTrackID() const               {return fTrackID;}
+    G4double GetEnergy() const             {return fEnergy;}
+    G4ThreeVector GetPos() const           {return fPos;}
+    G4String GetVol() const                {return fVol;}
+    G4String GetProcess() const            {return fProc;}
+    G4String GetPrevProcess() const        {return fPrevProc;}
+    G4double GetTheta() const              {return fTheta;}
+    G4double GetPhi() const                {return fPhi;}
+    G4double GetTime() const               {return fTime;}
+    G4double GetDOI() const                {return fDOI;}
     
 private:
     

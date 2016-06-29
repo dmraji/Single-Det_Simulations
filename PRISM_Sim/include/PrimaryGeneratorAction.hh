@@ -40,6 +40,9 @@ protected:
     inline G4ThreeVector GetHalfIsotropicMomentumDirection() const;
     inline G4ThreeVector GetConeMomentumDirection() const;
     
+    inline G4double GetRandTheta();
+    inline G4double GetRandPhi();
+    
 private:
 	static PrimaryGeneratorAction* fgInstance;
     
@@ -88,6 +91,24 @@ inline G4ThreeVector PrimaryGeneratorAction::GetConeMomentumDirection() const {
                          u);
 }
 //----------------------------------------------------------------------------//
+
+inline G4double PrimaryGeneratorAction::GetRandTheta(){
+
+    return G4UniformRand()*360.;
+    
+}
+
+//----------------------------------------------------------------------------//
+
+inline G4double PrimaryGeneratorAction::GetRandPhi(){
+    
+    return acos(2.*G4UniformRand()-1.);
+}
+
+//----------------------------------------------------------------------------//
+
+
+
 
 
 #endif

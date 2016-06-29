@@ -23,6 +23,8 @@ public:
 
 private:
 	static RunAction* fgInstance;
+    
+    std::vector<G4double> pos;
 
 };
 

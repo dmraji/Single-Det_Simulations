@@ -76,25 +76,33 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
     // Cone emission
       //gun->SetParticleMomentumDirection(this->GetConeMomentumDirection());
     
+    
+    // - -
     // Far field source at angle to origin
+    // - -
     
-        // first select random theta and phi from healpix? In this case
-        // we will have just one run and we can store all of the information easily
+    // Set the direction of the rays, given theta and phi (calculate position, take all negative values)
+    G4double r = 15.*CLHEP::cm;
+    G4ThreeVector dir;
+    dir.setX(-r*cos(theta*(CLHEP::pi/180))*sin(phi*(CLHEP::pi/180)));
+    dir.setY(-r*sin(theta*(CLHEP::pi/180))*sin(phi*(CLHEP::pi/180)));
+    dir.setZ(-r*cos(phi  *(CLHEP::pi/180)));
+
+    // Uniformly sample a disk that just covers the entire detector (start at z-axis (0,0,1) and then rotate)
+    G4double rand_r = G4UniformRand();
+    G4double rand_theta = 2. * CLHEP::pi * G4UniformRand();
+    G4double sphererad = 8.*CLHEP::cm;
+    G4ThreeVector disk_pos(0);
+    disk_pos.setX(sphererad * sqrt(rand_r) * cos(rand_theta));
+    disk_pos.setY(sphererad * sqrt(rand_r) * sin(rand_theta));
+    disk_pos.setZ(r);
     
-        G4double z0 = 30;
-        G4double x0 = z0*sin(theta*(CLHEP::pi/180.));
-        G4double y0 = z0*sin(phi*(CLHEP::pi/180.));
-    
-        G4double x = (x0 + 18. * (G4UniformRand()-0.5))*CLHEP::cm;
-        G4double y = (y0 + 18. * (G4UniformRand()-0.5))*CLHEP::cm;
-        G4double z = z0*CLHEP::cm;
-    
-        G4double px0 = -x0;
-        G4double py0 = -y0;
-        G4double pz0 = -z0;
-    
-    gun->SetParticlePosition(G4ThreeVector(x,y,z));
-    gun->SetParticleMomentumDirection(G4ThreeVector(px0,py0,pz0));
+    // Get position by rotating the z-oriented disk
+    G4ThreeVector pos = disk_pos.rotateY(phi*CLHEP::deg).rotateZ(theta*CLHEP::deg);
+
+    // Set results to the gun
+    gun->SetParticlePosition(pos);
+    gun->SetParticleMomentumDirection(dir);
     
     // Use the particle gun to define a primary particle for the event
     gun->GeneratePrimaryVertex(anEvent);
