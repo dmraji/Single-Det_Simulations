@@ -45,18 +45,21 @@ void EventAction::BeginOfEventAction(const G4Event* /*evt*/) {
     if(HCollID < 0){
         HCollID = SDman->GetCollectionID("fHitsCollection");
     }
-    
 }
 
 //==================================================================================================
 
 void EventAction::EndOfEventAction(const G4Event* evt) {
     
+    // Fill all the tuples for the event
+    FillTuples(evt);
+    
+    /*
     // Get HitsCollection
     HitsCollection * HC = (HitsCollection*)(evt->GetHCofThisEvent()->GetHC(HCollID));
 
     // Get analysis manager
-    G4AnalysisManager* analysis = G4AnalysisManager::Instance();
+    //G4AnalysisManager* analysis = G4AnalysisManager::Instance();
     
     if ( HC ) {
         int n_hit = HC->entries();
@@ -68,6 +71,8 @@ void EventAction::EndOfEventAction(const G4Event* evt) {
                 //(*HC)[i]->Print();
             
             
+            
+
             // Bin the DOI values into 0.5mm wide bins
             G4double doi = (*HC)[i]->GetDOI();
             G4int doibin = 0;
@@ -113,9 +118,80 @@ void EventAction::EndOfEventAction(const G4Event* evt) {
             analysis->FillNtupleDColumn(12,(*HC)[i]->GetPhi());                   // z position
             
             analysis->AddNtupleRow();
+        
+            analysis->FillH1(0, (*HC)[i]->GetDOI());
+
             
-            }
+    
         }
+    }
+    */
 }
 
 //==================================================================================================
+
+void EventAction::FillTuples(const G4Event* evt_){
+    
+    // Get Runaction - where all ntuples are stored
+    RunAction * runaction = RunAction::Instance();
+    
+    // Get HitsCollection
+    HitsCollection * HC = (HitsCollection*)(evt_->GetHCofThisEvent()->GetHC(HCollID));
+    
+    
+
+    if ( HC ) {
+        int n_hit = HC->entries();
+        for (int i = 0 ; i < n_hit; i++){
+    
+            runaction->FillEvtNtuple       (evt_->GetEventID());
+            runaction->FillHitNumtuple     (i+1);
+            runaction->FillTrackIDtuple    ((*HC)[i]->GetTrackID());
+            runaction->FillTimetuple       ((*HC)[i]->GetTime()/CLHEP::ns);
+            runaction->FillEnergytuple     ((*HC)[i]->GetEnergy()/CLHEP::keV);
+            runaction->FillDetIDtuple      (atoi((*HC)[i]->GetVol()));
+            runaction->FillProcesstuple    ((*HC)[i]->GetProcess());
+            runaction->FillPrevProcesstuple((*HC)[i]->GetPrevProcess());
+            runaction->FillDOItuple        ((*HC)[i]->GetDOI()/CLHEP::mm);
+            runaction->FillPositiontuple   ((*HC)[i]->GetPos());
+            runaction->FillThetatuple      ((*HC)[i]->GetTheta());
+            runaction->FillPhituple        ((*HC)[i]->GetPhi());
+            runaction->FillHPindextuple    ((*HC)[i]->GetHPindex());
+            
+            
+            
+            // Bin the DOI values into 0.5mm wide bins
+            G4double doi = (*HC)[i]->GetDOI();
+            G4int doibin = 0;
+            if      (doi <  0.5*CLHEP::mm)                       {doibin = 1; }   // These first two are the most common, put
+            else if (doi >  9.5*CLHEP::mm)                       {doibin = 20;}   //   them at the beginning to avoid scanning all statements
+            else if (doi >= 0.5*CLHEP::mm && doi < 1.0*CLHEP::mm){doibin = 2; }
+            else if (doi >= 1.0*CLHEP::mm && doi < 1.5*CLHEP::mm){doibin = 3; }
+            else if (doi >= 1.5*CLHEP::mm && doi < 2.0*CLHEP::mm){doibin = 4; }
+            else if (doi >= 2.0*CLHEP::mm && doi < 2.5*CLHEP::mm){doibin = 5; }
+            else if (doi >= 2.5*CLHEP::mm && doi < 3.0*CLHEP::mm){doibin = 6; }
+            else if (doi >= 3.0*CLHEP::mm && doi < 3.5*CLHEP::mm){doibin = 7; }
+            else if (doi >= 3.5*CLHEP::mm && doi < 4.0*CLHEP::mm){doibin = 8; }
+            else if (doi >= 4.0*CLHEP::mm && doi < 4.5*CLHEP::mm){doibin = 9; }
+            else if (doi >= 4.5*CLHEP::mm && doi < 5.0*CLHEP::mm){doibin = 10;}
+            else if (doi >= 5.0*CLHEP::mm && doi < 5.5*CLHEP::mm){doibin = 11;}
+            else if (doi >= 5.5*CLHEP::mm && doi < 6.0*CLHEP::mm){doibin = 12;}
+            else if (doi >= 6.0*CLHEP::mm && doi < 6.5*CLHEP::mm){doibin = 13;}
+            else if (doi >= 6.5*CLHEP::mm && doi < 7.0*CLHEP::mm){doibin = 14;}
+            else if (doi >= 7.0*CLHEP::mm && doi < 7.5*CLHEP::mm){doibin = 15;}
+            else if (doi >= 7.5*CLHEP::mm && doi < 8.0*CLHEP::mm){doibin = 16;}
+            else if (doi >= 8.0*CLHEP::mm && doi < 8.5*CLHEP::mm){doibin = 17;}
+            else if (doi >= 8.5*CLHEP::mm && doi < 9.0*CLHEP::mm){doibin = 18;}
+            else if (doi >= 9.0*CLHEP::mm && doi < 9.5*CLHEP::mm){doibin = 19;}
+            
+            runaction->FillDOIbintuple(doibin);
+            
+            
+            
+        }
+    }
+    
+}
+
+//==================================================================================================
+

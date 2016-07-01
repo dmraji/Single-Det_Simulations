@@ -22,9 +22,6 @@ public:
     inline void* operator new(size_t);
     inline void  operator delete(void*);
     
-    // methods from base class
-    virtual void Draw();
-    virtual void Print();
     
     // Set methods
     void SetTrackID     (G4int track)          {fTrackID = track;}
@@ -37,6 +34,7 @@ public:
     void SetPhi         (G4double phi)         {fPhi = phi;}
     void SetTime        (G4double time)        {fTime = time;}
     void SetDOI         (G4double doi)         {fDOI = doi;}
+    void SetHPindex     (G4int hpindex)        {fHP = hpindex;}
     
     // Get methods
     G4int GetTrackID() const               {return fTrackID;}
@@ -49,10 +47,11 @@ public:
     G4double GetPhi() const                {return fPhi;}
     G4double GetTime() const               {return fTime;}
     G4double GetDOI() const                {return fDOI;}
+    G4int GetHPindex() const               {return fHP;}
     
 private:
     
-    G4int         fTrackID;
+    G4int         fTrackID, fHP;
     G4double      fEnergy, fTheta, fPhi, fTime, fDOI;
     G4ThreeVector fPos;
     G4String      fVol, fProc, fPrevProc;

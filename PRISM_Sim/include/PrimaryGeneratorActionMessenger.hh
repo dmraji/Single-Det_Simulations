@@ -9,6 +9,9 @@
 class PrimaryGeneratorAction;
 class G4UIdirectory;
 class G4UIcmdWithADouble;
+class G4UIcmdWithAnInteger;
+class G4UIcmdWithAString;
+class G4UIcmdWithoutParameter;
 
 class PrimaryGeneratorActionMessenger : public G4UImessenger {
     
@@ -26,6 +29,10 @@ private:
     
     G4UIcmdWithADouble* fThetaCmd;
     G4UIcmdWithADouble* fPhiCmd;
+    G4UIcmdWithAnInteger* fHPCmd;
+    G4UIcmdWithAnInteger* fHPNsideCmd;
+    G4UIcmdWithAString* fHPindexingCmd;
+    G4UIcmdWithoutParameter* fSetUpHEALPixCmd;
 
     
 };

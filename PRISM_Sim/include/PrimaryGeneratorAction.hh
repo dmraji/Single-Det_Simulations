@@ -14,6 +14,12 @@ class G4Event;
 class G4ParticleGun;
 class DetectorConstruction;
 
+struct Angles{
+    G4double theta;
+    G4double phi;
+};
+
+
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
 public:
@@ -34,6 +40,25 @@ public:
     inline G4double GetTheta(){return theta;}
     inline G4double GetPhi(){return phi;}
     
+    
+    // Healpix
+    G4int HP_index;
+    void SetHP_index(G4int);
+    inline G4int GetHP_index(){return HP_index;}
+    
+    std::vector<struct Angles> HPangles;
+    void ReadInHEALPixAngles(G4String);
+    inline std::vector<struct Angles> GetHPangles(){return HPangles;}
+    
+    G4String HPindexing;
+    inline void SetHPindexing(G4String _hpindexing){HPindexing = _hpindexing;}
+    inline G4String GetHPindexing(){return HPindexing;}
+    
+    G4int HP_Nside;
+    inline void SetHPNside(G4int _hpNside){HP_Nside = _hpNside;}
+    inline G4int GetHPNside(){return HP_Nside;}
+    
+    //
 
 protected:
     inline G4ThreeVector GetIsotropicMomentumDirection() const;

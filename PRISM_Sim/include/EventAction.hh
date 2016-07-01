@@ -3,6 +3,7 @@
 
 #include "globals.hh" 
 #include "G4UserEventAction.hh"
+#include "Hit.hh"
 
 
 class EventAction : public G4UserEventAction
@@ -17,6 +18,8 @@ public:
 public:
 	void BeginOfEventAction(const G4Event*);
 	void EndOfEventAction(const G4Event*);
+    
+    void FillTuples(const G4Event*);
 
 
 private:

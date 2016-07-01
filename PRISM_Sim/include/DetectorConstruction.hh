@@ -18,6 +18,7 @@ class G4Material;
 #include "G4TwoVector.hh"
 
 
+
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
@@ -49,6 +50,7 @@ public:
     
     std::vector<G4ThreeVector> centers;
     std::vector<G4ThreeVector> GetDetCenters();
+    
     
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();

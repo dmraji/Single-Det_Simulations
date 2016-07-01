@@ -16,6 +16,7 @@ G4ThreadLocal G4Allocator<Hit>* HitAllocator = 0;
 Hit::Hit()
 : G4VHit(),
   fTrackID(-1),
+  fHP(0),
   fEnergy(0.),
   fTheta(0.),
   fPhi(0.),
@@ -41,6 +42,7 @@ Hit::Hit(const Hit& right): G4VHit(){
     fDOI       = right.fDOI;
     fTheta     = right.fTheta;
     fPhi       = right.fPhi;
+    fHP        = right.fHP;
 }
 
 //==================================================================================================
@@ -55,6 +57,7 @@ const Hit& Hit::operator=(const Hit& right){
     fDOI       = right.fDOI;
     fTheta     = right.fTheta;
     fPhi       = right.fPhi;
+    fHP        = right.fHP;
     
     return *this;
 }
@@ -67,37 +70,3 @@ G4int Hit::operator==(const Hit& right) const{
 }
 
 //==================================================================================================
-
-void Hit::Draw(){
-    
-    G4VVisManager* pVVisManager = G4VVisManager::GetConcreteInstance();
-    if(pVVisManager)
-    {
-        G4Circle circle(fPos);
-        circle.SetScreenSize(4.);
-        circle.SetFillStyle(G4Circle::filled);
-        G4Colour colour(1.,0.,0.);
-        G4VisAttributes attribs(colour);
-        circle.SetVisAttributes(attribs);
-        pVVisManager->Draw(circle);
-    }
-}
-
-//==================================================================================================
-
-void Hit::Print(){
-    
-    G4cout
-    << "\t\tTrackID: "                    << fTrackID           << "\n"
-    << "\t\tTime: "                       << fTime/CLHEP::ns    << " ns\n"
-    << "\t\tInitial Energy: "             << fEnergy/CLHEP::keV << " keV\n"
-    << "\t\tPosition: "                   << fPos/CLHEP::cm     << " cm\n"
-    << "\t\tDetectorID: "                 << fVol               << "\n"
-    << "\t\tProcess: "                    << fProc              << "\n"
-    << "\t\tPrevious Process: "           << fPrevProc          << "\n"
-    << "\t\tDepth of Interaction (DOI): " << fDOI/CLHEP::mm     << " mm\n";
-
-}
-
-//================================================================================================
-

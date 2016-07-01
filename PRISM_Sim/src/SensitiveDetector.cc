@@ -41,7 +41,6 @@ void SensitiveDetector::Initialize(G4HCofThisEvent* HCE)
 
 G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
-    
     class Hit* newHit = new class Hit();
     
     // Track ID
@@ -62,9 +61,10 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     // Previous Interaction
     newHit->SetPrevProcess(aStep->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName());
     
-    // Incident theta and phi angle's (replace with HEALpix index at some point)
+    // Incident theta and phi angle's, also HEALPix index
     newHit->SetTheta(PrimaryGeneratorAction::Instance()->GetTheta());
-    newHit->SetPhi  (PrimaryGeneratorAction::Instance()->GetPhi());
+    newHit->SetPhi(PrimaryGeneratorAction::Instance()->GetPhi());
+    newHit->SetHPindex(PrimaryGeneratorAction::Instance()->GetHP_index());
     
     // Local time
     newHit->SetTime(aStep->GetPreStepPoint()->GetLocalTime());
@@ -72,7 +72,10 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     // Depth of interaction
     G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) - 1];
     G4ThreeVector intpos = aStep->GetPostStepPoint()->GetPosition();
-    newHit->SetDOI((intpos-detcent).dot(detcent)/detcent.mag() + 0.500*CLHEP::cm);
+    G4double doi = (intpos-detcent).dot(detcent)/detcent.mag() + 0.500*CLHEP::cm;
+    if      (doi < 0.) {newHit->SetDOI(0. *CLHEP::mm);}
+    else if (doi > 10.){newHit->SetDOI(10.*CLHEP::mm);}
+    else {newHit->SetDOI(doi);}
     
     // Add the newHit to the HitCollection
     fHitsCollection->insert( newHit );

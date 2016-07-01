@@ -11,8 +11,16 @@
 /gun/energy 60 keV
 
 # Set the direction of far field source
-/PRISM_SIM/direction/setTheta 45
-/PRISM_SIM/direction/setPhi 20
+#/PRISM_SIM/direction/setTheta 45
+#/PRISM_SIM/direction/setPhi 20
+
+# Configure HEALPix
+/PRISM_SIM/direction/setHPNside 8
+/PRISM_SIM/direction/setHPindexscheme Ring
+/PRISM_SIM/direction/SetUpHEALPix
+
+# Choose a HealPix angle
+/PRISM_SIM/direction/setHPindex 45
 
 # Beam on
-/run/beamOn 100000
+/run/beamOn 100

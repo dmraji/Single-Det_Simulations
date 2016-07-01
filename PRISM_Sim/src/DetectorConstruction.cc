@@ -177,6 +177,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
         }
         myfile3.close();
     }
+  
     
     
     // ---------------------------------------
@@ -358,4 +359,6 @@ std::vector<G4ThreeVector> DetectorConstruction::GetDetCenters(){
 }
 
 //==================================================================================================
+
+
 

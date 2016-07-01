@@ -75,9 +75,9 @@
 
 #/PRISM_SIM/direction/setTheta 0
 #/PRISM_SIM/direction/setPhi 0
-#/PRISM_SIM/geom/setMask 7c230fcd94d6536dc503fec3391da998977bb3fb0d50a3a2
+#/PRISM_SIM/geom/setMask 21524FA478BD521AB44791322B545C979943A029753854BB
 #/PRISM_SIM/geom/randomMask
 
-/run/beamOn 10
+/run/beamOn 1
 
 

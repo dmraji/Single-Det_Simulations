@@ -22,7 +22,7 @@ PrimaryGeneratorAction* PrimaryGeneratorAction::Instance() {
 
 //==================================================================================================
 
-PrimaryGeneratorAction::PrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction(), gun(0), detector(0) {
+PrimaryGeneratorAction::PrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction(), HPindexing("Ring"), HP_Nside(8), gun(0), detector(0) {
     
 	fgInstance = this;
     G4int nparticles = 1;
@@ -43,6 +43,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction
     
     // Create a new messenger class
     primarygeneratoractionmessenger = new PrimaryGeneratorActionMessenger(this);
+    
+    // Pull in HEALPix angles
+    ReadInHEALPixAngles("HEALpix/n=8/HEALPix_PhiTheta_Ring.txt");
     
 }
 
@@ -132,19 +135,31 @@ void PrimaryGeneratorAction::SetPhi(G4double phi_){
 }
 
 //==================================================================================================
-/*
-std::vector<G4double> PrimaryGeneratorAction::GetRandHEALPixThetaPhi(){
+
+void PrimaryGeneratorAction::SetHP_index(G4int hpindex){
     
-    
-    std::vector<G4double> HPThetaPhi;
-    
-    return HPThetaPhi;
+    HP_index = hpindex;
 }
-*/
+
 //==================================================================================================
 
+void PrimaryGeneratorAction::ReadInHEALPixAngles(G4String filename){
+    
+    HPangles.clear();
+    
+    std::ifstream myfile(filename);
+    std::string line;
+    if (myfile.is_open()){
+        Angles ang;
+        while (getline(myfile,line)){
+            std::istringstream(line) >> ang.phi >> ang.theta;
+            HPangles.push_back(ang);
+        }
+        myfile.close();
+    }
+    
+}
 
-
-
+//==================================================================================================
 
 
