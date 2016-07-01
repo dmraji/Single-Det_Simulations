@@ -87,24 +87,11 @@ plt.show()
 '''
 
 # Plot DetID vs HPindex
-H, xedges, yedges, img = plt.hist2d(DetID,HPindex, bins=[np.arange(0.5,768.5),np.arange(0.5,192.5)])
+H, xedges, yedges, img = plt.hist2d(DetID,HPindex, bins=[192,768])
 extent = [yedges[0], yedges[-1], xedges[0], xedges[-1]]
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
-im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0,800,0,192],)
+im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0,768,0,192], aspect='auto')
 fig.colorbar(im, ax=ax)
 plt.show()
-
-
-f3 = plt.figure()
-H, xedges, yedges, img = plt.hist2d(DetID,HPindex, bins=[np.arange(0.5,768.5),np.arange(0.5,192.5)])
-CCplot = plt.imshow(H, origin='lower', interpolation='nearest', extent=[0,800,0,192], cmap='jet')
-plt.colorbar(CCplot)
-plt.title("Cross Correlation image")
-plt.xlabel("Phi (deg)")
-plt.ylabel("Theta (deg)")
-
-#if (save):
-#    f3.savefig("images/Cross_Correlation/crosscorr(%s,%s).pdf"%(theta[i],phi[i]))
-
 

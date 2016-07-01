@@ -16,12 +16,12 @@
 #/PRISM_SIM/direction/setPhi 20
 
 # Configure HEALPix
-/PRISM_SIM/direction/setHPNside 8
+/PRISM_SIM/direction/setHPNside 16
 /PRISM_SIM/direction/setHPindexscheme Ring
 /PRISM_SIM/direction/SetUpHEALPix
 
 # Change output file name
 /PRISM_SIM/output/filename HP8Ring_Response_10k
 
-/control/loop macros/response/healpix/main.mac hpindex 1 768 1.
-#/control/loop macros/response/healpix/main.mac hpindex 1 3072 1.
+#/control/loop macros/response/healpix/main.mac hpindex 1 768 1.
+/control/loop macros/response/healpix/main.mac hpindex 1 3072 1.

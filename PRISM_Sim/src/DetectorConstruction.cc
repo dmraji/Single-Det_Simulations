@@ -155,7 +155,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     
    
     // Pull in detector center verticies from file
-    std::ifstream myfile("geo/centervertices.txt");
+    std::ifstream myfile("geo/centervertices_Ring.txt");
     double x_, y_, z_;
     std::string line;
     if (myfile.is_open()){
@@ -168,7 +168,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     
     // Pull in rotation matrices from file
     std::vector<G4RotationMatrix> rotationmat;
-    std::ifstream myfile3("geo/rotationmatrices.txt");
+    std::ifstream myfile3("geo/rotationmatrices_Ring.txt");
     double x1_,x2_,x3_,y1_,y2_,y3_,z1_,z2_,z3_;
     if (myfile3.is_open()){
         while (getline(myfile3,line)){
