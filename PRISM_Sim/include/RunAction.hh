@@ -122,6 +122,11 @@ public:
     // Clear all tuples
     void ClearTuples();
     
+    // Output file
+    G4String outputfilename;
+    inline void SetOutputFilename(G4String fn){outputfilename = fn;}
+    inline G4String GetOutputFilename(){return outputfilename;}
+    
     // -----
 
 private:

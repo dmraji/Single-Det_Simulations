@@ -319,6 +319,12 @@ std::vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
             case 'd': mask_string.append ("1101"); break;
             case 'e': mask_string.append ("1110"); break;
             case 'f': mask_string.append ("1111"); break;
+            case 'A': mask_string.append ("1010"); break;
+            case 'B': mask_string.append ("1011"); break;
+            case 'C': mask_string.append ("1100"); break;
+            case 'D': mask_string.append ("1101"); break;
+            case 'E': mask_string.append ("1110"); break;
+            case 'F': mask_string.append ("1111"); break;
         }
     }
     
@@ -331,6 +337,10 @@ std::vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
 //==================================================================================================
 
 void DetectorConstruction::UpdateGeometry(){
+
+    // figure out a way to delete the old sensitive detectors before reconstructing geo
+    //
+    //
     
     //G4RunManager::GetRunManager()->DefineWorldVolume(ConstructWorld());
     G4RunManager::GetRunManager()->ReinitializeGeometry();

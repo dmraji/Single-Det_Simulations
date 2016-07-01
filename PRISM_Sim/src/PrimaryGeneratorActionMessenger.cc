@@ -1,6 +1,7 @@
 
 #include "PrimaryGeneratorActionMessenger.hh"
 #include "PrimaryGeneratorAction.hh"
+#include "RunAction.hh"
 #include "DetectorConstruction.hh"
 
 #include "G4UIdirectory.hh"
@@ -19,8 +20,11 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
 : G4UImessenger(), fPrimaryGeneratorAction(generator)
 {
     
-    fDirectory = new G4UIdirectory("/PRISM_SIM/direction/");
-    fDirectory->SetGuidance("Direction of incoming rays");
+    fDirDirectory = new G4UIdirectory("/PRISM_SIM/direction/");
+    fDirDirectory->SetGuidance("Direction of incoming rays");
+    
+    fOutDirectory = new G4UIdirectory("/PRISM_SIM/output/");
+    fOutDirectory->SetGuidance("Output file");
     
     fThetaCmd = new G4UIcmdWithADouble("/PRISM_SIM/direction/setTheta",this);
     fThetaCmd->SetGuidance("Set the theta of far field souce");
@@ -50,6 +54,10 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
     fSetUpHEALPixCmd = new G4UIcmdWithoutParameter("/PRISM_SIM/direction/SetUpHEALPix",this);
     fSetUpHEALPixCmd->SetGuidance("Set up HEALPix (command to follow the Nside and IndexingScheme commands)");
     fSetUpHEALPixCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+    
+    fOutputFileNameCmd = new G4UIcmdWithAString("/PRISM_SIM/output/filename",this);
+    fOutputFileNameCmd->SetGuidance("name the output file");
+    fOutputFileNameCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
 }
 
@@ -63,7 +71,9 @@ PrimaryGeneratorActionMessenger::~PrimaryGeneratorActionMessenger()
     delete fHPNsideCmd;
     delete fHPindexingCmd;
     delete fSetUpHEALPixCmd;
-    delete fDirectory;
+    delete fDirDirectory;
+    delete fOutDirectory;
+    delete fOutputFileNameCmd;
 }
 
 //==================================================================================================
@@ -89,11 +99,6 @@ void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String 
                 
         G4int HPindex = fHPCmd->GetNewIntValue(newValue);
         
-        std::vector<struct Angles> HPangles = fPrimaryGeneratorAction->GetHPangles();
-
-        fPrimaryGeneratorAction->SetTheta(HPangles[HPindex].theta*(180./CLHEP::pi));
-        fPrimaryGeneratorAction->SetPhi(HPangles[HPindex].phi*(180./CLHEP::pi));
-        
         G4int nside = fPrimaryGeneratorAction->GetHPNside();
         G4int maxindex;
         if (nside == 8){maxindex = 768;}
@@ -101,9 +106,18 @@ void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String 
         else {maxindex = 0;}
         
         if (HPindex <= maxindex){
+            
+            std::vector<struct Angles> HPangles = fPrimaryGeneratorAction->GetHPangles();
+
+            fPrimaryGeneratorAction->SetTheta(HPangles[HPindex-1].theta*(180./CLHEP::pi));
+            fPrimaryGeneratorAction->SetPhi(HPangles[HPindex-1].phi*(180./CLHEP::pi));
+        
             fPrimaryGeneratorAction->SetHP_index(HPindex);
         }
-        else { G4cerr << "\n\nThat HEALPix index is out of bounds for the current HPNside value... HPindex will be set to 0\n\n";}
+        
+        else {
+            G4cerr << "\n\nThat HEALPix index is out of bounds for the current HPNside value... HPindex will be set to 0\n\n";
+        }
                               
     }
     
@@ -150,12 +164,19 @@ void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String 
         
     }
     
+    else if (command == fOutputFileNameCmd){
+        
+        RunAction::Instance()->SetOutputFilename(newValue);
+
+    }
+    
+    
 }
 
 //==================================================================================================
 
 
-
+// Write GetCurrentValue functions...
 
 
 

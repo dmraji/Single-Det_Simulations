@@ -45,6 +45,7 @@ void EventAction::BeginOfEventAction(const G4Event* /*evt*/) {
     if(HCollID < 0){
         HCollID = SDman->GetCollectionID("fHitsCollection");
     }
+    
 }
 
 //==================================================================================================

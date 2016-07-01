@@ -19,8 +19,11 @@
 /PRISM_SIM/direction/setHPindexscheme Ring
 /PRISM_SIM/direction/SetUpHEALPix
 
-# Choose a HealPix angle
+# Choose a HealPix angle (start at 1)
 /PRISM_SIM/direction/setHPindex 45
+
+# Change output file name
+/PRISM_SIM/output/filename output
 
 # Beam on
 /run/beamOn 100

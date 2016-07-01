@@ -22,7 +22,7 @@ RunAction* RunAction::Instance() {
 
 //==================================================================================================
 
-RunAction::RunAction() {
+RunAction::RunAction(): outputfilename("output") {
     
 	fgInstance = this;
 
@@ -84,6 +84,11 @@ void RunAction::BeginOfRunAction(const G4Run* /*aRun*/) {
     // Open an output file
     G4String fileName = "output/output";
     analysis->OpenFile(fileName);
+    */
+    
+    /*
+    G4int hp = PrimaryGeneratorAction::Instance()->GetHP_index();
+    if (hp%300 == 0){G4cout << "[HEALPix index = " << hp << "]\n";}
     */
 }
 
@@ -201,8 +206,14 @@ std::vector<G4int> RunAction::GetHPindextuple() { return HPindextuple; }
 
 void RunAction::PrintToTextFile(){
     
+    G4String filename = "output/";
+    filename.append(GetOutputFilename());
+    filename.append(".txt");
+    
+    //G4cout << "\n\nWriting data to " << filename << "...\n\n";
+
     ofstream myfile;
-    myfile.open ("output/test.txt", ios::out | ios::app);
+    myfile.open (filename, ios::out | ios::app);
     
     for (int i = 0; i < int(EvtNtuple.size()); i++){
         myfile
@@ -229,8 +240,14 @@ void RunAction::PrintToTextFile(){
  
 void RunAction::PrintToBinaryFile(){
     
+    G4String filename = "output/";
+    filename.append(GetOutputFilename());
+    filename.append(".bin");
+    
+    //G4cout << "\n\nWriting data to " << filename << "...\n\n";
+    
     ofstream myfile2;
-    myfile2.open ("output/test.bin", ios::out | ios::app | ios::binary);
+    myfile2.open (filename, ios::out | ios::app | ios::binary);
     
     G4int energybin;
     

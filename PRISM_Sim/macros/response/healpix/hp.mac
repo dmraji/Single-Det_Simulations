@@ -1,1 +1,27 @@
-/control/loop macros/response/healpix/main.mac hpindex 0 3071 1.
+/control/verbose 0
+/tracking/verbose 0
+/run/verbose 0
+/event/verbose 0
+
+######
+
+# Set number of threads
+#/run/numberOfThreads 4
+
+# Change the energy
+/gun/energy 60 keV
+
+# Set the direction of far field source
+#/PRISM_SIM/direction/setTheta 45
+#/PRISM_SIM/direction/setPhi 20
+
+# Configure HEALPix
+/PRISM_SIM/direction/setHPNside 8
+/PRISM_SIM/direction/setHPindexscheme Ring
+/PRISM_SIM/direction/SetUpHEALPix
+
+# Change output file name
+/PRISM_SIM/output/filename HP8Ring_Response_10k
+
+/control/loop macros/response/healpix/main.mac hpindex 1 768 1.
+#/control/loop macros/response/healpix/main.mac hpindex 1 3072 1.

@@ -25,7 +25,8 @@ public:
 private:
     PrimaryGeneratorAction* fPrimaryGeneratorAction;
     
-    G4UIdirectory* fDirectory;
+    G4UIdirectory* fDirDirectory;
+    G4UIdirectory* fOutDirectory;
     
     G4UIcmdWithADouble* fThetaCmd;
     G4UIcmdWithADouble* fPhiCmd;
@@ -33,6 +34,7 @@ private:
     G4UIcmdWithAnInteger* fHPNsideCmd;
     G4UIcmdWithAString* fHPindexingCmd;
     G4UIcmdWithoutParameter* fSetUpHEALPixCmd;
+    G4UIcmdWithAString* fOutputFileNameCmd;
 
     
 };
