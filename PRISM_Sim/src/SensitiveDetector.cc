@@ -8,6 +8,7 @@
 #include "PrimaryGeneratorAction.hh"
 #include "DetectorConstruction.hh"
 
+using namespace CLHEP;
 
 //==================================================================================
 
@@ -72,9 +73,9 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     // Depth of interaction
     G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) - 1];
     G4ThreeVector intpos = aStep->GetPostStepPoint()->GetPosition();
-    G4double doi = (intpos-detcent).dot(detcent)/detcent.mag() + 0.500*CLHEP::cm;
-    if      (doi < 0.) {newHit->SetDOI(0. *CLHEP::mm);}
-    else if (doi > 10.){newHit->SetDOI(10.*CLHEP::mm);}
+    G4double doi = (intpos-detcent).dot(detcent)/detcent.mag() + 0.500*cm;
+    if      (doi < 0.) {newHit->SetDOI(0. *mm);}
+    else if (doi > 10.){newHit->SetDOI(10.*mm);}
     else {newHit->SetDOI(doi);}
     
     // Add the newHit to the HitCollection

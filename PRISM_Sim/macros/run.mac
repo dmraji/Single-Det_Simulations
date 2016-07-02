@@ -4,6 +4,9 @@
 /run/verbose 0
 /event/verbose 0
 
+# Detector indexing
+/PRISM_SIM/geom/detIndexing Ring
+
 # Set number of threads
 #/run/numberOfThreads 4
 

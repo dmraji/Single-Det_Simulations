@@ -1,12 +1,12 @@
 #ifndef runaction_hh
 #define runaction_hh 1
 
-#include "globals.hh" 
-//#include "g4root.hh"
-//#include "g4csv.hh"
+#include "globals.hh"
 #include "G4UserRunAction.hh"
 #include "G4ThreeVector.hh"
 #include <vector>
+
+using namespace std;
 
 class G4Run;
 
@@ -24,97 +24,96 @@ public:
 	void EndOfRunAction(const G4Run*);
     
     
-    
-    
-    // --------
-    // Analysis
+    // -----------------------------------------------
+    // Analysis tuples
     
     // Depth of interaction
-    std::vector<G4double> DOItuple;
+    vector<G4double> DOItuple;
     void FillDOItuple(G4double);
     void ClearDOItuple();
-    std::vector<G4double> GetDOItuple();
+    vector<G4double> GetDOItuple();
     
     // Depth of interaction (binned)
-    std::vector<G4int> DOIbintuple;
+    vector<G4int> DOIbintuple;
     void FillDOIbintuple(G4int);
     void ClearDOIbintuple();
-    std::vector<G4int> GetDOIbintuple();
+    vector<G4int> GetDOIbintuple();
     
     // Detector ID
-    std::vector<G4int> DetIDtuple;
+    vector<G4int> DetIDtuple;
     void FillDetIDtuple(G4int);
     void ClearDetIDtuple();
-    std::vector<G4int> GetDetIDtuple();
+    vector<G4int> GetDetIDtuple();
     
     
     // Event Number
-    std::vector<G4int> EvtNtuple;
+    vector<G4int> EvtNtuple;
     void FillEvtNtuple(G4int);
     void ClearEvtNtuple();
-    std::vector<G4int> GetEvtNtuple();
+    vector<G4int> GetEvtNtuple();
     
     // Hit Number
-    std::vector<G4int> HitNumtuple;
+    vector<G4int> HitNumtuple;
     void FillHitNumtuple(G4int);
     void ClearHitNumtuple();
-    std::vector<G4int> GetHitNumtuple();
+    vector<G4int> GetHitNumtuple();
     
     // Track ID
-    std::vector<G4int> TrackIDtuple;
+    vector<G4int> TrackIDtuple;
     void FillTrackIDtuple(G4int);
     void ClearTrackIDtuple();
-    std::vector<G4int> GetTrackIDtuple();
+    vector<G4int> GetTrackIDtuple();
     
     // Local Time
-    std::vector<G4double> Timetuple;
+    vector<G4double> Timetuple;
     void FillTimetuple(G4double);
     void ClearTimetuple();
-    std::vector<G4double> GetTimetuple();
+    vector<G4double> GetTimetuple();
     
     // Energy
-    std::vector<G4double> Energytuple;
+    vector<G4double> Energytuple;
     void FillEnergytuple(G4double);
     void ClearEnergytuple();
-    std::vector<G4double> GetEnergytuple();
+    vector<G4double> GetEnergytuple();
     
     // Process
-    std::vector<G4String> Processtuple;
+    vector<G4String> Processtuple;
     void FillProcesstuple(G4String);
     void ClearProcesstuple();
-    std::vector<G4String> GetProcesstuple();
+    vector<G4String> GetProcesstuple();
     
     // Previous Process
-    std::vector<G4String> PrevProcesstuple;
+    vector<G4String> PrevProcesstuple;
     void FillPrevProcesstuple(G4String);
     void ClearPrevProcesstuple();
-    std::vector<G4String> GetPrevProcesstuple();
+    vector<G4String> GetPrevProcesstuple();
     
     // Position
-    std::vector<G4ThreeVector> Positiontuple;
+    vector<G4ThreeVector> Positiontuple;
     void FillPositiontuple(G4ThreeVector);
     void ClearPositiontuple();
-    std::vector<G4ThreeVector> GetPositiontuple();
+    vector<G4ThreeVector> GetPositiontuple();
     
     // Theta
-    std::vector<G4double> Thetatuple;
+    vector<G4double> Thetatuple;
     void FillThetatuple(G4double);
     void ClearThetatuple();
-    std::vector<G4double> GetThetatuple();
+    vector<G4double> GetThetatuple();
     
     // Phi
-    std::vector<G4double> Phituple;
+    vector<G4double> Phituple;
     void FillPhituple(G4double);
     void ClearPhituple();
-    std::vector<G4double> GetPhituple();
+    vector<G4double> GetPhituple();
     
     // HP Index
-    std::vector<G4int> HPindextuple;
+    vector<G4int> HPindextuple;
     void FillHPindextuple(G4int);
     void ClearHPindextuple();
-    std::vector<G4int> GetHPindextuple();
+    vector<G4int> GetHPindextuple();
     
-    
+    // -----------------------------------------------
+
     // Print to file
     void PrintToTextFile();
     void PrintToBinaryFile();
@@ -122,12 +121,13 @@ public:
     // Clear all tuples
     void ClearTuples();
     
+    // -----------------------------------------------
+    
     // Output file
     G4String outputfilename;
     inline void SetOutputFilename(G4String fn){outputfilename = fn;}
     inline G4String GetOutputFilename(){return outputfilename;}
     
-    // -----
 
 private:
 	static RunAction* fgInstance;

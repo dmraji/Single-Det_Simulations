@@ -4,8 +4,6 @@
 #include "G4UserStackingAction.hh"
 #include "globals.hh"
 
-// Stacking action class : manage the newly generated particles
-
 class StackingAction : public G4UserStackingAction {
     
   public:

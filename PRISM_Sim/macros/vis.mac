@@ -73,6 +73,13 @@
 #
 /tracking/verbose 1
 
+# ———————
+# simulation specific
+# ———————————
+
+# Detector indexing
+/PRISM_SIM/geom/detIndexing Ring
+
 # Configure mask
 #/PRISM_SIM/geom/setMask 21524FA478BD521AB44791322B545C979943A029753854BB
 #/PRISM_SIM/geom/randomMask
@@ -100,6 +107,6 @@
 /PRISM_SIM/output/filename output
 
 # Beam on
-/run/beamOn 100
+#/run/beamOn 100
 
 

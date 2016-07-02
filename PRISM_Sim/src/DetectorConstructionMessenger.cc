@@ -10,6 +10,7 @@
 #include <istream>
 #include <sstream>
 
+using namespace std;
 
 //==================================================================================================
 
@@ -40,6 +41,10 @@ DetectorConstructionMessenger::DetectorConstructionMessenger(DetectorConstructio
     fDetDimCmd->SetParameterName("xdim","ydim","zdim", false);
     fDetDimCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
     
+    fSetDetIndexCmd = new G4UIcmdWithAString("/PRISM_SIM/geom/detIndexing",this);
+    fSetDetIndexCmd->SetGuidance("Set the way the detectors are indexed (ring or nested)");
+    fSetDetIndexCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+    
 }
 
 //==================================================================================================
@@ -50,6 +55,7 @@ DetectorConstructionMessenger::~DetectorConstructionMessenger()
     delete fSetMaskCmd;
     delete fRandMaskCmd;
     delete fDetDimCmd;
+    delete fSetDetIndexCmd;
 }
 
 //==================================================================================================
@@ -59,21 +65,21 @@ void DetectorConstructionMessenger::SetNewValue(G4UIcommand* command, G4String n
     
     if (command == fSetMaskCmd) {
         
-        std::vector<int> maskarray = fDetectorConstruction->HexToBin(newValue);
+        vector<int> maskarray = fDetectorConstruction->HexToBin(newValue);
         fDetectorConstruction->SetMask(maskarray);
         fDetectorConstruction->UpdateGeometry();
     }
     
     else if (command == fRandMaskCmd) {
         
-        std::vector<int> maskarray = fDetectorConstruction->GetRandomMask();
+        vector<int> maskarray = fDetectorConstruction->GetRandomMask();
         fDetectorConstruction->SetMask(maskarray);
         fDetectorConstruction->UpdateGeometry();
     }
     
     else if (command == fFullMaskCmd) {
         
-        std::vector<int> maskarray(192, 1);
+        vector<int> maskarray(192, 1);
         fDetectorConstruction->SetMask(maskarray);
         fDetectorConstruction->UpdateGeometry();
     }
@@ -83,6 +89,31 @@ void DetectorConstructionMessenger::SetNewValue(G4UIcommand* command, G4String n
         fDetectorConstruction->SetDetDim(fDetDimCmd->GetNew3VectorValue(newValue));
         fDetectorConstruction->CheckOverlapsOn();
         fDetectorConstruction->UpdateGeometry();
+    }
+    
+    else if (command == fSetDetIndexCmd) {
+        
+        G4String indexing = newValue;
+        
+        if (indexing == "Ring" || indexing == "ring" || indexing == "RING"){
+            
+            if (fDetectorConstruction->GetDetIndexing() == "Nested"){
+                fDetectorConstruction->SetDetIndexing("Ring");
+                fDetectorConstruction->UpdateGeometry();
+            }
+        }
+        
+        else if (indexing == "Nested" || indexing == "nested" || indexing == "NESTED"){
+            
+            if (fDetectorConstruction->GetDetIndexing() == "Ring"){
+                fDetectorConstruction->SetDetIndexing("Nested");
+                fDetectorConstruction->UpdateGeometry();
+            }
+
+        }
+        
+        else {G4cerr << "\n\nI don't recognize the command /PRISM_SIM/geom/detIndexing " << indexing << ". Setting to default (ring)\n\n";}
+        
     }
     
     

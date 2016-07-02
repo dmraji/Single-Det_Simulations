@@ -12,3 +12,4 @@ compile.sh
 *.out
 *.synctex.gz
 *.tex
+*.bin

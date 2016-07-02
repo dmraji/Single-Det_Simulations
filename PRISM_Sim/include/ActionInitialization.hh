@@ -11,7 +11,6 @@ public:
 	virtual ~ActionInitialization();
 
 public:
-	// Public functions
     virtual void BuildForMaster() const;
     virtual void Build() const;
 

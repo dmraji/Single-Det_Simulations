@@ -27,10 +27,11 @@ private:
     
     G4UIdirectory* fDirectory;
     
-    G4UIcmdWithAString* fSetMaskCmd;
+    G4UIcmdWithAString*      fSetMaskCmd;
     G4UIcmdWithoutParameter* fRandMaskCmd;
     G4UIcmdWithoutParameter* fFullMaskCmd;
-    G4UIcmdWith3Vector* fDetDimCmd;
+    G4UIcmdWith3Vector*      fDetDimCmd;
+    G4UIcmdWithAString*      fSetDetIndexCmd;
     
 };
 

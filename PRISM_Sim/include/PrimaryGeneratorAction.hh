@@ -10,6 +10,9 @@
 #include "G4UnitsTable.hh"
 #include "G4PhysicalConstants.hh"
 
+using namespace std;
+using namespace CLHEP;
+
 class G4Event;
 class G4ParticleGun;
 class DetectorConstruction;
@@ -46,9 +49,9 @@ public:
     void SetHP_index(G4int);
     inline G4int GetHP_index(){return HP_index;}
     
-    std::vector<struct Angles> HPangles;
+    vector<struct Angles> HPangles;
     void ReadInHEALPixAngles(G4String);
-    inline std::vector<struct Angles> GetHPangles(){return HPangles;}
+    inline vector<struct Angles> GetHPangles(){return HPangles;}
     
     G4String HPindexing;
     inline void SetHPindexing(G4String _hpindexing){HPindexing = _hpindexing;}
@@ -83,7 +86,7 @@ private:
 inline G4ThreeVector PrimaryGeneratorAction::GetIsotropicMomentumDirection() const {
     
     G4double u = 2*G4UniformRand()-1;
-    G4double v = 2.*CLHEP::pi*G4UniformRand();
+    G4double v = 2.*pi*G4UniformRand();
     return G4ThreeVector(sqrt(1-u*u)*cos(v),
                          sqrt(1-u*u)*sin(v),
                          u);
@@ -95,7 +98,7 @@ inline G4ThreeVector PrimaryGeneratorAction::GetIsotropicMomentumDirection() con
 inline G4ThreeVector PrimaryGeneratorAction::GetHalfIsotropicMomentumDirection() const {
 
     G4double u = G4UniformRand()-1;
-    G4double v = 2.*CLHEP::pi*G4UniformRand();
+    G4double v = 2.*pi*G4UniformRand();
     return G4ThreeVector(sqrt(1-u*u)*cos(v),
                          sqrt(1-u*u)*sin(v),
                          u);
@@ -109,8 +112,8 @@ inline G4ThreeVector PrimaryGeneratorAction::GetConeMomentumDirection() const {
     // open a cone of degree theta
     G4double _theta = 10.;
     
-    G4double u = (-cos(_theta*CLHEP::pi/180)+1)*G4UniformRand()-1;
-    G4double v = 2.*CLHEP::pi*G4UniformRand();
+    G4double u = (-cos(_theta*pi/180)+1)*G4UniformRand()-1;
+    G4double v = 2.*pi*G4UniformRand();
     return G4ThreeVector(sqrt(1-u*u)*cos(v),
                          sqrt(1-u*u)*sin(v),
                          u);

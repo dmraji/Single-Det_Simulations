@@ -5,6 +5,9 @@
 
 ######
 
+# Detector indexing
+/PRISM_SIM/geom/detIndexing Ring
+
 # Set number of threads
 #/run/numberOfThreads 4
 
@@ -21,7 +24,7 @@
 /PRISM_SIM/direction/SetUpHEALPix
 
 # Change output file name
-/PRISM_SIM/output/filename HP8Ring_Response_10k
+/PRISM_SIM/output/filename HP16Ring_DetRing_Response_10k
 
 #/control/loop macros/response/healpix/main.mac hpindex 1 768 1.
 /control/loop macros/response/healpix/main.mac hpindex 1 3072 1.

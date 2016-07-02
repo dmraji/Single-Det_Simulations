@@ -13,6 +13,9 @@
 #include <istream>
 #include <sstream>
 
+using namespace CLHEP;
+using namespace std;
+
 
 //==================================================================================================
 
@@ -107,10 +110,10 @@ void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String 
         
         if (HPindex <= maxindex){
             
-            std::vector<struct Angles> HPangles = fPrimaryGeneratorAction->GetHPangles();
+            vector<struct Angles> HPangles = fPrimaryGeneratorAction->GetHPangles();
 
-            fPrimaryGeneratorAction->SetTheta(HPangles[HPindex-1].theta*(180./CLHEP::pi));
-            fPrimaryGeneratorAction->SetPhi(HPangles[HPindex-1].phi*(180./CLHEP::pi));
+            fPrimaryGeneratorAction->SetTheta(HPangles[HPindex-1].theta*(180./pi));
+            fPrimaryGeneratorAction->SetPhi(HPangles[HPindex-1].phi*(180./pi));
         
             fPrimaryGeneratorAction->SetHP_index(HPindex);
         }

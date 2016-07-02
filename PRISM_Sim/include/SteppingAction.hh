@@ -4,8 +4,6 @@
 #include "globals.hh" 
 #include "G4UserSteppingAction.hh"
 
-#include "TH3.h"
-
 class G4Step;
 
 class SteppingAction : public G4UserSteppingAction
@@ -16,10 +14,8 @@ public:
 
 	static SteppingAction* Instance();
 
-
 public:
 	void UserSteppingAction(const G4Step*);
-
 
 private:
 	static SteppingAction* fgInstance;

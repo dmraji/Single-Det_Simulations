@@ -1,6 +1,4 @@
 #include "SteppingAction.hh"
-#include "PrimaryGeneratorAction.hh"
-#include "DetectorConstruction.hh"
 
 #include "G4RunManager.hh"
 #include "RunAction.hh"

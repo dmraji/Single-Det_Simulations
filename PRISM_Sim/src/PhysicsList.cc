@@ -98,6 +98,8 @@
 #include "G4Alpha.hh"
 #include "G4GenericIon.hh"
 
+using namespace CLHEP;
+
 //==================================================================================================
 
 PhysicsList* PhysicsList::fgInstance = 0;
@@ -190,7 +192,7 @@ void PhysicsList::ConstructEM(){
         else if (particleName == "e-") {
             pmanager->AddProcess(new G4eMultipleScattering());
             G4eIonisation* eIoni = new G4eIonisation();
-            eIoni->SetStepFunction(0.2, 100*CLHEP::um);
+            eIoni->SetStepFunction(0.2, 100*um);
             pmanager->AddProcess(eIoni,                -1, 2, 2);
             pmanager->AddProcess(new G4eBremsstrahlung,-1, 3, 3);
         }
@@ -203,7 +205,7 @@ void PhysicsList::ConstructEM(){
             pmanager->AddProcess(msc, -1, 1, 1);
         
             G4eIonisation* eIoni = new G4eIonisation();
-            eIoni->SetStepFunction(0.2, 100*CLHEP::um);
+            eIoni->SetStepFunction(0.2, 100*um);
         
             pmanager->AddProcess(eIoni,                 -1, 2, 2);
             pmanager->AddProcess(new G4eBremsstrahlung, -1,-3, 3);
@@ -218,7 +220,7 @@ void PhysicsList::ConstructEM(){
             pmanager->AddProcess(msc,                       -1, 1, 1);
         
             G4MuIonisation* muIoni = new G4MuIonisation();
-            muIoni->SetStepFunction(0.2, 50*CLHEP::um);
+            muIoni->SetStepFunction(0.2, 50*um);
         
             pmanager->AddProcess(muIoni,                    -1, 2, 2);
             pmanager->AddProcess(new G4MuBremsstrahlung,    -1,-3, 3);
@@ -233,7 +235,7 @@ void PhysicsList::ConstructEM(){
         
             G4ionIonisation* ionIoni = new G4ionIonisation();
             ionIoni->SetEmModel(new G4IonParametrisedLossModel());
-            ionIoni->SetStepFunction(0.1, 10*CLHEP::um);
+            ionIoni->SetStepFunction(0.1, 10*um);
             pmanager->AddProcess(ionIoni,                   -1, 2, 2);
             pmanager->AddProcess(new G4NuclearStopping(),   -1, 3,-1);
         
@@ -244,7 +246,7 @@ void PhysicsList::ConstructEM(){
             pmanager->AddProcess(new G4hMultipleScattering, -1, 1, 1);
         
             G4ionIonisation* ionIoni = new G4ionIonisation();
-            ionIoni->SetStepFunction(0.1, 20*CLHEP::um);
+            ionIoni->SetStepFunction(0.1, 20*um);
             pmanager->AddProcess(ionIoni,                   -1, 2, 2);
             pmanager->AddProcess(new G4NuclearStopping(),   -1, 3,-1);
         
@@ -259,7 +261,7 @@ void PhysicsList::ConstructEM(){
             pmanager->AddProcess(new G4hMultipleScattering, -1, 1, 1);
         
             G4hIonisation* hIoni = new G4hIonisation();
-            hIoni->SetStepFunction(0.2, 50*CLHEP::um);
+            hIoni->SetStepFunction(0.2, 50*um);
         
             pmanager->AddProcess(hIoni,                     -1, 2, 2);
             pmanager->AddProcess(new G4hBremsstrahlung,     -1,-3, 3);

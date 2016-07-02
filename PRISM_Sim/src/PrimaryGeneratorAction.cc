@@ -8,6 +8,9 @@
 
 #include "DetectorConstruction.hh"
 
+using namespace CLHEP;
+using namespace std;
+
 //==================================================================================================
 
 PrimaryGeneratorAction* PrimaryGeneratorAction::fgInstance = 0;
@@ -34,8 +37,8 @@ PrimaryGeneratorAction::PrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction
                               FatalException, "Find particle did not return a particle");
     
     gun->SetParticleDefinition(particle);
-    gun->SetParticlePosition(G4ThreeVector(0.*CLHEP::cm, 0.*CLHEP::cm, 0.5*CLHEP::m));
-    gun->SetParticleEnergy(60.*CLHEP::keV);
+    gun->SetParticlePosition(G4ThreeVector(0.*cm, 0.*cm, 0.5*m));
+    gun->SetParticleEnergy(60.*keV);
     gun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
     
     theta = 0.;
@@ -85,23 +88,23 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
     // - -
     
     // Set the direction of the rays, given theta and phi (calculate position, take all negative values)
-    G4double r = 15.*CLHEP::cm;
+    G4double r = 15.*cm;
     G4ThreeVector dir;
-    dir.setX(-r*cos(theta*(CLHEP::pi/180))*sin(phi*(CLHEP::pi/180)));
-    dir.setY(-r*sin(theta*(CLHEP::pi/180))*sin(phi*(CLHEP::pi/180)));
-    dir.setZ(-r*cos(phi  *(CLHEP::pi/180)));
+    dir.setX(-r*cos(theta*(pi/180))*sin(phi*(pi/180)));
+    dir.setY(-r*sin(theta*(pi/180))*sin(phi*(pi/180)));
+    dir.setZ(-r*cos(phi  *(pi/180)));
 
     // Uniformly sample a disk that just covers the entire detector (start at z-axis (0,0,1) and then rotate)
     G4double rand_r = G4UniformRand();
-    G4double rand_theta = 2. * CLHEP::pi * G4UniformRand();
-    G4double sphererad = 8.*CLHEP::cm;
+    G4double rand_theta = 2. * pi * G4UniformRand();
+    G4double sphererad = 8.*cm;
     G4ThreeVector disk_pos(0);
     disk_pos.setX(sphererad * sqrt(rand_r) * cos(rand_theta));
     disk_pos.setY(sphererad * sqrt(rand_r) * sin(rand_theta));
     disk_pos.setZ(r);
     
     // Get position by rotating the z-oriented disk
-    G4ThreeVector pos = disk_pos.rotateY(phi*CLHEP::deg).rotateZ(theta*CLHEP::deg);
+    G4ThreeVector pos = disk_pos.rotateY(phi*deg).rotateZ(theta*deg);
 
     // Set results to the gun
     gun->SetParticlePosition(pos);
@@ -147,12 +150,12 @@ void PrimaryGeneratorAction::ReadInHEALPixAngles(G4String filename){
     
     HPangles.clear();
     
-    std::ifstream myfile(filename);
-    std::string line;
+    ifstream myfile(filename);
+    string line;
     if (myfile.is_open()){
         Angles ang;
         while (getline(myfile,line)){
-            std::istringstream(line) >> ang.phi >> ang.theta;
+            istringstream(line) >> ang.phi >> ang.theta;
             HPangles.push_back(ang);
         }
         myfile.close();

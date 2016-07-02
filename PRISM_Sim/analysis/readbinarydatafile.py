@@ -14,7 +14,7 @@ def read_in_chunks(file_object, chunk_size=11):
             break
         yield data
 
-fp = open('../output/HP8Ring_Response_10k.bin', mode='rb')
+fp = open('../output/HP16Ring_DetRing_Response_10k.bin', mode='rb')
 
 evtN=[]
 HitNum=[]
@@ -87,11 +87,11 @@ plt.show()
 '''
 
 # Plot DetID vs HPindex
-H, xedges, yedges, img = plt.hist2d(DetID,HPindex, bins=[192,768])
+H, xedges, yedges, img = plt.hist2d(DetID,HPindex, bins=[192,3072])
 extent = [yedges[0], yedges[-1], xedges[0], xedges[-1]]
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
-im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0,768,0,192], aspect='auto')
+im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0,3072,0,192], aspect='auto')
 fig.colorbar(im, ax=ax)
 plt.show()
 

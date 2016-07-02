@@ -19,6 +19,8 @@
 #include "G4UnitsTable.hh"
 #include "G4Material.hh"
 
+using namespace std;
+using namespace CLHEP;
 
 //==================================================================================================
 
@@ -34,11 +36,14 @@ DetectorConstruction* DetectorConstruction::Instance() {
 //==================================================================================================
 
 DetectorConstruction::DetectorConstruction()
-: worldPhys(0), mworld(0), mdetector(0),
-  world_dim(30*CLHEP::cm),                                                     // default world is a 50 cm radius sphere
-  detector_dim(G4ThreeVector(0.5*CLHEP::cm, 0.5*CLHEP::cm, 0.5*CLHEP::cm)),    // default detector is 1 cc cube (use half sizes)
+: detindexing("Ring"),
+  worldPhys(0),
+  mworld(0),
+  mdetector(0),
+  world_dim(30*cm),                                                     // default world is a 50 cm radius sphere
+  detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),    // default detector is 1 cc cube (use half sizes)
   detector_pos(G4ThreeVector(0.)),                                             // default position at 0, 0, 0
-  _checkoverlaps(false)                                                        // by default, dont check overlaps while constructing
+  _checkoverlaps(false)                                                       // by default, dont check overlaps while constructing
 {
  
     // Get a random mask
@@ -48,7 +53,7 @@ DetectorConstruction::DetectorConstruction()
     G4String mask_hex = BinToHex(_mask);
     
     // Here is the method to put the hex string back into a binary array
-        //std::vector<G4int> _mask_ = HexToBin(mask_hex);
+        //vector<G4int> _mask_ = HexToBin(mask_hex);
     
     // Create a new messenger class
     detectorconstructionmessenger = new DetectorConstructionMessenger(this);
@@ -79,11 +84,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 void DetectorConstruction::ConstructMaterials() {
     
     // Define CZT material
-    G4Element* elCd = new G4Element("Cadmium"  ,"Cd", 48., 112.411*CLHEP::g/CLHEP::mole);
-    G4Element* elZn = new G4Element("Zinc"     ,"Zn", 30., 65.39  *CLHEP::g/CLHEP::mole);
-    G4Element* elTe = new G4Element("Tellurium","Te", 52., 127.6  *CLHEP::g/CLHEP::mole);
+    G4Element* elCd = new G4Element("Cadmium"  ,"Cd", 48., 112.411*g/mole);
+    G4Element* elZn = new G4Element("Zinc"     ,"Zn", 30., 65.39  *g/mole);
+    G4Element* elTe = new G4Element("Tellurium","Te", 52., 127.6  *g/mole);
     
-    G4Material* CZT = new G4Material("CZT", 5.78*CLHEP::g/CLHEP::cm3, 3);
+    G4Material* CZT = new G4Material("CZT", 5.78*g/cm3, 3);
     CZT->AddElement(elCd, 9);
     CZT->AddElement(elZn, 1);
     CZT->AddElement(elTe, 10);
@@ -143,10 +148,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                       );
 
     // Create 192 logical volumes (so we can have different colors)
-    std::vector<G4LogicalVolume*> logvols;
-    //std::string logname = "DetLog";
+    vector<G4LogicalVolume*> logvols;
+    //string logname = "DetLog";
     for (int i = 0; i < 192; i++){
-        //logname += std::to_string(i+1);
+        //logname += to_string(i+1);
         logvols.push_back(new G4LogicalVolume(detectorSolid,    // target solid
                                               mdetector,        // target material
                                               "DetectorLog"     // name
@@ -155,24 +160,33 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     
    
     // Pull in detector center verticies from file
-    std::ifstream myfile("geo/ring/centervertices_Ring.txt");
+    G4String centfilename;
+    if (detindexing == "Nested"){centfilename = "geo/nested/centervertices_";}
+    else {centfilename = "geo/ring/centervertices_";}
+    centfilename.append(detindexing).append(".txt");
+    ifstream centerfile(centfilename);
     double x_, y_, z_;
-    std::string line;
-    if (myfile.is_open()){
-        while (getline(myfile,line)){
-            std::istringstream(line) >> x_ >> y_ >> z_;
-            centers.push_back(G4ThreeVector(x_*CLHEP::mm, y_*CLHEP::mm ,z_*CLHEP::mm));
+    string line;
+    centers.clear();
+    if (centerfile.is_open()){
+        while (getline(centerfile,line)){
+            istringstream(line) >> x_ >> y_ >> z_;
+            centers.push_back(G4ThreeVector(x_*mm, y_*mm ,z_*mm));
         }
-        myfile.close();
+        centerfile.close();
     }
     
     // Pull in rotation matrices from file
-    std::vector<G4RotationMatrix> rotationmat;
-    std::ifstream myfile3("geo/ring/rotationmatrices_Ring.txt");
+    G4String rotfilename;
+    if (detindexing == "Nested"){rotfilename = "geo/nested/rotationmatrices_";}
+    else {rotfilename = "geo/ring/rotationmatrices_";}
+    rotfilename.append(detindexing).append(".txt");
+    ifstream myfile3(rotfilename);
     double x1_,x2_,x3_,y1_,y2_,y3_,z1_,z2_,z3_;
+    rotationmat.clear();
     if (myfile3.is_open()){
         while (getline(myfile3,line)){
-            std::istringstream(line) >> x1_ >> x2_ >> x3_ >> y1_ >> y2_ >> y3_ >> z1_ >> z2_ >> z3_;
+            istringstream(line) >> x1_ >> x2_ >> x3_ >> y1_ >> y2_ >> y3_ >> z1_ >> z2_ >> z3_;
             rotationmat.push_back(G4RotationMatrix(G4ThreeVector(x1_,x2_,x3_), G4ThreeVector(y1_,y2_,y3_), G4ThreeVector(z1_,z2_,z3_)));
         }
         myfile3.close();
@@ -188,7 +202,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     for (int i = 0; i < int(_mask.size()); i++){
         
         // Detctor ID are just numbers
-        std::string detID = std::to_string(i+1);
+        G4String detID = to_string(i+1);
         
         // if mask value is 1 then fill, if not leave empty
         if (_mask[i]){
@@ -251,9 +265,9 @@ void DetectorConstruction::ConstructSDandField(){
 //==================================================================================================
 
 
-std::vector<G4int> DetectorConstruction::GetRandomMask(){
+vector<G4int> DetectorConstruction::GetRandomMask(){
     
-    std::vector<G4int> mask;
+    vector<G4int> mask;
     G4double rand;
     
     // Get random number, convert to 1 or 0, fill mask array
@@ -268,14 +282,14 @@ std::vector<G4int> DetectorConstruction::GetRandomMask(){
 
 //==================================================================================================
 
-void DetectorConstruction::SetMask(std::vector<G4int> inputmask){
+void DetectorConstruction::SetMask(vector<G4int> inputmask){
     
     _mask = inputmask;
 }
 
 //==================================================================================================
 
-G4String DetectorConstruction::BinToHex(std::vector<G4int> mask){
+G4String DetectorConstruction::BinToHex(vector<G4int> mask){
     
     // Digit to hex table
     const char *hex_dig[] = {"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"};
@@ -293,9 +307,9 @@ G4String DetectorConstruction::BinToHex(std::vector<G4int> mask){
 
 //==================================================================================================
 
-std::vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
+vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
     
-    std::vector<G4int> mask;
+    vector<G4int> mask;
 
     // Loop through hex string and create a binary string with hex to binary table
     G4String mask_string = "";
@@ -351,7 +365,7 @@ void DetectorConstruction::UpdateGeometry(){
 
 void DetectorConstruction::SetDetDim(G4ThreeVector dim){
     
-    detector_dim = G4ThreeVector((dim.x()/2.)*CLHEP::cm, (dim.y()/2.)*CLHEP::cm, (dim.z()/2.)*CLHEP::cm);
+    detector_dim = G4ThreeVector((dim.x()/2.)*cm, (dim.y()/2.)*cm, (dim.z()/2.)*cm);
 }
 
 //==================================================================================================
@@ -362,13 +376,5 @@ void DetectorConstruction::CheckOverlapsOn(){
 }
 
 //==================================================================================================
-
-std::vector<G4ThreeVector> DetectorConstruction::GetDetCenters(){
-    
-    return centers;
-}
-
-//==================================================================================================
-
 
 

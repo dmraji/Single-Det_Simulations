@@ -18,10 +18,8 @@ public:
 	void PreUserTrackingAction(const G4Track*);
 	void PostUserTrackingAction(const G4Track*);
 
-
 private:
 	static TrackingAction* fgInstance;
-
 
 };
 

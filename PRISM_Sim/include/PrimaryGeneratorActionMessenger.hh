@@ -28,13 +28,13 @@ private:
     G4UIdirectory* fDirDirectory;
     G4UIdirectory* fOutDirectory;
     
-    G4UIcmdWithADouble* fThetaCmd;
-    G4UIcmdWithADouble* fPhiCmd;
-    G4UIcmdWithAnInteger* fHPCmd;
-    G4UIcmdWithAnInteger* fHPNsideCmd;
-    G4UIcmdWithAString* fHPindexingCmd;
+    G4UIcmdWithADouble*      fThetaCmd;
+    G4UIcmdWithADouble*      fPhiCmd;
+    G4UIcmdWithAnInteger*    fHPCmd;
+    G4UIcmdWithAnInteger*    fHPNsideCmd;
+    G4UIcmdWithAString*      fHPindexingCmd;
     G4UIcmdWithoutParameter* fSetUpHEALPixCmd;
-    G4UIcmdWithAString* fOutputFileNameCmd;
+    G4UIcmdWithAString*      fOutputFileNameCmd;
 
     
 };

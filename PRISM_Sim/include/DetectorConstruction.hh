@@ -6,18 +6,18 @@
 #include "SensitiveDetector.hh"
 #include "DetectorConstructionMessenger.hh"
 
+#include "G4ThreeVector.hh"
+#include "G4RotationMatrix.hh"
+#include "G4TwoVector.hh"
+
+using namespace std;
+
 class G4Box;
 class G4Tubs;
 class G4Sphere;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
-
-#include "G4ThreeVector.hh"
-#include "G4RotationMatrix.hh"
-#include "G4TwoVector.hh"
-
-
 
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
@@ -38,18 +38,26 @@ public:
     
     virtual void ConstructSDandField();
     
-    std::vector<G4int> GetRandomMask();
-    void SetMask(std::vector<G4int>);
-    G4String BinToHex(std::vector<G4int>);
-    std::vector<G4int> HexToBin(G4String);
+    vector<G4int> GetRandomMask();
+    void SetMask(vector<G4int>);
+    G4String BinToHex(vector<G4int>);
+    vector<G4int> HexToBin(G4String);
     
     void UpdateGeometry();
     void SetDetDim(G4ThreeVector);
 
     void CheckOverlapsOn();
     
-    std::vector<G4ThreeVector> centers;
-    std::vector<G4ThreeVector> GetDetCenters();
+    vector<G4ThreeVector> centers;
+    inline vector<G4ThreeVector> GetDetCenters(){return centers;}
+    
+    vector<G4RotationMatrix> rotationmat;
+    inline vector<G4RotationMatrix> GetRotationMat(){return rotationmat;}
+
+    
+    G4String detindexing;
+    inline void SetDetIndexing(G4String di){detindexing = di;}
+    inline G4String GetDetIndexing(){return detindexing;}
     
     
 protected:
@@ -57,20 +65,13 @@ protected:
     virtual void ConstructMaterials();
 
 protected:
-    // Physical volume for world
     G4VPhysicalVolume* worldPhys;
-    // world material
     G4Material* mworld;
-    // backplane detector material
     G4Material* mdetector;
 
-    // World is a sphere so we need radius
-    G4double world_dim;
-    // detector are cubes, need xyz
-    G4ThreeVector detector_dim;
-    // detector position
+    G4double world_dim;          // World is a sphere so we need radius
+    G4ThreeVector detector_dim;  // detector are cubes, need xyz dimensions
     G4ThreeVector detector_pos;
-    // detector rotation
     G4RotationMatrix detector_rot;
     
     // bool to check overlapping geometry (can be time consuming... default is false)
@@ -81,7 +82,7 @@ protected:
 private:
 	static DetectorConstruction* fgInstance;
     
-    std::vector<G4int> _mask;
+    vector<G4int> _mask;
 
 
 };
