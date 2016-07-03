@@ -29,4 +29,4 @@
 /PRISM_SIM/output/filename output
 
 # Beam on
-/run/beamOn 100
+/run/beamOn 1000
