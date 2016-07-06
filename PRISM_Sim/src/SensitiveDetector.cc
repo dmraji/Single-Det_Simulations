@@ -25,8 +25,8 @@ SensitiveDetector::~SensitiveDetector(){}
 
 //==================================================================================
 
-void SensitiveDetector::Initialize(G4HCofThisEvent* HCE)
-{
+void SensitiveDetector::Initialize(G4HCofThisEvent* HCE){
+
     static int HCID = -1;
     
     // Create hits collection
@@ -52,16 +52,12 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
     // XYZ Position
     newHit->SetPos(aStep->GetPostStepPoint()->GetPosition());
-    
     // Detector ID
     newHit->SetVol(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
-    
+
     // Interaction Process
     newHit->SetProcess(aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName());
-    
-    // Previous Interaction
-    newHit->SetPrevProcess(aStep->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName());
-    
+
     // Incident theta and phi angle's, also HEALPix index
     newHit->SetTheta(PrimaryGeneratorAction::Instance()->GetTheta());
     newHit->SetPhi(PrimaryGeneratorAction::Instance()->GetPhi());
@@ -69,6 +65,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
     // Local time
     newHit->SetTime(aStep->GetPreStepPoint()->GetLocalTime());
+    
     
     // Depth of interaction
     G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) - 1];
@@ -80,8 +77,6 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
     // Add the newHit to the HitCollection
     fHitsCollection->insert( newHit );
-    
-    //newHit->Print();
     
     return true;
 }

@@ -27,18 +27,12 @@ void ActionInitialization::Build() const {
     
     // for thread-local class instances
     SetUserAction(new PrimaryGeneratorAction);
-
     SetUserAction(new RunAction);
-
     SetUserAction(new EventAction);
-
     SetUserAction(new TrackingAction);
-
     SetUserAction(new SteppingAction);
-    
     SetUserAction(new StackingAction);
     
-
 }
 
 //============================================================================//

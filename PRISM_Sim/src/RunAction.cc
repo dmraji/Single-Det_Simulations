@@ -133,8 +133,7 @@ void RunAction::PrintToTextFile(){
         //<< Timetuple[i] << "\t"
         << int(Energytuple[i]) << "\t"
         << int(DetIDtuple[i]) << "\t"
-        //<< Processtuple[i] << "\t"
-        //<< PrevProcesstuple[i] << "\t"
+        << Processtuple[i] << "\t"
         //<< DOItuple[i] << "\t"
         << int(DOIbintuple[i]) << "\t"
         //<< Positiontuple[i] << "\t"
@@ -174,7 +173,6 @@ void RunAction::PrintToBinaryFile(){
         //myfile.write(reinterpret_cast<char*>(&TrackIDtuple[i]), sizeof(TrackIDtuple[i]));
         //myfile.write(reinterpret_cast<char*>(&Timetuple[i]), sizeof(Timetuple[i]));
         //myfile.write(reinterpret_cast<char*>(&Processtuple[i]), sizeof(Processtuple[i]));
-        //myfile.write(reinterpret_cast<char*>(&PrevProcesstuple[i]), sizeof(PrevProcesstuple[i]));
         //myfile.write(reinterpret_cast<char*>(&Positiontuple[i]), sizeof(Positiontuple[i]));
         //myfile.write(reinterpret_cast<char*>(&Thetatuple[i]), sizeof(Thetatuple[i]));
         //myfile.write(reinterpret_cast<char*>(&Phituple[i]), sizeof(Phituple[i]));

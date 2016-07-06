@@ -72,6 +72,9 @@ void EventAction::FillTuples(const G4Event* evt_){
     if ( HC ) {
         int n_hit = HC->entries();
         for (int i = 0 ; i < n_hit; i++){
+            
+            //only get photoabsorptions
+            if ((*HC)[i]->GetProcess() == "phot"){
     
             runaction->FillEvtNtuple       (evt_->GetEventID());
             runaction->FillHitNumtuple     (i+1);
@@ -80,7 +83,6 @@ void EventAction::FillTuples(const G4Event* evt_){
             runaction->FillEnergytuple     ((*HC)[i]->GetEnergy()/keV);
             runaction->FillDetIDtuple      (atoi((*HC)[i]->GetVol()));
             runaction->FillProcesstuple    ((*HC)[i]->GetProcess());
-            runaction->FillPrevProcesstuple((*HC)[i]->GetPrevProcess());
             runaction->FillDOItuple        ((*HC)[i]->GetDOI()/mm);
             runaction->FillPositiontuple   ((*HC)[i]->GetPos());
             runaction->FillThetatuple      ((*HC)[i]->GetTheta());
@@ -114,7 +116,7 @@ void EventAction::FillTuples(const G4Event* evt_){
             else if (doi >= 9.0*mm && doi < 9.5*mm){doibin = 19;}
             
             runaction->FillDOIbintuple(doibin);
-            
+            }
             
             
         }

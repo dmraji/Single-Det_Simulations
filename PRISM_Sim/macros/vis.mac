@@ -77,6 +77,9 @@
 # simulation specific
 # ———————————
 
+# Tracking secondary electrons
+#/PRISM_SIM/tracking/trackElectrons Off
+
 # Detector indexing
 /PRISM_SIM/geom/detIndexing Ring
 
@@ -106,7 +109,9 @@
 # Change output file name
 /PRISM_SIM/output/filename output
 
+/PRISM_SIM/geom/setMask 21524FA478BD521AB44791322B545C979943A029753854BB
+
 # Beam on
-#/run/beamOn 100
+/run/beamOn 1
 
 

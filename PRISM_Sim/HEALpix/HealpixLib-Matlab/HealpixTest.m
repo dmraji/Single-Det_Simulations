@@ -18,6 +18,7 @@ if ringplot
         plot3(C(1:i,1),C(1:i,2),C(1:i,3), '.')
         axis ([-1 1 -1 1 -1 1])
         drawnow
+        pause(0.8)
     end
 end
 

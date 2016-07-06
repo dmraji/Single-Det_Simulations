@@ -180,7 +180,7 @@ void PhysicsList::ConstructEM(){
         G4ParticleDefinition* particle = theParticleIterator->value();
         G4ProcessManager* pmanager = particle->GetProcessManager();
         G4String particleName = particle->GetParticleName();
-        
+                
         if (particleName == "gamma") {
             pmanager->AddDiscreteProcess(new G4GammaConversion());
             pmanager->AddDiscreteProcess(new G4ComptonScattering());

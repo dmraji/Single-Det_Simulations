@@ -71,12 +71,8 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction() {
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
     
-    // The Instance() member function is a special use of a static member function and
-    // static member variable -- in essence, it works if there is ONLY ONE
-    // instance of the class -- this is called a "singleton"
+
     if(!detector) detector = DetectorConstruction::Instance();
-    // you can then use this detector pointer to get the world dimensions,
-    // the target position/dimensions etc.
     
 
     // Cone emission

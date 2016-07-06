@@ -260,6 +260,8 @@ void DetectorConstruction::ConstructSDandField(){
     SensitiveDetector* SD = new SensitiveDetector(SDname,"fHitsCollection");
     SetSensitiveDetector("DetectorLog", SD, true);
     
+    // how to delete these when updating geometry?
+    
 }
 
 //==================================================================================================
@@ -351,7 +353,10 @@ vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
 //==================================================================================================
 
 void DetectorConstruction::UpdateGeometry(){
-
+    
+    //
+    //
+    //
     // figure out a way to delete the old sensitive detectors before reconstructing geo
     //
     //
