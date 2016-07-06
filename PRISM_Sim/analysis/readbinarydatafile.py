@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------
 
 
-dt = np.dtype([('evtN', np.uint32), ('HitNum', np.int8), ('Energy', np.uint16), ('DetID',np.uint8),('DOI', np.uint8),('HPindex',np.uint16)])
-fName = '../output/HP16Ring_DetRing_Response_20k_PBMask.bin'
+dt = np.dtype([('evtN', np.uint32), ('HitNum', np.int8), ('Energy', np.float64), ('DetID',np.uint8),('DOI', np.uint8),('HPindex',np.uint16)])
+fName = '../output/HP8Ring_DetRing_Response_200.bin'
 data = np.fromfile(fName, dtype=dt)
 
 # ---------------------------------------------
@@ -46,16 +46,15 @@ print HPindex
 '''
 
 
-H=np.histogram2d(data['DetID'],data['HPindex'], bins=[192,3072])
-
-
-'''
 # Plot DetID vs HPindex
-H, xedges, yedges, img = plt.hist2d(data['DetID'],data['HPindex'], bins=[192,3072], range=[[0.5,192.],[0.5,3072.5]])
+
+#H, xedges, yedges, img = plt.hist2d(data['DetID'],data['HPindex'], bins=[192,3072], range=[[0.5,192.],[0.5,3072.5]])
+H, xedges, yedges, img = plt.hist2d(data['DetID'],data['HPindex'], bins=[192,768], range=[[0.5,192.],[0.5,768.5]])
 extent = [yedges[0], yedges[-1], xedges[0], xedges[-1]]
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
-im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0.5,3072.5,0.5,192.5], aspect='auto')
+#im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0.5,3072.5,0.5,192.5], aspect='auto')
+im = ax.imshow(H, cmap=plt.cm.jet, origin='lower', interpolation='nearest', extent=[0.5,768.5,0.5,192.5], aspect='auto')
 fig.colorbar(im, ax=ax)
 plt.show()
-'''
+

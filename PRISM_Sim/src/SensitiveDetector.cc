@@ -48,7 +48,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     newHit->SetTrackID(aStep->GetTrack()->GetTrackID());
     
     // Incident energy
-    newHit->SetEnergy(aStep->GetPreStepPoint()->GetTotalEnergy());
+    newHit->SetEnergy(G4float(aStep->GetPreStepPoint()->GetTotalEnergy()));
     
     // XYZ Position
     newHit->SetPos(aStep->GetPostStepPoint()->GetPosition());

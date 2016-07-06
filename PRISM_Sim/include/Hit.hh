@@ -25,7 +25,7 @@ public:
     
     // Set methods
     void SetTrackID     (G4int track)          {fTrackID = track;}
-    void SetEnergy      (G4double de)          {fEnergy = de;}
+    void SetEnergy      (G4float de)           {fEnergy = de;}
     void SetPos         (G4ThreeVector xyz)    {fPos = xyz;}
     void SetVol         (G4String volname)     {fVol = volname;}
     void SetProcess     (G4String procname)    {fProc = procname;}
@@ -37,7 +37,7 @@ public:
     
     // Get methods
     G4int GetTrackID() const               {return fTrackID;}
-    G4double GetEnergy() const             {return fEnergy;}
+    G4float GetEnergy() const              {return fEnergy;}
     G4ThreeVector GetPos() const           {return fPos;}
     G4String GetVol() const                {return fVol;}
     G4String GetProcess() const            {return fProc;}
@@ -50,7 +50,8 @@ public:
 private:
     
     G4int         fTrackID, fHP;
-    G4double      fEnergy, fTheta, fPhi, fTime, fDOI;
+    G4float       fEnergy;
+    G4double      fTheta, fPhi, fTime, fDOI;
     G4ThreeVector fPos;
     G4String      fVol, fProc;
     

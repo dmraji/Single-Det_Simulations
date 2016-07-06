@@ -18,7 +18,6 @@ public:
 
 	static RunAction* Instance();
 
-
 public:
 	void BeginOfRunAction(const G4Run*);
 	void EndOfRunAction(const G4Run*);
@@ -45,7 +44,6 @@ public:
     void ClearDetIDtuple();
     vector<G4int> GetDetIDtuple();
     
-    
     // Event Number
     vector<G4int> EvtNtuple;
     void FillEvtNtuple(G4int);
@@ -71,10 +69,10 @@ public:
     vector<G4double> GetTimetuple();
     
     // Energy
-    vector<G4double> Energytuple;
-    void FillEnergytuple(G4double);
+    vector<G4float> Energytuple;
+    void FillEnergytuple(G4float);
     void ClearEnergytuple();
-    vector<G4double> GetEnergytuple();
+    vector<G4float> GetEnergytuple();
     
     // Process
     vector<G4String> Processtuple;

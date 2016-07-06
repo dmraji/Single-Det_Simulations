@@ -58,7 +58,7 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction() {
     
     // delete the particle gun
     delete gun;
-    // set your pointer to the geometry class to zero
+    
     detector = 0;
 
 	fgInstance = 0;
@@ -118,7 +118,6 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 void PrimaryGeneratorAction::SetTheta(G4double theta_){
 
     theta = theta_;
-    //G4cout << "Theta reset to " << theta << "\n";
 
 }
 //==================================================================================================
@@ -129,7 +128,6 @@ void PrimaryGeneratorAction::SetTheta(G4double theta_){
 void PrimaryGeneratorAction::SetPhi(G4double phi_){
 
     phi = phi_;
-    //G4cout << "Phi reset to " << phi << "\n";
 
 }
 
