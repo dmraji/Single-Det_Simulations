@@ -29,6 +29,7 @@ public:
     
     DetectorConstructionMessenger * detectorconstructionmessenger;
 
+
 public:
 	G4VPhysicalVolume* Construct();
 

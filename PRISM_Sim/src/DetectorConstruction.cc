@@ -149,7 +149,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
     // Create 192 logical volumes (so we can have different colors)
     vector<G4LogicalVolume*> logvols;
-    //string logname = "DetLog";
     for (int i = 0; i < 192; i++){
         //logname += to_string(i+1);
         logvols.push_back(new G4LogicalVolume(detectorSolid,    // target solid
@@ -257,7 +256,7 @@ void DetectorConstruction::ConstructSDandField(){
     
     // Sensitive detectors
     G4String SDname = "PRISM_SIM/SD";
-    SensitiveDetector* SD = new SensitiveDetector(SDname,"fHitsCollection");
+    SensitiveDetector * SD = new SensitiveDetector(SDname,"fHitsCollection");
     SetSensitiveDetector("DetectorLog", SD, true);
     
     // how to delete these when updating geometry?
@@ -354,16 +353,9 @@ vector<G4int> DetectorConstruction::HexToBin(G4String hex_){
 
 void DetectorConstruction::UpdateGeometry(){
     
-    //
-    //
-    //
-    // figure out a way to delete the old sensitive detectors before reconstructing geo
-    //
-    //
-    
     //G4RunManager::GetRunManager()->DefineWorldVolume(ConstructWorld());
-    G4RunManager::GetRunManager()->ReinitializeGeometry();
-    
+    G4RunManager::GetRunManager()->ReinitializeGeometry(true);   // pass it "true" so it clear the geometry first...
+    //G4RunManager::GetRunManager()->GeometryHasBeenModified();
 }
 
 //==================================================================================================

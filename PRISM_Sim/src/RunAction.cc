@@ -53,7 +53,7 @@ void RunAction::EndOfRunAction(const G4Run* /*aRun*/) {
     
     // Dump data to file
     PrintToBinaryFile();
-    //PrintToTextFile();
+    PrintToTextFile();
     
     // Clear data tuples for next run
     ClearTuples();
