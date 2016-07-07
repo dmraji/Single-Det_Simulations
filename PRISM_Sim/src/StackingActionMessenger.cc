@@ -42,7 +42,6 @@ void StackingActionMessenger::SetNewValue(G4UIcommand* command,G4String newValue
         G4String choice = newValue;
         
         if (choice == "on" || choice == "ON" || choice == "On"){
-            G4cout << "\n\n\nIn the on if statement\n\n\n";
             
             // if its turned off, turn it on
             if (!fStackingAction->GetElectronTracking()){
@@ -52,7 +51,6 @@ void StackingActionMessenger::SetNewValue(G4UIcommand* command,G4String newValue
         }
         
         else if (choice == "off" || choice == "OFF" || choice == "Off"){
-            G4cout << "\n\n\nIn the off if statement\n\n\n";
             
             // if its turn on, turn it off
             if (fStackingAction->GetElectronTracking()){

@@ -61,6 +61,14 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
     fOutputFileNameCmd = new G4UIcmdWithAString("/PRISM_SIM/output/filename",this);
     fOutputFileNameCmd->SetGuidance("name the output file");
     fOutputFileNameCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+    
+    fPrintTextCmd = new G4UIcmdWithAString("/PRISM_SIM/output/printText",this);
+    fPrintTextCmd->SetGuidance("Print to text (on/off)");
+    fPrintTextCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+    
+    fPrintBinaryCmd = new G4UIcmdWithAString("/PRISM_SIM/output/printBinary",this);
+    fPrintBinaryCmd->SetGuidance("Print to binary (on/off)");
+    fPrintBinaryCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
 }
 
@@ -77,6 +85,8 @@ PrimaryGeneratorActionMessenger::~PrimaryGeneratorActionMessenger()
     delete fDirDirectory;
     delete fOutDirectory;
     delete fOutputFileNameCmd;
+    delete fPrintTextCmd;
+    delete fPrintBinaryCmd;
 }
 
 //==================================================================================================
@@ -171,6 +181,29 @@ void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String 
         
         RunAction::Instance()->SetOutputFilename(newValue);
 
+    }
+    
+    else if (command == fPrintTextCmd){
+        
+        if (newValue == "On" || newValue == "ON" || newValue == "on"){
+            RunAction::Instance()->SetPrintText(true);
+        }
+        else if (newValue == "Off" || newValue == "OFF" || newValue == "off"){
+            RunAction::Instance()->SetPrintText(false);
+        }
+
+        
+    }
+    
+    else if (command == fPrintBinaryCmd){
+        
+        if (newValue == "On" || newValue == "ON" || newValue == "on"){
+            RunAction::Instance()->SetPrintBinary(true);
+        }
+        else if (newValue == "Off" || newValue == "OFF" || newValue == "off"){
+            RunAction::Instance()->SetPrintBinary(false);
+        }
+        
     }
     
     

@@ -1,4 +1,4 @@
 # Pick healpix angle
 /PRISM_SIM/direction/setHPindex {hpindex}
 
-/run/beamOn 100
+/run/beamOn 20000

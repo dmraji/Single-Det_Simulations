@@ -1,4 +1,4 @@
-n = 16; %768 points
+n = 32; %768 points
 
 I = HealpixGenerateSampling(n, 'rindex');
 S = HealpixGenerateSampling(n, 'scoord');
@@ -10,7 +10,7 @@ axis equal
 
 
 % Plot ring indexed points on at a time
-ringplot = 1;  %plot if 1, dont plot if 0
+ringplot = 0;  %plot if 1, dont plot if 0
 if ringplot
     C = SphToCart(Sring);
     figure;

@@ -109,6 +109,10 @@
 # Change output file name
 /PRISM_SIM/output/filename output
 
+#Print to text or binary format
+/PRISM_SIM/output/printText Off
+/PRISM_SIM/output/printBinary On
+
 # Beam on
 #/run/beamOn 1
 

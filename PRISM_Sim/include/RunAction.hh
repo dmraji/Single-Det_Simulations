@@ -110,18 +110,22 @@ public:
     void ClearHPindextuple();
     vector<G4int> GetHPindextuple();
     
-    // -----------------------------------------------
-
-    // Print to file
-    void PrintToTextFile();
-    void PrintToBinaryFile();
-    
     // Clear all tuples
     void ClearTuples();
     
     // -----------------------------------------------
+
+    // Print to file
+    void PrintToTextFile();
+    G4bool printtext;
+    inline void SetPrintText(G4bool ww){printtext = ww;}
+    inline G4bool GetPrintText(){return printtext;}
     
-    // Output file
+    void PrintToBinaryFile();
+    G4bool printbin;
+    inline void SetPrintBinary(G4bool qq){printbin = qq;}
+    inline G4bool GetPrintBinary(){return printbin;}
+
     G4String outputfilename;
     inline void SetOutputFilename(G4String fn){outputfilename = fn;}
     inline G4String GetOutputFilename(){return outputfilename;}

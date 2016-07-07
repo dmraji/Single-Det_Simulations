@@ -24,7 +24,7 @@ RunAction* RunAction::Instance() {
 
 //==================================================================================================
 
-RunAction::RunAction(): outputfilename("output") {
+RunAction::RunAction(): printtext(false), printbin(true), outputfilename("output") {
     
 	fgInstance = this;
     
@@ -52,8 +52,8 @@ void RunAction::BeginOfRunAction(const G4Run* /*aRun*/) {
 void RunAction::EndOfRunAction(const G4Run* /*aRun*/) {
     
     // Dump data to file
-    PrintToBinaryFile();
-    PrintToTextFile();
+    if (printbin){PrintToBinaryFile();}
+    if (printtext){PrintToTextFile();}
     
     // Clear data tuples for next run
     ClearTuples();

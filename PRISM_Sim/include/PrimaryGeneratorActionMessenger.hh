@@ -35,6 +35,8 @@ private:
     G4UIcmdWithAString*      fHPindexingCmd;
     G4UIcmdWithoutParameter* fSetUpHEALPixCmd;
     G4UIcmdWithAString*      fOutputFileNameCmd;
+    G4UIcmdWithAString*      fPrintTextCmd;
+    G4UIcmdWithAString*      fPrintBinaryCmd;
 
     
 };
