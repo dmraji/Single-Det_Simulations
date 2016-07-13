@@ -28,7 +28,7 @@
 /PRISM_SIM/direction/SetUpHEALPix
 
 # Change output file name
-/PRISM_SIM/output/filename HP16Ring_DetRing_Response_20k_2152Mask
+/PRISM_SIM/output/filename HP16Ring_DetRing_Response_100k_2152Mask
 
 #Print to text or binary format
 /PRISM_SIM/output/printText Off
