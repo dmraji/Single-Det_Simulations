@@ -13,3 +13,4 @@ compile.sh
 *.synctex.gz
 *.tex
 *.bin
+.ipynb_checkpoints
