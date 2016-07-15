@@ -1,4 +1,4 @@
-n = 32; %768 points
+n = 8; %768 points
 
 I = HealpixGenerateSampling(n, 'rindex');
 S = HealpixGenerateSampling(n, 'scoord');

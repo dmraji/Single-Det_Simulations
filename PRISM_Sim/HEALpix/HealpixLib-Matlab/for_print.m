@@ -2,7 +2,7 @@
 
 clear
 
-n = 16;
+n = 32;
 
 % sampling interval on the unit sphere
 interval = pi / 90;
