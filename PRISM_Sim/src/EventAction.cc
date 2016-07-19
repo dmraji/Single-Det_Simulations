@@ -116,7 +116,11 @@ void EventAction::FillTuples(const G4Event* evt_){
             else if (doi >= 9.0*mm && doi < 9.5*mm){doibin = 19;}
             
             runaction->FillDOIbintuple(doibin);
+                
+            G4cout << "\n\n DOI = " << doibin << "\n\n";
+
             }
+            
             
             
         }

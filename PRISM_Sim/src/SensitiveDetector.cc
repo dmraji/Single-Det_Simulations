@@ -52,6 +52,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     
     // XYZ Position
     newHit->SetPos(aStep->GetPostStepPoint()->GetPosition());
+    
     // Detector ID
     newHit->SetVol(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
 
