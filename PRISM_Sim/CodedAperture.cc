@@ -1,3 +1,4 @@
+/*
 #ifdef G4MULTITHREADED
     #include "G4MTRunManager.hh"
     typedef G4MTRunManager TheRunManager;
@@ -5,6 +6,10 @@
     #include "G4RunManager.hh"
     typedef G4RunManager TheRunManager;
 #endif
+*/
+
+#include "G4RunManager.hh"
+typedef G4RunManager TheRunManager;
 
 #include "Randomize.hh"
 #include "G4UImanager.hh"

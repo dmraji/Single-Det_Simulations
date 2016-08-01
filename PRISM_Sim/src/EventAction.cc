@@ -117,7 +117,7 @@ void EventAction::FillTuples(const G4Event* evt_){
             
             runaction->FillDOIbintuple(doibin);
                 
-            G4cout << "\n\n DOI = " << doibin << "\n\n";
+            //G4cout << "\n\n DOI = " << doibin << "\n\n";
 
             }
             
