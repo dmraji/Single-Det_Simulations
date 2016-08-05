@@ -1,0 +1,103 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.9in,bmargin=0.9in,lmargin=0.9in,rmargin=0.9in}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage[font=small,labelfont=bf,labelsep=period]{caption}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xfrac}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{enumitem}
+\setlength{\bibsep}{0pt}
+
+% Use "todonotes" - ability to add comments in the margins
+\usepackage{todonotes}
+
+% Set up hyperlinks
+\usepackage[colorlinks=true, citecolor=Blue, linkcolor=Blue, urlcolor=Blue]{hyperref}
+% example usage --> \todo[author=DH, linecolor=blue!40, backgroundcolor=green!20!white, bordercolor=black, size=\small]{This is a comment}
+
+% Set up section\subsection title formats
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+
+\begin{document}
+
+
+% = = = o = = = o = = = o = = = o = = = o = = = o = = = o = = =
+%       TITLE & AUTHORS
+% = = = o = = = o = = = o = = = o = = = o = = = o = = = o = = =
+
+\begin{centering}
+\textbf{Geant4 Simulation Package for the Portable Radiation Imaging Spectroscopy and Mapping (PRISM) System} \\
+%\vspace{10pt}
+%D. Hellfeld\textsuperscript{1,2} \\ 
+%\vspace{5pt}
+%\emph{\textsuperscript{1}Department of Nuclear Engineering, University of California, Berkeley, Berkeley, CA 94720} \\
+%\emph{\textsuperscript{2}Applied Nuclear Physics, Lawrence Berkeley National Laboratory, Berkeley, CA 94720}  \\ 
+\vspace{10pt}
+Updated: \today \\
+\end{centering}
+
+
+
+% = = = o = = = o = = = o = = = o = = = o = = = o = = = o = = =
+%       General Remarks
+% = = = o = = = o = = = o = = = o = = = o = = = o = = = o = = =
+
+\section{General Remarks}
+
+\begin{itemize}
+	\item{Detectors are CZT, world is vacuum}
+	\item{Basic physics is included (Compton, Photoelectric, Pair Production, Rayleigh..)}
+	\item{If photon hits detector and has photoabsorption reaction, we tally into ROOT histogram}
+	\begin{itemize}
+  		\item{ROOT histogram can then be read by python script in the analysis directory}
+  		\item{another python script is used to perform the reconstruction}
+		\begin{itemize}
+			\item{from within the analysis directory run \$ ipython}
+			\item{once in ipython, run \$ run readsystemresponse.py, \$ run reconstruction.py}
+		\end{itemize}
+	\end{itemize}
+	\item{can be run by running \$ ./CodedAperture}
+	\begin{itemize}
+ 		\item{macros exist that will run particles at every angle in -30,30 in theta and phi}
+    		\item{see the \texttt{response\_loop} macros}
+  		\item{update this to use HEALpix angles…}
+	\end{itemize}
+	\item{output will be in the form of a root file names totalresponse.root}
+	\item{to build with cmake use the following:\\ \$ cmake \texttt{-DGeant4\_DIR=/path/to/geant4-install/lib/Geant4-10.0.2/} . }
+	\begin{itemize}
+		\item{then just use \$ make -j4}
+	\end{itemize}
+	\item{or if you want to use Xcode, use the "-G Xcode" flag}
+\end{itemize}
+
+
+% = = = o = = = o = = = o = = = o = = = o = = = o = = = o = = =
+%       Details
+% = = = o = = = o = = = o = = = o = = = o = = = o = = = o = = =
+
+\section{Details}
+
+
+
+
+\end{document}
+
+
