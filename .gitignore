@@ -1,12 +1,12 @@
 .DS_Store
-xcode/
+#xcode/
 TODO
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 CodedAperture
 Makefile
-compile.sh
+#compile.sh
 *.aux
 *.log
 *.out
@@ -14,4 +14,4 @@ compile.sh
 *.tex
 *.bin
 *.ipynb_checkpoints
-*.pptx
+#*.pptx

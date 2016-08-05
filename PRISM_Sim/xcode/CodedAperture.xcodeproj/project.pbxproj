@@ -1,0 +1,790 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3B0AB2C048CB48148B0DE36F /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 416EBA1001DB40B1B8C3CC4F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				9A2CFCCFCEC1401B9CDB749B /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		C23DB043BACF4965A5E8A0C5 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 025BE6AA0132493FB93C0B82 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				84C354BBE5C34922BB3E5F6D /* CMake Rules */,
+			);
+			dependencies = (
+				A92D8A5B7CA3490C934D897E /* PBXTargetDependency */,
+				F6F74060B08A469184A0C147 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		05B1FF621B494D49B0F0FFAE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/TrackingAction.cc */ = {isa = PBXBuildFile; fileRef = 58B7481DD1C14600B42219A9 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/TrackingAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		0D05925C9658412AA4CBC2A7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstruction.hh */ = {isa = PBXBuildFile; fileRef = 6DFF1399A03E44F9B95D1F6C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstruction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		0DC6582A8B434019BDBBE4B3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc */ = {isa = PBXBuildFile; fileRef = 33C3BFE571A144B39C5F01C3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		1218D6E8A32B4D7D96D233A1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingAction.hh */ = {isa = PBXBuildFile; fileRef = 50ECD9E065A84F4FAE2370E4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		132D7E340D9049798CD39E12 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SteppingAction.cc */ = {isa = PBXBuildFile; fileRef = 39895C25A0A04FAEAB5B8E69 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SteppingAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		1C7405751BC24FF48E64F493 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 127A0B347DE643E78ADAD6D2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		24EE7EA86BF0449B9711EF37 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorAction.hh */ = {isa = PBXBuildFile; fileRef = 13C024DFFB254F6FA07896C3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		2D5760258E1942539E90A39A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SensitiveDetector.hh */ = {isa = PBXBuildFile; fileRef = 4C5A0CBECE0E45A0856C7FF7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SensitiveDetector.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		3A02941DB9F7492BBDC0B3E3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingActionMessenger.hh */ = {isa = PBXBuildFile; fileRef = F2B71D6900DB415B90010B26 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingActionMessenger.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		408F607E2ABC4EC289A5E7C8 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/TrackingAction.hh */ = {isa = PBXBuildFile; fileRef = D2C6797D32D946FFA015E98B /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/TrackingAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		60EF702568234B9697B08691 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PhysicsList.hh */ = {isa = PBXBuildFile; fileRef = D85236B1ECF24210AC06B776 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PhysicsList.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		67DF925A153E44B0814E5EFD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/RunAction.hh */ = {isa = PBXBuildFile; fileRef = 12D94B9BF20C42218E6C241A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/RunAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		7FD50ABD1A1A4B5CA59BA3DA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorAction.cc */ = {isa = PBXBuildFile; fileRef = F500EB935562469682C46A7A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		8F23BEF815DC49FBA23B3636 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingActionMessenger.cc */ = {isa = PBXBuildFile; fileRef = 989537E4D9234D31BE09BB5C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingActionMessenger.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		93E5113FB1CB45C2BD63EDA3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/EventAction.hh */ = {isa = PBXBuildFile; fileRef = F2E61119AA374687A116DA1C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/EventAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		9F00677C9C7746899DFAB3E0 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/RunAction.cc */ = {isa = PBXBuildFile; fileRef = 9135A5353E1A406CB54CD56C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/RunAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		A06AF4804434419EB6E25E62 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorActionMessenger.cc */ = {isa = PBXBuildFile; fileRef = 41472E670BEC4007B005CBAB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorActionMessenger.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		A99A411EDA5C43F08F793295 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstruction.cc */ = {isa = PBXBuildFile; fileRef = 17FDAD4B8A9F4F03B24EAC82 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstruction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		B122473628F54B9D99A36B63 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/ActionInitialization.hh */ = {isa = PBXBuildFile; fileRef = BC21424ABF8B4E5282F38CAA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/ActionInitialization.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		B8562B1E8B0042A1B8D82ED0 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/Hit.hh */ = {isa = PBXBuildFile; fileRef = 4C8833F72D8D4D1797F44618 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/Hit.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		BF2A2FF6D714406EB8FCC247 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CodedAperture.cc */ = {isa = PBXBuildFile; fileRef = 0780E85320D54C758FFEBA3A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CodedAperture.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		C719FD13BD41464BBD36D210 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SensitiveDetector.cc */ = {isa = PBXBuildFile; fileRef = C3EC3891DEC041E7831E7386 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SensitiveDetector.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		C73C25EFCF9E496993DF7DFC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SteppingAction.hh */ = {isa = PBXBuildFile; fileRef = 8DD1BE53EDE541E7A4F86EB4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SteppingAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		E18E15290A6645BFB92FB06B /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/ActionInitialization.cc */ = {isa = PBXBuildFile; fileRef = D1F8A73C59464A9388EE82F9 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/ActionInitialization.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		E654EDA0D25741D0810466A2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstructionMessenger.hh */ = {isa = PBXBuildFile; fileRef = E7D3977CB7E145DBA9F810CC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstructionMessenger.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		EA782D372B154585B5A29995 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorActionMessenger.hh */ = {isa = PBXBuildFile; fileRef = 3D6889B7BB1940C4AC33C251 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorActionMessenger.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		EB185EA30ED54702AAE580A6 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstructionMessenger.cc */ = {isa = PBXBuildFile; fileRef = FF0BD4BA667E4A229F91CC16 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstructionMessenger.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		F16C0A86E190470C8C443758 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PhysicsList.cc */ = {isa = PBXBuildFile; fileRef = 63C49CD8511A4752AA9EC8B8 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PhysicsList.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		F8344BC6E9FD4A5F9DDD09BF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/Hit.cc */ = {isa = PBXBuildFile; fileRef = 58579B3A01E64A6D8B2517E7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/Hit.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		F8AC6A85700442809F3383C1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/EventAction.cc */ = {isa = PBXBuildFile; fileRef = B5C96E5254914B4380A8C307 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/EventAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		0CF6F5A2CCC0425389E7ED7E = {
+			isa = PBXBuildStyle;
+		};
+		502A23756B764F04A09E40B0 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		6B59BB7EEBA14E2891D3F369 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		7D174307DB51499699696F98 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		EDA5EFB4CA064788BF4349F9 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		27B580BEE28C4DF695B42DAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AB860DEE2AE4B919FA46E7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B0AB2C048CB48148B0DE36F;
+			remoteInfo = ZERO_CHECK;
+		};
+		5B7B518A14654587A8127B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AB860DEE2AE4B919FA46E7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33F96073A327449C8E36C4EB;
+			remoteInfo = CodedAperture;
+		};
+		BF8D6B43FDE546E89E496F2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AB860DEE2AE4B919FA46E7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B0AB2C048CB48148B0DE36F;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0780E85320D54C758FFEBA3A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CodedAperture.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CodedAperture.cc; path = CodedAperture.cc; sourceTree = SOURCE_ROOT; };
+		127A0B347DE643E78ADAD6D2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		12D94B9BF20C42218E6C241A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/RunAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = RunAction.hh; path = include/RunAction.hh; sourceTree = SOURCE_ROOT; };
+		13C024DFFB254F6FA07896C3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PrimaryGeneratorAction.hh; path = include/PrimaryGeneratorAction.hh; sourceTree = SOURCE_ROOT; };
+		17FDAD4B8A9F4F03B24EAC82 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstruction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetectorConstruction.cc; path = src/DetectorConstruction.cc; sourceTree = SOURCE_ROOT; };
+		311B7DFB023F4C4FB112D3CA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		33C3BFE571A144B39C5F01C3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = StackingAction.cc; path = src/StackingAction.cc; sourceTree = SOURCE_ROOT; };
+		39895C25A0A04FAEAB5B8E69 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SteppingAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SteppingAction.cc; path = src/SteppingAction.cc; sourceTree = SOURCE_ROOT; };
+		3D6889B7BB1940C4AC33C251 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorActionMessenger.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PrimaryGeneratorActionMessenger.hh; path = include/PrimaryGeneratorActionMessenger.hh; sourceTree = SOURCE_ROOT; };
+		41472E670BEC4007B005CBAB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorActionMessenger.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PrimaryGeneratorActionMessenger.cc; path = src/PrimaryGeneratorActionMessenger.cc; sourceTree = SOURCE_ROOT; };
+		4C5A0CBECE0E45A0856C7FF7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SensitiveDetector.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = SensitiveDetector.hh; path = include/SensitiveDetector.hh; sourceTree = SOURCE_ROOT; };
+		4C8833F72D8D4D1797F44618 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/Hit.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Hit.hh; path = include/Hit.hh; sourceTree = SOURCE_ROOT; };
+		50ECD9E065A84F4FAE2370E4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = StackingAction.hh; path = include/StackingAction.hh; sourceTree = SOURCE_ROOT; };
+		58579B3A01E64A6D8B2517E7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/Hit.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Hit.cc; path = src/Hit.cc; sourceTree = SOURCE_ROOT; };
+		58B7481DD1C14600B42219A9 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/TrackingAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TrackingAction.cc; path = src/TrackingAction.cc; sourceTree = SOURCE_ROOT; };
+		63C49CD8511A4752AA9EC8B8 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PhysicsList.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PhysicsList.cc; path = src/PhysicsList.cc; sourceTree = SOURCE_ROOT; };
+		6DFF1399A03E44F9B95D1F6C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstruction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = DetectorConstruction.hh; path = include/DetectorConstruction.hh; sourceTree = SOURCE_ROOT; };
+		8DD1BE53EDE541E7A4F86EB4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SteppingAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = SteppingAction.hh; path = include/SteppingAction.hh; sourceTree = SOURCE_ROOT; };
+		9135A5353E1A406CB54CD56C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/RunAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = RunAction.cc; path = src/RunAction.cc; sourceTree = SOURCE_ROOT; };
+		989537E4D9234D31BE09BB5C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingActionMessenger.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = StackingActionMessenger.cc; path = src/StackingActionMessenger.cc; sourceTree = SOURCE_ROOT; };
+		B5C96E5254914B4380A8C307 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/EventAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = EventAction.cc; path = src/EventAction.cc; sourceTree = SOURCE_ROOT; };
+		BC21424ABF8B4E5282F38CAA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/ActionInitialization.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ActionInitialization.hh; path = include/ActionInitialization.hh; sourceTree = SOURCE_ROOT; };
+		C3EC3891DEC041E7831E7386 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SensitiveDetector.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SensitiveDetector.cc; path = src/SensitiveDetector.cc; sourceTree = SOURCE_ROOT; };
+		D1F8A73C59464A9388EE82F9 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/ActionInitialization.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ActionInitialization.cc; path = src/ActionInitialization.cc; sourceTree = SOURCE_ROOT; };
+		D2C6797D32D946FFA015E98B /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/TrackingAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = TrackingAction.hh; path = include/TrackingAction.hh; sourceTree = SOURCE_ROOT; };
+		D85236B1ECF24210AC06B776 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PhysicsList.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PhysicsList.hh; path = include/PhysicsList.hh; sourceTree = SOURCE_ROOT; };
+		E4F76D79E986427A9A6FC083 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E7D3977CB7E145DBA9F810CC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstructionMessenger.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = DetectorConstructionMessenger.hh; path = include/DetectorConstructionMessenger.hh; sourceTree = SOURCE_ROOT; };
+		EEFDCD710BC54D3EB26575A7 /* CodedAperture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = CodedAperture; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B71D6900DB415B90010B26 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingActionMessenger.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = StackingActionMessenger.hh; path = include/StackingActionMessenger.hh; sourceTree = SOURCE_ROOT; };
+		F2E61119AA374687A116DA1C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/EventAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = EventAction.hh; path = include/EventAction.hh; sourceTree = SOURCE_ROOT; };
+		F500EB935562469682C46A7A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PrimaryGeneratorAction.cc; path = src/PrimaryGeneratorAction.cc; sourceTree = SOURCE_ROOT; };
+		FF0BD4BA667E4A229F91CC16 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstructionMessenger.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetectorConstructionMessenger.cc; path = src/DetectorConstructionMessenger.cc; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		32B7EBB96B9548DBBD331BA2 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				C7C2BD6B859849119C7ED71D /* CMake Rules */,
+				E4F76D79E986427A9A6FC083 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		5864DB08722141E68641AEE7 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		5CA834F97B984B55B1AD02C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7DC7A8DA8A0B4E438531F307 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA540DA2A4A9492D8D1BF887 /* CodedAperture */,
+				9BDE4F7ED8904D29967055C1 /* ALL_BUILD */,
+				32B7EBB96B9548DBBD331BA2 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		82100C30D3E94343811CDB21 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				0780E85320D54C758FFEBA3A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CodedAperture.cc */,
+				D1F8A73C59464A9388EE82F9 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/ActionInitialization.cc */,
+				17FDAD4B8A9F4F03B24EAC82 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstruction.cc */,
+				FF0BD4BA667E4A229F91CC16 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstructionMessenger.cc */,
+				B5C96E5254914B4380A8C307 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/EventAction.cc */,
+				58579B3A01E64A6D8B2517E7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/Hit.cc */,
+				63C49CD8511A4752AA9EC8B8 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PhysicsList.cc */,
+				F500EB935562469682C46A7A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorAction.cc */,
+				41472E670BEC4007B005CBAB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorActionMessenger.cc */,
+				9135A5353E1A406CB54CD56C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/RunAction.cc */,
+				C3EC3891DEC041E7831E7386 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SensitiveDetector.cc */,
+				33C3BFE571A144B39C5F01C3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc */,
+				989537E4D9234D31BE09BB5C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingActionMessenger.cc */,
+				39895C25A0A04FAEAB5B8E69 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SteppingAction.cc */,
+				58B7481DD1C14600B42219A9 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/TrackingAction.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		9BDE4F7ED8904D29967055C1 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				5864DB08722141E68641AEE7 /* CMake Rules */,
+				311B7DFB023F4C4FB112D3CA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		AA540DA2A4A9492D8D1BF887 /* CodedAperture */ = {
+			isa = PBXGroup;
+			children = (
+				82100C30D3E94343811CDB21 /* Source Files */,
+				F23FB329CB99484A9B0FFCA6 /* Header Files */,
+				127A0B347DE643E78ADAD6D2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CMakeLists.txt */,
+			);
+			name = CodedAperture;
+			sourceTree = "<group>";
+		};
+		AC85CF9A44AC472B96A1B5D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEFDCD710BC54D3EB26575A7 /* CodedAperture */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7C2BD6B859849119C7ED71D /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		F23FB329CB99484A9B0FFCA6 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC21424ABF8B4E5282F38CAA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/ActionInitialization.hh */,
+				6DFF1399A03E44F9B95D1F6C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstruction.hh */,
+				E7D3977CB7E145DBA9F810CC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/DetectorConstructionMessenger.hh */,
+				F2E61119AA374687A116DA1C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/EventAction.hh */,
+				4C8833F72D8D4D1797F44618 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/Hit.hh */,
+				D85236B1ECF24210AC06B776 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PhysicsList.hh */,
+				13C024DFFB254F6FA07896C3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorAction.hh */,
+				3D6889B7BB1940C4AC33C251 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/PrimaryGeneratorActionMessenger.hh */,
+				12D94B9BF20C42218E6C241A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/RunAction.hh */,
+				4C5A0CBECE0E45A0856C7FF7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SensitiveDetector.hh */,
+				50ECD9E065A84F4FAE2370E4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingAction.hh */,
+				F2B71D6900DB415B90010B26 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/StackingActionMessenger.hh */,
+				8DD1BE53EDE541E7A4F86EB4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/SteppingAction.hh */,
+				D2C6797D32D946FFA015E98B /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include/TrackingAction.hh */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		FB84A06E779741CA871DE518 = {
+			isa = PBXGroup;
+			children = (
+				7DC7A8DA8A0B4E438531F307 /* Sources */,
+				5CA834F97B984B55B1AD02C0 /* Resources */,
+				AC85CF9A44AC472B96A1B5D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33F96073A327449C8E36C4EB /* CodedAperture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 999934175EFD43F693FE027A /* Build configuration list for PBXNativeTarget "CodedAperture" */;
+			buildPhases = (
+				C010037F3E41479C984B1A63 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F687E8097AD04BD98031F55D /* PBXTargetDependency */,
+			);
+			name = CodedAperture;
+			productName = CodedAperture;
+			productReference = EEFDCD710BC54D3EB26575A7 /* CodedAperture */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AB860DEE2AE4B919FA46E7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = FD62BB0B201E46A8B2D94611 /* Build configuration list for PBXProject "CodedAperture" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				EDA5EFB4CA064788BF4349F9 /* Debug */,
+				502A23756B764F04A09E40B0 /* Release */,
+				7D174307DB51499699696F98 /* MinSizeRel */,
+				6B59BB7EEBA14E2891D3F369 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = FB84A06E779741CA871DE518;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				C23DB043BACF4965A5E8A0C5 /* ALL_BUILD */,
+				33F96073A327449C8E36C4EB /* CodedAperture */,
+				3B0AB2C048CB48148B0DE36F /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D6FCA3F2FD144FA8F7AE448 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		84C354BBE5C34922BB3E5F6D /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/PRISM_Sim/xcode -f /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/PRISM_Sim/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		9A2CFCCFCEC1401B9CDB749B /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/PRISM_Sim/xcode -f /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/PRISM_Sim/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		FCFF5A3FB45F47A69B2DA2C5 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C010037F3E41479C984B1A63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF2A2FF6D714406EB8FCC247 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/CodedAperture.cc */,
+				E18E15290A6645BFB92FB06B /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/ActionInitialization.cc */,
+				A99A411EDA5C43F08F793295 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstruction.cc */,
+				EB185EA30ED54702AAE580A6 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/DetectorConstructionMessenger.cc */,
+				F8AC6A85700442809F3383C1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/EventAction.cc */,
+				F8344BC6E9FD4A5F9DDD09BF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/Hit.cc */,
+				F16C0A86E190470C8C443758 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PhysicsList.cc */,
+				7FD50ABD1A1A4B5CA59BA3DA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorAction.cc */,
+				A06AF4804434419EB6E25E62 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/PrimaryGeneratorActionMessenger.cc */,
+				9F00677C9C7746899DFAB3E0 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/RunAction.cc */,
+				C719FD13BD41464BBD36D210 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SensitiveDetector.cc */,
+				0DC6582A8B434019BDBBE4B3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingAction.cc */,
+				8F23BEF815DC49FBA23B3636 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/StackingActionMessenger.cc */,
+				132D7E340D9049798CD39E12 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/SteppingAction.cc */,
+				05B1FF621B494D49B0F0FFAE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/src/TrackingAction.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A92D8A5B7CA3490C934D897E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33F96073A327449C8E36C4EB /* CodedAperture */;
+			targetProxy = 5B7B518A14654587A8127B77 /* PBXContainerItemProxy */;
+		};
+		F687E8097AD04BD98031F55D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B0AB2C048CB48148B0DE36F /* ZERO_CHECK */;
+			targetProxy = 27B580BEE28C4DF695B42DAD /* PBXContainerItemProxy */;
+		};
+		F6F74060B08A469184A0C147 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B0AB2C048CB48148B0DE36F /* ZERO_CHECK */;
+			targetProxy = BF8D6B43FDE546E89E496F2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3A0111C05E4B421593969653 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		4DBA06D6EA9948E9B55896D8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		4E34F0D83B5A423DBB5EF755 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11                -DNDEBUG '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib -L/Users/Hellfeld/ROOT/lib -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lpthread -Wl,-rpath,/Users/Hellfeld/ROOT/lib -stdlib=libc++ -lm -ldl /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = CodedAperture;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		5DD23D1FA3AD4E83B25948EE /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		5FFCE7B7DE1042BDAF7ADBC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11     -DG4FPE_DEBUG    '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib -L/Users/Hellfeld/ROOT/lib -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lpthread -Wl,-rpath,/Users/Hellfeld/ROOT/lib -stdlib=libc++ -lm -ldl /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = CodedAperture;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		6B264408319F4904A4335C8B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11      -DNDEBUG     -DNDEBUG '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib -L/Users/Hellfeld/ROOT/lib -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lpthread -Wl,-rpath,/Users/Hellfeld/ROOT/lib -stdlib=libc++ -lm -ldl /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = CodedAperture;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		852A1F2ABAFF40B1ADA333A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11      -DNDEBUG     -DNDEBUG '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib -L/Users/Hellfeld/ROOT/lib -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lpthread -Wl,-rpath,/Users/Hellfeld/ROOT/lib -stdlib=libc++ -lm -ldl /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = CodedAperture;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		9977C2639CDA4E3BA18D1691 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		ACAE31EF5F7343BCB9F6B410 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		B03971419BC648D0B7011A1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		D9B3DFE9373F4BB9BD9A54B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		DB91C796646D4DEC9AA6C704 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/build";
+			};
+			name = MinSizeRel;
+		};
+		DCA97720FC6444B5BBAAC037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/build";
+			};
+			name = Debug;
+		};
+		DE871DBD2DAB488B94E46529 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+		F397614347EC489FA3B8AF2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/build";
+			};
+			name = Release;
+		};
+		F3B0F3D3DB77405BB9F6E30C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/include\"", /Users/Hellfeld/ROOT/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		025BE6AA0132493FB93C0B82 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A0111C05E4B421593969653 /* Debug */,
+				F3B0F3D3DB77405BB9F6E30C /* Release */,
+				9977C2639CDA4E3BA18D1691 /* MinSizeRel */,
+				4DBA06D6EA9948E9B55896D8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		416EBA1001DB40B1B8C3CC4F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B03971419BC648D0B7011A1A /* Debug */,
+				D9B3DFE9373F4BB9BD9A54B6 /* Release */,
+				5DD23D1FA3AD4E83B25948EE /* MinSizeRel */,
+				ACAE31EF5F7343BCB9F6B410 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		999934175EFD43F693FE027A /* Build configuration list for PBXNativeTarget "CodedAperture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FFCE7B7DE1042BDAF7ADBC6 /* Debug */,
+				852A1F2ABAFF40B1ADA333A5 /* Release */,
+				6B264408319F4904A4335C8B /* MinSizeRel */,
+				4E34F0D83B5A423DBB5EF755 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FD62BB0B201E46A8B2D94611 /* Build configuration list for PBXProject "CodedAperture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA97720FC6444B5BBAAC037 /* Debug */,
+				F397614347EC489FA3B8AF2B /* Release */,
+				DB91C796646D4DEC9AA6C704 /* MinSizeRel */,
+				DE871DBD2DAB488B94E46529 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AB860DEE2AE4B919FA46E7C /* Project object */;
+}
