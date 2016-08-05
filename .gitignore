@@ -1,6 +1,5 @@
 .DS_Store
 TODO
-*.bin
 *.ipynb_checkpoints
 *.pptx
 *.ppt
