@@ -5,3 +5,5 @@ TODO
 *.ppt
 *.p
 *.npy
+/outputs/PRISM
+/outputs/HEMI
