@@ -1,0 +1,911 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		00F2FE6A67EB48EB9C58F109 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 81E63A3F5ACA41E79A7D8A41 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				27C94E432A3F4CBCA809834F /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				33FC791C102F4DBFB69EC725 /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		9ADE88C8E28545A09281E9C0 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1FF8CB16EC4744C682248791 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				B6ACA450F294473BB5AF15F4 /* CMake Rules */,
+			);
+			dependencies = (
+				261825C61B824F719AA9AADF /* PBXTargetDependency */,
+				EB8C48C0CFB0441794700F11 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		F5A900F821414D5E9E57B511 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5A619DAEC91E429CAC369FE4 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				80F67595C8B54DF1AD42589F /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		00ACEDA04897438F8438A01E /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/RunAction.cc */ = {isa = PBXBuildFile; fileRef = CBE701C15D5C4F5FB36990A7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/RunAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		184D10AEBFD34328A663021E /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/EventAction.hh */ = {isa = PBXBuildFile; fileRef = C73DA87F1A7D48F1948B02EF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/EventAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		1FE4491BCDE448EB98F5F612 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstruction.cc */ = {isa = PBXBuildFile; fileRef = E9D127609E10463B8A2F88A0 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstruction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		20E089C6450644D8B10D4269 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/RunAction.hh */ = {isa = PBXBuildFile; fileRef = C33DBFFADDAD496C8073AD12 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/RunAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		28320675F1804EA3842ABC04 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstruction.hh */ = {isa = PBXBuildFile; fileRef = 8B767BB90E544070AA56DD16 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstruction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		2F5C2D1EBE5F442A862426A3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/SteppingAction.hh */ = {isa = PBXBuildFile; fileRef = E80FA53F971B4930ACB46AFE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/SteppingAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		2F6FE815E0FC4C6CB3AA09AA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorAction.cc */ = {isa = PBXBuildFile; fileRef = 6BB92499F5F64CFDB23E5308 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		39CDDA61D4404DBD95FE0C2C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PhysicsList.hh */ = {isa = PBXBuildFile; fileRef = DA3DAAD284534832B0171D66 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PhysicsList.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		4366AA372E1244D78B9B78E5 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 861200BE901B49E69096D8E3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		673E2238E5CF434EB3C896AC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/SteppingAction.cc */ = {isa = PBXBuildFile; fileRef = 2B30C2E872CB4FA8ACA356C1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/SteppingAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		700133B9685E435ABCEF1A23 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/StackingAction.hh */ = {isa = PBXBuildFile; fileRef = A70B6F2F615A46838AA3F0F1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/StackingAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		7CD36E23FE1C438A85FB84DD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorActionMessenger.hh */ = {isa = PBXBuildFile; fileRef = 85AD02C7DD0147DCA53CC8BE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorActionMessenger.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		8B0FFE6E219147F6B01DA879 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/Analysis.hh */ = {isa = PBXBuildFile; fileRef = 45088B47AC434604834880EE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/Analysis.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		9FD283FBFF3A45CBB09B353A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/EventAction.cc */ = {isa = PBXBuildFile; fileRef = 4E8A36F95DC44163AC7BAEA2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/EventAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		C2ECCF7B5A1A4E20B6EFE87C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstructionMessenger.hh */ = {isa = PBXBuildFile; fileRef = 801EEC958D4E4208B42073F6 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstructionMessenger.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		C8C5297DE92B434D87B57FBB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorActionMessenger.cc */ = {isa = PBXBuildFile; fileRef = 382F3012C9CB454AB0202200 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorActionMessenger.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		CB822BDABBE54562998F89B4 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorAction.hh */ = {isa = PBXBuildFile; fileRef = 88D3D6A938954101B598A9CB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorAction.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		D013416023524D53A96D0912 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/ActionInitialization.cc */ = {isa = PBXBuildFile; fileRef = E7E0E99AF3BB4FDC8DDB3C33 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/ActionInitialization.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		DC8F1B2D6C19467E9EB49EC8 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/StackingAction.cc */ = {isa = PBXBuildFile; fileRef = 222FD8C2313C48D3A7E98ADC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/StackingAction.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		E61CA4E064304084BD109D9E /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/ActionInitialization.hh */ = {isa = PBXBuildFile; fileRef = 9F3B7FB6FDD4471A9C1AA55F /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/ActionInitialization.hh */; settings = {COMPILER_FLAGS = ""; }; };
+		EE0751E1C6F14E5B8930EF1C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/PRISM_response.cc */ = {isa = PBXBuildFile; fileRef = 1263F1C1B3E946C794535758 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/PRISM_response.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		F4BF0D0FB0F14FF3840A90DF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PhysicsList.cc */ = {isa = PBXBuildFile; fileRef = CC1E523AA98043D185718FDD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PhysicsList.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		FEBE58E6D8FC48828D50EA48 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstructionMessenger.cc */ = {isa = PBXBuildFile; fileRef = C36F9A726DF541368803B1FD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstructionMessenger.cc */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		291F2839C9FB4DE5A7E17B0A /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		3B6284B82A1E4551B33798E8 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		77AE0A9E3EF44FD5A9FBBAD3 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		A25BA8375B614850999D0E30 = {
+			isa = PBXBuildStyle;
+		};
+		E50BCEA38DC04300B146FA82 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		605D76259A304C5896922436 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE599C30CFEB465C959BD452 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9ADE88C8E28545A09281E9C0;
+			remoteInfo = ALL_BUILD;
+		};
+		6B86871751C141DEB549712E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE599C30CFEB465C959BD452 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E350307873845ECA074138C;
+			remoteInfo = PRISM_response;
+		};
+		8D8BD461D8AC4F389FF9C4E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE599C30CFEB465C959BD452 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5A900F821414D5E9E57B511;
+			remoteInfo = ZERO_CHECK;
+		};
+		8F5BB06ADEEF476A98EDEFA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE599C30CFEB465C959BD452 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5A900F821414D5E9E57B511;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1263F1C1B3E946C794535758 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/PRISM_response.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PRISM_response.cc; path = PRISM_response.cc; sourceTree = SOURCE_ROOT; };
+		222FD8C2313C48D3A7E98ADC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/StackingAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = StackingAction.cc; path = src/StackingAction.cc; sourceTree = SOURCE_ROOT; };
+		28F2534E08134E3C87568B9E /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		2B30C2E872CB4FA8ACA356C1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/SteppingAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SteppingAction.cc; path = src/SteppingAction.cc; sourceTree = SOURCE_ROOT; };
+		382F3012C9CB454AB0202200 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorActionMessenger.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PrimaryGeneratorActionMessenger.cc; path = src/PrimaryGeneratorActionMessenger.cc; sourceTree = SOURCE_ROOT; };
+		45088B47AC434604834880EE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/Analysis.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Analysis.hh; path = include/Analysis.hh; sourceTree = SOURCE_ROOT; };
+		4E8A36F95DC44163AC7BAEA2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/EventAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = EventAction.cc; path = src/EventAction.cc; sourceTree = SOURCE_ROOT; };
+		6BB92499F5F64CFDB23E5308 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PrimaryGeneratorAction.cc; path = src/PrimaryGeneratorAction.cc; sourceTree = SOURCE_ROOT; };
+		801EEC958D4E4208B42073F6 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstructionMessenger.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = DetectorConstructionMessenger.hh; path = include/DetectorConstructionMessenger.hh; sourceTree = SOURCE_ROOT; };
+		85AD02C7DD0147DCA53CC8BE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorActionMessenger.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PrimaryGeneratorActionMessenger.hh; path = include/PrimaryGeneratorActionMessenger.hh; sourceTree = SOURCE_ROOT; };
+		861200BE901B49E69096D8E3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		88D3D6A938954101B598A9CB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PrimaryGeneratorAction.hh; path = include/PrimaryGeneratorAction.hh; sourceTree = SOURCE_ROOT; };
+		8B767BB90E544070AA56DD16 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstruction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = DetectorConstruction.hh; path = include/DetectorConstruction.hh; sourceTree = SOURCE_ROOT; };
+		9F3B7FB6FDD4471A9C1AA55F /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/ActionInitialization.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ActionInitialization.hh; path = include/ActionInitialization.hh; sourceTree = SOURCE_ROOT; };
+		A70B6F2F615A46838AA3F0F1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/StackingAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = StackingAction.hh; path = include/StackingAction.hh; sourceTree = SOURCE_ROOT; };
+		AF7BE8754F114E2E9D4687CF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C33DBFFADDAD496C8073AD12 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/RunAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = RunAction.hh; path = include/RunAction.hh; sourceTree = SOURCE_ROOT; };
+		C36F9A726DF541368803B1FD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstructionMessenger.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetectorConstructionMessenger.cc; path = src/DetectorConstructionMessenger.cc; sourceTree = SOURCE_ROOT; };
+		C73DA87F1A7D48F1948B02EF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/EventAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = EventAction.hh; path = include/EventAction.hh; sourceTree = SOURCE_ROOT; };
+		CBE701C15D5C4F5FB36990A7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/RunAction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = RunAction.cc; path = src/RunAction.cc; sourceTree = SOURCE_ROOT; };
+		CC1E523AA98043D185718FDD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PhysicsList.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PhysicsList.cc; path = src/PhysicsList.cc; sourceTree = SOURCE_ROOT; };
+		D8686D003BCE4C93A344E3DC /* PRISM_response */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = PRISM_response; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3DAAD284534832B0171D66 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PhysicsList.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PhysicsList.hh; path = include/PhysicsList.hh; sourceTree = SOURCE_ROOT; };
+		E7E0E99AF3BB4FDC8DDB3C33 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/ActionInitialization.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ActionInitialization.cc; path = src/ActionInitialization.cc; sourceTree = SOURCE_ROOT; };
+		E80FA53F971B4930ACB46AFE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/SteppingAction.hh */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = SteppingAction.hh; path = include/SteppingAction.hh; sourceTree = SOURCE_ROOT; };
+		E9D127609E10463B8A2F88A0 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstruction.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetectorConstruction.cc; path = src/DetectorConstruction.cc; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		17761DA6DDAC43399C5C04E3 /* PRISM_response */ = {
+			isa = PBXGroup;
+			children = (
+				D4E0F5BDBA594564AA1C1C23 /* Source Files */,
+				C39794928A0D4D2AAA50181F /* Header Files */,
+				861200BE901B49E69096D8E3 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */,
+			);
+			name = PRISM_response;
+			sourceTree = "<group>";
+		};
+		193A80DC0E6344B393F3C1FD = {
+			isa = PBXGroup;
+			children = (
+				4F9FBD4DED59447D88F189AC /* Sources */,
+				53D46CB0FA4345E8BF9FAF54 /* Resources */,
+				BA0D6F5D47704D93AB3EFC79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4788F16D24294A64986E2EB0 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				7DFB88ACAC974AD488CC1059 /* CMake Rules */,
+				28F2534E08134E3C87568B9E /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		4F9FBD4DED59447D88F189AC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				17761DA6DDAC43399C5C04E3 /* PRISM_response */,
+				C411FDF255D04AABBF2FF1A6 /* ALL_BUILD */,
+				4788F16D24294A64986E2EB0 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		53D46CB0FA4345E8BF9FAF54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7DFB88ACAC974AD488CC1059 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		BA0D6F5D47704D93AB3EFC79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8686D003BCE4C93A344E3DC /* PRISM_response */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C39794928A0D4D2AAA50181F /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F3B7FB6FDD4471A9C1AA55F /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/ActionInitialization.hh */,
+				45088B47AC434604834880EE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/Analysis.hh */,
+				8B767BB90E544070AA56DD16 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstruction.hh */,
+				801EEC958D4E4208B42073F6 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/DetectorConstructionMessenger.hh */,
+				C73DA87F1A7D48F1948B02EF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/EventAction.hh */,
+				DA3DAAD284534832B0171D66 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PhysicsList.hh */,
+				88D3D6A938954101B598A9CB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorAction.hh */,
+				85AD02C7DD0147DCA53CC8BE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/PrimaryGeneratorActionMessenger.hh */,
+				C33DBFFADDAD496C8073AD12 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/RunAction.hh */,
+				A70B6F2F615A46838AA3F0F1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/StackingAction.hh */,
+				E80FA53F971B4930ACB46AFE /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include/SteppingAction.hh */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		C411FDF255D04AABBF2FF1A6 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				F363DB9954834E92B365CAAB /* CMake Rules */,
+				AF7BE8754F114E2E9D4687CF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		D4E0F5BDBA594564AA1C1C23 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				1263F1C1B3E946C794535758 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/PRISM_response.cc */,
+				E7E0E99AF3BB4FDC8DDB3C33 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/ActionInitialization.cc */,
+				E9D127609E10463B8A2F88A0 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstruction.cc */,
+				C36F9A726DF541368803B1FD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstructionMessenger.cc */,
+				4E8A36F95DC44163AC7BAEA2 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/EventAction.cc */,
+				CC1E523AA98043D185718FDD /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PhysicsList.cc */,
+				6BB92499F5F64CFDB23E5308 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorAction.cc */,
+				382F3012C9CB454AB0202200 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorActionMessenger.cc */,
+				CBE701C15D5C4F5FB36990A7 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/RunAction.cc */,
+				222FD8C2313C48D3A7E98ADC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/StackingAction.cc */,
+				2B30C2E872CB4FA8ACA356C1 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/SteppingAction.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		F363DB9954834E92B365CAAB /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E350307873845ECA074138C /* PRISM_response */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2483EFF12FFC4EADBEF9D321 /* Build configuration list for PBXNativeTarget "PRISM_response" */;
+			buildPhases = (
+				4644F65ECC7A407ABD5747C5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD9CCED4DEF04BF48B850B6C /* PBXTargetDependency */,
+			);
+			name = PRISM_response;
+			productName = PRISM_response;
+			productReference = D8686D003BCE4C93A344E3DC /* PRISM_response */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE599C30CFEB465C959BD452 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = 8E5D94EA98A4471FAC3045DE /* Build configuration list for PBXProject "PRISM_response" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				E50BCEA38DC04300B146FA82 /* Debug */,
+				3B6284B82A1E4551B33798E8 /* Release */,
+				77AE0A9E3EF44FD5A9FBBAD3 /* MinSizeRel */,
+				291F2839C9FB4DE5A7E17B0A /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 193A80DC0E6344B393F3C1FD;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				9ADE88C8E28545A09281E9C0 /* ALL_BUILD */,
+				6E350307873845ECA074138C /* PRISM_response */,
+				F5A900F821414D5E9E57B511 /* ZERO_CHECK */,
+				00F2FE6A67EB48EB9C58F109 /* install */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		108F4B82515E41B7BE580F06 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		27C94E432A3F4CBCA809834F /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/barebonesMT/xcode -f /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/barebonesMT/xcode/CMakeScripts/install_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		3AEEAE2928F5474E976127F5 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		4BA9DFBD835B4A86BCFDBF7F = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		80F67595C8B54DF1AD42589F /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/barebonesMT/xcode -f /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/barebonesMT/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		B6ACA450F294473BB5AF15F4 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/barebonesMT/xcode -f /Users/Hellfeld/Documents/School/UCB/Research/Coded\\ Aperature/Toy_Imager/barebonesMT/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4644F65ECC7A407ABD5747C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE0751E1C6F14E5B8930EF1C /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/PRISM_response.cc */,
+				D013416023524D53A96D0912 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/ActionInitialization.cc */,
+				1FE4491BCDE448EB98F5F612 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstruction.cc */,
+				FEBE58E6D8FC48828D50EA48 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/DetectorConstructionMessenger.cc */,
+				9FD283FBFF3A45CBB09B353A /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/EventAction.cc */,
+				F4BF0D0FB0F14FF3840A90DF /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PhysicsList.cc */,
+				2F6FE815E0FC4C6CB3AA09AA /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorAction.cc */,
+				C8C5297DE92B434D87B57FBB /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/PrimaryGeneratorActionMessenger.cc */,
+				00ACEDA04897438F8438A01E /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/RunAction.cc */,
+				DC8F1B2D6C19467E9EB49EC8 /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/StackingAction.cc */,
+				673E2238E5CF434EB3C896AC /* /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/src/SteppingAction.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		261825C61B824F719AA9AADF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E350307873845ECA074138C /* PRISM_response */;
+			targetProxy = 6B86871751C141DEB549712E /* PBXContainerItemProxy */;
+		};
+		33FC791C102F4DBFB69EC725 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9ADE88C8E28545A09281E9C0 /* ALL_BUILD */;
+			targetProxy = 605D76259A304C5896922436 /* PBXContainerItemProxy */;
+		};
+		DD9CCED4DEF04BF48B850B6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5A900F821414D5E9E57B511 /* ZERO_CHECK */;
+			targetProxy = 8D8BD461D8AC4F389FF9C4E2 /* PBXContainerItemProxy */;
+		};
+		EB8C48C0CFB0441794700F11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5A900F821414D5E9E57B511 /* ZERO_CHECK */;
+			targetProxy = 8F5BB06ADEEF476A98EDEFA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08102467B13448C49647751F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		17C1FB5603A54EA5BF1104F0 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11                -DNDEBUG '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = PRISM_response;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		1D26BDE25E4D4ECC85A677B4 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		2C0C85B885C44B0DB3C8DCF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11      -DNDEBUG     -DNDEBUG '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = PRISM_response;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		3BFAC9510A014822B15E5D57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11     -DG4FPE_DEBUG    '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = PRISM_response;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		6AC70D5D7DC844DCA7342B97 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		755D3B422570447C887FE09E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		7A0359F5C985474481B59789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		7D6E75F0124D4A2DB6BA2D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		8B8B52344C6142A2BB43F309 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		90E9CA2D8D5641DFBE401314 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		A7D3167404C24C2D898E0DEB /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		AEF45FEAB99F457D87A397D1 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", G4_STORE_TRAJECTORY, G4VERBOSE, G4UI_USE, G4VIS_USE, G4MULTITHREADED, G4UI_USE_TCSH, G4INTY_USE_XT, G4VIS_USE_RAYTRACERX, G4INTY_USE_QT, G4UI_USE_QT, G4VIS_USE_OPENGLQT, G4VIS_USE_OPENGLX, G4VIS_USE_OPENGL, );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -stdlib=libc++ -DG4USE_STD11 -pthread -ftls-model=initial-exec -std=c++11      -DNDEBUG     -DNDEBUG '-std=c++11'  ";
+				OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4Tree.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4GMocren.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4visHepRep.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4RayTracer.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4VRML.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4OpenGL.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4gl2ps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4interfaces.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4persistency.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4analysis.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4error_propagation.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4readout.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4physicslists.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4parmodels.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4FR.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4vis_management.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4modeling.dylib /opt/X11/lib/libSM.dylib /opt/X11/lib/libICE.dylib /opt/X11/lib/libX11.dylib /opt/X11/lib/libXext.dylib -framework OpenGL /usr/X11R6/lib/libGL.dylib /usr/X11R6/lib/libGLU.dylib /opt/X11/lib/libXmu.dylib /usr/local/octave/3.8.0/lib/libQtOpenGL.dylib /usr/local/octave/3.8.0/lib/libQtGui.dylib /usr/local/octave/3.8.0/lib/libQtCore.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4run.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4event.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4tracking.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4processes.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4expat.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4zlib.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4digits_hits.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4track.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4particles.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4geometry.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4materials.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4graphics_reps.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4intercoms.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4global.dylib /Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/lib/libG4clhep.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = PRISM_response;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		B483AF99850641E2AB35AE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		C90CCF8BA2FA446C98A5B9DD /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode/build";
+			};
+			name = MinSizeRel;
+		};
+		CFF58FE991564E5D94A522F7 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		DB4F9BE17D9A4186BAA5037E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode/build";
+			};
+			name = Release;
+		};
+		DD7806BF9E2541788FA2FDAF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Hellfeld/GEANT4.10.2.p1_MT/geant4-install/include/Geant4", /usr/local/octave/3.8.0/include, /usr/local/octave/3.8.0/include/QtCore, /usr/local/octave/3.8.0/include/QtGui, /usr/local/octave/3.8.0/include/QtOpenGL, "\"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/include\"", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		E611985CED4D4BDEA81953F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode/build";
+			};
+			name = Debug;
+		};
+		E7611D01C8584C9CB56E068F /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FF8CB16EC4744C682248791 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08102467B13448C49647751F /* Debug */,
+				B483AF99850641E2AB35AE0E /* Release */,
+				A7D3167404C24C2D898E0DEB /* MinSizeRel */,
+				8B8B52344C6142A2BB43F309 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2483EFF12FFC4EADBEF9D321 /* Build configuration list for PBXNativeTarget "PRISM_response" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BFAC9510A014822B15E5D57 /* Debug */,
+				2C0C85B885C44B0DB3C8DCF5 /* Release */,
+				AEF45FEAB99F457D87A397D1 /* MinSizeRel */,
+				17C1FB5603A54EA5BF1104F0 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5A619DAEC91E429CAC369FE4 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				755D3B422570447C887FE09E /* Debug */,
+				90E9CA2D8D5641DFBE401314 /* Release */,
+				6AC70D5D7DC844DCA7342B97 /* MinSizeRel */,
+				DD7806BF9E2541788FA2FDAF /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		81E63A3F5ACA41E79A7D8A41 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D6E75F0124D4A2DB6BA2D70 /* Debug */,
+				7A0359F5C985474481B59789 /* Release */,
+				1D26BDE25E4D4ECC85A677B4 /* MinSizeRel */,
+				CFF58FE991564E5D94A522F7 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8E5D94EA98A4471FAC3045DE /* Build configuration list for PBXProject "PRISM_response" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E611985CED4D4BDEA81953F5 /* Debug */,
+				DB4F9BE17D9A4186BAA5037E /* Release */,
+				C90CCF8BA2FA446C98A5B9DD /* MinSizeRel */,
+				E7611D01C8584C9CB56E068F /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE599C30CFEB465C959BD452 /* Project object */;
+}
