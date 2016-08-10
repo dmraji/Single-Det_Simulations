@@ -91,8 +91,6 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     
     SetTheta(HPangles[hp-1].theta*(180./pi));
     SetPhi(HPangles[hp-1].phi*(180./pi));
-
-    
     
     
     // - -
@@ -105,6 +103,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     dir.setX(-r*cos(theta*(pi/180))*sin(phi*(pi/180)));
     dir.setY(-r*sin(theta*(pi/180))*sin(phi*(pi/180)));
     dir.setZ(-r*cos(phi  *(pi/180)));
+    
     
     // Uniformly sample a disk that just covers the entire detector (start at z-axis (0,0,1) and then rotate)
     G4double rand_r = G4UniformRand();
@@ -144,7 +143,7 @@ void PrimaryGeneratorAction::ReadInHEALPixAngles(G4String filename){
         }
         myfile.close();
     }
-    
+
 }
 
 //==================================================================================================

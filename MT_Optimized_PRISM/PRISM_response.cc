@@ -20,7 +20,9 @@
 #include "RunAction.hh"
 
 #include <fstream>
+
 using namespace std;
+using namespace CLHEP;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -169,6 +171,23 @@ if ( nThreads > 0 ) {
     myfile.close();
     
 
+    /*
+    vector<struct Angles> angles = PrimaryGeneratorAction::Instance()->GetHPangles();
+    
+    for (int j = 0; j < hpi; j++){
+    
+        G4double theta_ = angles[j].theta;
+        G4double phi_ = angles[j].phi;
+     
+        
+        G4double r = 15.*cm;
+        //G4cout << j+1 << "\t" << theta_ << ", " << phi_ << "\t\t" << (-r*cos(theta_)*sin(phi_)) << ", " << (-r*sin(theta_)*sin(phi_)) << ", " << (-r*cos(phi_)) << "\n";
+        G4cout << (-r*cos(theta_)*sin(phi_)) << ", " << (-r*sin(theta_)*sin(phi_)) << ", " << (-r*cos(phi_)) << "\n";
+        
+    }
+     */
+
+        
 
     
     //RunAction::Instance()->PrintResponseToBinary();

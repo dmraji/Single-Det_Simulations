@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT
+# Install script for directory: /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -28,7 +28,7 @@ if(NOT CMAKE_INSTALL_COMPONENT)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/PRISM_response")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/PRISM_response")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/PRISM_response" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/PRISM_response")
     execute_process(COMMAND /usr/bin/install_name_tool
@@ -48,5 +48,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/barebonesMT/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
