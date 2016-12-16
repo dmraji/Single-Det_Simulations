@@ -48,24 +48,13 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM"
+CMAKE_SOURCE_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/PRISM_Sim/PRISM_Sim_MT"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM"
+CMAKE_BINARY_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/PRISM_Sim/PRISM_Sim_MT"
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -89,44 +78,11 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
-
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/CMakeFiles" "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/PRISM_Sim/PRISM_Sim_MT/CMakeFiles" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/PRISM_Sim/PRISM_Sim_MT/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/PRISM_Sim/PRISM_Sim_MT/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -155,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named PRISM_response
+# Target rules for targets named PRISM_MT
 
 # Build rule for target.
-PRISM_response: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PRISM_response
-.PHONY : PRISM_response
+PRISM_MT: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PRISM_MT
+.PHONY : PRISM_MT
 
 # fast build rule for target.
-PRISM_response/fast:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/build
-.PHONY : PRISM_response/fast
+PRISM_MT/fast:
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/build
+.PHONY : PRISM_MT/fast
 
-PRISM_response.o: PRISM_response.cc.o
+PRISM_MT.o: PRISM_MT.cc.o
 
-.PHONY : PRISM_response.o
+.PHONY : PRISM_MT.o
 
 # target to build an object file
-PRISM_response.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/PRISM_response.cc.o
-.PHONY : PRISM_response.cc.o
+PRISM_MT.cc.o:
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/PRISM_MT.cc.o
+.PHONY : PRISM_MT.cc.o
 
-PRISM_response.i: PRISM_response.cc.i
+PRISM_MT.i: PRISM_MT.cc.i
 
-.PHONY : PRISM_response.i
+.PHONY : PRISM_MT.i
 
 # target to preprocess a source file
-PRISM_response.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/PRISM_response.cc.i
-.PHONY : PRISM_response.cc.i
+PRISM_MT.cc.i:
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/PRISM_MT.cc.i
+.PHONY : PRISM_MT.cc.i
 
-PRISM_response.s: PRISM_response.cc.s
+PRISM_MT.s: PRISM_MT.cc.s
 
-.PHONY : PRISM_response.s
+.PHONY : PRISM_MT.s
 
 # target to generate assembly for a file
-PRISM_response.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/PRISM_response.cc.s
-.PHONY : PRISM_response.cc.s
+PRISM_MT.cc.s:
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/PRISM_MT.cc.s
+.PHONY : PRISM_MT.cc.s
 
 src/ActionInitialization.o: src/ActionInitialization.cc.o
 
@@ -200,7 +156,7 @@ src/ActionInitialization.o: src/ActionInitialization.cc.o
 
 # target to build an object file
 src/ActionInitialization.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/ActionInitialization.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/ActionInitialization.cc.o
 .PHONY : src/ActionInitialization.cc.o
 
 src/ActionInitialization.i: src/ActionInitialization.cc.i
@@ -209,7 +165,7 @@ src/ActionInitialization.i: src/ActionInitialization.cc.i
 
 # target to preprocess a source file
 src/ActionInitialization.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/ActionInitialization.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/ActionInitialization.cc.i
 .PHONY : src/ActionInitialization.cc.i
 
 src/ActionInitialization.s: src/ActionInitialization.cc.s
@@ -218,7 +174,7 @@ src/ActionInitialization.s: src/ActionInitialization.cc.s
 
 # target to generate assembly for a file
 src/ActionInitialization.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/ActionInitialization.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/ActionInitialization.cc.s
 .PHONY : src/ActionInitialization.cc.s
 
 src/DetectorConstruction.o: src/DetectorConstruction.cc.o
@@ -227,7 +183,7 @@ src/DetectorConstruction.o: src/DetectorConstruction.cc.o
 
 # target to build an object file
 src/DetectorConstruction.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/DetectorConstruction.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/DetectorConstruction.cc.o
 .PHONY : src/DetectorConstruction.cc.o
 
 src/DetectorConstruction.i: src/DetectorConstruction.cc.i
@@ -236,7 +192,7 @@ src/DetectorConstruction.i: src/DetectorConstruction.cc.i
 
 # target to preprocess a source file
 src/DetectorConstruction.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/DetectorConstruction.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/DetectorConstruction.cc.i
 .PHONY : src/DetectorConstruction.cc.i
 
 src/DetectorConstruction.s: src/DetectorConstruction.cc.s
@@ -245,7 +201,7 @@ src/DetectorConstruction.s: src/DetectorConstruction.cc.s
 
 # target to generate assembly for a file
 src/DetectorConstruction.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/DetectorConstruction.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
 src/DetectorConstructionMessenger.o: src/DetectorConstructionMessenger.cc.o
@@ -254,7 +210,7 @@ src/DetectorConstructionMessenger.o: src/DetectorConstructionMessenger.cc.o
 
 # target to build an object file
 src/DetectorConstructionMessenger.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/DetectorConstructionMessenger.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/DetectorConstructionMessenger.cc.o
 .PHONY : src/DetectorConstructionMessenger.cc.o
 
 src/DetectorConstructionMessenger.i: src/DetectorConstructionMessenger.cc.i
@@ -263,7 +219,7 @@ src/DetectorConstructionMessenger.i: src/DetectorConstructionMessenger.cc.i
 
 # target to preprocess a source file
 src/DetectorConstructionMessenger.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/DetectorConstructionMessenger.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/DetectorConstructionMessenger.cc.i
 .PHONY : src/DetectorConstructionMessenger.cc.i
 
 src/DetectorConstructionMessenger.s: src/DetectorConstructionMessenger.cc.s
@@ -272,7 +228,7 @@ src/DetectorConstructionMessenger.s: src/DetectorConstructionMessenger.cc.s
 
 # target to generate assembly for a file
 src/DetectorConstructionMessenger.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/DetectorConstructionMessenger.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/DetectorConstructionMessenger.cc.s
 .PHONY : src/DetectorConstructionMessenger.cc.s
 
 src/EventAction.o: src/EventAction.cc.o
@@ -281,7 +237,7 @@ src/EventAction.o: src/EventAction.cc.o
 
 # target to build an object file
 src/EventAction.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/EventAction.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/EventAction.cc.o
 .PHONY : src/EventAction.cc.o
 
 src/EventAction.i: src/EventAction.cc.i
@@ -290,7 +246,7 @@ src/EventAction.i: src/EventAction.cc.i
 
 # target to preprocess a source file
 src/EventAction.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/EventAction.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/EventAction.cc.i
 .PHONY : src/EventAction.cc.i
 
 src/EventAction.s: src/EventAction.cc.s
@@ -299,7 +255,7 @@ src/EventAction.s: src/EventAction.cc.s
 
 # target to generate assembly for a file
 src/EventAction.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/EventAction.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/EventAction.cc.s
 .PHONY : src/EventAction.cc.s
 
 src/PhysicsList.o: src/PhysicsList.cc.o
@@ -308,7 +264,7 @@ src/PhysicsList.o: src/PhysicsList.cc.o
 
 # target to build an object file
 src/PhysicsList.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PhysicsList.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PhysicsList.cc.o
 .PHONY : src/PhysicsList.cc.o
 
 src/PhysicsList.i: src/PhysicsList.cc.i
@@ -317,7 +273,7 @@ src/PhysicsList.i: src/PhysicsList.cc.i
 
 # target to preprocess a source file
 src/PhysicsList.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PhysicsList.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PhysicsList.cc.i
 .PHONY : src/PhysicsList.cc.i
 
 src/PhysicsList.s: src/PhysicsList.cc.s
@@ -326,7 +282,7 @@ src/PhysicsList.s: src/PhysicsList.cc.s
 
 # target to generate assembly for a file
 src/PhysicsList.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PhysicsList.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PhysicsList.cc.s
 .PHONY : src/PhysicsList.cc.s
 
 src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
@@ -335,7 +291,7 @@ src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
 
 # target to build an object file
 src/PrimaryGeneratorAction.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PrimaryGeneratorAction.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PrimaryGeneratorAction.cc.o
 .PHONY : src/PrimaryGeneratorAction.cc.o
 
 src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
@@ -344,7 +300,7 @@ src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
 
 # target to preprocess a source file
 src/PrimaryGeneratorAction.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PrimaryGeneratorAction.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PrimaryGeneratorAction.cc.i
 .PHONY : src/PrimaryGeneratorAction.cc.i
 
 src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
@@ -353,7 +309,7 @@ src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
 
 # target to generate assembly for a file
 src/PrimaryGeneratorAction.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PrimaryGeneratorAction.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PrimaryGeneratorAction.cc.s
 .PHONY : src/PrimaryGeneratorAction.cc.s
 
 src/PrimaryGeneratorActionMessenger.o: src/PrimaryGeneratorActionMessenger.cc.o
@@ -362,7 +318,7 @@ src/PrimaryGeneratorActionMessenger.o: src/PrimaryGeneratorActionMessenger.cc.o
 
 # target to build an object file
 src/PrimaryGeneratorActionMessenger.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PrimaryGeneratorActionMessenger.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PrimaryGeneratorActionMessenger.cc.o
 .PHONY : src/PrimaryGeneratorActionMessenger.cc.o
 
 src/PrimaryGeneratorActionMessenger.i: src/PrimaryGeneratorActionMessenger.cc.i
@@ -371,7 +327,7 @@ src/PrimaryGeneratorActionMessenger.i: src/PrimaryGeneratorActionMessenger.cc.i
 
 # target to preprocess a source file
 src/PrimaryGeneratorActionMessenger.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PrimaryGeneratorActionMessenger.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PrimaryGeneratorActionMessenger.cc.i
 .PHONY : src/PrimaryGeneratorActionMessenger.cc.i
 
 src/PrimaryGeneratorActionMessenger.s: src/PrimaryGeneratorActionMessenger.cc.s
@@ -380,7 +336,7 @@ src/PrimaryGeneratorActionMessenger.s: src/PrimaryGeneratorActionMessenger.cc.s
 
 # target to generate assembly for a file
 src/PrimaryGeneratorActionMessenger.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/PrimaryGeneratorActionMessenger.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/PrimaryGeneratorActionMessenger.cc.s
 .PHONY : src/PrimaryGeneratorActionMessenger.cc.s
 
 src/RunAction.o: src/RunAction.cc.o
@@ -389,7 +345,7 @@ src/RunAction.o: src/RunAction.cc.o
 
 # target to build an object file
 src/RunAction.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/RunAction.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/RunAction.cc.o
 .PHONY : src/RunAction.cc.o
 
 src/RunAction.i: src/RunAction.cc.i
@@ -398,7 +354,7 @@ src/RunAction.i: src/RunAction.cc.i
 
 # target to preprocess a source file
 src/RunAction.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/RunAction.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/RunAction.cc.i
 .PHONY : src/RunAction.cc.i
 
 src/RunAction.s: src/RunAction.cc.s
@@ -407,7 +363,7 @@ src/RunAction.s: src/RunAction.cc.s
 
 # target to generate assembly for a file
 src/RunAction.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/RunAction.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/RunAction.cc.s
 .PHONY : src/RunAction.cc.s
 
 src/StackingAction.o: src/StackingAction.cc.o
@@ -416,7 +372,7 @@ src/StackingAction.o: src/StackingAction.cc.o
 
 # target to build an object file
 src/StackingAction.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/StackingAction.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/StackingAction.cc.o
 .PHONY : src/StackingAction.cc.o
 
 src/StackingAction.i: src/StackingAction.cc.i
@@ -425,7 +381,7 @@ src/StackingAction.i: src/StackingAction.cc.i
 
 # target to preprocess a source file
 src/StackingAction.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/StackingAction.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/StackingAction.cc.i
 .PHONY : src/StackingAction.cc.i
 
 src/StackingAction.s: src/StackingAction.cc.s
@@ -434,7 +390,7 @@ src/StackingAction.s: src/StackingAction.cc.s
 
 # target to generate assembly for a file
 src/StackingAction.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/StackingAction.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/StackingAction.cc.s
 .PHONY : src/StackingAction.cc.s
 
 src/SteppingAction.o: src/SteppingAction.cc.o
@@ -443,7 +399,7 @@ src/SteppingAction.o: src/SteppingAction.cc.o
 
 # target to build an object file
 src/SteppingAction.cc.o:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/SteppingAction.cc.o
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/SteppingAction.cc.o
 .PHONY : src/SteppingAction.cc.o
 
 src/SteppingAction.i: src/SteppingAction.cc.i
@@ -452,7 +408,7 @@ src/SteppingAction.i: src/SteppingAction.cc.i
 
 # target to preprocess a source file
 src/SteppingAction.cc.i:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/SteppingAction.cc.i
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/SteppingAction.cc.i
 .PHONY : src/SteppingAction.cc.i
 
 src/SteppingAction.s: src/SteppingAction.cc.s
@@ -461,7 +417,7 @@ src/SteppingAction.s: src/SteppingAction.cc.s
 
 # target to generate assembly for a file
 src/SteppingAction.cc.s:
-	$(MAKE) -f CMakeFiles/PRISM_response.dir/build.make CMakeFiles/PRISM_response.dir/src/SteppingAction.cc.s
+	$(MAKE) -f CMakeFiles/PRISM_MT.dir/build.make CMakeFiles/PRISM_MT.dir/src/SteppingAction.cc.s
 .PHONY : src/SteppingAction.cc.s
 
 # Help Target
@@ -470,16 +426,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... PRISM_response"
-	@echo "... install/local"
-	@echo "... PRISM_response.o"
-	@echo "... PRISM_response.i"
-	@echo "... PRISM_response.s"
+	@echo "... PRISM_MT"
+	@echo "... PRISM_MT.o"
+	@echo "... PRISM_MT.i"
+	@echo "... PRISM_MT.s"
 	@echo "... src/ActionInitialization.o"
 	@echo "... src/ActionInitialization.i"
 	@echo "... src/ActionInitialization.s"

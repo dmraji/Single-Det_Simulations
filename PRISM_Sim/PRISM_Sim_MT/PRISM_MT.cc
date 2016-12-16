@@ -127,9 +127,9 @@ if ( nThreads > 0 ) {
   }
   else  {  
     // interactive mode : define UI session
-    UImanager->ApplyCommand("/control/execute mac/init_vis.mac");
+    UImanager->ApplyCommand("/control/execute macros/init_vis.mac");
     if (ui->IsGUI()) {
-      UImanager->ApplyCommand("/control/execute mac/gui.mac");
+      UImanager->ApplyCommand("/control/execute macros/gui.mac");
     }
     ui->SessionStart();
     delete ui;

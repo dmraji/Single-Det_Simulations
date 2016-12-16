@@ -48,10 +48,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim"
+CMAKE_SOURCE_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/HEMI_Sim"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim"
+CMAKE_BINARY_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/HEMI_Sim"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/HEMI_Sim/CMakeFiles" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/HEMI_Sim/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Simulations/HEMI_Sim/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CodedAperture
+# Target rules for targets named HEMI
 
 # Build rule for target.
-CodedAperture: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CodedAperture
-.PHONY : CodedAperture
+HEMI: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 HEMI
+.PHONY : HEMI
 
 # fast build rule for target.
-CodedAperture/fast:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/build
-.PHONY : CodedAperture/fast
+HEMI/fast:
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/build
+.PHONY : HEMI/fast
 
-CodedAperture.o: CodedAperture.cc.o
+HEMI.o: HEMI.cc.o
 
-.PHONY : CodedAperture.o
+.PHONY : HEMI.o
 
 # target to build an object file
-CodedAperture.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/CodedAperture.cc.o
-.PHONY : CodedAperture.cc.o
+HEMI.cc.o:
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/HEMI.cc.o
+.PHONY : HEMI.cc.o
 
-CodedAperture.i: CodedAperture.cc.i
+HEMI.i: HEMI.cc.i
 
-.PHONY : CodedAperture.i
+.PHONY : HEMI.i
 
 # target to preprocess a source file
-CodedAperture.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/CodedAperture.cc.i
-.PHONY : CodedAperture.cc.i
+HEMI.cc.i:
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/HEMI.cc.i
+.PHONY : HEMI.cc.i
 
-CodedAperture.s: CodedAperture.cc.s
+HEMI.s: HEMI.cc.s
 
-.PHONY : CodedAperture.s
+.PHONY : HEMI.s
 
 # target to generate assembly for a file
-CodedAperture.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/CodedAperture.cc.s
-.PHONY : CodedAperture.cc.s
+HEMI.cc.s:
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/HEMI.cc.s
+.PHONY : HEMI.cc.s
 
 src/ActionInitialization.o: src/ActionInitialization.cc.o
 
@@ -156,7 +156,7 @@ src/ActionInitialization.o: src/ActionInitialization.cc.o
 
 # target to build an object file
 src/ActionInitialization.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/ActionInitialization.cc.o
 .PHONY : src/ActionInitialization.cc.o
 
 src/ActionInitialization.i: src/ActionInitialization.cc.i
@@ -165,7 +165,7 @@ src/ActionInitialization.i: src/ActionInitialization.cc.i
 
 # target to preprocess a source file
 src/ActionInitialization.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/ActionInitialization.cc.i
 .PHONY : src/ActionInitialization.cc.i
 
 src/ActionInitialization.s: src/ActionInitialization.cc.s
@@ -174,7 +174,7 @@ src/ActionInitialization.s: src/ActionInitialization.cc.s
 
 # target to generate assembly for a file
 src/ActionInitialization.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/ActionInitialization.cc.s
 .PHONY : src/ActionInitialization.cc.s
 
 src/DetectorConstruction.o: src/DetectorConstruction.cc.o
@@ -183,7 +183,7 @@ src/DetectorConstruction.o: src/DetectorConstruction.cc.o
 
 # target to build an object file
 src/DetectorConstruction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/DetectorConstruction.cc.o
 .PHONY : src/DetectorConstruction.cc.o
 
 src/DetectorConstruction.i: src/DetectorConstruction.cc.i
@@ -192,7 +192,7 @@ src/DetectorConstruction.i: src/DetectorConstruction.cc.i
 
 # target to preprocess a source file
 src/DetectorConstruction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/DetectorConstruction.cc.i
 .PHONY : src/DetectorConstruction.cc.i
 
 src/DetectorConstruction.s: src/DetectorConstruction.cc.s
@@ -201,7 +201,7 @@ src/DetectorConstruction.s: src/DetectorConstruction.cc.s
 
 # target to generate assembly for a file
 src/DetectorConstruction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
 src/EventAction.o: src/EventAction.cc.o
@@ -210,7 +210,7 @@ src/EventAction.o: src/EventAction.cc.o
 
 # target to build an object file
 src/EventAction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/EventAction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/EventAction.cc.o
 .PHONY : src/EventAction.cc.o
 
 src/EventAction.i: src/EventAction.cc.i
@@ -219,7 +219,7 @@ src/EventAction.i: src/EventAction.cc.i
 
 # target to preprocess a source file
 src/EventAction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/EventAction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/EventAction.cc.i
 .PHONY : src/EventAction.cc.i
 
 src/EventAction.s: src/EventAction.cc.s
@@ -228,7 +228,7 @@ src/EventAction.s: src/EventAction.cc.s
 
 # target to generate assembly for a file
 src/EventAction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/EventAction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/EventAction.cc.s
 .PHONY : src/EventAction.cc.s
 
 src/PhysicsList.o: src/PhysicsList.cc.o
@@ -237,7 +237,7 @@ src/PhysicsList.o: src/PhysicsList.cc.o
 
 # target to build an object file
 src/PhysicsList.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PhysicsList.cc.o
 .PHONY : src/PhysicsList.cc.o
 
 src/PhysicsList.i: src/PhysicsList.cc.i
@@ -246,7 +246,7 @@ src/PhysicsList.i: src/PhysicsList.cc.i
 
 # target to preprocess a source file
 src/PhysicsList.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PhysicsList.cc.i
 .PHONY : src/PhysicsList.cc.i
 
 src/PhysicsList.s: src/PhysicsList.cc.s
@@ -255,7 +255,7 @@ src/PhysicsList.s: src/PhysicsList.cc.s
 
 # target to generate assembly for a file
 src/PhysicsList.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PhysicsList.cc.s
 .PHONY : src/PhysicsList.cc.s
 
 src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
@@ -264,7 +264,7 @@ src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
 
 # target to build an object file
 src/PrimaryGeneratorAction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PrimaryGeneratorAction.cc.o
 .PHONY : src/PrimaryGeneratorAction.cc.o
 
 src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
@@ -273,7 +273,7 @@ src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
 
 # target to preprocess a source file
 src/PrimaryGeneratorAction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PrimaryGeneratorAction.cc.i
 .PHONY : src/PrimaryGeneratorAction.cc.i
 
 src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
@@ -282,7 +282,7 @@ src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
 
 # target to generate assembly for a file
 src/PrimaryGeneratorAction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PrimaryGeneratorAction.cc.s
 .PHONY : src/PrimaryGeneratorAction.cc.s
 
 src/PrimaryGeneratorActionMessenger.o: src/PrimaryGeneratorActionMessenger.cc.o
@@ -291,7 +291,7 @@ src/PrimaryGeneratorActionMessenger.o: src/PrimaryGeneratorActionMessenger.cc.o
 
 # target to build an object file
 src/PrimaryGeneratorActionMessenger.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PrimaryGeneratorActionMessenger.cc.o
 .PHONY : src/PrimaryGeneratorActionMessenger.cc.o
 
 src/PrimaryGeneratorActionMessenger.i: src/PrimaryGeneratorActionMessenger.cc.i
@@ -300,7 +300,7 @@ src/PrimaryGeneratorActionMessenger.i: src/PrimaryGeneratorActionMessenger.cc.i
 
 # target to preprocess a source file
 src/PrimaryGeneratorActionMessenger.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PrimaryGeneratorActionMessenger.cc.i
 .PHONY : src/PrimaryGeneratorActionMessenger.cc.i
 
 src/PrimaryGeneratorActionMessenger.s: src/PrimaryGeneratorActionMessenger.cc.s
@@ -309,7 +309,7 @@ src/PrimaryGeneratorActionMessenger.s: src/PrimaryGeneratorActionMessenger.cc.s
 
 # target to generate assembly for a file
 src/PrimaryGeneratorActionMessenger.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/PrimaryGeneratorActionMessenger.cc.s
 .PHONY : src/PrimaryGeneratorActionMessenger.cc.s
 
 src/RunAction.o: src/RunAction.cc.o
@@ -318,7 +318,7 @@ src/RunAction.o: src/RunAction.cc.o
 
 # target to build an object file
 src/RunAction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/RunAction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/RunAction.cc.o
 .PHONY : src/RunAction.cc.o
 
 src/RunAction.i: src/RunAction.cc.i
@@ -327,7 +327,7 @@ src/RunAction.i: src/RunAction.cc.i
 
 # target to preprocess a source file
 src/RunAction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/RunAction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/RunAction.cc.i
 .PHONY : src/RunAction.cc.i
 
 src/RunAction.s: src/RunAction.cc.s
@@ -336,7 +336,7 @@ src/RunAction.s: src/RunAction.cc.s
 
 # target to generate assembly for a file
 src/RunAction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/RunAction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/RunAction.cc.s
 .PHONY : src/RunAction.cc.s
 
 src/StackingAction.o: src/StackingAction.cc.o
@@ -345,7 +345,7 @@ src/StackingAction.o: src/StackingAction.cc.o
 
 # target to build an object file
 src/StackingAction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/StackingAction.cc.o
 .PHONY : src/StackingAction.cc.o
 
 src/StackingAction.i: src/StackingAction.cc.i
@@ -354,7 +354,7 @@ src/StackingAction.i: src/StackingAction.cc.i
 
 # target to preprocess a source file
 src/StackingAction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/StackingAction.cc.i
 .PHONY : src/StackingAction.cc.i
 
 src/StackingAction.s: src/StackingAction.cc.s
@@ -363,7 +363,7 @@ src/StackingAction.s: src/StackingAction.cc.s
 
 # target to generate assembly for a file
 src/StackingAction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/StackingAction.cc.s
 .PHONY : src/StackingAction.cc.s
 
 src/SteppingAction.o: src/SteppingAction.cc.o
@@ -372,7 +372,7 @@ src/SteppingAction.o: src/SteppingAction.cc.o
 
 # target to build an object file
 src/SteppingAction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/SteppingAction.cc.o
 .PHONY : src/SteppingAction.cc.o
 
 src/SteppingAction.i: src/SteppingAction.cc.i
@@ -381,7 +381,7 @@ src/SteppingAction.i: src/SteppingAction.cc.i
 
 # target to preprocess a source file
 src/SteppingAction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/SteppingAction.cc.i
 .PHONY : src/SteppingAction.cc.i
 
 src/SteppingAction.s: src/SteppingAction.cc.s
@@ -390,7 +390,7 @@ src/SteppingAction.s: src/SteppingAction.cc.s
 
 # target to generate assembly for a file
 src/SteppingAction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/SteppingAction.cc.s
 .PHONY : src/SteppingAction.cc.s
 
 src/TrackingAction.o: src/TrackingAction.cc.o
@@ -399,7 +399,7 @@ src/TrackingAction.o: src/TrackingAction.cc.o
 
 # target to build an object file
 src/TrackingAction.cc.o:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/TrackingAction.cc.o
 .PHONY : src/TrackingAction.cc.o
 
 src/TrackingAction.i: src/TrackingAction.cc.i
@@ -408,7 +408,7 @@ src/TrackingAction.i: src/TrackingAction.cc.i
 
 # target to preprocess a source file
 src/TrackingAction.cc.i:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.i
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/TrackingAction.cc.i
 .PHONY : src/TrackingAction.cc.i
 
 src/TrackingAction.s: src/TrackingAction.cc.s
@@ -417,7 +417,7 @@ src/TrackingAction.s: src/TrackingAction.cc.s
 
 # target to generate assembly for a file
 src/TrackingAction.cc.s:
-	$(MAKE) -f CMakeFiles/CodedAperture.dir/build.make CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.s
+	$(MAKE) -f CMakeFiles/HEMI.dir/build.make CMakeFiles/HEMI.dir/src/TrackingAction.cc.s
 .PHONY : src/TrackingAction.cc.s
 
 # Help Target
@@ -428,10 +428,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... CodedAperture"
-	@echo "... CodedAperture.o"
-	@echo "... CodedAperture.i"
-	@echo "... CodedAperture.s"
+	@echo "... HEMI"
+	@echo "... HEMI.o"
+	@echo "... HEMI.i"
+	@echo "... HEMI.s"
 	@echo "... src/ActionInitialization.o"
 	@echo "... src/ActionInitialization.i"
 	@echo "... src/ActionInitialization.s"

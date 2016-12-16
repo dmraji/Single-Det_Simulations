@@ -5,7 +5,7 @@
 #
 # Add icons of general interest
 #
-/control/execute mac/icons.mac
+/control/execute macros/icons.mac
 #
 # File menu :
 /gui/addMenu file File
