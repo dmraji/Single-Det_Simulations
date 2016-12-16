@@ -1,4 +1,0 @@
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/xcode/CMakeFiles/install.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/xcode/CMakeFiles/PRISM_response.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/xcode/CMakeFiles/ALL_BUILD.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/MT_Optimized_PRISM/xcode/CMakeFiles/ZERO_CHECK.dir
