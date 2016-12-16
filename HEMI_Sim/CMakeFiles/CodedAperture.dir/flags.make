@@ -6,5 +6,5 @@ CXX_FLAGS =  -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-str
 
 CXX_DEFINES = -DG4INTY_USE_QT -DG4INTY_USE_XT -DG4UI_USE -DG4UI_USE_QT -DG4UI_USE_TCSH -DG4VERBOSE -DG4VIS_USE -DG4VIS_USE_OPENGL -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_RAYTRACERX -DG4_STORE_TRAJECTORY
 
-CXX_INCLUDES = -isystem /Users/Hellfeld/GEANT4.10.2.p1/geant4-install/include/Geant4 -isystem /usr/local/octave/3.8.0/include -isystem /usr/local/octave/3.8.0/include/QtCore -isystem /usr/local/octave/3.8.0/include/QtGui -isystem /usr/local/octave/3.8.0/include/QtOpenGL -I"/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/include" -I/Users/Hellfeld/ROOT/include 
+CXX_INCLUDES = -isystem /Users/Hellfeld/GEANT4.10.2.p1/geant4-install/include/Geant4 -isystem /usr/local/octave/3.8.0/include -isystem /usr/local/octave/3.8.0/include/QtCore -isystem /usr/local/octave/3.8.0/include/QtGui -isystem /usr/local/octave/3.8.0/include/QtOpenGL -I"/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/include" -I/Users/Hellfeld/ROOT/include 
 

@@ -43,10 +43,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim"
+CMAKE_SOURCE_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim"
+CMAKE_BINARY_DIR = "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CodedAperture.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/CodedAperture.dir/flags.make
 
 CMakeFiles/CodedAperture.dir/CodedAperture.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/CodedAperture.cc.o: CodedAperture.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CodedAperture.dir/CodedAperture.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/CodedAperture.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CodedAperture.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CodedAperture.dir/CodedAperture.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/CodedAperture.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CodedAperture.cc"
 
 CMakeFiles/CodedAperture.dir/CodedAperture.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/CodedAperture.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CodedAperture.cc" > CMakeFiles/CodedAperture.dir/CodedAperture.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CodedAperture.cc" > CMakeFiles/CodedAperture.dir/CodedAperture.cc.i
 
 CMakeFiles/CodedAperture.dir/CodedAperture.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/CodedAperture.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CodedAperture.cc" -o CMakeFiles/CodedAperture.dir/CodedAperture.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CodedAperture.cc" -o CMakeFiles/CodedAperture.dir/CodedAperture.cc.s
 
 CMakeFiles/CodedAperture.dir/CodedAperture.cc.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/CodedAperture.dir/CodedAperture.cc.o.provides.build: CMakeFiles/Coded
 
 CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o: src/ActionInitialization.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/ActionInitialization.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/ActionInitialization.cc"
 
 CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/ActionInitialization.cc" > CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/ActionInitialization.cc" > CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.i
 
 CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/ActionInitialization.cc" -o CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/ActionInitialization.cc" -o CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.s
 
 CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/CodedAperture.dir/src/ActionInitialization.cc.o.provides.build: CMake
 
 CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o: src/DetectorConstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/DetectorConstruction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/DetectorConstruction.cc"
 
 CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/DetectorConstruction.cc" > CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/DetectorConstruction.cc" > CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/DetectorConstruction.cc" -o CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/DetectorConstruction.cc" -o CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/CodedAperture.dir/src/DetectorConstruction.cc.o.provides.build: CMake
 
 CMakeFiles/CodedAperture.dir/src/EventAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/EventAction.cc.o: src/EventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CodedAperture.dir/src/EventAction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/EventAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/EventAction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CodedAperture.dir/src/EventAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/EventAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/EventAction.cc"
 
 CMakeFiles/CodedAperture.dir/src/EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/EventAction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/EventAction.cc" > CMakeFiles/CodedAperture.dir/src/EventAction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/EventAction.cc" > CMakeFiles/CodedAperture.dir/src/EventAction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/EventAction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/EventAction.cc" -o CMakeFiles/CodedAperture.dir/src/EventAction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/EventAction.cc" -o CMakeFiles/CodedAperture.dir/src/EventAction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/EventAction.cc.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/CodedAperture.dir/src/EventAction.cc.o.provides.build: CMakeFiles/Cod
 
 CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o: src/PhysicsList.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PhysicsList.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PhysicsList.cc"
 
 CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PhysicsList.cc" > CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PhysicsList.cc" > CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.i
 
 CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PhysicsList.cc" -o CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PhysicsList.cc" -o CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.s
 
 CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/CodedAperture.dir/src/PhysicsList.cc.o.provides.build: CMakeFiles/Cod
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o: src/PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorAction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorAction.cc"
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorAction.cc" > CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorAction.cc" > CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorAction.cc" -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorAction.cc" -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorAction.cc.o.provides.build: CMa
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o: src/PrimaryGeneratorActionMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorActionMessenger.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorActionMessenger.cc"
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorActionMessenger.cc" > CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorActionMessenger.cc" > CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.i
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorActionMessenger.cc" -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/PrimaryGeneratorActionMessenger.cc" -o CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.s
 
 CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/CodedAperture.dir/src/PrimaryGeneratorActionMessenger.cc.o.provides.b
 
 CMakeFiles/CodedAperture.dir/src/RunAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/RunAction.cc.o: src/RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CodedAperture.dir/src/RunAction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/RunAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/RunAction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CodedAperture.dir/src/RunAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/RunAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/RunAction.cc"
 
 CMakeFiles/CodedAperture.dir/src/RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/RunAction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/RunAction.cc" > CMakeFiles/CodedAperture.dir/src/RunAction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/RunAction.cc" > CMakeFiles/CodedAperture.dir/src/RunAction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/RunAction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/RunAction.cc" -o CMakeFiles/CodedAperture.dir/src/RunAction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/RunAction.cc" -o CMakeFiles/CodedAperture.dir/src/RunAction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/RunAction.cc.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/CodedAperture.dir/src/RunAction.cc.o.provides.build: CMakeFiles/Coded
 
 CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o: src/StackingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/StackingAction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/StackingAction.cc"
 
 CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/StackingAction.cc" > CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/StackingAction.cc" > CMakeFiles/CodedAperture.dir/src/StackingAction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/StackingAction.cc" -o CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/StackingAction.cc" -o CMakeFiles/CodedAperture.dir/src/StackingAction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/CodedAperture.dir/src/StackingAction.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o: src/SteppingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/SteppingAction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/SteppingAction.cc"
 
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/SteppingAction.cc" > CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/SteppingAction.cc" > CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/SteppingAction.cc" -o CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/SteppingAction.cc" -o CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/CodedAperture.dir/src/SteppingAction.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o: CMakeFiles/CodedAperture.dir/flags.make
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o: src/TrackingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/TrackingAction.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o -c "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/TrackingAction.cc"
 
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/TrackingAction.cc" > CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/TrackingAction.cc" > CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.i
 
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/src/TrackingAction.cc" -o CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/src/TrackingAction.cc" -o CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.s
 
 CMakeFiles/CodedAperture.dir/src/TrackingAction.cc.o.requires:
 
@@ -391,7 +391,7 @@ CodedAperture: /Users/Hellfeld/GEANT4.10.2.p1/geant4-install/lib/libG4intercoms.
 CodedAperture: /Users/Hellfeld/GEANT4.10.2.p1/geant4-install/lib/libG4global.dylib
 CodedAperture: /Users/Hellfeld/GEANT4.10.2.p1/geant4-install/lib/libG4clhep.dylib
 CodedAperture: CMakeFiles/CodedAperture.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable CodedAperture"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable CodedAperture"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CodedAperture.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -418,6 +418,6 @@ CMakeFiles/CodedAperture.dir/clean:
 .PHONY : CMakeFiles/CodedAperture.dir/clean
 
 CMakeFiles/CodedAperture.dir/depend:
-	cd "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles/CodedAperture.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim" "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/CMakeFiles/CodedAperture.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/CodedAperture.dir/depend
 

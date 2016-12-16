@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim
+# Install script for directory: /Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/HEMI_Sim/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/Hellfeld/Documents/School/UCB/Research/PRISM/Spherical Coded Aperature/Toy_Imager/HEMI_Sim/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

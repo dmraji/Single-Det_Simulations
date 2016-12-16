@@ -3,8 +3,8 @@
 /run/physicsModified/c/run/initialize 
 /tracking/storeTrajectory 2
 /run/printProgress 100
-/run/reinitializeGeometry 
-GL
+
+/vis/sceneHandler/create OGL
 /vis/viewer/create ! ! 600x600-0+0
 /vis/viewer/refresh
 /vis/viewer/set/autoRefresh false
@@ -69,8 +69,5 @@ GL
 /gui/addButton viewer "Update scene" "/vis/scene/notifyHandlers"
 /run/printProgress 100
 /gui/addIcon "Run beam on" user_icon "/run/beamOn 1" run.png
-/PRISM_SIM/geom/fullMask
-/run/reinitializeGeometry
-/run/beamOn 100
-/vis/scene/notifyHandlers scene-0
-/vis/scene/notifyHandlers scene-0
+/run/beamOn 300
+/run/beamOn 1000

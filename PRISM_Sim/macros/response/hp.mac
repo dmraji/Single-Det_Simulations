@@ -35,5 +35,5 @@
 /PRISM_SIM/output/printText Off
 /PRISM_SIM/output/printBinary On
 
-#/control/loop macros/response/healpix/main.mac hpindex 1 768 1.
-/control/loop macros/response/healpix/main.mac hpindex 1 3072 1.
+#/control/loop macros/response/main.mac hpindex 1 768 1.
+/control/loop macros/response/main.mac hpindex 1 3072 1.
