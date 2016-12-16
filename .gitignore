@@ -15,8 +15,13 @@ TODO
 *.p
 *.npy
 
-# Binary output and response files
-output/*.bin
+# Output and response files
+PRISM_Sim/PRISM_SIM/output/*.bin
+PRISM_Sim/PRISM_SIM/output/*.npy
+PRISM_Sim/PRISM_SIM_MT/output/*.bin
+PRISM_Sim/PRISM_SIM_MT/output/*.npy
+HEMI_Sim/output/*.bin
+HEMI_Sim/output/*.npy
 /responses
 
 # CMake files
@@ -34,4 +39,4 @@ G4History.macro
 *.synctex.gz
 
 # ROOT files
-output/*.root
+HEMI_Sim/output/*.root
