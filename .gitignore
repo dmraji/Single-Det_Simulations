@@ -1,12 +1,37 @@
+# Mac files
 .DS_Store
+
+# To do lists
 TODO
+
+# iPython checkpoint files
 *.ipynb_checkpoints
+
+# Powerpoints
 *.pptx
 *.ppt
+
+# Python save files
 *.p
 *.npy
+
+# Binary output and response files
 output/*.bin
 /responses
+
+# CMake files
 cmake_install.cmake
 CMakeCache.txt
 CMakeFiles/
+
+# Geant4 history
+G4History.macro
+
+# LaTeX files
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# ROOT files
+output/*.root

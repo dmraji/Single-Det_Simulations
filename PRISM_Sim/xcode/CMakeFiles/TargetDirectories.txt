@@ -1,3 +1,0 @@
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/CMakeFiles/CodedAperture.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/CMakeFiles/ALL_BUILD.dir
-/Users/Hellfeld/Documents/School/UCB/Research/Coded Aperature/Toy_Imager/PRISM_Sim/xcode/CMakeFiles/ZERO_CHECK.dir
