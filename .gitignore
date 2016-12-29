@@ -45,3 +45,7 @@ G4History.macro
 
 # ROOT files
 HEMI_Sim/output/*.root
+
+# Doxygen build directory
+PRISM_Sim/PRISM_Sim/docs/doxygen/html
+PRISM_Sim/PRISM_Sim/docs/doxygen/latex
