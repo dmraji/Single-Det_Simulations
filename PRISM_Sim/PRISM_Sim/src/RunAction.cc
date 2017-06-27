@@ -45,11 +45,20 @@ void RunAction::BeginOfRunAction(const G4Run* /*aRun*/) {}
 
 void RunAction::EndOfRunAction(const G4Run* /*aRun*/) {
 
-	cout << "HEALPix index = " << GetHPindextuple()[0] << "/3072\n";
+	// Make sure we have events. If so, write to file
+	if (!HitNumtuple.empty()){
 
-    // Dump data to file
-    if (printbin){PrintToBinaryFile();}
-    if (printtext){PrintToTextFile();}
+		cout << "HEALPix index = " << GetHPindextuple()[0] << "/3072\n";
+
+		cout << "\nWriting to file...\n\n";
+
+	    // Dump data to file
+	    if (printbin){PrintToBinaryFile();}
+	    if (printtext){PrintToTextFile();}
+	}
+	else{
+		cout << "\nNo events recorded...\n\n";
+	}
 
     // Clear data tuples for next run
     ClearTuples();
@@ -107,18 +116,18 @@ void RunAction::PrintToTextFile(){
     myfile.open (filename, ios::out | ios::app);    // use append so we can write from mulitple runs
 
 	myfile << "EvtN\tHitN\tTrackID\tEnergy\tDetID\tProcess\tDOI\tHP\tTime\n";
-	
+
     for (int i = 0; i < int(EvtNtuple.size()); i++){
         myfile
-        << EvtNtuple[i] << "\t"
-        << HitNumtuple[i] << "\t"
+        << EvtNtuple[i]    << "\t"
+        << HitNumtuple[i]  << "\t"
         << TrackIDtuple[i] << "\t"
-        << Energytuple[i] << "\t"
-        << DetIDtuple[i] << "\t"
+        << Energytuple[i]  << "\t"
+        << DetIDtuple[i]   << "\t"
         << Processtuple[i] << "\t"
-        << DOIbintuple[i] << "\t"
+        << DOIbintuple[i]  << "\t"
         << HPindextuple[i] << "\t"
-        << Timetuple[i] << "\t"
+        << Timetuple[i]    << "\t"
         << "\n";
 
     }
