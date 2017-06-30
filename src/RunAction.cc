@@ -45,20 +45,11 @@ void RunAction::BeginOfRunAction(const G4Run* /*aRun*/) {}
 
 void RunAction::EndOfRunAction(const G4Run* /*aRun*/) {
 
-	// Make sure we have events. If so, write to file
-	if (!HitNumtuple.empty()){
+	cout << "HEALPix index = " << GetHPindextuple()[0] << "/3072\n";
 
-		cout << "HEALPix index = " << GetHPindextuple()[0] << "/3072\n";
-
-		cout << "\nWriting to file...\n\n";
-
-	    // Dump data to file
-	    if (printbin){PrintToBinaryFile();}
-	    if (printtext){PrintToTextFile();}
-	}
-	else{
-		cout << "\nNo events recorded...\n\n";
-	}
+    // Dump data to file
+    if (printbin){PrintToBinaryFile();}
+    if (printtext){PrintToTextFile();}
 
     // Clear data tuples for next run
     ClearTuples();
@@ -119,15 +110,15 @@ void RunAction::PrintToTextFile(){
 
     for (int i = 0; i < int(EvtNtuple.size()); i++){
         myfile
-        << EvtNtuple[i]    << "\t"
-        << HitNumtuple[i]  << "\t"
+        << EvtNtuple[i] << "\t"
+        << HitNumtuple[i] << "\t"
         << TrackIDtuple[i] << "\t"
-        << Energytuple[i]  << "\t"
-        << DetIDtuple[i]   << "\t"
+        << Energytuple[i] << "\t"
+        << DetIDtuple[i] << "\t"
         << Processtuple[i] << "\t"
-        << DOIbintuple[i]  << "\t"
+        << DOIbintuple[i] << "\t"
         << HPindextuple[i] << "\t"
-        << Timetuple[i]    << "\t"
+        << Timetuple[i] << "\t"
         << "\n";
 
     }

@@ -39,28 +39,11 @@ public:
 
     virtual void ConstructSDandField();
 
-    vector<G4int> GetRandomMask();
-	vector<G4int> GetFullMask();
-    void SetMask(vector<G4int>);
-    G4String BinToHex(vector<G4int>);
-    vector<G4int> HexToBin(G4String);
-
     void UpdateGeometry();
     void SetDetDim(G4ThreeVector);
 
-    void CheckOverlapsOn();
-
     vector<G4ThreeVector> centers;
     inline vector<G4ThreeVector> GetDetCenters(){return centers;}
-
-    vector<G4RotationMatrix> rotationmat;
-    inline vector<G4RotationMatrix> GetRotationMat(){return rotationmat;}
-
-
-    G4String detindexing;
-    inline void SetDetIndexing(G4String di){detindexing = di;}
-    inline G4String GetDetIndexing(){return detindexing;}
-
 
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();
@@ -74,18 +57,12 @@ protected:
     G4double world_dim;          // World is a sphere so we need radius
     G4ThreeVector detector_dim;  // detector are cubes, need xyz dimensions
     G4ThreeVector detector_pos;
-    G4RotationMatrix detector_rot;
 
     // bool to check overlapping geometry (can be time consuming... default is false)
     //   can be turned on with CheckOverlapsOn()
-    bool _checkoverlaps;
-
 
 private:
 	static DetectorConstruction* fgInstance;
-
-    vector<G4int> _mask;
-
 
 };
 

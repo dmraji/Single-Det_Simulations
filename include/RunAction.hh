@@ -38,11 +38,11 @@ public:
     void ClearDOIbintuple();
     vector<G4int> GetDOIbintuple();
 
-    // Detector ID
-    vector<G4int> DetIDtuple;
-    void FillDetIDtuple(G4int);
-    void ClearDetIDtuple();
-    vector<G4int> GetDetIDtuple();
+   //  // Detector ID
+   //  vector<G4int> DetIDtuple;
+   //  void FillDetIDtuple(G4int);
+   //  void ClearDetIDtuple();
+   //  vector<G4int> GetDetIDtuple();
 
     // Event Number
     vector<G4int> EvtNtuple;
