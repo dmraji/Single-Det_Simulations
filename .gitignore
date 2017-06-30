@@ -48,7 +48,11 @@ HEMI_Sim/output/*.root
 
 # Doxygen build directory
 PRISM_Sim/PRISM_Sim/docs/doxygen/html
+<<<<<<< HEAD
 PRISM_Sim/PRISM_Sim/docs/doxygen/latex
 
 # Etc.
 Dan's Code/*
+=======
+PRISM_Sim/PRISM_Sim/docs/doxygen/latex
+>>>>>>> 1eb29f5569535bf9c16ee5c9b4ffd047f03b38ad
