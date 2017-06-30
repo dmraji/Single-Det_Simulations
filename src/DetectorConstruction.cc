@@ -29,7 +29,7 @@ using namespace CLHEP;
  //==================================================================================================
 
  DetectorConstruction* DetectorConstruction::Instance() {
-   
+
  	return fgInstance;
  }
 
@@ -105,6 +105,36 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                     "World"     // name
                                                     );
 
+    G4String centfilename = "geo/centervertices_";
+    centfilename.append("1Det").append(".txt");
+    ifstream centerfile(centfilename);
+    double x_, y_, z_;
+    string line;
+    centers.clear();
+    if (centerfile.is_open()){
+        while (getline(centerfile,line)){
+            istringstream(line) >> x_ >> y_ >> z_;
+            centers.push_back(G4ThreeVector(x_*mm, y_*mm ,z_*mm));
+        }
+        centerfile.close();
+    }
+
+    // Pull in rotation matrices from file
+    G4String rotfilename = "geo/rotationmatrices_";
+    rotfilename.append("1Det").append(".txt");
+    ifstream myfile3(rotfilename);
+    double x1_,x2_,x3_,y1_,y2_,y3_,z1_,z2_,z3_;
+    rotationmat.clear();
+    if (myfile3.is_open()){
+      while (getline(myfile3,line)){
+        istringstream(line) >> x1_ >> x2_ >> x3_ >> y1_ >> y2_ >> y3_ >> z1_ >> z2_ >> z3_;
+        rotationmat.push_back(G4RotationMatrix(G4ThreeVector(x1_,x2_,x3_), G4ThreeVector(y1_,y2_,y3_), G4ThreeVector(z1_,z2_,z3_)));
+      }
+      myfile3.close();
+    }
+
+
+
     worldPhys = new G4PVPlacement(0,                    // no rotations so give it a null pointer
                                   G4ThreeVector(0.),    // the placement of the volume at (0, 0, 0)
                                   "World",              // name
@@ -134,20 +164,23 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                     "DetectorLog"     // name
                                                     );
 
-    G4RotationMatrix* rotD3 = new G4RotationMatrix();
-    rotD3 -> rotateX(0.*deg);
+    // G4RotationMatrix* rotD3 = new G4RotationMatrix();
+    // rotD3 -> rotateX(0.*deg);
 
-    G4PVPlacement *p = new G4PVPlacement(rotD3,               // the placement of the volume in center
-                                         G4ThreeVector(),                   // name
+    detector_pos = centers[1];
+    G4Transform3D transform = G4Transform3D(rotationmat[1],detector_pos);
+
+    G4PVPlacement *p = new G4PVPlacement(transform,               // the placement of the volume in center
+                                         1,                   // name
                                          logvol,              // the corresponding logical volume -- gives
                                                                   //   volume the material (and the dimensions
                                                                   //   via the solid assigned to the logical volume)
-                                         "det1",
-                                         worldLog,               // inside the world so the world is the mother
+                                         worldPhys,               // inside the world so the world is the mother
                                                                   //   physical volume,
                                          false,                   // many = false (no copies)
                                          0                        // the replica id number (only > 0 if copies exist)
                                          );
+
     // ---------------------------------------
     // Set up visualization of geometry
     // ---------------------------------------

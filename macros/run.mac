@@ -22,7 +22,7 @@
 #/PRISM/geo/cubedim 0.5 0.5 0.5
 
 # Change the particle energy
-/gun/energy 60 keV
+/gun/energy 662 keV
 
 # Configure HEALPix indexing (better to not mess with)
 /PRISM/healpix/setHPNside 16
@@ -31,20 +31,20 @@
 
 # Set up source
 # Pick a position in HEALPix index
-/PRISM/source/setHPindex 912
+/PRISM/source/setHPindex 45
 # Use far field source
-/PRISM/source/farfieldsource
+#/PRISM/source/farfieldsource
 # Use near field source (provide a distance)
-#/PRISM/source/nearfieldsource 1 m
+/PRISM/source/nearfieldsource 1 m
 # Use far field ring source (need to include a diameter input…)
 #/PRISM/source/farfieldringsource
 
 # Change output file name
-/PRISM/output/filename output_60keV_rand_HP912
+/PRISM/output/filename output_662keV_1Det_cone_HP45
 
 #Print to text or binary format
 /PRISM/output/printText On
 /PRISM/output/printBinary Off
 
 # Beam on, run this many particles
-/run/beamOn 1000000
+/run/beamOn 100000

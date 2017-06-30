@@ -7,6 +7,7 @@
 #include "G4VProcess.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "DetectorConstruction.hh"
+#include "Hit.hh"
 
 using namespace CLHEP;
 
@@ -53,22 +54,20 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
 
     // Detector ID
     newHit->SetVol(atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()));
-    cout << atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName());
 
     // Interaction Process
     G4String proc = aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName();
-    if (proc == "phot"){cout << "\nhey1\n";
+    if (proc == "phot"){
         newHit->SetProcess(1);
     }
-    else if (proc == "compt"){cout << "\nhey2\n";
+    else if (proc == "compt"){
         newHit->SetProcess(2);
     }
-    else if (proc == "Rayl"){cout << "\nhey3\n";
+    else if (proc == "Rayl"){
         newHit->SetProcess(3);
     }
     else {
         newHit->SetProcess(4);
-        cout << "\nhey4\n";
     }
 
     // HEALPix index
@@ -79,7 +78,6 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
 
     // Depth of interaction
     G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) + 1];
-    cout << "\nhey\n";
     G4ThreeVector intpos = aStep->GetPostStepPoint()->GetPosition();
     G4double doi = (intpos-detcent).dot(detcent)/detcent.mag() + 0.500*cm;
     if      (doi < 0.) {newHit->SetDOI(0. *mm);}

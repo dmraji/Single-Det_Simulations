@@ -45,6 +45,14 @@ public:
     vector<G4ThreeVector> centers;
     inline vector<G4ThreeVector> GetDetCenters(){return centers;}
 
+		vector<G4RotationMatrix> rotationmat;
+		inline vector<G4RotationMatrix> GetRotationMat(){return rotationmat;}
+
+
+		G4String detindexing;
+		inline void SetDetIndexing(G4String di){detindexing = di;}
+		inline G4String GetDetIndexing(){return detindexing;}
+
 protected:
     virtual G4VPhysicalVolume* ConstructWorld();
     virtual void ConstructMaterials();
@@ -57,6 +65,7 @@ protected:
     G4double world_dim;          // World is a sphere so we need radius
     G4ThreeVector detector_dim;  // detector are cubes, need xyz dimensions
     G4ThreeVector detector_pos;
+		G4RotationMatrix detector_rot;
 
     // bool to check overlapping geometry (can be time consuming... default is false)
     //   can be turned on with CheckOverlapsOn()
