@@ -51,13 +51,13 @@ void RunAction::EndOfRunAction(const G4Run* /*aRun*/) {
 
 	cout << "\nWriting to file...\n\n";
 
-		// Dump data to file
-		if (printbin){PrintToBinaryFile();}
-		if (printtext){PrintToTextFile();}
-}
-else{
-	cout << "\nNo events recorded...\n\n";
-}
+	// Dump data to file
+	if (printbin){PrintToBinaryFile();}
+	if (printtext){PrintToTextFile();}
+	}
+	else{
+		cout << "\nNo events recorded...\n\n";
+	}
 
 
     // Clear data tuples for next run
