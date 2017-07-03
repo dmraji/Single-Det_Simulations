@@ -68,7 +68,7 @@
 
 ## Set up source
 # Pick position (in HP index)
-/PRISM/source/setHPindex 45
+/PRISM/source/setHPindex 0
 # Use far field source
 #/PRISM/source/farfieldsource
 # Use near field source

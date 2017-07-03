@@ -1,0 +1,8 @@
+EvtN	HitN	TrackID	Energy	DetID	Process	DOI	HP	Time
+95	1	1	60	0	1	10	45	0.487163	
+EvtN	HitN	TrackID	Energy	DetID	Process	DOI	HP	Time
+95	1	1	60	0	1	10	0	0.483668	
+EvtN	HitN	TrackID	Energy	DetID	Process	DOI	HP	Time
+96	1	1	60	0	1	10	0	0.483936	
+EvtN	HitN	TrackID	Energy	DetID	Process	DOI	HP	Time
+96	1	1	60	0	1	10	0	0.492265	

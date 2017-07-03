@@ -99,12 +99,15 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
 SourceInfo PrimaryGeneratorAction::FarFieldSource(G4double theta_, G4double phi_){
 
+	phi = phi_;
+	theta = theta_;
+
 	// Set the direction of the rays, given theta and phi (calculate position, take all negative values)
 	G4double r = 15.*cm;
 	G4ThreeVector dir;
-	dir.setX(-r*cos(theta_*(pi/180))*sin(phi_*(pi/180)));
-	dir.setY(-r*sin(theta_*(pi/180))*sin(phi_*(pi/180)));
-	dir.setZ(-r*cos(phi_  *(pi/180)));
+	dir.setX(-r*cos(theta*(pi/180))*sin(phi*(pi/180)));
+	dir.setY(-r*sin(theta*(pi/180))*sin(phi*(pi/180)));
+	dir.setZ(-r*cos(phi  *(pi/180)));
 
 	// Uniformly sample a disk that just covers the entire detector (start at z-axis (0,0,1) and then rotate)
 	G4double rand_r = G4UniformRand();
@@ -116,7 +119,7 @@ SourceInfo PrimaryGeneratorAction::FarFieldSource(G4double theta_, G4double phi_
 	disk_pos.setZ(r);
 
 	// Get position by rotating the z-oriented disk
-	G4ThreeVector pos = disk_pos.rotateY(phi_*deg).rotateZ(theta_*deg);
+	G4ThreeVector pos = disk_pos.rotateY(phi*deg).rotateZ(theta*deg);
 
 	SourceInfo sourceinfo_;
 	sourceinfo_.SetDir(dir);
@@ -130,17 +133,20 @@ SourceInfo PrimaryGeneratorAction::FarFieldSource(G4double theta_, G4double phi_
 
 SourceInfo PrimaryGeneratorAction::NearFieldSource(G4double theta_, G4double phi_, G4double dist_){
 
+	phi = phi_;
+	theta = theta_;
+
 	// Isotropic rays
 	//G4ThreeVector dir = GetIsotropicMomentumDirection();
 
 	// Cone beam
 	G4double ang = atan(2.*cm / dist_) * (180. / CLHEP::pi);
-	G4ThreeVector dir = (GetConeMomentumDirection(ang)).rotateY(phi_*deg).rotateZ(theta_*deg);
+	G4ThreeVector dir = (GetConeMomentumDirection(ang)).rotateY(phi*deg).rotateZ(theta*deg);
 
 	// Get position using theta, phi, and distance
-	G4ThreeVector pos(dist_*cos(theta_*(pi/180))*sin(phi_*(pi/180)),
-					  				dist_*sin(theta_*(pi/180))*sin(phi_*(pi/180)),
-					  				dist_*cos(phi_  *(pi/180))
+	G4ThreeVector pos(dist_*cos(theta*(pi/180))*sin(phi*(pi/180)),
+					  				dist_*sin(theta*(pi/180))*sin(phi*(pi/180)),
+					  				dist_*cos(phi  *(pi/180))
 									  );
 
 	SourceInfo sourceinfo_;
@@ -162,11 +168,11 @@ SourceInfo PrimaryGeneratorAction::FarFieldRingSource(){
 	G4double x_ = radius_*cos(rand_theta);
 	G4double y_ = radius_*sin(rand_theta);
 
-	G4double theta_ = atan2(y_,x_) * 180./pi;
-	G4double phi_   = acos(z_/(sqrt(x_*x_+y_*y_+z_*z_))) * 180./pi;
+	theta = atan2(y_,x_) * 180./pi;
+	phi   = acos(z_/(sqrt(x_*x_+y_*y_+z_*z_))) * 180./pi;
 
 	SourceInfo sourceinfo_;
-	sourceinfo_ =  FarFieldSource(theta_, phi_);
+	sourceinfo_ =  FarFieldSource(theta, phi);
 	return sourceinfo_;
 }
 

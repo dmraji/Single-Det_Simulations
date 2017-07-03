@@ -31,6 +31,9 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
     fHPDirectory = new G4UIdirectory("/PRISM/healpix/");
     fHPDirectory->SetGuidance("Setting up Healpix");
 
+    fAngDirectory = new G4UIdirectory("/PRISM/angles/");
+    fAngDirectory->SetGuidance("Setting up source angles");
+
     fSrcDirectory = new G4UIdirectory("/PRISM/source/");
     fSrcDirectory->SetGuidance("Distribution/direction/position of incoming rays");
 
@@ -54,6 +57,14 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
     fSetUpHEALPixCmd = new G4UIcmdWithoutParameter("/PRISM/healpix/SetUpHEALPix",this);
     fSetUpHEALPixCmd->SetGuidance("Set up HEALPix (command to follow the Nside and IndexingScheme commands)");
     fSetUpHEALPixCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
+    fAngphi = new G4UIcmdWithADouble("/PRISM/angles/phi", this);
+    fAngphi->SetGuidance("Set phi of source in relation to origin (in degrees)");
+    fAngphi->AvailableForStates(G4State_PreInit, G4State_Idle);
+
+    fAngtheta = new G4UIcmdWithADouble("/PRISM/angles/theta", this);
+    fAngtheta->SetGuidance("Set theta of source in relation to origin (in degrees)");
+    fAngtheta->AvailableForStates(G4State_PreInit, G4State_Idle);
 
     fOutputFileNameCmd = new G4UIcmdWithAString("/PRISM/output/filename",this);
     fOutputFileNameCmd->SetGuidance("Name the output file");
@@ -106,6 +117,8 @@ PrimaryGeneratorActionMessenger::PrimaryGeneratorActionMessenger(PrimaryGenerato
 PrimaryGeneratorActionMessenger::~PrimaryGeneratorActionMessenger()
 {
     delete fHPCmd;
+    delete fAngphi;
+    delete fAngtheta;
     delete fHPNsideCmd;
     delete fHPindexingCmd;
     delete fSetUpHEALPixCmd;
@@ -128,6 +141,17 @@ PrimaryGeneratorActionMessenger::~PrimaryGeneratorActionMessenger()
 
 void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 {
+    if (command == fAngphi){
+
+      G4int phiAng = fAngphi->GetNewDoubleValue(newValue);
+      fPrimaryGeneratorAction->SetPhi(phiAng);
+    }
+
+    if (command == fAngtheta){
+
+      G4int thetaAng = fAngtheta->GetNewDoubleValue(newValue);
+      fPrimaryGeneratorAction->SetTheta(thetaAng);
+    }
 
     if (command == fHPCmd){
 

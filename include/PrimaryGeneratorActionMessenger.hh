@@ -30,11 +30,14 @@ private:
     PrimaryGeneratorAction* fPrimaryGeneratorAction;
 
     G4UIdirectory* fHPDirectory;
+    G4UIdirectory* fAngDirectory;
     G4UIdirectory* fSrcDirectory;
     G4UIdirectory* fOutDirectory;
 
     G4UIcmdWithAnInteger*      fHPCmd;
     G4UIcmdWithAnInteger*      fHPNsideCmd;
+    G4UIcmdWithADouble*        fAngphi;
+    G4UIcmdWithADouble*        fAngtheta;
     G4UIcmdWithAString*        fHPindexingCmd;
     G4UIcmdWithoutParameter*   fSetUpHEALPixCmd;
     G4UIcmdWithAString*        fOutputFileNameCmd;

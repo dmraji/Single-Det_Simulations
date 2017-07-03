@@ -59,19 +59,19 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     G4String proc = aStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName();
     if (proc == "phot"){
         newHit->SetProcess(1);
-        cout << "\nhey1\n";
+        // cout << "\nhey1\n";
     }
     else if (proc == "compt"){
         newHit->SetProcess(2);
-        cout << "\nhey2\n";
+        // cout << "\nhey2\n";
     }
     else if (proc == "Rayl"){
         newHit->SetProcess(3);
-        cout << "\nhey3\n";
+        // cout << "\nhey3\n";
     }
     else {
         newHit->SetProcess(4);
-        cout << "\nhey1\n";
+        // cout << "\nhey1\n";
     }
 
     // HEALPix index
