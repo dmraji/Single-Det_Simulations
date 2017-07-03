@@ -139,8 +139,9 @@ SourceInfo PrimaryGeneratorAction::NearFieldSource(G4double theta_, G4double phi
 
 	// Get position using theta, phi, and distance
 	G4ThreeVector pos(dist_*cos(theta_*(pi/180))*sin(phi_*(pi/180)),
-					  dist_*sin(theta_*(pi/180))*sin(phi_*(pi/180)),
-					  dist_*cos(phi_  *(pi/180)));
+					  				dist_*sin(theta_*(pi/180))*sin(phi_*(pi/180)),
+					  				dist_*cos(phi_  *(pi/180))
+									  );
 
 	SourceInfo sourceinfo_;
 	sourceinfo_.SetDir(dir);

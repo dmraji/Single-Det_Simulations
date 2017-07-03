@@ -143,6 +143,7 @@ void PrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command,G4String 
 
             vector<struct Angles> HPangles = fPrimaryGeneratorAction->GetHPangles();
 
+            // Changing theta and phi into degrees from radians
             fPrimaryGeneratorAction->SetTheta(HPangles[HPindex-1].theta*(180./pi));
             fPrimaryGeneratorAction->SetPhi(HPangles[HPindex-1].phi*(180./pi));
 

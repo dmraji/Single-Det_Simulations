@@ -5,6 +5,7 @@
 
 #include "G4RunManager.hh"
 #include "G4Box.hh"
+#include "G4SubtractionSolid.hh"
 #include "G4Tubs.hh"
 #include "G4Sphere.hh"
 #include "G4Orb.hh"
@@ -44,7 +45,7 @@ using namespace CLHEP;
    detector_pos(G4ThreeVector(0.)),                                     // default position at 0, 0, 0
    box_dim(G4ThreeVector(10.*cm, 5.*cm, 2.*cm)),                        // box with dimensions 10cm by 5cm by 2 cm
    box_pos(G4ThreeVector(4.*cm, 1.5*cm, 0.*cm)),                         // box positioned at 3cm along x-axis
-   tableTop_dim(G4ThreeVector(120.*cm, 50.*cm, 3.*cm)),                  // tabletop with dimensions 1.2m by 0.5m by 3cm
+   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),                  // tabletop with dimensions 1.2m by 0.5m by 3cm
    tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -5*cm))
 {
    // Create a new messenger class
@@ -194,15 +195,26 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // Create environment
     // ---------------------------------------
 
-    // Box
-    G4VSolid* boxSolid = new G4Box("boxSolid",
-                                   box_dim.x(),
-                                   box_dim.y(),
-                                   box_dim.z()
-                                   );
+    // Hollow box
+    G4Box* outerBox = new G4Box("Outer Box",
+                                box_dim.x(),
+                                box_dim.y(),
+                                box_dim.z()
+                                );
+
+    G4Box* innerBox = new G4Box("Inner Box",
+                                box_dim.x() - 0.25*cm,
+                                box_dim.y() - 0.25*cm,
+                                box_dim.z() - 0.25*cm
+                                );
+
+    G4SubtractionSolid* boxHollow = new G4SubtractionSolid("boxHollow",
+                                                           outerBox,
+                                                           innerBox
+                                                           );
 
     // Create LV for box
-    G4LogicalVolume* boxLogVol = new G4LogicalVolume(boxSolid,    // target solid
+    G4LogicalVolume* boxLog = new G4LogicalVolume(boxHollow,    // target solid
                                                      mbox,        // target material
                                                      "boxLog"     // name
                                                      );
@@ -210,7 +222,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     G4PVPlacement *pb = new G4PVPlacement(0,
                                           G4ThreeVector(box_pos.x(), box_pos.y(), box_pos.z()),
                                           "box",
-                                          boxLogVol,
+                                          boxLog,
                                           worldPhys,
                                           false,
                                           0
@@ -251,7 +263,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // G4VisAttributes* box_vis_att = new G4VisAttributes(G4Color(0., 0., 0., 0.));
     // box_vis_att->SetForceSolid(true);
     // box_vis_att->SetVisibility(true);
-    // boxLogVol -> SetVisAttributes(box_vis_att);
+    // boxLog -> SetVisAttributes(box_vis_att);
 
     G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(25., 1., 0., 0.10));
     table_vis_att->SetForceSolid(true);
