@@ -28,30 +28,30 @@ PrimaryGeneratorAction* PrimaryGeneratorAction::Instance() {
 PrimaryGeneratorAction::PrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction(), HPindexing("Ring"), HP_Nside(8), gun(0), detector(0) {
 
 	fgInstance = this;
-    G4int nparticles = 1;
-    gun = new G4ParticleGun(nparticles);
+  G4int nparticles = 1;
+  gun = new G4ParticleGun(nparticles);
 
-    G4ParticleTable* ptable = G4ParticleTable::GetParticleTable();
-    G4ParticleDefinition* particle = ptable->FindParticle("gamma");
-    if(!particle) G4Exception("PrimaryGeneratorAction", "null pointer to particle", FatalException, "Find particle did not return a particle");
+  G4ParticleTable* ptable = G4ParticleTable::GetParticleTable();
+  G4ParticleDefinition* particle = ptable->FindParticle("gamma");
+  if(!particle) G4Exception("PrimaryGeneratorAction", "null pointer to particle", FatalException, "Find particle did not return a particle");
 
-    gun->SetParticleDefinition(particle);
-    gun->SetParticlePosition(G4ThreeVector(0.*cm, 0.*cm, 0.5*m));
-    gun->SetParticleEnergy(60.*keV);
-    gun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+  gun->SetParticleDefinition(particle);
+  gun->SetParticlePosition(G4ThreeVector(0.*cm, 0.*cm, 0.5*m));
+  gun->SetParticleEnergy(60.*keV);
+  gun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
 
-    theta = 0.;
-    phi = 0.;
+  theta = 0.;
+  phi = 0.;
 
 	farfieldsource = true;
 	nearfieldsource = false;
 	nearfieldsourcedist = 50*cm;
 
-    // Create a new messenger class
-    primarygeneratoractionmessenger = new PrimaryGeneratorActionMessenger(this);
+  // Create a new messenger class
+  primarygeneratoractionmessenger = new PrimaryGeneratorActionMessenger(this);
 
-    // Pull in HEALPix angles
-    ReadInHEALPixAngles("HEALpix/n=8/HEALPix_PhiTheta_Ring.txt");
+  // Pull in HEALPix angles
+  ReadInHEALPixAngles("HEALpix/n=8/HEALPix_PhiTheta_Ring.txt");
 
 }
 

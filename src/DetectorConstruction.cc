@@ -37,14 +37,20 @@ using namespace CLHEP;
  : worldPhys(0),
    mworld(0),
    mdetector(0),
-   world_dim(10*m),                                                      // default world is a 10 m radius sphere
-   detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),                  // default detector is 1 cc cube (use half sizes)
-   detector_pos(G4ThreeVector(0.))                                      // default position at 0, 0, 0
+   mbox(0),
+   mtable(0),
+   world_dim(10*m),                                                     // default world is a 10 m radius sphere
+   detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),                 // default detector is 1 cc cube (use half sizes)
+   detector_pos(G4ThreeVector(0.)),                                     // default position at 0, 0, 0
+   box_dim(G4ThreeVector(10.*cm, 5.*cm, 2.*cm)),                        // box with dimensions 10cm by 5cm by 2 cm
+   box_pos(G4ThreeVector(4.*cm, 1.5*cm, 0.*cm)),                         // box positioned at 3cm along x-axis
+   tableTop_dim(G4ThreeVector(120.*cm, 50.*cm, 3.*cm)),                  // tabletop with dimensions 1.2m by 0.5m by 3cm
+   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -5*cm))
 {
    // Create a new messenger class
-    detectorconstructionmessenger = new DetectorConstructionMessenger(this);
+   detectorconstructionmessenger = new DetectorConstructionMessenger(this);
 
-	fgInstance = this;
+	 fgInstance = this;
 }
 
 //==================================================================================================
@@ -67,8 +73,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 // Specifying the Material ////////////////////////////////////////////////////
 
-// Creating CZT detector element;
 void DetectorConstruction::ConstructMaterials(){
+    // Creating CZT detector element;
     G4Element* elCd = new G4Element("Cadmium"  ,"Cd", 48., 112.411*g/mole);
     G4Element* elZn = new G4Element("Zinc"     ,"Zn", 30., 65.39  *g/mole);
     G4Element* elTe = new G4Element("Tellurium","Te", 52., 127.6  *g/mole);
@@ -80,6 +86,12 @@ void DetectorConstruction::ConstructMaterials(){
 
     // Assign to detector material
     mdetector = CZT;
+
+    // Environment materials
+    G4Material* Al = new G4Material("Aluminum", 13., 26.982*g/mole, 2.70*g/cm3);
+
+    mbox = Al;
+    mtable = Al;
 
     // the NIST manager has simple materials
     G4NistManager* nist = G4NistManager::Instance();
@@ -149,7 +161,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
 
     // ---------------------------------------
-    // Create detectors
+    // Create detector
     // ---------------------------------------
 
     G4VSolid* detectorSolid = new G4Box("DetectorSolid",    // name
@@ -158,21 +170,18 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                       detector_dim.z()      // z half-length
                                       );
 
-    // Create 192 logical volumes (so we can have different colors)
-    G4LogicalVolume* logvol = new G4LogicalVolume(detectorSolid,    // target solid
+    // Create the logical volume for detector
+    G4LogicalVolume* logvol = new G4LogicalVolume(detectorSolid,      // target solid
                                                     mdetector,        // target material
                                                     "DetectorLog"     // name
                                                     );
-
-    // G4RotationMatrix* rotD3 = new G4RotationMatrix();
-    // rotD3 -> rotateX(0.*deg);
 
     detector_pos = centers[1];
     G4Transform3D transform = G4Transform3D(rotationmat[1],detector_pos);
 
     G4PVPlacement *p = new G4PVPlacement(transform,               // the placement of the volume in center
-                                         1,                   // name
-                                         logvol,              // the corresponding logical volume -- gives
+                                         1,                       // name
+                                         logvol,                  // the corresponding logical volume -- gives
                                                                   //   volume the material (and the dimensions
                                                                   //   via the solid assigned to the logical volume)
                                          worldPhys,               // inside the world so the world is the mother
@@ -182,6 +191,55 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                          );
 
     // ---------------------------------------
+    // Create environment
+    // ---------------------------------------
+
+    // Box
+    G4VSolid* boxSolid = new G4Box("boxSolid",
+                                   box_dim.x(),
+                                   box_dim.y(),
+                                   box_dim.z()
+                                   );
+
+    // Create LV for box
+    G4LogicalVolume* boxLogVol = new G4LogicalVolume(boxSolid,    // target solid
+                                                     mbox,        // target material
+                                                     "boxLog"     // name
+                                                     );
+
+    G4PVPlacement *pb = new G4PVPlacement(0,
+                                          G4ThreeVector(box_pos.x(), box_pos.y(), box_pos.z()),
+                                          "box",
+                                          boxLogVol,
+                                          worldPhys,
+                                          false,
+                                          0
+                                          );
+
+    // Tabletop
+    G4VSolid* tableSolid = new G4Box("tableSolid",
+                                     tableTop_dim.x(),
+                                     tableTop_dim.y(),
+                                     tableTop_dim.z()
+                                     );
+
+    // Create LV for tabletop
+    G4LogicalVolume* tableLogVol = new G4LogicalVolume(tableSolid,    // target solid
+                                                       mtable,        // target material
+                                                       "tableLog"     // name
+                                                       );
+
+    G4PVPlacement *ptt = new G4PVPlacement(0,
+                                           G4ThreeVector(tableTop_pos.x(), tableTop_pos.y(), tableTop_pos.z()),
+                                           "tableTop",
+                                           tableLogVol,
+                                           worldPhys,
+                                           false,
+                                           0
+                                           );
+
+
+    // ---------------------------------------
     // Set up visualization of geometry
     // ---------------------------------------
 
@@ -189,6 +247,16 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     detector_vis_att->SetForceSolid(true);
     detector_vis_att->SetVisibility(true);
     logvol -> SetVisAttributes(detector_vis_att);
+
+    // G4VisAttributes* box_vis_att = new G4VisAttributes(G4Color(0., 0., 0., 0.));
+    // box_vis_att->SetForceSolid(true);
+    // box_vis_att->SetVisibility(true);
+    // boxLogVol -> SetVisAttributes(box_vis_att);
+
+    G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(25., 1., 0., 0.10));
+    table_vis_att->SetForceSolid(true);
+    table_vis_att->SetVisibility(true);
+    tableLogVol -> SetVisAttributes(table_vis_att);
 
     G4VisAttributes* world_vis_att = new G4VisAttributes(G4Color(1.,0.,0.));
     world_vis_att->SetForceWireframe(true);

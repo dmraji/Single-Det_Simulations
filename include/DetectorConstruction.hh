@@ -61,11 +61,20 @@ protected:
     G4VPhysicalVolume* worldPhys;
     G4Material* mworld;
     G4Material* mdetector;
+		G4Material* mbox;
+		G4Material* mtable;
 
     G4double world_dim;          // World is a sphere so we need radius
     G4ThreeVector detector_dim;  // detector are cubes, need xyz dimensions
     G4ThreeVector detector_pos;
 		G4RotationMatrix detector_rot;
+
+		// Lab environment
+		G4ThreeVector box_dim;
+		G4ThreeVector box_pos;
+
+		G4ThreeVector tableTop_dim;
+		G4ThreeVector tableTop_pos;
 
     // bool to check overlapping geometry (can be time consuming... default is false)
     //   can be turned on with CheckOverlapsOn()
