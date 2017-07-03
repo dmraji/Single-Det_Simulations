@@ -16,18 +16,12 @@ TODO
 *.npy
 
 # Output and response files
-PRISM_Sim/PRISM_SIM/output/*.bin
-PRISM_Sim/PRISM_SIM/output/*.npy
-PRISM_Sim/PRISM_SIM_MT/output/*.bin
-PRISM_Sim/PRISM_SIM_MT/output/*.npy
-HEMI_Sim/output/*.bin
-HEMI_Sim/output/*.npy
+/output/*.bin
+/output/*.npy
 /responses
 
 # Executable files
-PRISM_Sim/PRISM_Sim/PRISM
-PRISM_Sim/PRISM_Sim_MT/PRISM_MT
-HEMI_Sim/HEMI
+PRISM
 
 # CMake files
 cmake_install.cmake
@@ -47,12 +41,10 @@ G4History.macro
 HEMI_Sim/output/*.root
 
 # Doxygen build directory
-PRISM_Sim/PRISM_Sim/docs/doxygen/html
-<<<<<<< HEAD
-PRISM_Sim/PRISM_Sim/docs/doxygen/latex
+/docs/doxygen/html
+/docs/doxygen/latex
 
 # Etc.
 Dan's Code/*
 =======
-PRISM_Sim/PRISM_Sim/docs/doxygen/latex
->>>>>>> 1eb29f5569535bf9c16ee5c9b4ffd047f03b38ad
+/docs/doxygen/latex
