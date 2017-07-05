@@ -29,8 +29,8 @@
 #/PRISM/source/farfieldringsource
 
 # Angle of source
-/PRISM/angles/phi 45
-/PRISM/angles/theta 45
+/PRISM/angles/phi 135
+/PRISM/angles/theta 225
 
 # Change output file name
 /PRISM/output/filename output_662keV_1Det_cone_HP0000

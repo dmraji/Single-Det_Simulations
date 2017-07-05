@@ -7,28 +7,23 @@
 # Tracking secondary electrons
 /PRISM/tracking/trackElectrons Off
 
-# Detector indexing
-/PRISM/geo/detIndexing Ring
-
-# Configure mask
-/PRISM/geo/setMask 21524FA478BD521AB44791322B545C979943A029753854BB
-#/PRISM/geo/randomMask
-#/PRISM/geo/fullMask
-
 # Change the energy
-/gun/energy 356 keV
+/gun/energy 662 keV
 
 # Configure HEALPix (don’t change)
 /PRISM/healpix/setHPNside 16
 /PRISM/healpix/setHPindexscheme Ring
 /PRISM/healpix/SetUpHEALPix
 
+# Use near field source (provide a distance)
+/PRISM/source/nearfieldsource 1 m
+
 # Change output file name
-/PRISM/output/filename output_356keV_rand_response
+/PRISM/output/filename output_662keV_1Det_cone_response
 
 #Print to text or binary format
-/PRISM/output/printText Off
-/PRISM/output/printBinary On
+/PRISM/output/printText On
+/PRISM/output/printBinary Off
 
 # Loop through angles
-/control/loop macros/response/mainhp.mac hpindex 1 3072 1.
+/control/loop macros/response/sendOffAng.mac angDeg 1 91 1.

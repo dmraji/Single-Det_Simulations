@@ -17,6 +17,8 @@ Hit::Hit()
 : G4VHit(),
   fTrackID(-1),
   fHP(0),
+  fPhi(0),
+  fTheta(0),
   fProc(G4int()),
   fVol(G4int()),
   fEnergy(0.),
@@ -34,10 +36,14 @@ Hit::Hit(const Hit& right): G4VHit(){
 
     fTrackID   = right.fTrackID;
     fEnergy    = right.fEnergy;
+
+    //
     fVol       = right.fVol;
     fProc      = right.fProc;
     fDOI       = right.fDOI;
     fHP        = right.fHP;
+    fPhi       = right.fPhi;
+    fTheta     = right.fTheta;
     fTime      = right.fTime;
 }
 
@@ -51,6 +57,8 @@ const Hit& Hit::operator=(const Hit& right){
     fProc      = right.fProc;
     fDOI       = right.fDOI;
     fHP        = right.fHP;
+    fPhi       = right.fPhi;
+    fTheta     = right.fTheta;
     fTime      = right.fTime;
 
     return *this;

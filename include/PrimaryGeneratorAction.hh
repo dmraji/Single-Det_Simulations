@@ -44,7 +44,7 @@ public:
     PrimaryGeneratorActionMessenger * primarygeneratoractionmessenger;
 
 public:
-	void GeneratePrimaries(G4Event*);
+	  void GeneratePrimaries(G4Event*);
 
     void SetTheta(G4double);
     void SetPhi(G4double);
@@ -73,10 +73,9 @@ public:
     G4double GetSourceStrength(){return srcstrength;}
     void SetSourceStrength(G4double a){srcstrength = a;}
 
-
+    // Angles
     inline G4double GetTheta(){return theta;}
     inline G4double GetPhi(){return phi;}
-
 
     // Healpix
     G4int HP_index;
@@ -95,7 +94,6 @@ public:
     inline void SetHPNside(G4int _hpNside){HP_Nside = _hpNside;}
     inline G4int GetHPNside(){return HP_Nside;}
 
-    //
 
 protected:
     inline G4ThreeVector GetIsotropicMomentumDirection() const;

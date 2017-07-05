@@ -1,0 +1,11 @@
+# Angle degrees from run, modified for response iteration
+/control/divide phiAng {angDeg} 2
+/control/subtract phiAng 91 {phiAng}
+/control/add thetaAng 179 {angDeg}
+
+# Changing the angles
+/PRISM/angles/phi {phiAng}
+/PRISM/angles/theta {thetaAng}
+
+# Particles
+/run/beamOn 1000

@@ -40,13 +40,17 @@ using namespace CLHEP;
    mdetector(0),
    mbox(0),
    mtable(0),
-   world_dim(10*m),                                                     // default world is a 10 m radius sphere
-   detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),                 // default detector is 1 cc cube (use half sizes)
-   detector_pos(G4ThreeVector(0.)),                                     // default position at 0, 0, 0
-   box_dim(G4ThreeVector(10.*cm, 5.*cm, 2.*cm)),                        // box with dimensions 10cm by 5cm by 2 cm
-   box_pos(G4ThreeVector(4.*cm, 1.5*cm, 0.*cm)),                         // box positioned at 3cm along x-axis
-   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),                  // tabletop with dimensions 1.2m by 0.5m by 3cm
-   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -5*cm))
+   world_dim(10*m),                                               // default world is a 10 m radius sphere
+   detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),           // default detector is 1 cc cube (use half sizes)
+   detector_pos(G4ThreeVector(0.)),                               // default position at 0, 0, 0
+   box_dim(G4ThreeVector(10.*cm, 5.*cm, 2.*cm)),                  // box with dimensions 10cm by 5cm by 2 cm
+   box_pos(G4ThreeVector(4.*cm, 1.5*cm, 0.*cm)),                  // box positioned at 3cm along x-axis
+   comp1_dim(G4ThreeVector(4.*cm, 2.*cm, 0.5*cm)),               // component1 in box with dimensions 4cm by 2cm by 0.5cm
+   comp1_pos(G4ThreeVector(6.*cm, 0.*cm, -0.5*cm)),             // component1 in box positioned at -4cm along x-axis and -0.5cm along z-axis
+   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),            // tabletop with dimensions 60cm by 0.5m by 3cm
+   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -5*cm)),              // tabletop positioned at -5cm along z-axis
+   wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),              // wall with dimensions 80cm by 10cm by 200cm
+   wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                  // wall positioned at -35cm along the y-axis
 {
    // Create a new messenger class
    detectorconstructionmessenger = new DetectorConstructionMessenger(this);
@@ -88,14 +92,16 @@ void DetectorConstruction::ConstructMaterials(){
     // Assign to detector material
     mdetector = CZT;
 
+    G4NistManager* nist = G4NistManager::Instance();
+
     // Environment materials
     G4Material* Al = new G4Material("Aluminum", 13., 26.982*g/mole, 2.70*g/cm3);
 
     mbox = Al;
     mtable = Al;
+    mcomp1 = Al;
 
-    // the NIST manager has simple materials
-    G4NistManager* nist = G4NistManager::Instance();
+    mwall = nist->FindOrBuildMaterial("G4_CONCRETE");
 
     // Make the world a vacuum
     mworld = nist->FindOrBuildMaterial("G4_Galactic");
@@ -228,6 +234,28 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                           0
                                           );
 
+    // Component inside box
+    G4VSolid* comp1Solid = new G4Box("comp1Solid",
+                                     comp1_dim.x(),
+                                     comp1_dim.y(),
+                                     comp1_dim.z()
+                                     );
+
+    // Create LV for component1
+    G4LogicalVolume* comp1LogVol = new G4LogicalVolume(comp1Solid,    // target solid
+                                                       mcomp1,        // target material
+                                                       "comp1Log"     // name
+                                                       );
+
+    G4PVPlacement *pc1 = new G4PVPlacement(0,
+                                           G4ThreeVector(comp1_pos.x(), comp1_pos.y(), comp1_pos.z()),
+                                           "comp1",
+                                           comp1LogVol,
+                                           worldPhys,
+                                           false,
+                                           0
+                                           );
+
     // Tabletop
     G4VSolid* tableSolid = new G4Box("tableSolid",
                                      tableTop_dim.x(),
@@ -250,6 +278,28 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                            0
                                            );
 
+    // Wall
+    G4VSolid* wallSolid = new G4Box("wallSolid",
+                                     wall_dim.x(),
+                                     wall_dim.y(),
+                                     wall_dim.z()
+                                     );
+
+    // Create LV for wall
+    G4LogicalVolume* wallLogVol = new G4LogicalVolume(wallSolid,    // target solid
+                                                       mwall,        // target material
+                                                       "wallLog"     // name
+                                                       );
+
+    G4PVPlacement *pw = new G4PVPlacement(0,
+                                           G4ThreeVector(wall_pos.x(), wall_pos.y(), wall_pos.z()),
+                                           "wall",
+                                           wallLogVol,
+                                           worldPhys,
+                                           false,
+                                           0
+                                           );
+
 
     // ---------------------------------------
     // Set up visualization of geometry
@@ -265,10 +315,20 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // box_vis_att->SetVisibility(true);
     // boxLog -> SetVisAttributes(box_vis_att);
 
+    G4VisAttributes* comp1_vis_att = new G4VisAttributes(G4Color(0., 0., 25., 0.30));
+    comp1_vis_att->SetForceSolid(true);
+    comp1_vis_att->SetVisibility(true);
+    comp1LogVol -> SetVisAttributes(comp1_vis_att);
+
     G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(25., 1., 0., 0.10));
     table_vis_att->SetForceSolid(true);
     table_vis_att->SetVisibility(true);
     tableLogVol -> SetVisAttributes(table_vis_att);
+
+    G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(50., 1., 1., 0.10));
+    wall_vis_att->SetForceSolid(true);
+    wall_vis_att->SetVisibility(true);
+    wallLogVol -> SetVisAttributes(wall_vis_att);
 
     G4VisAttributes* world_vis_att = new G4VisAttributes(G4Color(1.,0.,0.));
     world_vis_att->SetForceWireframe(true);

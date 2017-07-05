@@ -77,6 +77,10 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     // HEALPix index
     newHit->SetHPindex(PrimaryGeneratorAction::Instance()->GetHP_index());
 
+    // Angles
+    newHit->SetPhi(PrimaryGeneratorAction::Instance()->GetPhi());
+    newHit->SetTheta(PrimaryGeneratorAction::Instance()->GetTheta());
+
     // Global time
     newHit->SetTime(aStep->GetPreStepPoint()->GetGlobalTime());
 

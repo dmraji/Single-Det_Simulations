@@ -83,6 +83,8 @@ void EventAction::FillTuples(const G4Event* evt_){
             runaction->FillDetIDtuple      ((*HC)[i]->GetVol());
             runaction->FillProcesstuple    ((*HC)[i]->GetProcess());
             runaction->FillHPindextuple    ((*HC)[i]->GetHPindex());
+						runaction->Fillphituple        ((*HC)[i]->GetPhi());
+						runaction->Fillthetatuple      ((*HC)[i]->GetTheta());
             runaction->FillTimetuple       ((*HC)[i]->GetTime());
 
 

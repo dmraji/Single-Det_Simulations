@@ -47,7 +47,8 @@ void RunAction::EndOfRunAction(const G4Run* /*aRun*/) {
 
 	if (!HitNumtuple.empty()){
 
-	cout << "HEALPix index = " << GetHPindextuple()[0] << "/3072\n";
+	//cout << "HEALPix index = " << GetHPindextuple()[0] << "/3072\n";
+	cout << "Phi & Theta angles = " << Getphituple()[0] << " & " << Getthetatuple()[0] << "\n";
 
 	cout << "\nWriting to file...\n\n";
 
@@ -76,6 +77,8 @@ void RunAction::FillTrackIDtuple    (G4int trackid)     {TrackIDtuple.push_back(
 void RunAction::FillEnergytuple     (G4float energy)    {Energytuple.push_back(energy); }
 void RunAction::FillProcesstuple    (G4int proc)        {Processtuple.push_back(proc); }
 void RunAction::FillHPindextuple    (G4int hpindex)     {HPindextuple.push_back(hpindex); }
+void RunAction::Fillphituple        (G4int phi)         {phituple.push_back(phi);}
+void RunAction::Fillthetatuple      (G4int theta)       {thetatuple.push_back(theta);}
 void RunAction::FillTimetuple       (G4float time_)     {Timetuple.push_back(time_); }
 
 //==================================================================================================
@@ -89,6 +92,8 @@ void RunAction::ClearTrackIDtuple()     {TrackIDtuple.clear(); }
 void RunAction::ClearEnergytuple()      {Energytuple.clear(); }
 void RunAction::ClearProcesstuple()     {Processtuple.clear(); }
 void RunAction::ClearHPindextuple()     {HPindextuple.clear(); }
+void RunAction::Clearphituple()         {phituple.clear(); }
+void RunAction::Clearthetatuple()       {thetatuple.clear(); }
 void RunAction::ClearTimetuple()        {Timetuple.clear(); }
 
 //==================================================================================================
@@ -102,6 +107,8 @@ vector<G4int>    RunAction::GetTrackIDtuple() {return TrackIDtuple; }
 vector<G4float>  RunAction::GetEnergytuple()  {return Energytuple; }
 vector<G4int>    RunAction::GetProcesstuple() {return Processtuple; }
 vector<G4int>    RunAction::GetHPindextuple() {return HPindextuple; }
+vector<G4int>    RunAction::Getphituple()     {return phituple; }
+vector<G4int>    RunAction::Getthetatuple()   {return thetatuple; }
 vector<G4float>  RunAction::GetTimetuple()    {return Timetuple; }
 
 //==================================================================================================
@@ -115,7 +122,7 @@ void RunAction::PrintToTextFile(){
     ofstream myfile;
     myfile.open (filename, ios::out | ios::app);    // use append so we can write from mulitple runs
 
-	myfile << "EvtN\tHitN\tTrackID\tEnergy\tDetID\tProcess\tDOI\tHP\tTime\n";
+	myfile << "EvtN\tHitN\tTrackID\tEnergy\tDetID\tProcess\tDOI\tHP\tPhi\tTheta\tTime\n";
 
     for (int i = 0; i < int(EvtNtuple.size()); i++){
         myfile
@@ -127,6 +134,8 @@ void RunAction::PrintToTextFile(){
         << Processtuple[i] << "\t"
         << DOIbintuple[i] << "\t"
         << HPindextuple[i] << "\t"
+				<< phituple[i] << "\t"
+				<< thetatuple[i] << "\t"
         << Timetuple[i] << "\t"
         << "\n";
 
@@ -155,7 +164,9 @@ void RunAction::PrintToBinaryFile(){
         myfile.write(reinterpret_cast<char*>(&Processtuple[i]), 1);  // 1 Byte  (1 to 4)
         myfile.write(reinterpret_cast<char*>(&DOIbintuple[i]),  1);  // 1 Byte  (1 to 20)
         myfile.write(reinterpret_cast<char*>(&HPindextuple[i]), 2);  // 2 Bytes (1 to 768 or 3072)
-		myfile.write(reinterpret_cast<char*>(&Timetuple[i]),    4);  // 4 Bytes
+				myfile.write(reinterpret_cast<char*>(&phituple[i]),     2);
+				myfile.write(reinterpret_cast<char*>(&thetatuple[i]),   2);
+				myfile.write(reinterpret_cast<char*>(&Timetuple[i]),    4);  // 4 Bytes
 
     }
     myfile.close();
@@ -172,8 +183,10 @@ void RunAction::ClearTuples(){
     ClearTrackIDtuple();
     ClearEnergytuple();
     ClearProcesstuple();
-	ClearHPindextuple();
-	ClearTimetuple();
+		ClearHPindextuple();
+		Clearphituple();
+		Clearthetatuple();
+		ClearTimetuple();
 
 }
 

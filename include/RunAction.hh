@@ -80,7 +80,19 @@ public:
     void ClearHPindextuple();
     vector<G4int> GetHPindextuple();
 
-	// Time
+		// Phi
+		vector<G4int> phituple;
+		void Fillphituple(G4int);
+		void Clearphituple();
+		vector<G4int> Getphituple();
+
+		// Theta
+		vector<G4int> thetatuple;
+		void Fillthetatuple(G4int);
+		void Clearthetatuple();
+		vector<G4int> Getthetatuple();
+
+		// Time
     vector<G4float> Timetuple;
     void FillTimetuple(G4float);
     void ClearTimetuple();
