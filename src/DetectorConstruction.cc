@@ -39,18 +39,20 @@ using namespace CLHEP;
    mworld(0),
    mdetector(0),
    mbox(0),
+   mcomp1(0),
    mtable(0),
+   mwall(0),
    world_dim(10*m),                                               // default world is a 10 m radius sphere
    detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),           // default detector is 1 cc cube (use half sizes)
    detector_pos(G4ThreeVector(0.)),                               // default position at 0, 0, 0
    box_dim(G4ThreeVector(10.*cm, 5.*cm, 2.*cm)),                  // box with dimensions 10cm by 5cm by 2 cm
    box_pos(G4ThreeVector(4.*cm, 1.5*cm, 0.*cm)),                  // box positioned at 3cm along x-axis
-   comp1_dim(G4ThreeVector(4.*cm, 2.*cm, 0.5*cm)),               // component1 in box with dimensions 4cm by 2cm by 0.5cm
-   comp1_pos(G4ThreeVector(6.*cm, 0.*cm, -0.5*cm)),             // component1 in box positioned at -4cm along x-axis and -0.5cm along z-axis
+   comp1_dim(G4ThreeVector(4.*cm, 2.*cm, 0.5*cm)),                // component1 in box with dimensions 4cm by 2cm by 0.5cm
+   comp1_pos(G4ThreeVector(6.*cm, 0.*cm, -0.5*cm)),               // component1 in box positioned at -4cm along x-axis and -0.5cm along z-axis
    tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),            // tabletop with dimensions 60cm by 0.5m by 3cm
    tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -5*cm)),              // tabletop positioned at -5cm along z-axis
    wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),              // wall with dimensions 80cm by 10cm by 200cm
-   wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                  // wall positioned at -35cm along the y-axis
+   wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                 // wall positioned at -35cm along the y-axis
 {
    // Create a new messenger class
    detectorconstructionmessenger = new DetectorConstructionMessenger(this);
@@ -220,7 +222,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                            );
 
     // Create LV for box
-    G4LogicalVolume* boxLog = new G4LogicalVolume(boxHollow,    // target solid
+    G4LogicalVolume* boxLog = new G4LogicalVolume(boxHollow,      // target solid
                                                      mbox,        // target material
                                                      "boxLog"     // name
                                                      );

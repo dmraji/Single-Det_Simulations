@@ -1,0 +1,8 @@
+# Theta angle degrees
+/control/subtract thetaAngDeg {thetaAngDeg} 1
+
+# Changing the angles
+/PRISM/angles/theta {thetaAngDeg}
+
+# Particles
+/run/beamOn 1000

@@ -1,0 +1,39 @@
+# Verbosities
+/control/verbose 0
+/tracking/verbose 0
+/run/verbose 0
+/event/verbose 0
+
+# Tracking secondary electrons
+/PRISM/tracking/trackElectrons Off
+
+# Change the energy
+/gun/energy 662 keV
+
+# Configure HEALPix (don’t change)
+/PRISM/healpix/setHPNside 16
+/PRISM/healpix/setHPindexscheme Ring
+/PRISM/healpix/SetUpHEALPix
+
+# Use near field source (provide a distance)
+/PRISM/source/nearfieldsource 1 m
+
+# Change output file name
+/PRISM/output/filename output_662keV_1Det_cone_pointBeams
+
+#Print to text or binary format
+/PRISM/output/printText On
+/PRISM/output/printBinary Off
+
+# Sim at phi=0deg
+/PRISM/angles/phi 0
+/PRISM/angles/theta 0
+/run/beamOn 1000
+
+# Loop through angles
+/control/loop macros/response/beamsSendOff.mac phiAngDeg 46 136 45.
+
+# Sim at phi=180deg
+/PRISM/angles/phi 180
+/PRISM/angles/theta 0
+/run/beamOn 1000

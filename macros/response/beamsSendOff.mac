@@ -1,0 +1,7 @@
+# Phi Angle Degrees
+/control/subtract phiAngDeg {phiAngDeg} 1
+
+/PRISM/angles/phi {phiAngDeg}
+
+# Sending to particle macro
+/control/loop macros/response/beamsMain.mac thetaAngDeg 1 316 45.
