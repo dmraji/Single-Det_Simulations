@@ -61,6 +61,11 @@ protected:
     G4VPhysicalVolume* worldPhys;
     G4Material* mworld;
     G4Material* mdetector;
+		G4Material* masic;
+		G4Material* mcopperasic;
+		G4Material* mmotherb;
+		G4Material* mcoppermother;
+		G4Material* mdethousing;
 		G4Material* mbox;
 		G4Material* mcomp1;
 		G4Material* mtable;
@@ -72,8 +77,26 @@ protected:
 		G4RotationMatrix detector_rot;
 
 		// Lab environment
-		G4ThreeVector box_dim;
-		G4ThreeVector box_pos;
+		G4ThreeVector asic_dim;
+		G4ThreeVector asic_pos;
+
+		G4ThreeVector copperasic_dim;
+		G4ThreeVector copperasic_pos;
+
+		G4ThreeVector motherb_dim;
+		G4ThreeVector motherb_pos;
+
+		G4ThreeVector coppermother_dim;
+		G4ThreeVector coppermother_pos;
+
+		G4ThreeVector dethousing_dim;
+		G4ThreeVector dethousing_pos;
+
+		G4ThreeVector boxBot_dim;
+		G4ThreeVector boxBot_pos;
+
+		G4ThreeVector boxTop_dim;
+		G4ThreeVector boxTop_pos;
 
 		G4ThreeVector comp1_dim;
 		G4ThreeVector comp1_pos;
@@ -83,9 +106,6 @@ protected:
 
 		G4ThreeVector wall_dim;
 		G4ThreeVector wall_pos;
-
-    // bool to check overlapping geometry (can be time consuming... default is false)
-    //   can be turned on with CheckOverlapsOn()
 
 private:
 	static DetectorConstruction* fgInstance;

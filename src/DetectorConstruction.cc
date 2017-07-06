@@ -38,6 +38,11 @@ using namespace CLHEP;
  : worldPhys(0),
    mworld(0),
    mdetector(0),
+   masic(0),
+   mcopperasic(0),
+   mmotherb(0),
+   mcoppermother(0),
+   mdethousing(0),
    mbox(0),
    mcomp1(0),
    mtable(0),
@@ -45,8 +50,24 @@ using namespace CLHEP;
    world_dim(10*m),                                               // default world is a 10 m radius sphere
    detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),           // default detector is 1 cc cube (use half sizes)
    detector_pos(G4ThreeVector(0.)),                               // default position at 0, 0, 0
-   box_dim(G4ThreeVector(10.*cm, 5.*cm, 2.*cm)),                  // box with dimensions 10cm by 5cm by 2 cm
-   box_pos(G4ThreeVector(4.*cm, 1.5*cm, 0.*cm)),                  // box positioned at 3cm along x-axis
+
+   // Immediate environment
+   asic_dim(G4ThreeVector(0.6*cm, 0.6*cm, 0.04*cm)),
+   asic_pos(G4ThreeVector(0.*cm, 0.*cm, -0.84*cm)),
+   copperasic_dim(G4ThreeVector(0.6*cm, 0.6*cm, 0.00175*cm)),
+   copperasic_pos(G4ThreeVector(0.*cm, 0.*cm, -0.83825*cm)),
+   motherb_dim(G4ThreeVector(0.6*cm, 0.6*cm, 0.04*cm)),
+   motherb_pos(G4ThreeVector(0.*cm, 0.*cm, -1.14*cm)),
+   coppermother_dim(G4ThreeVector(0.6*cm, 0.6*cm, 0.00175*cm)),
+   coppermother_pos(G4ThreeVector(0.*cm, 0.*cm, -1.13825*cm)),
+   dethousing_dim(G4ThreeVector(0.7*cm, 0.7*cm, 0.9*cm)),
+   dethousing_pos(G4ThreeVector(0.*cm, 0.*cm, -0.2*cm)),
+
+   // Greater environment
+   boxBot_dim(G4ThreeVector(12.*cm, 8.*cm, 3.35*cm)),                  // box with dimensions 10cm by 5cm by 2 cm
+   boxBot_pos(G4ThreeVector(7.936*cm, 3.428*cm, 0.*cm)),                  // box positioned at 3cm along x-axis
+   boxTop_dim(G4ThreeVector(12.*cm, 8.*cm, 1.65*cm)),
+   boxTop_pos(G4ThreeVector(7.936*cm, 3.428*cm, 5.*cm)),
    comp1_dim(G4ThreeVector(4.*cm, 2.*cm, 0.5*cm)),                // component1 in box with dimensions 4cm by 2cm by 0.5cm
    comp1_pos(G4ThreeVector(6.*cm, 0.*cm, -0.5*cm)),               // component1 in box positioned at -4cm along x-axis and -0.5cm along z-axis
    tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),            // tabletop with dimensions 60cm by 0.5m by 3cm
@@ -94,9 +115,40 @@ void DetectorConstruction::ConstructMaterials(){
     // Assign to detector material
     mdetector = CZT;
 
+    // NIST
     G4NistManager* nist = G4NistManager::Instance();
 
     // Environment materials
+
+    G4Element* H  = new G4Element("Hydrogen", "H", 1., 1.01*g/mole);
+    G4Element* C  = new G4Element("Carbon","C", 6., 12.01*g/mole);
+    G4Element* O  = new G4Element("Oxygen", "O", 8., 16.00*g/mole);
+    G4Element* Si = new G4Element("Silicon", "Si", 14., 28.09*g/mole);
+
+    G4Material* Epoxy = new G4Material("Epoxy", 1.2*g/cm3, 2);
+    Epoxy->AddElement(H, 2);
+    Epoxy->AddElement(C, 2);
+
+    G4Material* SiO2 = new G4Material("quartz", 2.200*g/cm3, 2);
+    SiO2->AddElement(Si, 1);
+    SiO2->AddElement(O , 2);
+
+    // FR4 (Glass & Epoxy)
+    G4Material* FR4 = new G4Material("FR4", 1.86*g/cm3, 2);
+    FR4->AddMaterial(SiO2, 0.528);
+    FR4->AddMaterial(Epoxy, 0.472);
+
+    masic = FR4;
+    mmotherb = FR4;
+
+    G4Material* Cu = new G4Material("Copper", 29., 63.546*g/mole, 8.96*g/cm3);
+
+    mcopperasic = Cu;
+    mcoppermother = Cu;
+
+    // Lexan for detector housing
+    mdethousing = nist->FindOrBuildMaterial("G4_POLYCARBOANTE");
+
     G4Material* Al = new G4Material("Aluminum", 13., 26.982*g/mole, 2.70*g/cm3);
 
     mbox = Al;
@@ -105,9 +157,9 @@ void DetectorConstruction::ConstructMaterials(){
 
     mwall = nist->FindOrBuildMaterial("G4_CONCRETE");
 
-    // Make the world a vacuum
-    mworld = nist->FindOrBuildMaterial("G4_Galactic");
-    //mworld = nist->FindOrBuildMaterial("G4_AIR");
+    // Fill the world with air
+    //mworld = nist->FindOrBuildMaterial("G4_Galactic");
+    mworld = nist->FindOrBuildMaterial("G4_AIR");
 }
 
 G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
@@ -200,37 +252,144 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                          );
 
     // ---------------------------------------
-    // Create environment
+    // Create immediate environment
     // ---------------------------------------
 
-    // Hollow box
-    G4Box* outerBox = new G4Box("Outer Box",
-                                box_dim.x(),
-                                box_dim.y(),
-                                box_dim.z()
+    // ASIC
+    G4VSolid* asicSolid = new G4Box("asicSolid",
+                                    asic_dim.x(),
+                                    asic_dim.y(),
+                                    asic_dim.z()
+                                    );
+
+    // Create LV for asic
+    G4LogicalVolume* asicLogVol = new G4LogicalVolume(asicSolid,
+                                                      masic,
+                                                      "asicLogVol"
+                                                      );
+
+    G4PVPlacement *pasic = new G4PVPlacement(0,
+                                             G4ThreeVector(asic_pos.x(), asic_pos.y(), asic_pos.z()),
+                                             "asic",
+                                             asicLogVol,
+                                             worldPhys,
+                                             false,
+                                             0
+                                             );
+
+    // Motherboard
+    G4VSolid* motherbSolid = new G4Box("motherbSolid",
+                                    motherb_dim.x(),
+                                    motherb_dim.y(),
+                                    motherb_dim.z()
+                                    );
+
+    // Create LV for motherboard
+    G4LogicalVolume* motherbLogVol = new G4LogicalVolume(motherbSolid,
+                                                         mmotherb,
+                                                         "motherbLogVol"
+                                                         );
+
+    G4PVPlacement *pmb = new G4PVPlacement(0,
+                                           G4ThreeVector(motherb_pos.x(), motherb_pos.y(), motherb_pos.z()),
+                                           "motherb",
+                                           motherbLogVol,
+                                           worldPhys,
+                                           false,
+                                           0
+                                           );
+
+    // ---------------------------------------
+    // Create greater environment
+    // ---------------------------------------
+
+    // Hollow box bottom
+    G4Box* outerBoxBot = new G4Box("outerBoxBot",
+                                boxBot_dim.x(),
+                                boxBot_dim.y(),
+                                boxBot_dim.z()
                                 );
 
-    G4Box* innerBox = new G4Box("Inner Box",
-                                box_dim.x() - 0.25*cm,
-                                box_dim.y() - 0.25*cm,
-                                box_dim.z() - 0.25*cm
+    G4Box* innerBoxBot = new G4Box("innerBoxBot",
+                                boxBot_dim.x() - 0.65*cm,
+                                boxBot_dim.y() - 0.65*cm,
+                                boxBot_dim.z() - 0.65*cm
                                 );
 
-    G4SubtractionSolid* boxHollow = new G4SubtractionSolid("boxHollow",
-                                                           outerBox,
-                                                           innerBox
+    G4SubtractionSolid* boxBotHollow = new G4SubtractionSolid("boxBotHollow",
+                                                           outerBoxBot,
+                                                           innerBoxBot
                                                            );
 
+    G4Box* boxLidRemBot = new G4Box("boxLidRem",
+                                 boxBot_dim.x() - 0.65*cm,
+                                 boxBot_dim.y() - 0.65*cm,
+                                 0.65*cm
+                                 );
+
+    G4SubtractionSolid* boxHollowBotNoLid = new G4SubtractionSolid("boxBotHollowNoLid",
+                                                              boxBotHollow,
+                                                              boxLidRemBot,
+                                                              false,
+                                                              G4ThreeVector(0.*cm, 0.*cm, 3.35*cm)
+                                                              );
+
     // Create LV for box
-    G4LogicalVolume* boxLog = new G4LogicalVolume(boxHollow,      // target solid
-                                                     mbox,        // target material
-                                                     "boxLog"     // name
+    G4LogicalVolume* boxLogBot = new G4LogicalVolume(boxHollowBotNoLid,
+                                                     mbox,
+                                                     "boxBotLog"
                                                      );
 
-    G4PVPlacement *pb = new G4PVPlacement(0,
-                                          G4ThreeVector(box_pos.x(), box_pos.y(), box_pos.z()),
-                                          "box",
-                                          boxLog,
+    G4PVPlacement *pbot = new G4PVPlacement(0,
+                                          G4ThreeVector(boxBot_pos.x(), boxBot_pos.y(), boxBot_pos.z()),
+                                          "boxBot",
+                                          boxLogBot,
+                                          worldPhys,
+                                          false,
+                                          0
+                                          );
+
+    // Hollow box top
+    G4Box* outerBoxTop = new G4Box("outerBoxBot",
+                                   boxTop_dim.x(),
+                                   boxTop_dim.y(),
+                                   boxTop_dim.z()
+                                   );
+
+    G4Box* innerBoxTop = new G4Box("innerBoxTop",
+                                   boxTop_dim.x() - 0.8*cm,
+                                   boxTop_dim.y() - 0.8*cm,
+                                   boxTop_dim.z() - 0.8*cm
+                                   );
+
+    G4SubtractionSolid* boxTopHollow = new G4SubtractionSolid("boxTopHollow",
+                                                              outerBoxTop,
+                                                              innerBoxTop
+                                                              );
+
+    G4Box* boxLidRemTop = new G4Box("boxLidRem",
+                                    boxTop_dim.x() - 0.8*cm,
+                                    boxTop_dim.y() - 0.8*cm,
+                                    0.8*cm
+                                    );
+
+    G4SubtractionSolid* boxHollowTopNoLid = new G4SubtractionSolid("boxTopHollowNoLid",
+                                                              boxTopHollow,
+                                                              boxLidRemTop,
+                                                              false,
+                                                              G4ThreeVector(0.*cm, 0.*cm, -1.65*cm)
+                                                              );
+
+    // Create LV for box
+    G4LogicalVolume* boxLogTop = new G4LogicalVolume(boxHollowTopNoLid,
+                                                     mbox,
+                                                     "boxTopLog"
+                                                     );
+
+    G4PVPlacement *ptop = new G4PVPlacement(0,
+                                          G4ThreeVector(boxTop_pos.x(), boxTop_pos.y(), boxTop_pos.z()),
+                                          "boxTop",
+                                          boxLogTop,
                                           worldPhys,
                                           false,
                                           0
@@ -244,9 +403,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                      );
 
     // Create LV for component1
-    G4LogicalVolume* comp1LogVol = new G4LogicalVolume(comp1Solid,    // target solid
-                                                       mcomp1,        // target material
-                                                       "comp1Log"     // name
+    G4LogicalVolume* comp1LogVol = new G4LogicalVolume(comp1Solid,
+                                                       mcomp1,
+                                                       "comp1LogVol"
                                                        );
 
     G4PVPlacement *pc1 = new G4PVPlacement(0,
@@ -266,9 +425,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                      );
 
     // Create LV for tabletop
-    G4LogicalVolume* tableLogVol = new G4LogicalVolume(tableSolid,    // target solid
-                                                       mtable,        // target material
-                                                       "tableLog"     // name
+    G4LogicalVolume* tableLogVol = new G4LogicalVolume(tableSolid,
+                                                       mtable,
+                                                       "tableLog"
                                                        );
 
     G4PVPlacement *ptt = new G4PVPlacement(0,
@@ -288,9 +447,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                      );
 
     // Create LV for wall
-    G4LogicalVolume* wallLogVol = new G4LogicalVolume(wallSolid,    // target solid
-                                                       mwall,        // target material
-                                                       "wallLog"     // name
+    G4LogicalVolume* wallLogVol = new G4LogicalVolume(wallSolid,
+                                                       mwall,
+                                                       "wallLog"
                                                        );
 
     G4PVPlacement *pw = new G4PVPlacement(0,
@@ -312,10 +471,25 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     detector_vis_att->SetVisibility(true);
     logvol -> SetVisAttributes(detector_vis_att);
 
-    // G4VisAttributes* box_vis_att = new G4VisAttributes(G4Color(0., 0., 0., 0.));
-    // box_vis_att->SetForceSolid(true);
-    // box_vis_att->SetVisibility(true);
-    // boxLog -> SetVisAttributes(box_vis_att);
+    G4VisAttributes* asic_vis_att = new G4VisAttributes(G4Color(100., 0., 100., 0.30));
+    asic_vis_att->SetForceSolid(true);
+    asic_vis_att->SetVisibility(true);
+    asicLogVol -> SetVisAttributes(asic_vis_att);
+
+    G4VisAttributes* motherb_vis_att = new G4VisAttributes(G4Color(100., 0., 100., 0.30));
+    motherb_vis_att->SetForceSolid(true);
+    motherb_vis_att->SetVisibility(true);
+    motherbLogVol -> SetVisAttributes(motherb_vis_att);
+
+    G4VisAttributes* boxBot_vis_att = new G4VisAttributes(G4Color(200., 200., 0., 0.10));
+    boxBot_vis_att->SetForceSolid(true);
+    boxBot_vis_att->SetVisibility(true);
+    boxLogBot -> SetVisAttributes(boxBot_vis_att);
+
+    G4VisAttributes* boxTop_vis_att = new G4VisAttributes(G4Color(200., 200., 0., 0.10));
+    boxTop_vis_att->SetForceSolid(true);
+    boxTop_vis_att->SetVisibility(true);
+    boxLogTop -> SetVisAttributes(boxTop_vis_att);
 
     G4VisAttributes* comp1_vis_att = new G4VisAttributes(G4Color(0., 0., 25., 0.30));
     comp1_vis_att->SetForceSolid(true);
@@ -327,10 +501,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     table_vis_att->SetVisibility(true);
     tableLogVol -> SetVisAttributes(table_vis_att);
 
-    G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(50., 1., 1., 0.10));
-    wall_vis_att->SetForceSolid(true);
-    wall_vis_att->SetVisibility(true);
-    wallLogVol -> SetVisAttributes(wall_vis_att);
+    // G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(50., 1., 1., 0.10));
+    // wall_vis_att->SetForceSolid(true);
+    // wall_vis_att->SetVisibility(true);
+    // wallLogVol -> SetVisAttributes(wall_vis_att);
 
     G4VisAttributes* world_vis_att = new G4VisAttributes(G4Color(1.,0.,0.));
     world_vis_att->SetForceWireframe(true);
