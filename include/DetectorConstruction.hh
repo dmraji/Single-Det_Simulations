@@ -14,7 +14,10 @@ using namespace std;
 
 class G4Box;
 class G4Tubs;
+class G4Torus;
 class G4Sphere;
+class G4SubtractionSolid;
+class G4UnionSolid;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
@@ -66,17 +69,26 @@ protected:
 		G4Material* mmotherb;
 		G4Material* mcoppermother;
 		G4Material* mdethousing;
+		G4Material* musbinsul;
+		G4Material* mwireinsul;
+		G4Material* mwireconn;
+		G4Material* mwirewire;
 		G4Material* mbox;
-		G4Material* mcomp1;
+		G4Material* mthread;
+		G4Material* mboxnubs;
 		G4Material* mtable;
 		G4Material* mwall;
 
     G4double world_dim;          // World is a sphere so we need radius
+
     G4ThreeVector detector_dim;  // detector are cubes, need xyz dimensions
     G4ThreeVector detector_pos;
 		G4RotationMatrix detector_rot;
 
-		// Lab environment
+		// ---------------------------------------
+    // Immediate environment
+    // ---------------------------------------
+
 		G4ThreeVector asic_dim;
 		G4ThreeVector asic_pos;
 
@@ -86,11 +98,37 @@ protected:
 		G4ThreeVector motherb_dim;
 		G4ThreeVector motherb_pos;
 
+		G4ThreeVector motherbsec2_dim;
+
+		G4ThreeVector motherbsec3_dim;
+
 		G4ThreeVector coppermother_dim;
 		G4ThreeVector coppermother_pos;
 
 		G4ThreeVector dethousing_dim;
 		G4ThreeVector dethousing_pos;
+
+		// For series of shapes to build usb wire-hoop
+    G4ThreeVector usbHoopTorusWest_dim;
+		G4ThreeVector usbHoopTorusWest_pos;
+		G4ThreeVector usbHoopStraightNorth_dim;
+		G4ThreeVector usbHoopStraightNorth_pos;
+		G4ThreeVector usbHoopTorusEast_dim;
+		G4ThreeVector usbHoopTorusEast_pos;
+		G4ThreeVector usbHoopStraightSouth_dim;
+		G4ThreeVector usbHoopStraightSouth_pos;
+
+		// For wiring on the inside of the hoop
+		G4ThreeVector usbHoopTorusWireWest_dim;
+		G4ThreeVector usbHoopStraightWireNorth_dim;
+		G4ThreeVector usbHoopTorusWireEast_dim;
+		G4ThreeVector usbHoopStraightWireSouth_dim;
+
+		G4ThreeVector usbConn_dim;
+
+		// ---------------------------------------
+    // Greater environment
+    // ---------------------------------------
 
 		G4ThreeVector boxBot_dim;
 		G4ThreeVector boxBot_pos;
@@ -98,8 +136,25 @@ protected:
 		G4ThreeVector boxTop_dim;
 		G4ThreeVector boxTop_pos;
 
-		G4ThreeVector comp1_dim;
-		G4ThreeVector comp1_pos;
+		G4ThreeVector threadHole1_dim;
+		G4ThreeVector threadHole1_pos;
+
+		G4ThreeVector threadHole2_dim;
+
+		G4ThreeVector threadHole3_dim;
+		G4ThreeVector threadHole3_pos;
+
+		G4ThreeVector threadHole4_dim;
+
+		G4ThreeVector threadHole5_dim;
+
+		G4ThreeVector threadHole6_dim;
+
+		G4ThreeVector boxNub1_dim;
+		G4ThreeVector boxNub1_pos;
+
+		G4ThreeVector boxNub2_dim;
+	  G4ThreeVector boxNub2_pos;
 
 		G4ThreeVector tableTop_dim;
 		G4ThreeVector tableTop_pos;
