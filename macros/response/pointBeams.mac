@@ -19,7 +19,7 @@
 /PRISM/source/nearfieldsource 1 m
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_cone_pointBeams
+/PRISM/output/filename output_662keV_1Det_cone_response_pointBeams
 
 #Print to text or binary format
 /PRISM/output/printText On

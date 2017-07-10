@@ -45,6 +45,8 @@ using namespace CLHEP;
    mmotherb(0),
    mcoppermother(0),
    mdethousing(0),
+   mstand(0),
+   mscrew(0),
    mbox(0),
    mthread(0),
    mboxnubs(0),
@@ -78,7 +80,29 @@ using namespace CLHEP;
    dethousing_dim(G4ThreeVector(0.7*cm, 0.7*cm, 0.9*cm)),
    dethousing_pos(G4ThreeVector(0.*cm, 0.*cm, -0.2*cm)),
 
-   // USB cord components
+   // Stands and screws for Motherboard
+   motherStand_dim(G4ThreeVector(0.20*cm, 0.25*cm, 0.95*cm)),
+   motherStand_pos(G4ThreeVector(7.75*cm, 1.75*cm, -2.13*cm)),
+
+   motherStandScrew_dim(G4ThreeVector(0.*cm, 0.195*cm, 0.95*cm)),
+   motherStandScrew_pos(G4ThreeVector(7.75*cm, 1.75*cm, -2.00*cm)),
+
+   // USB cord components /////////////////////////////////////////////////////
+
+   // Wire insulation
+   usbHoopTorusEast_dim(G4ThreeVector(0.3*cm, 0.5*cm, 2.3*cm)),
+   usbHoopTorusEast_pos(G4ThreeVector(12.2*cm, 0.*cm, -1.14*cm)),
+
+   usbHoopStraightNorth_dim(G4ThreeVector(0.3*cm, 0.5*cm, 1.45*cm)),
+   usbHoopStraightNorth_pos(G4ThreeVector(13.65*cm, -2.3*cm, -1.14*cm)),
+
+   usbHoopStraightSouth_dim(G4ThreeVector(0.3*cm, 0.5*cm, 1.45*cm)),
+   usbHoopStraightSouth_pos(G4ThreeVector(13.65*cm, 2.3*cm, -1.14*cm)),
+
+   usbHoopTorusWest_dim(G4ThreeVector(0.3*cm, 0.5*cm, 2.3*cm)),
+   usbHoopTorusWest_pos(G4ThreeVector(15.1*cm, 0.*cm, -1.14*cm)),
+
+   // Connectors
 
 
    // ---------------------------------------
@@ -87,19 +111,19 @@ using namespace CLHEP;
 
    // Box geometry
    boxBot_dim(G4ThreeVector(12.*cm, 8.*cm, 3.35*cm)),        // box bottom with dimensions 12cm by 8cm by 3.35cm
-   boxBot_pos(G4ThreeVector(7.936*cm, 3.428*cm, 0.*cm)),     // box bottom positioned at 7.936cm along x-axis and 3.428cm along y-axis
+   boxBot_pos(G4ThreeVector(7.936*cm, 3.428*cm, 0.27*cm)),     // box bottom positioned at 7.936cm along x-axis and 3.428cm along y-axis
 
    boxTop_dim(G4ThreeVector(12.*cm, 8.*cm, 1.65*cm)),        // box top with dimensions 12cm by 8cm by 1.65cm
-   boxTop_pos(G4ThreeVector(7.936*cm, 3.428*cm, 5.*cm)),     // box bottom positions at 7.936cm along x-axis, 3.428cm along y-axis, 5cm along z-axis
+   boxTop_pos(G4ThreeVector(7.936*cm, 3.428*cm, 5.27*cm)),     // box bottom positions at 7.936cm along x-axis, 3.428cm along y-axis, 5cm along z-axis
 
    // Thread holes in box
    threadHole1_dim(G4ThreeVector(0.33*cm, 0.39*cm, 1.0*cm)),
-   threadHole1_pos(G4ThreeVector(19.036*cm, 10.528*cm, -2.35*cm)),
+   threadHole1_pos(G4ThreeVector(19.036*cm, 10.528*cm, -2.08*cm)),
 
    threadHole2_dim(G4ThreeVector(0.37*cm, 0.39*cm, 2.35*cm)),
 
    threadHole3_dim(G4ThreeVector(0.37*cm, 0.39*cm, 1.35*cm)),
-   threadHole3_pos(G4ThreeVector(19.036*cm, 10.528*cm, 4.85*cm)),
+   threadHole3_pos(G4ThreeVector(19.036*cm, 10.528*cm, 5.12*cm)),
 
    threadHole4_dim(G4ThreeVector(0.33*cm, 0.39*cm, 0.15*cm)),
 
@@ -107,10 +131,10 @@ using namespace CLHEP;
 
    // Aluminum nubs on base of box
    boxNub1_dim(G4ThreeVector(0.4*cm, 0.8*cm, 0.7*cm)),
-   boxNub1_pos(G4ThreeVector(18.936*cm, 3.428*cm, -2.70*cm)),
+   boxNub1_pos(G4ThreeVector(18.936*cm, 3.428*cm, -2.43*cm)),
 
    boxNub2_dim(G4ThreeVector(0.4*cm, 0.7*cm, 0.7*cm)),
-   boxNub2_pos(G4ThreeVector(18.936*cm, 9.368*cm, -2.70*cm)),
+   boxNub2_pos(G4ThreeVector(18.936*cm, 9.368*cm, -2.43*cm)),
 
    // Other environment components
 
@@ -146,6 +170,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     return ConstructWorld();
 }
 
+//==================================================================================================
+
 // Specifying the Material ////////////////////////////////////////////////////
 
 void DetectorConstruction::ConstructMaterials(){
@@ -165,7 +191,7 @@ void DetectorConstruction::ConstructMaterials(){
     // NIST
     G4NistManager* nist = G4NistManager::Instance();
 
-    // Immediate environment materials
+    // Immediate environment materials ////////////////////////////////////////
 
     G4Element* H  = new G4Element("Hydrogen", "H", 1., 1.01*g/mole);
     G4Element* C  = new G4Element("Carbon","C", 6., 12.01*g/mole);
@@ -196,6 +222,9 @@ void DetectorConstruction::ConstructMaterials(){
     // Lexan for detector housing
     mdethousing = nist->FindOrBuildMaterial("G4_POLYCARBONATE");
 
+    // Steel for screws
+    mscrew = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL");
+
     // Materials for wiring
     musbinsul = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
 
@@ -203,13 +232,13 @@ void DetectorConstruction::ConstructMaterials(){
 
     mwirewire = Cu;
 
-    G4Material* brass = new G4Material("Brass", 8.40*g/cm3, 2);
-    brass -> AddElement(Zn, 0.30);
-    brass -> AddElement(Cu, 0.70);
+    G4Material* brass = new G4Material("brass", 8.40*g/cm3, 2);
+    brass->AddElement(Zn, 0.3);
+    brass->AddMaterial(Cu, 0.7);
 
     mwireconn = brass;
 
-    // Greater environment materials
+    // Greater environment materials //////////////////////////////////////////
 
     G4Material* Al = new G4Material("Aluminum", 13., 26.982*g/mole, 2.70*g/cm3);
 
@@ -217,6 +246,7 @@ void DetectorConstruction::ConstructMaterials(){
     mthread = Al;
     mboxnubs = Al;
     mtable = Al;
+    mstand = Al;
 
     mwall = nist->FindOrBuildMaterial("G4_CONCRETE");
 
@@ -413,13 +443,313 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                             );
 
     G4PVPlacement *pdeths = new G4PVPlacement(0,
-                                            G4ThreeVector(dethousing_pos.x(), dethousing_pos.y(), dethousing_pos.z()),
-                                            "dethousing",
-                                            dethousingLogVol,
-                                            worldPhys,
-                                            false,
-                                            0
-                                            );
+                                              G4ThreeVector(dethousing_pos.x(), dethousing_pos.y(), dethousing_pos.z()),
+                                              "dethousing",
+                                              dethousingLogVol,
+                                              worldPhys,
+                                              false,
+                                              0
+                                              );
+
+    // Stands and screws for Motherboard //////////////////////////////////////
+
+    // Stands
+    G4Tubs* motherStandSolid = new G4Tubs("motherStandSolid",
+                                          motherStand_dim.x(),
+                                          motherStand_dim.y(),
+                                          motherStand_dim.z(),
+                                          0.*deg,
+                                          360.*deg
+                                          );
+
+    G4LogicalVolume* motherStandLogVol = new G4LogicalVolume(motherStandSolid,
+                                                             mstand,
+                                                             "motherStandLogVol"
+                                                             );
+
+    G4PVPlacement *pmotherStandSW = new G4PVPlacement(0,
+                                                      G4ThreeVector(motherStand_pos.x(), motherStand_pos.y(), motherStand_pos.z()),
+                                                      "motherStandSW",
+                                                      motherStandLogVol,
+                                                      worldPhys,
+                                                      false,
+                                                      0
+                                                      );
+
+    G4PVPlacement *pmotherStandSE = new G4PVPlacement(0,
+                                                      G4ThreeVector(motherStand_pos.x() - 6.20*cm, motherStand_pos.y(), motherStand_pos.z()),
+                                                      "motherStandSE",
+                                                      motherStandLogVol,
+                                                      worldPhys,
+                                                      false,
+                                                      0
+                                                      );
+
+    G4PVPlacement *pmotherStandNW = new G4PVPlacement(0,
+                                                      G4ThreeVector(motherStand_pos.x(), motherStand_pos.y() - 3.50*cm, motherStand_pos.z()),
+                                                      "motherStandNW",
+                                                      motherStandLogVol,
+                                                      worldPhys,
+                                                      false,
+                                                      0
+                                                      );
+
+    G4PVPlacement *pmotherStandNE = new G4PVPlacement(0,
+                                                      G4ThreeVector(motherStand_pos.x() - 6.20*cm, motherStand_pos.y() - 3.50*cm, motherStand_pos.z()),
+                                                      "motherStandNE",
+                                                      motherStandLogVol,
+                                                      worldPhys,
+                                                      false,
+                                                      0
+                                                      );
+
+    G4PVPlacement *pmotherStandDet = new G4PVPlacement(0,
+                                                       G4ThreeVector(motherStand_pos.x() - 9.20*cm, motherStand_pos.y() - 1.75*cm, motherStand_pos.z()),
+                                                       "motherStandDet",
+                                                       motherStandLogVol,
+                                                       worldPhys,
+                                                       false,
+                                                       0
+                                                       );
+
+    // Screws
+    G4Tubs* motherStandScrewSolid = new G4Tubs("motherStandScrewSolid",
+                                               motherStandScrew_dim.x(),
+                                               motherStandScrew_dim.y(),
+                                               motherStandScrew_dim.z(),
+                                               0.*deg,
+                                               360.*deg
+                                               );
+
+    G4LogicalVolume* motherStandScrewLogVol = new G4LogicalVolume(motherStandScrewSolid,
+                                                                  mscrew,
+                                                                  "motherStandScrewLogVol"
+                                                                  );
+
+    G4PVPlacement *pmotherStandScrewSW = new G4PVPlacement(0,
+                                                           G4ThreeVector(motherStandScrew_pos.x(), motherStandScrew_pos.y(), motherStandScrew_pos.z()),
+                                                           "motherStandScrewSW",
+                                                           motherStandScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
+    G4PVPlacement *pmotherStandScrewSE = new G4PVPlacement(0,
+                                                           G4ThreeVector(motherStandScrew_pos.x() - 6.20*cm, motherStandScrew_pos.y(), motherStandScrew_pos.z()),
+                                                           "motherStandScrewSE",
+                                                           motherStandScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
+    G4PVPlacement *pmotherStandScrewNW = new G4PVPlacement(0,
+                                                           G4ThreeVector(motherStandScrew_pos.x(), motherStandScrew_pos.y() - 3.50*cm, motherStandScrew_pos.z()),
+                                                           "motherStandScrewNW",
+                                                           motherStandScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
+    G4PVPlacement *pmotherStandScrewNE = new G4PVPlacement(0,
+                                                           G4ThreeVector(motherStandScrew_pos.x() - 6.20*cm, motherStandScrew_pos.y() - 3.50*cm, motherStandScrew_pos.z()),
+                                                           "motherStandScrewNE",
+                                                           motherStandScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
+    G4PVPlacement *pmotherStandScrewDet = new G4PVPlacement(0,
+                                                           G4ThreeVector(motherStandScrew_pos.x() - 9.20*cm, motherStandScrew_pos.y() - 1.75*cm, motherStandScrew_pos.z()),
+                                                           "motherStandScrewDet",
+                                                           motherStandScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
+    // Analog of USB wire-loop (insulation)
+    G4Torus* usbHoopTorusEastSolid = new G4Torus("usbHoopTorusEastSolid",
+                                                 usbHoopTorusEast_dim.x(),
+                                                 usbHoopTorusEast_dim.y(),
+                                                 usbHoopTorusEast_dim.z(),
+                                                 90.*deg,
+                                                 180.*deg
+                                                 );
+
+    G4LogicalVolume* usbHoopTorusEastLogVol = new G4LogicalVolume(usbHoopTorusEastSolid,
+                                                                  musbinsul,
+                                                                  "usbHoopTorusEastLogVol"
+                                                                  );
+
+    G4PVPlacement *pusbHoopTorusEast = new G4PVPlacement(0,
+                                                         G4ThreeVector(usbHoopTorusEast_pos.x(), usbHoopTorusEast_pos.y(), usbHoopTorusEast_pos.z()),
+                                                         "usbHoopTorusEast",
+                                                         usbHoopTorusEastLogVol,
+                                                         worldPhys,
+                                                         false,
+                                                         0
+                                                         );
+
+    G4Tubs* usbHoopStraightNorthSolid = new G4Tubs("usbHoopStraightNorthSolid",
+                                                   usbHoopStraightNorth_dim.x(),
+                                                   usbHoopStraightNorth_dim.y(),
+                                                   usbHoopStraightNorth_dim.z(),
+                                                   0.*deg,
+                                                   360.*deg
+                                                   );
+
+    G4LogicalVolume* usbHoopStraightNorthLogVol = new G4LogicalVolume(usbHoopStraightNorthSolid,
+                                                                      musbinsul,
+                                                                      "usbHoopStraightNorthLogVol"
+                                                                      );
+
+    G4RotationMatrix rotm = G4RotationMatrix();
+    rotm.rotateY(90*deg);
+    G4Transform3D rotN = G4Transform3D(rotm, usbHoopStraightNorth_pos);
+
+    G4PVPlacement *pusbHoopStraightNorth = new G4PVPlacement(rotN,
+                                                             "usbHoopStraightNorth",
+                                                             usbHoopStraightNorthLogVol,
+                                                             worldPhys,
+                                                             false,
+                                                             0
+                                                             );
+
+    G4Tubs* usbHoopStraightSouthSolid = new G4Tubs("usbHoopStraightSouthSolid",
+                                                   usbHoopStraightSouth_dim.x(),
+                                                   usbHoopStraightSouth_dim.y(),
+                                                   usbHoopStraightSouth_dim.z(),
+                                                   0.*deg,
+                                                   360.*deg
+                                                   );
+
+    G4LogicalVolume* usbHoopStraightSouthLogVol = new G4LogicalVolume(usbHoopStraightSouthSolid,
+                                                                      musbinsul,
+                                                                      "usbHoopStraightSouthLogVol"
+                                                                      );
+
+    G4Transform3D rotS = G4Transform3D(rotm, usbHoopStraightSouth_pos);
+
+    G4PVPlacement *pusbHoopStraightSouth = new G4PVPlacement(rotS,
+                                                             "usbHoopStraightSouth",
+                                                             usbHoopStraightSouthLogVol,
+                                                             worldPhys,
+                                                             false,
+                                                             0
+                                                             );
+
+    G4Torus* usbHoopTorusWestSolid = new G4Torus("usbHoopTorusWestSolid",
+                                                 usbHoopTorusWest_dim.x(),
+                                                 usbHoopTorusWest_dim.y(),
+                                                 usbHoopTorusWest_dim.z(),
+                                                 -90.*deg,
+                                                 180.*deg
+                                                 );
+
+    G4LogicalVolume* usbHoopTorusWestLogVol = new G4LogicalVolume(usbHoopTorusWestSolid,
+                                                                      musbinsul,
+                                                                      "usbHoopTorusWestLogVol"
+                                                                      );
+
+    G4PVPlacement *pusbHoopTorusWest = new G4PVPlacement(0,
+                                                         G4ThreeVector(usbHoopTorusWest_pos.x(), usbHoopTorusWest_pos.y(), usbHoopTorusWest_pos.z()),
+                                                         "usbHoopTorusWest",
+                                                         usbHoopTorusWestLogVol,
+                                                         worldPhys,
+                                                         false,
+                                                         0
+                                                         );
+
+    // Analog of USB wire-loop (copper internals)
+    G4Torus* usbHoopTorusEastWireSolid = new G4Torus("usbHoopTorusEastWireSolid",
+                                                 0.*cm,
+                                                 usbHoopTorusEast_dim.y() - 0.1*cm,
+                                                 usbHoopTorusEast_dim.z(),
+                                                 90.*deg,
+                                                 180.*deg
+                                                 );
+
+    G4LogicalVolume* usbHoopTorusEastWireLogVol = new G4LogicalVolume(usbHoopTorusEastWireSolid,
+                                                                  mwirewire,
+                                                                  "usbHoopTorusEastWireLogVol"
+                                                                  );
+
+    G4PVPlacement *pusbHoopTorusEastWire = new G4PVPlacement(0,
+                                                             G4ThreeVector(usbHoopTorusEast_pos.x(), usbHoopTorusEast_pos.y(), usbHoopTorusEast_pos.z()),
+                                                             "usbHoopTorusEastWire",
+                                                             usbHoopTorusEastWireLogVol,
+                                                             worldPhys,
+                                                             false,
+                                                             0
+                                                             );
+
+    G4Tubs* usbHoopStraightNorthWireSolid = new G4Tubs("usbHoopStraightNorthWireSolid",
+                                                       0.*cm,
+                                                       usbHoopStraightNorth_dim.y() - 0.1*cm,
+                                                       usbHoopStraightNorth_dim.z(),
+                                                       0.*deg,
+                                                       360.*deg
+                                                       );
+
+    G4LogicalVolume* usbHoopStraightNorthWireLogVol = new G4LogicalVolume(usbHoopStraightNorthWireSolid,
+                                                                          mwirewire,
+                                                                          "usbHoopStraightNorthWireLogVol"
+                                                                          );
+
+    G4PVPlacement *pusbHoopStraightNorthWire = new G4PVPlacement(rotN,
+                                                                 "usbHoopStraightNorthWire",
+                                                                 usbHoopStraightNorthWireLogVol,
+                                                                 worldPhys,
+                                                                 false,
+                                                                 0
+                                                                 );
+
+    G4Tubs* usbHoopStraightSouthWireSolid = new G4Tubs("usbHoopStraightSouthWireSolid",
+                                                       0.*cm,
+                                                       usbHoopStraightSouth_dim.y() - 0.1*cm,
+                                                       usbHoopStraightSouth_dim.z(),
+                                                       0.*deg,
+                                                       360.*deg
+                                                       );
+
+    G4LogicalVolume* usbHoopStraightSouthWireLogVol = new G4LogicalVolume(usbHoopStraightSouthWireSolid,
+                                                                          mwirewire,
+                                                                          "usbHoopStraightSouthWireLogVol"
+                                                                          );
+
+    G4PVPlacement *pusbHoopStraightSouthWire = new G4PVPlacement(rotS,
+                                                                 "usbHoopStraightSouthWire",
+                                                                 usbHoopStraightSouthWireLogVol,
+                                                                 worldPhys,
+                                                                 false,
+                                                                 0
+                                                                 );
+
+    G4Torus* usbHoopTorusWestWireSolid = new G4Torus("usbHoopTorusWestWireSolid",
+                                                     0.*cm,
+                                                     usbHoopTorusWest_dim.y() - 0.1*cm,
+                                                     usbHoopTorusWest_dim.z(),
+                                                     -90.*deg,
+                                                     180.*deg
+                                                     );
+
+    G4LogicalVolume* usbHoopTorusWestWireLogVol = new G4LogicalVolume(usbHoopTorusWestWireSolid,
+                                                                      mwirewire,
+                                                                      "usbHoopTorusWestWireLogVol"
+                                                                      );
+
+    G4PVPlacement *pusbHoopTorusWestWire = new G4PVPlacement(0,
+                                                             G4ThreeVector(usbHoopTorusWest_pos.x(), usbHoopTorusWest_pos.y(), usbHoopTorusWest_pos.z()),
+                                                             "usbHoopTorusWestWire",
+                                                             usbHoopTorusWestWireLogVol,
+                                                             worldPhys,
+                                                             false,
+                                                             0
+                                                             );
 
     // ---------------------------------------
     // Create greater environment
@@ -430,16 +760,16 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                      threadHole1_dim.x(),
                                      threadHole1_dim.y(),
                                      threadHole1_dim.z(),
-                                     0,
-                                     360
+                                     0.*deg,
+                                     360.*deg
                                      );
 
     G4Tubs* threadHole2 = new G4Tubs("threadHole2",
                                      threadHole2_dim.x(),
                                      threadHole2_dim.y(),
                                      threadHole2_dim.z(),
-                                     0,
-                                     360
+                                     0.*deg,
+                                     360.*deg
                                      );
 
     G4UnionSolid* thread12 = new G4UnionSolid("thread12",
@@ -453,16 +783,16 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                      threadHole3_dim.x(),
                                      threadHole3_dim.y(),
                                      threadHole3_dim.z(),
-                                     0,
-                                     360
+                                     0.*deg,
+                                     360.*deg
                                      );
 
     G4Tubs* threadHole4 = new G4Tubs("threadHole4",
                                      threadHole4_dim.x(),
                                      threadHole4_dim.y(),
                                      threadHole4_dim.z(),
-                                     0,
-                                     360
+                                     0.*deg,
+                                     360.*deg
                                      );
 
     G4UnionSolid* thread34 = new G4UnionSolid("thread34",
@@ -476,8 +806,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                      threadHole5_dim.x(),
                                      threadHole5_dim.y(),
                                      threadHole5_dim.z(),
-                                     0,
-                                     360
+                                     0.*deg,
+                                     360.*deg
                                      );
 
     G4UnionSolid* thread345 = new G4UnionSolid("thread345",
@@ -862,6 +1192,102 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     dethousing_vis_att->SetVisibility(true);
     dethousingLogVol -> SetVisAttributes(dethousing_vis_att);
 
+    // Stands and screws for Motherboard
+
+    G4VisAttributes* motherStandScrewSW_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    motherStandScrewSW_vis_att->SetForceSolid(true);
+    motherStandScrewSW_vis_att->SetVisibility(true);
+    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewSW_vis_att);
+
+    G4VisAttributes* motherStandScrewSE_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    motherStandScrewSE_vis_att->SetForceSolid(true);
+    motherStandScrewSE_vis_att->SetVisibility(true);
+    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewSE_vis_att);
+
+    G4VisAttributes* motherStandScrewNW_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    motherStandScrewNW_vis_att->SetForceSolid(true);
+    motherStandScrewNW_vis_att->SetVisibility(true);
+    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewNW_vis_att);
+
+    G4VisAttributes* motherStandScrewNE_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    motherStandScrewNE_vis_att->SetForceSolid(true);
+    motherStandScrewNE_vis_att->SetVisibility(true);
+    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewNE_vis_att);
+
+    G4VisAttributes* motherStandScrewDet_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    motherStandScrewDet_vis_att->SetForceSolid(true);
+    motherStandScrewDet_vis_att->SetVisibility(true);
+    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewDet_vis_att);
+
+    G4VisAttributes* motherStandSW_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    motherStandSW_vis_att->SetForceSolid(true);
+    motherStandSW_vis_att->SetVisibility(true);
+    motherStandLogVol -> SetVisAttributes(motherStandSW_vis_att);
+
+    G4VisAttributes* motherStandSE_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    motherStandSE_vis_att->SetForceSolid(true);
+    motherStandSE_vis_att->SetVisibility(true);
+    motherStandLogVol -> SetVisAttributes(motherStandSE_vis_att);
+
+    G4VisAttributes* motherStandNW_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    motherStandNW_vis_att->SetForceSolid(true);
+    motherStandNW_vis_att->SetVisibility(true);
+    motherStandLogVol -> SetVisAttributes(motherStandNW_vis_att);
+
+    G4VisAttributes* motherStandNE_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    motherStandNE_vis_att->SetForceSolid(true);
+    motherStandNE_vis_att->SetVisibility(true);
+    motherStandLogVol -> SetVisAttributes(motherStandNE_vis_att);
+
+    G4VisAttributes* motherStandDet_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    motherStandDet_vis_att->SetForceSolid(true);
+    motherStandDet_vis_att->SetVisibility(true);
+    motherStandLogVol -> SetVisAttributes(motherStandDet_vis_att);
+
+    // USB components
+
+    G4VisAttributes* usbHoopTorusEast_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    usbHoopTorusEast_vis_att->SetForceSolid(true);
+    usbHoopTorusEast_vis_att->SetVisibility(true);
+    usbHoopTorusEastLogVol -> SetVisAttributes(usbHoopTorusEast_vis_att);
+
+    G4VisAttributes* usbHoopStraightNorth_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    usbHoopStraightNorth_vis_att->SetForceSolid(true);
+    usbHoopStraightNorth_vis_att->SetVisibility(true);
+    usbHoopStraightNorthLogVol -> SetVisAttributes(usbHoopStraightNorth_vis_att);
+
+    G4VisAttributes* usbHoopStraightSouth_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    usbHoopStraightSouth_vis_att->SetForceSolid(true);
+    usbHoopStraightSouth_vis_att->SetVisibility(true);
+    usbHoopStraightSouthLogVol -> SetVisAttributes(usbHoopStraightSouth_vis_att);
+
+    G4VisAttributes* usbHoopTorusWest_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    usbHoopTorusWest_vis_att->SetForceSolid(true);
+    usbHoopTorusWest_vis_att->SetVisibility(true);
+    usbHoopTorusWestLogVol -> SetVisAttributes(usbHoopTorusWest_vis_att);
+
+    G4VisAttributes* usbHoopTorusEastWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    usbHoopTorusEastWire_vis_att->SetForceSolid(true);
+    usbHoopTorusEastWire_vis_att->SetVisibility(true);
+    usbHoopTorusEastWireLogVol -> SetVisAttributes(usbHoopTorusEastWire_vis_att);
+
+    G4VisAttributes* usbHoopStraightNorthWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    usbHoopStraightNorthWire_vis_att->SetForceSolid(true);
+    usbHoopStraightNorthWire_vis_att->SetVisibility(true);
+    usbHoopStraightNorthWireLogVol -> SetVisAttributes(usbHoopStraightNorthWire_vis_att);
+
+    G4VisAttributes* usbHoopStraightSouthWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    usbHoopStraightSouthWire_vis_att->SetForceSolid(true);
+    usbHoopStraightSouthWire_vis_att->SetVisibility(true);
+    usbHoopStraightSouthWireLogVol -> SetVisAttributes(usbHoopStraightSouthWire_vis_att);
+
+    G4VisAttributes* usbHoopTorusWestWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    usbHoopTorusWestWire_vis_att->SetForceSolid(true);
+    usbHoopTorusWestWire_vis_att->SetVisibility(true);
+    usbHoopTorusWestWireLogVol -> SetVisAttributes(usbHoopTorusWestWire_vis_att);
+
+    // Box and detailing
+
     G4VisAttributes* boxBot_vis_att = new G4VisAttributes(G4Color(200., 200., 0., 0.10));
     boxBot_vis_att->SetForceSolid(true);
     boxBot_vis_att->SetVisibility(true);
@@ -892,6 +1318,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     boxNub2_vis_att->SetVisibility(true);
     boxNub2LogVol -> SetVisAttributes(boxNub2_vis_att);
 
+    // Outer geometry
+
     G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(25., 1., 0., 0.10));
     table_vis_att->SetForceSolid(true);
     table_vis_att->SetVisibility(true);
@@ -901,6 +1329,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // wall_vis_att->SetForceSolid(true);
     // wall_vis_att->SetVisibility(true);
     // wallLogVol -> SetVisAttributes(wall_vis_att);
+
+    // World
 
     G4VisAttributes* world_vis_att = new G4VisAttributes(G4Color(1.,0.,0.));
     world_vis_att->SetForceWireframe(true);

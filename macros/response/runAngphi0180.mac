@@ -16,14 +16,18 @@
 /PRISM/healpix/SetUpHEALPix
 
 # Use near field source (provide a distance)
-/PRISM/source/nearfieldsource 1 m
+/PRISM/source/nearfieldsource .1 m
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_cone_response_phi045_theta180270
+/PRISM/output/filename output_662keV_1Det_cone_response_phi0180
 
-#Print to text or binary format
+# Print to text or binary format
 /PRISM/output/printText On
 /PRISM/output/printBinary Off
 
+# Preliminary angles
+/PRISM/angles/phi 0
+/PRISM/angles/theta 90
+
 # Loop through angles
-/control/loop macros/response/sendOffAng.mac angDeg 1 91 1.
+/control/loop macros/response/sendOffAngphi0180.mac angDeg -1 -181 -15.

@@ -69,6 +69,8 @@ protected:
 		G4Material* mmotherb;
 		G4Material* mcoppermother;
 		G4Material* mdethousing;
+		G4Material* mstand;
+		G4Material* mscrew;
 		G4Material* musbinsul;
 		G4Material* mwireinsul;
 		G4Material* mwireconn;
@@ -108,15 +110,26 @@ protected:
 		G4ThreeVector dethousing_dim;
 		G4ThreeVector dethousing_pos;
 
+		G4ThreeVector motherStand_dim;
+		G4ThreeVector motherStand_pos;
+
+		G4ThreeVector motherStandScrew_dim;
+		G4ThreeVector motherStandScrew_pos;
+
 		// For series of shapes to build usb wire-hoop
     G4ThreeVector usbHoopTorusWest_dim;
 		G4ThreeVector usbHoopTorusWest_pos;
+
 		G4ThreeVector usbHoopStraightNorth_dim;
 		G4ThreeVector usbHoopStraightNorth_pos;
+		//G4RotationMatrix usbHoopStraightNorth_rot;
+
 		G4ThreeVector usbHoopTorusEast_dim;
 		G4ThreeVector usbHoopTorusEast_pos;
+
 		G4ThreeVector usbHoopStraightSouth_dim;
 		G4ThreeVector usbHoopStraightSouth_pos;
+		//G4RotationMatrix usbHoopStraightSouth_rot;
 
 		// For wiring on the inside of the hoop
 		G4ThreeVector usbHoopTorusWireWest_dim;

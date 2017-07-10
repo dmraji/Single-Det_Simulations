@@ -1,0 +1,8 @@
+# Angle degrees from run, modified for response iteration
+/control/add phiAng {angDeg} 1
+
+# Changing the angles
+/PRISM/angles/phi {phiAng}
+
+# Particles
+/run/beamOn 1000
