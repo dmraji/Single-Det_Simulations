@@ -50,6 +50,7 @@ using namespace CLHEP;
    mbox(0),
    mthread(0),
    mboxnubs(0),
+   mjack(0),
    mtable(0),
    mwall(0),
    world_dim(10*m),                                               // default world is a 10 m radius sphere
@@ -90,20 +91,21 @@ using namespace CLHEP;
    // USB cord components /////////////////////////////////////////////////////
 
    // Wire insulation
-   usbHoopTorusEast_dim(G4ThreeVector(0.3*cm, 0.5*cm, 2.3*cm)),
+   usbHoopTorusEast_dim(G4ThreeVector(0.25*cm, 0.5*cm, 2.3*cm)),
    usbHoopTorusEast_pos(G4ThreeVector(12.2*cm, 0.*cm, -1.14*cm)),
 
-   usbHoopStraightNorth_dim(G4ThreeVector(0.3*cm, 0.5*cm, 1.45*cm)),
+   usbHoopStraightNorth_dim(G4ThreeVector(0.25*cm, 0.5*cm, 1.45*cm)),
    usbHoopStraightNorth_pos(G4ThreeVector(13.65*cm, -2.3*cm, -1.14*cm)),
 
-   usbHoopStraightSouth_dim(G4ThreeVector(0.3*cm, 0.5*cm, 1.45*cm)),
+   usbHoopStraightSouth_dim(G4ThreeVector(0.25*cm, 0.5*cm, 1.45*cm)),
    usbHoopStraightSouth_pos(G4ThreeVector(13.65*cm, 2.3*cm, -1.14*cm)),
 
-   usbHoopTorusWest_dim(G4ThreeVector(0.3*cm, 0.5*cm, 2.3*cm)),
+   usbHoopTorusWest_dim(G4ThreeVector(0.25*cm, 0.5*cm, 2.3*cm)),
    usbHoopTorusWest_pos(G4ThreeVector(15.1*cm, 0.*cm, -1.14*cm)),
 
    // Connectors
-
+   usbConn_dim(G4ThreeVector(1.*cm, 0.5*cm, 0.25*cm)),
+   usbConn_pos(G4ThreeVector(9.2*cm, 0.*cm, -0.64*cm)),
 
    // ---------------------------------------
    // Greater environment
@@ -142,12 +144,13 @@ using namespace CLHEP;
 
    // Other environment components
 
-   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),                    // tabletop with dimensions 60cm by 25cm by 3cm
+   jackStand_dim(G4ThreeVector(6.*cm, 6.*cm, 9.5*cm)),
+   jackStand_pos(G4ThreeVector(13.936*cm, 3.428*cm, -12.58*cm)),
 
-   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -20*cm)),                     // tabletop positioned at -5cm along z-axis
+   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 2.*cm)),                    // tabletop with dimensions 60cm by 25cm by 3cm
+   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -24.08*cm)),                  // tabletop positioned at -20.08cm along z-axis
 
    wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),                      // wall with dimensions 80cm by 10cm by 200cm
-
    wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                         // wall positioned at -35cm along the y-axis
 {
    // Create a new messenger class
@@ -226,8 +229,11 @@ void DetectorConstruction::ConstructMaterials(){
     // Lexan for detector housing
     mdethousing = nist->FindOrBuildMaterial("G4_POLYCARBONATE");
 
-    // Steel for screws
-    mscrew = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL");
+    // Steel for screws and jack
+    steel = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL");
+
+    mscrew = steel;
+    mjack = steel;
 
     // Materials for wiring
     musbinsul = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
@@ -260,7 +266,6 @@ void DetectorConstruction::ConstructMaterials(){
 }
 
 G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
-
 
     // ---------------------------------------
     // Create world volume
@@ -337,7 +342,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     detector_pos = centers[1];
     G4Transform3D transform = G4Transform3D(rotationmat[1],detector_pos);
 
-    G4PVPlacement *p = new G4PVPlacement(transform,               // the placement of the volume in center
+    new G4PVPlacement(transform,               // the placement of the volume in center
                                          1,                       // name
                                          logvol,                  // the corresponding logical volume -- gives
                                                                   //   volume the material (and the dimensions
@@ -365,14 +370,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                       "asicLogVol"
                                                       );
 
-    G4PVPlacement *pasic = new G4PVPlacement(0,
-                                             G4ThreeVector(asic_pos.x(), asic_pos.y(), asic_pos.z()),
-                                             "asic",
-                                             asicLogVol,
-                                             worldPhys,
-                                             false,
-                                             0
-                                             );
+    new G4PVPlacement(0,
+                      G4ThreeVector(asic_pos.x(), asic_pos.y(), asic_pos.z()),
+                      "asic",
+                      asicLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Motherboard
     G4VSolid* motherbSolid = new G4Box("motherbSolid",
@@ -413,14 +418,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                          "motherbLogVol"
                                                          );
 
-    G4PVPlacement *pmb = new G4PVPlacement(0,
-                                           G4ThreeVector(motherb_pos.x(), motherb_pos.y(), motherb_pos.z()),
-                                           "motherb",
-                                           motherbLogVol,
-                                           worldPhys,
-                                           false,
-                                           0
-                                           );
+   new G4PVPlacement(0,
+                     G4ThreeVector(motherb_pos.x(), motherb_pos.y(), motherb_pos.z()),
+                     "motherb",
+                     motherbLogVol,
+                     worldPhys,
+                     false,
+                     0
+                     );
 
     // Detector housing
     G4Box* outerdethousing = new G4Box("outerdethousing",
@@ -446,14 +451,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                             "dethousingLogVol"
                                                             );
 
-    G4PVPlacement *pdeths = new G4PVPlacement(0,
-                                              G4ThreeVector(dethousing_pos.x(), dethousing_pos.y(), dethousing_pos.z()),
-                                              "dethousing",
-                                              dethousingLogVol,
-                                              worldPhys,
-                                              false,
-                                              0
-                                              );
+    new G4PVPlacement(0,
+                      G4ThreeVector(dethousing_pos.x(), dethousing_pos.y(), dethousing_pos.z()),
+                      "dethousing",
+                      dethousingLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Stands and screws for Motherboard //////////////////////////////////////
 
@@ -471,50 +476,50 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                              "motherStandLogVol"
                                                              );
 
-    G4PVPlacement *pmotherStandSW = new G4PVPlacement(0,
-                                                      G4ThreeVector(motherStand_pos.x(), motherStand_pos.y(), motherStand_pos.z()),
-                                                      "motherStandSW",
-                                                      motherStandLogVol,
-                                                      worldPhys,
-                                                      false,
-                                                      0
-                                                      );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStand_pos.x(), motherStand_pos.y(), motherStand_pos.z()),
+                      "motherStandSW",
+                      motherStandLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandSE = new G4PVPlacement(0,
-                                                      G4ThreeVector(motherStand_pos.x() - 6.20*cm, motherStand_pos.y(), motherStand_pos.z()),
-                                                      "motherStandSE",
-                                                      motherStandLogVol,
-                                                      worldPhys,
-                                                      false,
-                                                      0
-                                                      );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStand_pos.x() - 6.20*cm, motherStand_pos.y(), motherStand_pos.z()),
+                      "motherStandSE",
+                      motherStandLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandNW = new G4PVPlacement(0,
-                                                      G4ThreeVector(motherStand_pos.x(), motherStand_pos.y() - 3.50*cm, motherStand_pos.z()),
-                                                      "motherStandNW",
-                                                      motherStandLogVol,
-                                                      worldPhys,
-                                                      false,
-                                                      0
-                                                      );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStand_pos.x(), motherStand_pos.y() - 3.50*cm, motherStand_pos.z()),
+                      "motherStandNW",
+                      motherStandLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandNE = new G4PVPlacement(0,
-                                                      G4ThreeVector(motherStand_pos.x() - 6.20*cm, motherStand_pos.y() - 3.50*cm, motherStand_pos.z()),
-                                                      "motherStandNE",
-                                                      motherStandLogVol,
-                                                      worldPhys,
-                                                      false,
-                                                      0
-                                                      );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStand_pos.x() - 6.20*cm, motherStand_pos.y() - 3.50*cm, motherStand_pos.z()),
+                      "motherStandNE",
+                      motherStandLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandDet = new G4PVPlacement(0,
-                                                       G4ThreeVector(motherStand_pos.x() - 9.20*cm, motherStand_pos.y() - 1.75*cm, motherStand_pos.z()),
-                                                       "motherStandDet",
-                                                       motherStandLogVol,
-                                                       worldPhys,
-                                                       false,
-                                                       0
-                                                       );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStand_pos.x() - 9.20*cm, motherStand_pos.y() - 1.75*cm, motherStand_pos.z()),
+                      "motherStandDet",
+                      motherStandLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Screws
     G4Tubs* motherStandScrewSolid = new G4Tubs("motherStandScrewSolid",
@@ -530,50 +535,50 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                   "motherStandScrewLogVol"
                                                                   );
 
-    G4PVPlacement *pmotherStandScrewSW = new G4PVPlacement(0,
-                                                           G4ThreeVector(motherStandScrew_pos.x(), motherStandScrew_pos.y(), motherStandScrew_pos.z()),
-                                                           "motherStandScrewSW",
-                                                           motherStandScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStandScrew_pos.x(), motherStandScrew_pos.y(), motherStandScrew_pos.z()),
+                      "motherStandScrewSW",
+                      motherStandScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandScrewSE = new G4PVPlacement(0,
-                                                           G4ThreeVector(motherStandScrew_pos.x() - 6.20*cm, motherStandScrew_pos.y(), motherStandScrew_pos.z()),
-                                                           "motherStandScrewSE",
-                                                           motherStandScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStandScrew_pos.x() - 6.20*cm, motherStandScrew_pos.y(), motherStandScrew_pos.z()),
+                      "motherStandScrewSE",
+                      motherStandScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandScrewNW = new G4PVPlacement(0,
-                                                           G4ThreeVector(motherStandScrew_pos.x(), motherStandScrew_pos.y() - 3.50*cm, motherStandScrew_pos.z()),
-                                                           "motherStandScrewNW",
-                                                           motherStandScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStandScrew_pos.x(), motherStandScrew_pos.y() - 3.50*cm, motherStandScrew_pos.z()),
+                      "motherStandScrewNW",
+                      motherStandScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandScrewNE = new G4PVPlacement(0,
-                                                           G4ThreeVector(motherStandScrew_pos.x() - 6.20*cm, motherStandScrew_pos.y() - 3.50*cm, motherStandScrew_pos.z()),
-                                                           "motherStandScrewNE",
-                                                           motherStandScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStandScrew_pos.x() - 6.20*cm, motherStandScrew_pos.y() - 3.50*cm, motherStandScrew_pos.z()),
+                      "motherStandScrewNE",
+                      motherStandScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pmotherStandScrewDet = new G4PVPlacement(0,
-                                                           G4ThreeVector(motherStandScrew_pos.x() - 9.20*cm, motherStandScrew_pos.y() - 1.75*cm, motherStandScrew_pos.z()),
-                                                           "motherStandScrewDet",
-                                                           motherStandScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(motherStandScrew_pos.x() - 9.20*cm, motherStandScrew_pos.y() - 1.75*cm, motherStandScrew_pos.z()),
+                      "motherStandScrewDet",
+                      motherStandScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Analog of USB wire-loop (insulation)
     G4Torus* usbHoopTorusEastSolid = new G4Torus("usbHoopTorusEastSolid",
@@ -589,14 +594,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                   "usbHoopTorusEastLogVol"
                                                                   );
 
-    G4PVPlacement *pusbHoopTorusEast = new G4PVPlacement(0,
-                                                         G4ThreeVector(usbHoopTorusEast_pos.x(), usbHoopTorusEast_pos.y(), usbHoopTorusEast_pos.z()),
-                                                         "usbHoopTorusEast",
-                                                         usbHoopTorusEastLogVol,
-                                                         worldPhys,
-                                                         false,
-                                                         0
-                                                         );
+    new G4PVPlacement(0,
+                      G4ThreeVector(usbHoopTorusEast_pos.x(), usbHoopTorusEast_pos.y(), usbHoopTorusEast_pos.z()),
+                      "usbHoopTorusEast",
+                      usbHoopTorusEastLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     G4Tubs* usbHoopStraightNorthSolid = new G4Tubs("usbHoopStraightNorthSolid",
                                                    usbHoopStraightNorth_dim.x(),
@@ -615,13 +620,13 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     rotm.rotateY(90*deg);
     G4Transform3D rotN = G4Transform3D(rotm, usbHoopStraightNorth_pos);
 
-    G4PVPlacement *pusbHoopStraightNorth = new G4PVPlacement(rotN,
-                                                             "usbHoopStraightNorth",
-                                                             usbHoopStraightNorthLogVol,
-                                                             worldPhys,
-                                                             false,
-                                                             0
-                                                             );
+    new G4PVPlacement(rotN,
+                      "usbHoopStraightNorth",
+                      usbHoopStraightNorthLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     G4Tubs* usbHoopStraightSouthSolid = new G4Tubs("usbHoopStraightSouthSolid",
                                                    usbHoopStraightSouth_dim.x(),
@@ -638,13 +643,13 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
     G4Transform3D rotS = G4Transform3D(rotm, usbHoopStraightSouth_pos);
 
-    G4PVPlacement *pusbHoopStraightSouth = new G4PVPlacement(rotS,
-                                                             "usbHoopStraightSouth",
-                                                             usbHoopStraightSouthLogVol,
-                                                             worldPhys,
-                                                             false,
-                                                             0
-                                                             );
+    new G4PVPlacement(rotS,
+                      "usbHoopStraightSouth",
+                      usbHoopStraightSouthLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     G4Torus* usbHoopTorusWestSolid = new G4Torus("usbHoopTorusWestSolid",
                                                  usbHoopTorusWest_dim.x(),
@@ -659,19 +664,19 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                       "usbHoopTorusWestLogVol"
                                                                       );
 
-    G4PVPlacement *pusbHoopTorusWest = new G4PVPlacement(0,
-                                                         G4ThreeVector(usbHoopTorusWest_pos.x(), usbHoopTorusWest_pos.y(), usbHoopTorusWest_pos.z()),
-                                                         "usbHoopTorusWest",
-                                                         usbHoopTorusWestLogVol,
-                                                         worldPhys,
-                                                         false,
-                                                         0
-                                                         );
+    new G4PVPlacement(0,
+                      G4ThreeVector(usbHoopTorusWest_pos.x(), usbHoopTorusWest_pos.y(), usbHoopTorusWest_pos.z()),
+                      "usbHoopTorusWest",
+                      usbHoopTorusWestLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Analog of USB wire-loop (copper internals)
     G4Torus* usbHoopTorusEastWireSolid = new G4Torus("usbHoopTorusEastWireSolid",
                                                  0.*cm,
-                                                 usbHoopTorusEast_dim.y() - 0.1*cm,
+                                                 usbHoopTorusEast_dim.y() - 0.15*cm,
                                                  usbHoopTorusEast_dim.z(),
                                                  90.*deg,
                                                  180.*deg
@@ -682,18 +687,18 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                   "usbHoopTorusEastWireLogVol"
                                                                   );
 
-    G4PVPlacement *pusbHoopTorusEastWire = new G4PVPlacement(0,
-                                                             G4ThreeVector(usbHoopTorusEast_pos.x(), usbHoopTorusEast_pos.y(), usbHoopTorusEast_pos.z()),
-                                                             "usbHoopTorusEastWire",
-                                                             usbHoopTorusEastWireLogVol,
-                                                             worldPhys,
-                                                             false,
-                                                             0
-                                                             );
+    new G4PVPlacement(0,
+                      G4ThreeVector(usbHoopTorusEast_pos.x(), usbHoopTorusEast_pos.y(), usbHoopTorusEast_pos.z()),
+                      "usbHoopTorusEastWire",
+                      usbHoopTorusEastWireLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     G4Tubs* usbHoopStraightNorthWireSolid = new G4Tubs("usbHoopStraightNorthWireSolid",
                                                        0.*cm,
-                                                       usbHoopStraightNorth_dim.y() - 0.1*cm,
+                                                       usbHoopStraightNorth_dim.y() - 0.15*cm,
                                                        usbHoopStraightNorth_dim.z(),
                                                        0.*deg,
                                                        360.*deg
@@ -704,17 +709,17 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                           "usbHoopStraightNorthWireLogVol"
                                                                           );
 
-    G4PVPlacement *pusbHoopStraightNorthWire = new G4PVPlacement(rotN,
-                                                                 "usbHoopStraightNorthWire",
-                                                                 usbHoopStraightNorthWireLogVol,
-                                                                 worldPhys,
-                                                                 false,
-                                                                 0
-                                                                 );
+    new G4PVPlacement(rotN,
+                      "usbHoopStraightNorthWire",
+                      usbHoopStraightNorthWireLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     G4Tubs* usbHoopStraightSouthWireSolid = new G4Tubs("usbHoopStraightSouthWireSolid",
                                                        0.*cm,
-                                                       usbHoopStraightSouth_dim.y() - 0.1*cm,
+                                                       usbHoopStraightSouth_dim.y() - 0.15*cm,
                                                        usbHoopStraightSouth_dim.z(),
                                                        0.*deg,
                                                        360.*deg
@@ -725,17 +730,17 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                           "usbHoopStraightSouthWireLogVol"
                                                                           );
 
-    G4PVPlacement *pusbHoopStraightSouthWire = new G4PVPlacement(rotS,
-                                                                 "usbHoopStraightSouthWire",
-                                                                 usbHoopStraightSouthWireLogVol,
-                                                                 worldPhys,
-                                                                 false,
-                                                                 0
-                                                                 );
+    new G4PVPlacement(rotS,
+                      "usbHoopStraightSouthWire",
+                      usbHoopStraightSouthWireLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     G4Torus* usbHoopTorusWestWireSolid = new G4Torus("usbHoopTorusWestWireSolid",
                                                      0.*cm,
-                                                     usbHoopTorusWest_dim.y() - 0.1*cm,
+                                                     usbHoopTorusWest_dim.y() - 0.15*cm,
                                                      usbHoopTorusWest_dim.z(),
                                                      -90.*deg,
                                                      180.*deg
@@ -746,14 +751,44 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                                       "usbHoopTorusWestWireLogVol"
                                                                       );
 
-    G4PVPlacement *pusbHoopTorusWestWire = new G4PVPlacement(0,
-                                                             G4ThreeVector(usbHoopTorusWest_pos.x(), usbHoopTorusWest_pos.y(), usbHoopTorusWest_pos.z()),
-                                                             "usbHoopTorusWestWire",
-                                                             usbHoopTorusWestWireLogVol,
-                                                             worldPhys,
-                                                             false,
-                                                             0
-                                                             );
+    new G4PVPlacement(0,
+                      G4ThreeVector(usbHoopTorusWest_pos.x(), usbHoopTorusWest_pos.y(), usbHoopTorusWest_pos.z()),
+                      "usbHoopTorusWestWire",
+                      usbHoopTorusWestWireLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    // USB connectors to motherboard and external wiring
+    G4Box* usbConnSolid = new G4Box("usbConnSolid",
+                                    usbConn_dim.x(),
+                                    usbConn_dim.y(),
+                                    usbConn_dim.z()
+                                    );
+
+    G4LogicalVolume* usbConnLogVol = new G4LogicalVolume(usbConnSolid,
+                                                         mwireconn,
+                                                         "usbConnLogVol"
+                                                         );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(usbConn_pos.x(), usbConn_pos.y(), usbConn_pos.z()),
+                      "usbConnEast",
+                      usbConnLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(usbConn_pos.x() + 8.9*cm, usbConn_pos.y(), usbConn_pos.z()),
+                      "usbConnWest",
+                      usbConnLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // ---------------------------------------
     // Create greater environment
@@ -834,41 +869,41 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                              "threadScrewLogVol"
                                                              );
 
-    G4PVPlacement *pthreadScrewSW = new G4PVPlacement(0,
-                                                      G4ThreeVector(threadScrew_pos.x(), threadScrew_pos.y(), threadScrew_pos.z()),
-                                                      "threadScrewSW",
-                                                      threadScrewLogVol,
-                                                      worldPhys,
-                                                      false,
-                                                      0
-                                                      );
+    new G4PVPlacement(0,
+                      G4ThreeVector(threadScrew_pos.x(), threadScrew_pos.y(), threadScrew_pos.z()),
+                      "threadScrewSW",
+                      threadScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pthreadScrewSE = new G4PVPlacement(0,
-                                                      G4ThreeVector(threadScrew_pos.x() - 22.2*cm, threadScrew_pos.y(), threadScrew_pos.z()),
-                                                      "threadScrewSE",
-                                                      threadScrewLogVol,
-                                                      worldPhys,
-                                                      false,
-                                                      0
-                                                      );
+    new G4PVPlacement(0,
+                      G4ThreeVector(threadScrew_pos.x() - 22.2*cm, threadScrew_pos.y(), threadScrew_pos.z()),
+                      "threadScrewSE",
+                      threadScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pthreadScrewNW = new G4PVPlacement(0,
-                                                           G4ThreeVector(threadScrew_pos.x(), threadScrew_pos.y() - 14.2*cm, threadScrew_pos.z()),
-                                                           "threadScrewNW",
-                                                           threadScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(threadScrew_pos.x(), threadScrew_pos.y() - 14.2*cm, threadScrew_pos.z()),
+                      "threadScrewNW",
+                      threadScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement *pthreadScrewNE = new G4PVPlacement(0,
-                                                           G4ThreeVector(threadScrew_pos.x() - 22.2*cm, threadScrew_pos.y() - 14.2*cm, threadScrew_pos.z()),
-                                                           "threadScrewNE",
-                                                           threadScrewLogVol,
-                                                           worldPhys,
-                                                           false,
-                                                           0
-                                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(threadScrew_pos.x() - 22.2*cm, threadScrew_pos.y() - 14.2*cm, threadScrew_pos.z()),
+                      "threadScrewNE",
+                      threadScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Hollow box bottom
     G4Box* outerBoxBot = new G4Box("outerBoxBot",
@@ -914,7 +949,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      "boxBotLog"
                                                      );
 
-    G4PVPlacement *pbot = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                             G4ThreeVector(boxBot_pos.x(), boxBot_pos.y(), boxBot_pos.z()),
                                             "boxBot",
                                             boxLogBot,
@@ -967,7 +1002,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      "boxTopLog"
                                                      );
 
-    G4PVPlacement *ptop = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                             G4ThreeVector(boxTop_pos.x(), boxTop_pos.y(), boxTop_pos.z()),
                                             "boxTop",
                                             boxLogTop,
@@ -984,7 +1019,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                           "thread12"
                                                           );
 
-    G4PVPlacement *pthread12sw = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                    G4ThreeVector(threadHole1_pos.x(), threadHole1_pos.y(), threadHole1_pos.z()),
                                                    "threadHoleBotSW",
                                                    thread12LogVol,
@@ -993,7 +1028,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                    0
                                                    );
 
-    G4PVPlacement *pthread12se = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                    G4ThreeVector(threadHole1_pos.x() - 22.2*cm, threadHole1_pos.y(), threadHole1_pos.z()),
                                                    "threadHoleBotSW",
                                                    thread12LogVol,
@@ -1002,7 +1037,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                    0
                                                    );
 
-    G4PVPlacement *pthread12nw = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                    G4ThreeVector(threadHole1_pos.x(), threadHole1_pos.y() - 14.2*cm, threadHole1_pos.z()),
                                                    "threadHoleBotSW",
                                                    thread12LogVol,
@@ -1011,7 +1046,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                    0
                                                    );
 
-    G4PVPlacement *pthread12ne = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                    G4ThreeVector(threadHole1_pos.x() - 22.2*cm, threadHole1_pos.y() - 14.2*cm, threadHole1_pos.z()),
                                                    "threadHoleBotSW",
                                                    thread12LogVol,
@@ -1026,7 +1061,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                            "thread345"
                                                            );
 
-    G4PVPlacement *pthread345sw = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                     G4ThreeVector(threadHole3_pos.x(), threadHole3_pos.y(), threadHole3_pos.z()),
                                                     "threadHoleTopSW",
                                                     thread345LogVol,
@@ -1035,7 +1070,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                     0
                                                     );
 
-    G4PVPlacement *pthread345se = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(threadHole3_pos.x() - 22.2*cm, threadHole3_pos.y(), threadHole3_pos.z()),
                                                      "threadHoleTopSE",
                                                      thread345LogVol,
@@ -1044,7 +1079,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement *pthread345nw = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(threadHole3_pos.x(), threadHole3_pos.y() - 14.2*cm, threadHole3_pos.z()),
                                                      "threadHoleTopNW",
                                                      thread345LogVol,
@@ -1053,7 +1088,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement *pthread345ne = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(threadHole3_pos.x() - 22.2*cm, threadHole3_pos.y() - 14.2*cm, threadHole3_pos.z()),
                                                      "threadHoleTopNE",
                                                      thread345LogVol,
@@ -1074,7 +1109,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                          "boxNub1LogVol"
                                                          );
 
-    G4PVPlacement *pboxnub1w = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                 G4ThreeVector(boxNub1_pos.x(), boxNub1_pos.y(), boxNub1_pos.z()),
                                                 "boxNub1W",
                                                 boxNub1LogVol,
@@ -1083,7 +1118,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                 0
                                                 );
 
-    G4PVPlacement *pboxnub1e = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                 G4ThreeVector(boxNub1_pos.x() - 22.0*cm, boxNub1_pos.y(), boxNub1_pos.z()),
                                                 "boxNub1E",
                                                 boxNub1LogVol,
@@ -1104,7 +1139,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                          "boxNub2LogVol"
                                                          );
 
-    G4PVPlacement* pboxNub2botSW = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y(), boxNub2_pos.z()),
                                                      "boxNub2botSW",
                                                      boxNub2LogVol,
@@ -1113,7 +1148,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement* pboxNub2botSE = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y(), boxNub2_pos.z()),
                                                      "boxNub2botSE",
                                                      boxNub2LogVol,
@@ -1122,7 +1157,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement* pboxNub2botNW = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z()),
                                                      "boxNub2botNW",
                                                      boxNub2LogVol,
@@ -1131,7 +1166,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement* pboxNub2botNE = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z()),
                                                      "boxNub2botNE",
                                                      boxNub2LogVol,
@@ -1140,7 +1175,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement* pboxNub2topSW = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y(), boxNub2_pos.z() + 8.7*cm),
                                                      "boxNub2topSW",
                                                      boxNub2LogVol,
@@ -1149,7 +1184,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
-    G4PVPlacement* pboxNub2topSE = new G4PVPlacement(0,
+    new G4PVPlacement(0,
                                                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y(), boxNub2_pos.z() + 8.7*cm),
                                                      "boxNub2topSE",
                                                      boxNub2LogVol,
@@ -1176,6 +1211,39 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                      0
                                                      );
 
+    // Jack-stand to raise box from table
+    // Made hollow to approximate
+    G4Box* jackStandOuter = new G4Box("jackStandOuter",
+                                      jackStand_dim.x(),
+                                      jackStand_dim.y(),
+                                      jackStand_dim.z()
+                                      );
+
+    G4Box* jackStandInner = new G4Box("jackStandInner",
+                                      jackStand_dim.x() - 2.*cm,
+                                      jackStand_dim.y() - 2.*cm,
+                                      jackStand_dim.z() - 2.*cm
+                                      );
+
+    G4SubtractionSolid* jackStandSolid = new G4SubtractionSolid("jackStandSolid",
+                                                                jackStandOuter,
+                                                                jackStandInner
+                                                                );
+
+    G4LogicalVolume* jackStandLogVol = new G4LogicalVolume(jackStandSolid,
+                                                           mjack,
+                                                           "jackStandLogVol"
+                                                           );
+
+    new G4PVPlacement(0,
+                                                  G4ThreeVector(jackStand_pos.x(), jackStand_pos.y(), jackStand_pos.z()),
+                                                  "jackStand",
+                                                  jackStandLogVol,
+                                                  worldPhys,
+                                                  false,
+                                                  0
+                                                  );
+
     // Tabletop
     G4VSolid* tableSolid = new G4Box("tableSolid",
                                      tableTop_dim.x(),
@@ -1189,14 +1257,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                        "tableLog"
                                                        );
 
-    G4PVPlacement *ptt = new G4PVPlacement(0,
-                                           G4ThreeVector(tableTop_pos.x(), tableTop_pos.y(), tableTop_pos.z()),
-                                           "tableTop",
-                                           tableLogVol,
-                                           worldPhys,
-                                           false,
-                                           0
-                                           );
+    new G4PVPlacement(0,
+                      G4ThreeVector(tableTop_pos.x(), tableTop_pos.y(), tableTop_pos.z()),
+                      "tableTop",
+                      tableLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Wall
     G4VSolid* wallSolid = new G4Box("wallSolid",
@@ -1211,14 +1279,14 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                       "wallLog"
                                                       );
 
-    G4PVPlacement *pw = new G4PVPlacement(0,
-                                          G4ThreeVector(wall_pos.x(), wall_pos.y(), wall_pos.z()),
-                                          "wall",
-                                          wallLogVol,
-                                          worldPhys,
-                                          false,
-                                          0
-                                          );
+    new G4PVPlacement(0,
+                      G4ThreeVector(wall_pos.x(), wall_pos.y(), wall_pos.z()),
+                      "wall",
+                      wallLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
 
     // ---------------------------------------
@@ -1279,66 +1347,76 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     usbHoopTorusWest_vis_att->SetVisibility(true);
     usbHoopTorusWestLogVol -> SetVisAttributes(usbHoopTorusWest_vis_att);
 
-    G4VisAttributes* usbHoopTorusEastWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    G4VisAttributes* usbHoopTorusEastWire_vis_att = new G4VisAttributes(G4Color(0.8, 0.3, 0., 0.60));
     usbHoopTorusEastWire_vis_att->SetForceSolid(true);
     usbHoopTorusEastWire_vis_att->SetVisibility(true);
     usbHoopTorusEastWireLogVol -> SetVisAttributes(usbHoopTorusEastWire_vis_att);
 
-    G4VisAttributes* usbHoopStraightNorthWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    G4VisAttributes* usbHoopStraightNorthWire_vis_att = new G4VisAttributes(G4Color(0.8, 0.3, 0., 0.60));
     usbHoopStraightNorthWire_vis_att->SetForceSolid(true);
     usbHoopStraightNorthWire_vis_att->SetVisibility(true);
     usbHoopStraightNorthWireLogVol -> SetVisAttributes(usbHoopStraightNorthWire_vis_att);
 
-    G4VisAttributes* usbHoopStraightSouthWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    G4VisAttributes* usbHoopStraightSouthWire_vis_att = new G4VisAttributes(G4Color(0.8, 0.3, 0., 0.60));
     usbHoopStraightSouthWire_vis_att->SetForceSolid(true);
     usbHoopStraightSouthWire_vis_att->SetVisibility(true);
     usbHoopStraightSouthWireLogVol -> SetVisAttributes(usbHoopStraightSouthWire_vis_att);
 
-    G4VisAttributes* usbHoopTorusWestWire_vis_att = new G4VisAttributes(G4Color(72., 45., 20., 0.60));
+    G4VisAttributes* usbHoopTorusWestWire_vis_att = new G4VisAttributes(G4Color(0.8, 0.3, 0., 0.60));
     usbHoopTorusWestWire_vis_att->SetForceSolid(true);
     usbHoopTorusWestWire_vis_att->SetVisibility(true);
     usbHoopTorusWestWireLogVol -> SetVisAttributes(usbHoopTorusWestWire_vis_att);
 
+    G4VisAttributes* usbConn_vis_att = new G4VisAttributes(G4Color(0.8, 0.5, 0., 0.60));
+    usbConn_vis_att->SetForceSolid(true);
+    usbConn_vis_att->SetVisibility(true);
+    usbConnLogVol -> SetVisAttributes(usbConn_vis_att);
+
     // Box and detailing
 
-    G4VisAttributes* boxBot_vis_att = new G4VisAttributes(G4Color(200., 200., 0., 0.10));
+    G4VisAttributes* boxBot_vis_att = new G4VisAttributes(G4Color(0.6, 0.6, 0., 0.20));
     boxBot_vis_att->SetForceSolid(true);
     boxBot_vis_att->SetVisibility(true);
     boxLogBot -> SetVisAttributes(boxBot_vis_att);
 
-    G4VisAttributes* boxTop_vis_att = new G4VisAttributes(G4Color(200., 200., 0., 0.10));
+    G4VisAttributes* boxTop_vis_att = new G4VisAttributes(G4Color(0.6, 0.6, 0., 0.20));
     boxTop_vis_att->SetForceSolid(true);
     boxTop_vis_att->SetVisibility(true);
     boxLogTop -> SetVisAttributes(boxTop_vis_att);
 
-    G4VisAttributes* thread12_vis_att = new G4VisAttributes(G4Color(200., 0., 0., 0.50));
+    G4VisAttributes* thread12_vis_att = new G4VisAttributes(G4Color(0.5, 0., 0., 0.50));
     thread12_vis_att->SetForceSolid(true);
     thread12_vis_att->SetVisibility(true);
     thread12LogVol -> SetVisAttributes(thread12_vis_att);
 
-    G4VisAttributes* thread345_vis_att = new G4VisAttributes(G4Color(200., 0., 0., 0.30));
+    G4VisAttributes* thread345_vis_att = new G4VisAttributes(G4Color(0.5, 0., 0., 0.30));
     thread345_vis_att->SetForceSolid(true);
     thread345_vis_att->SetVisibility(true);
     thread345LogVol -> SetVisAttributes(thread345_vis_att);
 
-    G4VisAttributes* threadScrew_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    G4VisAttributes* threadScrew_vis_att = new G4VisAttributes(G4Color(0.2, 0.4, 0.6, 0.60));
     threadScrew_vis_att->SetForceSolid(true);
     threadScrew_vis_att->SetVisibility(true);
     threadScrewLogVol -> SetVisAttributes(threadScrew_vis_att);
 
-    G4VisAttributes* boxNub1_vis_att = new G4VisAttributes(G4Color(0., 150., 0., 0.50));
+    G4VisAttributes* boxNub1_vis_att = new G4VisAttributes(G4Color(0.5, 0.5, 0., 0.50));
     boxNub1_vis_att->SetForceSolid(true);
     boxNub1_vis_att->SetVisibility(true);
     boxNub1LogVol -> SetVisAttributes(boxNub1_vis_att);
 
-    G4VisAttributes* boxNub2_vis_att = new G4VisAttributes(G4Color(0., 150., 0., 0.50));
+    G4VisAttributes* boxNub2_vis_att = new G4VisAttributes(G4Color(0.5, 0.5, 0., 0.50));
     boxNub2_vis_att->SetForceSolid(true);
     boxNub2_vis_att->SetVisibility(true);
     boxNub2LogVol -> SetVisAttributes(boxNub2_vis_att);
 
     // Outer geometry
 
-    G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(25., 1., 0., 0.10));
+    G4VisAttributes* jackStand_vis_att = new G4VisAttributes(G4Color(0.25, 0.25, 0.20, 0.30));
+    jackStand_vis_att->SetForceSolid(true);
+    jackStand_vis_att->SetVisibility(true);
+    jackStandLogVol -> SetVisAttributes(jackStand_vis_att);
+
+    G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(0.25, 0.35, 0., 0.22));
     table_vis_att->SetForceSolid(true);
     table_vis_att->SetVisibility(true);
     tableLogVol -> SetVisAttributes(table_vis_att);
@@ -1356,6 +1434,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     worldLog->SetVisAttributes(world_vis_att);
 
     return worldPhys;
+
 }
 
 void DetectorConstruction::ConstructSDandField(){

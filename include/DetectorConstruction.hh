@@ -70,6 +70,7 @@ protected:
 		G4Material* mcoppermother;
 		G4Material* mdethousing;
 		G4Material* mstand;
+		G4Material* steel;
 		G4Material* mscrew;
 		G4Material* musbinsul;
 		G4Material* mwireinsul;
@@ -78,6 +79,7 @@ protected:
 		G4Material* mbox;
 		G4Material* mthread;
 		G4Material* mboxnubs;
+		G4Material* mjack;
 		G4Material* mtable;
 		G4Material* mwall;
 
@@ -136,6 +138,7 @@ protected:
 		G4ThreeVector usbHoopStraightWireSouth_dim;
 
 		G4ThreeVector usbConn_dim;
+		G4ThreeVector usbConn_pos;
 
 		// ---------------------------------------
     // Greater environment
@@ -169,6 +172,9 @@ protected:
 
 		G4ThreeVector boxNub2_dim;
 	  G4ThreeVector boxNub2_pos;
+
+		G4ThreeVector jackStand_dim;
+		G4ThreeVector jackStand_pos;
 
 		G4ThreeVector tableTop_dim;
 		G4ThreeVector tableTop_pos;
