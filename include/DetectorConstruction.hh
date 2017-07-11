@@ -122,14 +122,12 @@ protected:
 
 		G4ThreeVector usbHoopStraightNorth_dim;
 		G4ThreeVector usbHoopStraightNorth_pos;
-		//G4RotationMatrix usbHoopStraightNorth_rot;
 
 		G4ThreeVector usbHoopTorusEast_dim;
 		G4ThreeVector usbHoopTorusEast_pos;
 
 		G4ThreeVector usbHoopStraightSouth_dim;
 		G4ThreeVector usbHoopStraightSouth_pos;
-		//G4RotationMatrix usbHoopStraightSouth_rot;
 
 		// For wiring on the inside of the hoop
 		G4ThreeVector usbHoopTorusWireWest_dim;
@@ -162,6 +160,9 @@ protected:
 		G4ThreeVector threadHole5_dim;
 
 		G4ThreeVector threadHole6_dim;
+
+		G4ThreeVector threadScrew_dim;
+		G4ThreeVector threadScrew_pos;
 
 		G4ThreeVector boxNub1_dim;
 		G4ThreeVector boxNub1_pos;

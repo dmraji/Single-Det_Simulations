@@ -110,13 +110,13 @@ using namespace CLHEP;
    // ---------------------------------------
 
    // Box geometry
-   boxBot_dim(G4ThreeVector(12.*cm, 8.*cm, 3.35*cm)),        // box bottom with dimensions 12cm by 8cm by 3.35cm
-   boxBot_pos(G4ThreeVector(7.936*cm, 3.428*cm, 0.27*cm)),     // box bottom positioned at 7.936cm along x-axis and 3.428cm along y-axis
+   boxBot_dim(G4ThreeVector(12.*cm, 8.*cm, 3.35*cm)),                     // box bottom with dimensions 12cm by 8cm by 3.35cm
+   boxBot_pos(G4ThreeVector(7.936*cm, 3.428*cm, 0.27*cm)),                // box bottom positioned at 7.936cm along x-axis, 3.428cm along y-axis, 0.27cm along z-axis
 
-   boxTop_dim(G4ThreeVector(12.*cm, 8.*cm, 1.65*cm)),        // box top with dimensions 12cm by 8cm by 1.65cm
-   boxTop_pos(G4ThreeVector(7.936*cm, 3.428*cm, 5.27*cm)),     // box bottom positions at 7.936cm along x-axis, 3.428cm along y-axis, 5cm along z-axis
+   boxTop_dim(G4ThreeVector(12.*cm, 8.*cm, 1.65*cm)),                     // box top with dimensions 12cm by 8cm by 1.65cm
+   boxTop_pos(G4ThreeVector(7.936*cm, 3.428*cm, 5.27*cm)),                // box bottom positions at 7.936cm along x-axis, 3.428cm along y-axis, 5.27cm along z-axis
 
-   // Thread holes in box
+   // Threaded holes in box
    threadHole1_dim(G4ThreeVector(0.33*cm, 0.39*cm, 1.0*cm)),
    threadHole1_pos(G4ThreeVector(19.036*cm, 10.528*cm, -2.08*cm)),
 
@@ -129,6 +129,10 @@ using namespace CLHEP;
 
    threadHole5_dim(G4ThreeVector(0.36*cm, 0.39*cm, 0.15*cm)),
 
+   // Screws for threaded holes
+   threadScrew_dim(G4ThreeVector(0.*cm, 0.33*cm, 1.55*cm)),
+   threadScrew_pos(G4ThreeVector(19.036*cm, 10.528*cm, 5.47*cm)),
+
    // Aluminum nubs on base of box
    boxNub1_dim(G4ThreeVector(0.4*cm, 0.8*cm, 0.7*cm)),
    boxNub1_pos(G4ThreeVector(18.936*cm, 3.428*cm, -2.43*cm)),
@@ -138,13 +142,13 @@ using namespace CLHEP;
 
    // Other environment components
 
-   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),       // tabletop with dimensions 60cm by 25cm by 3cm
+   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 3.*cm)),                    // tabletop with dimensions 60cm by 25cm by 3cm
 
-   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -20*cm)),        // tabletop positioned at -5cm along z-axis
+   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -20*cm)),                     // tabletop positioned at -5cm along z-axis
 
-   wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),         // wall with dimensions 80cm by 10cm by 200cm
+   wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),                      // wall with dimensions 80cm by 10cm by 200cm
 
-   wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))            // wall positioned at -35cm along the y-axis
+   wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                         // wall positioned at -35cm along the y-axis
 {
    // Create a new messenger class
    detectorconstructionmessenger = new DetectorConstructionMessenger(this);
@@ -817,6 +821,55 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                               G4ThreeVector(0.*cm, 0.*cm, 1.65*cm)
                                               );
 
+    G4Tubs* threadScrewSolid = new G4Tubs("threadScrewSolid",
+                                          threadScrew_dim.x(),
+                                          threadScrew_dim.y(),
+                                          threadScrew_dim.z(),
+                                          0.*deg,
+                                          360.*deg
+                                          );
+
+    G4LogicalVolume* threadScrewLogVol = new G4LogicalVolume(threadScrewSolid,
+                                                             mscrew,
+                                                             "threadScrewLogVol"
+                                                             );
+
+    G4PVPlacement *pthreadScrewSW = new G4PVPlacement(0,
+                                                      G4ThreeVector(threadScrew_pos.x(), threadScrew_pos.y(), threadScrew_pos.z()),
+                                                      "threadScrewSW",
+                                                      threadScrewLogVol,
+                                                      worldPhys,
+                                                      false,
+                                                      0
+                                                      );
+
+    G4PVPlacement *pthreadScrewSE = new G4PVPlacement(0,
+                                                      G4ThreeVector(threadScrew_pos.x() - 22.2*cm, threadScrew_pos.y(), threadScrew_pos.z()),
+                                                      "threadScrewSE",
+                                                      threadScrewLogVol,
+                                                      worldPhys,
+                                                      false,
+                                                      0
+                                                      );
+
+    G4PVPlacement *pthreadScrewNW = new G4PVPlacement(0,
+                                                           G4ThreeVector(threadScrew_pos.x(), threadScrew_pos.y() - 14.2*cm, threadScrew_pos.z()),
+                                                           "threadScrewNW",
+                                                           threadScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
+    G4PVPlacement *pthreadScrewNE = new G4PVPlacement(0,
+                                                           G4ThreeVector(threadScrew_pos.x() - 22.2*cm, threadScrew_pos.y() - 14.2*cm, threadScrew_pos.z()),
+                                                           "threadScrewNE",
+                                                           threadScrewLogVol,
+                                                           worldPhys,
+                                                           false,
+                                                           0
+                                                           );
+
     // Hollow box bottom
     G4Box* outerBoxBot = new G4Box("outerBoxBot",
                                    boxBot_dim.x(),
@@ -1194,55 +1247,15 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
     // Stands and screws for Motherboard
 
-    G4VisAttributes* motherStandScrewSW_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
-    motherStandScrewSW_vis_att->SetForceSolid(true);
-    motherStandScrewSW_vis_att->SetVisibility(true);
-    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewSW_vis_att);
+    G4VisAttributes* motherStandScrew_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    motherStandScrew_vis_att->SetForceSolid(true);
+    motherStandScrew_vis_att->SetVisibility(true);
+    motherStandScrewLogVol -> SetVisAttributes(motherStandScrew_vis_att);
 
-    G4VisAttributes* motherStandScrewSE_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
-    motherStandScrewSE_vis_att->SetForceSolid(true);
-    motherStandScrewSE_vis_att->SetVisibility(true);
-    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewSE_vis_att);
-
-    G4VisAttributes* motherStandScrewNW_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
-    motherStandScrewNW_vis_att->SetForceSolid(true);
-    motherStandScrewNW_vis_att->SetVisibility(true);
-    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewNW_vis_att);
-
-    G4VisAttributes* motherStandScrewNE_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
-    motherStandScrewNE_vis_att->SetForceSolid(true);
-    motherStandScrewNE_vis_att->SetVisibility(true);
-    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewNE_vis_att);
-
-    G4VisAttributes* motherStandScrewDet_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
-    motherStandScrewDet_vis_att->SetForceSolid(true);
-    motherStandScrewDet_vis_att->SetVisibility(true);
-    motherStandScrewLogVol -> SetVisAttributes(motherStandScrewDet_vis_att);
-
-    G4VisAttributes* motherStandSW_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
-    motherStandSW_vis_att->SetForceSolid(true);
-    motherStandSW_vis_att->SetVisibility(true);
-    motherStandLogVol -> SetVisAttributes(motherStandSW_vis_att);
-
-    G4VisAttributes* motherStandSE_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
-    motherStandSE_vis_att->SetForceSolid(true);
-    motherStandSE_vis_att->SetVisibility(true);
-    motherStandLogVol -> SetVisAttributes(motherStandSE_vis_att);
-
-    G4VisAttributes* motherStandNW_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
-    motherStandNW_vis_att->SetForceSolid(true);
-    motherStandNW_vis_att->SetVisibility(true);
-    motherStandLogVol -> SetVisAttributes(motherStandNW_vis_att);
-
-    G4VisAttributes* motherStandNE_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
-    motherStandNE_vis_att->SetForceSolid(true);
-    motherStandNE_vis_att->SetVisibility(true);
-    motherStandLogVol -> SetVisAttributes(motherStandNE_vis_att);
-
-    G4VisAttributes* motherStandDet_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
-    motherStandDet_vis_att->SetForceSolid(true);
-    motherStandDet_vis_att->SetVisibility(true);
-    motherStandLogVol -> SetVisAttributes(motherStandDet_vis_att);
+    G4VisAttributes* motherStand_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    motherStand_vis_att->SetForceSolid(true);
+    motherStand_vis_att->SetVisibility(true);
+    motherStandLogVol -> SetVisAttributes(motherStand_vis_att);
 
     // USB components
 
@@ -1307,6 +1320,11 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     thread345_vis_att->SetForceSolid(true);
     thread345_vis_att->SetVisibility(true);
     thread345LogVol -> SetVisAttributes(thread345_vis_att);
+
+    G4VisAttributes* threadScrew_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    threadScrew_vis_att->SetForceSolid(true);
+    threadScrew_vis_att->SetVisibility(true);
+    threadScrewLogVol -> SetVisAttributes(threadScrew_vis_att);
 
     G4VisAttributes* boxNub1_vis_att = new G4VisAttributes(G4Color(0., 150., 0., 0.50));
     boxNub1_vis_att->SetForceSolid(true);
