@@ -1293,56 +1293,56 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     // Set up visualization of geometry
     // ---------------------------------------
 
-    G4VisAttributes* detector_vis_att = new G4VisAttributes(G4Color(0.,1.,56.,1.));
+    G4VisAttributes* detector_vis_att = new G4VisAttributes(G4Color(0., 0.8, 0.9, 1.));
     detector_vis_att->SetForceSolid(true);
     detector_vis_att->SetVisibility(true);
     logvol -> SetVisAttributes(detector_vis_att);
 
-    G4VisAttributes* asic_vis_att = new G4VisAttributes(G4Color(100., 0., 100., 0.30));
+    G4VisAttributes* asic_vis_att = new G4VisAttributes(G4Color(0.7, 0., 0.7, 0.30));
     asic_vis_att->SetForceSolid(true);
     asic_vis_att->SetVisibility(true);
     asicLogVol -> SetVisAttributes(asic_vis_att);
 
-    G4VisAttributes* motherb_vis_att = new G4VisAttributes(G4Color(100., 0., 100., 0.30));
+    G4VisAttributes* motherb_vis_att = new G4VisAttributes(G4Color(0.7, 0., 0.7, 0.30));
     motherb_vis_att->SetForceSolid(true);
     motherb_vis_att->SetVisibility(true);
     motherbLogVol -> SetVisAttributes(motherb_vis_att);
 
-    G4VisAttributes* dethousing_vis_att = new G4VisAttributes(G4Color(20., 20., 40., 0.10));
+    G4VisAttributes* dethousing_vis_att = new G4VisAttributes(G4Color(0.4, 0.4, 0.6, 0.10));
     dethousing_vis_att->SetForceSolid(true);
     dethousing_vis_att->SetVisibility(true);
     dethousingLogVol -> SetVisAttributes(dethousing_vis_att);
 
     // Stands and screws for Motherboard
 
-    G4VisAttributes* motherStandScrew_vis_att = new G4VisAttributes(G4Color(10., 20., 40., 0.60));
+    G4VisAttributes* motherStandScrew_vis_att = new G4VisAttributes(G4Color(0.2, 0.4, 0.6, 0.60));
     motherStandScrew_vis_att->SetForceSolid(true);
     motherStandScrew_vis_att->SetVisibility(true);
     motherStandScrewLogVol -> SetVisAttributes(motherStandScrew_vis_att);
 
-    G4VisAttributes* motherStand_vis_att = new G4VisAttributes(G4Color(20., 35., 80., 0.40));
+    G4VisAttributes* motherStand_vis_att = new G4VisAttributes(G4Color(0.2, 0.35, 0.8, 0.40));
     motherStand_vis_att->SetForceSolid(true);
     motherStand_vis_att->SetVisibility(true);
     motherStandLogVol -> SetVisAttributes(motherStand_vis_att);
 
     // USB components
 
-    G4VisAttributes* usbHoopTorusEast_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    G4VisAttributes* usbHoopTorusEast_vis_att = new G4VisAttributes(G4Color(0.4, 0.4, 0.4, 0.30));
     usbHoopTorusEast_vis_att->SetForceSolid(true);
     usbHoopTorusEast_vis_att->SetVisibility(true);
     usbHoopTorusEastLogVol -> SetVisAttributes(usbHoopTorusEast_vis_att);
 
-    G4VisAttributes* usbHoopStraightNorth_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    G4VisAttributes* usbHoopStraightNorth_vis_att = new G4VisAttributes(G4Color(0.4, 0.4, 0.4, 0.30));
     usbHoopStraightNorth_vis_att->SetForceSolid(true);
     usbHoopStraightNorth_vis_att->SetVisibility(true);
     usbHoopStraightNorthLogVol -> SetVisAttributes(usbHoopStraightNorth_vis_att);
 
-    G4VisAttributes* usbHoopStraightSouth_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    G4VisAttributes* usbHoopStraightSouth_vis_att = new G4VisAttributes(G4Color(0.4, 0.4, 0.4, 0.30));
     usbHoopStraightSouth_vis_att->SetForceSolid(true);
     usbHoopStraightSouth_vis_att->SetVisibility(true);
     usbHoopStraightSouthLogVol -> SetVisAttributes(usbHoopStraightSouth_vis_att);
 
-    G4VisAttributes* usbHoopTorusWest_vis_att = new G4VisAttributes(G4Color(40., 40., 40., 0.30));
+    G4VisAttributes* usbHoopTorusWest_vis_att = new G4VisAttributes(G4Color(0.4, 0.4, 0.4, 0.30));
     usbHoopTorusWest_vis_att->SetForceSolid(true);
     usbHoopTorusWest_vis_att->SetVisibility(true);
     usbHoopTorusWestLogVol -> SetVisAttributes(usbHoopTorusWest_vis_att);
@@ -1374,12 +1374,12 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
     // Box and detailing
 
-    G4VisAttributes* boxBot_vis_att = new G4VisAttributes(G4Color(0.6, 0.6, 0., 0.20));
+    G4VisAttributes* boxBot_vis_att = new G4VisAttributes(G4Color(0.6, 0.6, 0., 0.12));
     boxBot_vis_att->SetForceSolid(true);
     boxBot_vis_att->SetVisibility(true);
     boxLogBot -> SetVisAttributes(boxBot_vis_att);
 
-    G4VisAttributes* boxTop_vis_att = new G4VisAttributes(G4Color(0.6, 0.6, 0., 0.20));
+    G4VisAttributes* boxTop_vis_att = new G4VisAttributes(G4Color(0.6, 0.6, 0., 0.12));
     boxTop_vis_att->SetForceSolid(true);
     boxTop_vis_att->SetVisibility(true);
     boxLogTop -> SetVisAttributes(boxTop_vis_att);
@@ -1411,12 +1411,12 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
 
     // Outer geometry
 
-    G4VisAttributes* jackStand_vis_att = new G4VisAttributes(G4Color(0.25, 0.25, 0.20, 0.30));
+    G4VisAttributes* jackStand_vis_att = new G4VisAttributes(G4Color(0.45, 0.45, 0.40, 0.25));
     jackStand_vis_att->SetForceSolid(true);
     jackStand_vis_att->SetVisibility(true);
     jackStandLogVol -> SetVisAttributes(jackStand_vis_att);
 
-    G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(0.25, 0.35, 0., 0.22));
+    G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(0.45, 0.55, 0., 0.22));
     table_vis_att->SetForceSolid(true);
     table_vis_att->SetVisibility(true);
     tableLogVol -> SetVisAttributes(table_vis_att);
