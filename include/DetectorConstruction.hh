@@ -93,12 +93,14 @@ protected:
     // Immediate environment
     // ---------------------------------------
 
+		// ASIC board and its copper film
 		G4ThreeVector asic_dim;
 		G4ThreeVector asic_pos;
 
 		G4ThreeVector copperasic_dim;
 		G4ThreeVector copperasic_pos;
 
+		// Motherboard and its copper film
 		G4ThreeVector motherb_dim;
 		G4ThreeVector motherb_pos;
 
@@ -109,14 +111,61 @@ protected:
 		G4ThreeVector coppermother_dim;
 		G4ThreeVector coppermother_pos;
 
+		// Lexan housing for detector
 		G4ThreeVector dethousing_dim;
 		G4ThreeVector dethousing_pos;
 
+		// Stands and screws holding motherboard off of bottom of box
 		G4ThreeVector motherStand_dim;
 		G4ThreeVector motherStand_pos;
 
 		G4ThreeVector motherStandScrew_dim;
 		G4ThreeVector motherStandScrew_pos;
+
+		// Wires and insulation coming off of motherboard
+		G4ThreeVector motherinsul12_dim;
+		G4ThreeVector motherinsul1_pos;
+
+		G4ThreeVector motherinsul2_pos;
+
+		G4ThreeVector motherinsul34_dim;
+		G4ThreeVector motherinsul3_pos;
+
+		G4ThreeVector motherinsul4_pos;
+
+		G4ThreeVector motherwire12_dim;
+		G4ThreeVector motherwire1_pos;
+
+		G4ThreeVector motherwire2_pos;
+
+		G4ThreeVector motherwire34_dim;
+		G4ThreeVector motherwire3_pos;
+
+		G4ThreeVector motherwire4_pos;
+
+		G4ThreeVector extinsul1_dim;
+		G4ThreeVector extinsul1_pos;
+
+		G4ThreeVector extinsul2_dim;
+		G4ThreeVector extinsul2_pos;
+
+		G4ThreeVector extinsul3_dim;
+		G4ThreeVector extinsul3_pos;
+
+		G4ThreeVector extinsul4_dim;
+		G4ThreeVector extinsul4_pos;
+
+		G4ThreeVector extwire1_dim;
+		G4ThreeVector extwire1_pos;
+
+		G4ThreeVector extwire2_dim;
+		G4ThreeVector extwire2_pos;
+
+		G4ThreeVector extwire3_dim;
+		G4ThreeVector extwire3_pos;
+
+		G4ThreeVector extwire4_dim;
+		G4ThreeVector extwire4_pos;
 
 		// For series of shapes to build usb wire-hoop
     G4ThreeVector usbHoopTorusWest_dim;

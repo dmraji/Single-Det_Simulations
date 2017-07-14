@@ -24,7 +24,7 @@
 # Use far field source
 #/PRISM/source/farfieldsource
 # Use near field source (provide a distance)
-/PRISM/source/nearfieldsource 1 m
+/PRISM/source/nearfieldsource 0.1 m
 # Use far field ring source (need to include a diameter input…)
 #/PRISM/source/farfieldringsource
 
@@ -40,4 +40,4 @@
 /PRISM/output/printBinary Off
 
 # Beam on, run this many particles
-/run/beamOn 2800000
+/run/beamOn 560000

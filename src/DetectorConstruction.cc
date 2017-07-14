@@ -44,6 +44,10 @@ using namespace CLHEP;
    mcopperasic(0),
    mmotherb(0),
    mcoppermother(0),
+   musbinsul(0),
+   mwireinsul(0),
+   mwirewire(0),
+   mwireconn(0),
    mdethousing(0),
    mstand(0),
    mscrew(0),
@@ -81,12 +85,57 @@ using namespace CLHEP;
    dethousing_dim(G4ThreeVector(0.7*cm, 0.7*cm, 0.9*cm)),
    dethousing_pos(G4ThreeVector(0.*cm, 0.*cm, -0.2*cm)),
 
-   // Stands and screws for Motherboard
+   // Stands and screws for motherboard
    motherStand_dim(G4ThreeVector(0.20*cm, 0.25*cm, 0.95*cm)),
    motherStand_pos(G4ThreeVector(7.75*cm, 1.75*cm, -2.13*cm)),
 
    motherStandScrew_dim(G4ThreeVector(0.*cm, 0.195*cm, 0.95*cm)),
    motherStandScrew_pos(G4ThreeVector(7.75*cm, 1.75*cm, -2.00*cm)),
+
+   // Insulation and wires connecting to motherboard
+   motherinsul12_dim(G4ThreeVector(0.05*cm, 0.10*cm, 1.5*cm)),
+   motherinsul1_pos(G4ThreeVector(5.75*cm, 3.25*cm, -1.10*cm)),
+
+   motherinsul2_pos(G4ThreeVector(4.75*cm, 3.25*cm, -1.10*cm)),
+
+   motherinsul34_dim(G4ThreeVector(0.05*cm, 0.10*cm, 1.0*cm)),
+   motherinsul3_pos(G4ThreeVector(3.75*cm, 2.75*cm, -1.10*cm)),
+
+   motherinsul4_pos(G4ThreeVector(2.75*cm, 2.75*cm, -1.10*cm)),
+
+   motherwire12_dim(G4ThreeVector(0.*cm, 0.04*cm, 1.5*cm)),
+   motherwire1_pos(G4ThreeVector(5.75*cm, 3.25*cm, -1.10*cm)),
+
+   motherwire2_pos(G4ThreeVector(4.75*cm, 3.25*cm, -1.10*cm)),
+
+   motherwire34_dim(G4ThreeVector(0.*cm, 0.04*cm, 1.0*cm)),
+   motherwire3_pos(G4ThreeVector(3.75*cm, 2.75*cm, -1.10*cm)),
+
+   motherwire4_pos(G4ThreeVector(2.75*cm, 2.75*cm, -1.10*cm)),
+
+   extinsul1_dim(G4ThreeVector(0.05*cm, 0.10*cm, 5.*cm)),
+   extinsul1_pos(G4ThreeVector(10.75*cm, 4.75*cm, -0.35*cm)),
+
+   extinsul2_dim(G4ThreeVector(0.05*cm, 0.10*cm, 5.5*cm)),
+   extinsul2_pos(G4ThreeVector(10.25*cm, 4.75*cm, -1.95*cm)),
+
+   extinsul3_dim(G4ThreeVector(0.05*cm, 0.10*cm, 6.*cm)),
+   extinsul3_pos(G4ThreeVector(9.75*cm, 3.75*cm, -0.35*cm)),
+
+   extinsul4_dim(G4ThreeVector(0.05*cm, 0.10*cm, 6.5*cm)),
+   extinsul4_pos(G4ThreeVector(9.25*cm, 3.75*cm, -1.95*cm)),
+
+   extwire1_dim(G4ThreeVector(0.*cm, 0.04*cm, 5.*cm)),
+   extwire1_pos(G4ThreeVector(10.75*cm, 4.75*cm, -0.35*cm)),
+
+   extwire2_dim(G4ThreeVector(0.*cm, 0.04*cm, 5.5*cm)),
+   extwire2_pos(G4ThreeVector(10.25*cm, 4.75*cm, -1.95*cm)),
+
+   extwire3_dim(G4ThreeVector(0.*cm, 0.04*cm, 6*cm)),
+   extwire3_pos(G4ThreeVector(9.75*cm, 3.75*cm, -0.35*cm)),
+
+   extwire4_dim(G4ThreeVector(0.*cm, 0.04*cm, 6.5*cm)),
+   extwire4_pos(G4ThreeVector(9.25*cm, 3.75*cm, -1.95*cm)),
 
    // USB cord components /////////////////////////////////////////////////////
 
@@ -575,6 +624,340 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                       G4ThreeVector(motherStandScrew_pos.x() - 9.20*cm, motherStandScrew_pos.y() - 1.75*cm, motherStandScrew_pos.z()),
                       "motherStandScrewDet",
                       motherStandScrewLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    // Insulation for wires from motherboard to external electronics
+    G4Tubs* motherInsul12 = new G4Tubs("motherInsul12",
+                                      motherinsul12_dim.x(),
+                                      motherinsul12_dim.y(),
+                                      motherinsul12_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* motherInsul12LogVol = new G4LogicalVolume(motherInsul12,
+                                                              mwireinsul,
+                                                              "motherInsul12LogVol"
+                                                              );
+
+    G4RotationMatrix rotins = G4RotationMatrix();
+    rotins.rotateX(90.*deg);
+    G4Transform3D rotins1 = G4Transform3D(rotins, motherinsul1_pos);
+
+    new G4PVPlacement(rotins1,
+                      "motherinsul1",
+                      motherInsul12LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Transform3D rotins2 = G4Transform3D(rotins, motherinsul2_pos);
+
+    new G4PVPlacement(rotins2,
+                      "motherinsul2",
+                      motherInsul12LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* motherInsul34 = new G4Tubs("motherInsul34",
+                                      motherinsul34_dim.x(),
+                                      motherinsul34_dim.y(),
+                                      motherinsul34_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* motherInsul34LogVol = new G4LogicalVolume(motherInsul34,
+                                                              musbinsul,
+                                                              "motherInsul34LogVol"
+                                                              );
+
+    G4Transform3D rotins3 = G4Transform3D(rotins, motherinsul3_pos);
+
+    new G4PVPlacement(rotins3,
+                      "motherinsul3",
+                      motherInsul34LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Transform3D rotins4 = G4Transform3D(rotins, motherinsul4_pos);
+
+    new G4PVPlacement(rotins4,
+                      "motherinsu34",
+                      motherInsul34LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    // Wires from motherboard to external electronics
+    G4Tubs* motherwire12 = new G4Tubs("motherwire12",
+                                      motherwire12_dim.x(),
+                                      motherwire12_dim.y(),
+                                      motherwire12_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* motherwire12LogVol = new G4LogicalVolume(motherwire12,
+                                                              mwirewire,
+                                                              "motherwire12LogVol"
+                                                              );
+
+    G4RotationMatrix rotwire = G4RotationMatrix();
+    rotwire.rotateX(90.*deg);
+    G4Transform3D rotwire1 = G4Transform3D(rotwire, motherwire1_pos);
+
+    new G4PVPlacement(rotwire1,
+                      "motherwire1",
+                      motherwire12LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Transform3D rotwire2 = G4Transform3D(rotwire, motherwire2_pos);
+
+    new G4PVPlacement(rotwire2,
+                      "motherwire2",
+                      motherwire12LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* motherwire34 = new G4Tubs("motherwire34",
+                                      motherwire34_dim.x(),
+                                      motherwire34_dim.y(),
+                                      motherwire34_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* motherwire34LogVol = new G4LogicalVolume(motherwire34,
+                                                              mwirewire,
+                                                              "motherwire34LogVol"
+                                                              );
+
+    G4Transform3D rotwire3 = G4Transform3D(rotwire, motherwire3_pos);
+
+    new G4PVPlacement(rotwire3,
+                      "motherwire3",
+                      motherwire34LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Transform3D rotwire4 = G4Transform3D(rotwire, motherwire4_pos);
+
+    new G4PVPlacement(rotwire4,
+                      "motherwire4",
+                      motherwire34LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    // Insulation for second section of wires coming from motherboard to ...
+    // external electronics
+    G4Tubs* extinsul1 = new G4Tubs("extinsul1",
+                                   extinsul1_dim.x(),
+                                   extinsul1_dim.y(),
+                                   extinsul1_dim.z(),
+                                   0.*deg,
+                                   360.*deg
+                                   );
+
+    G4LogicalVolume* extinsul1LogVol = new G4LogicalVolume(extinsul1,
+                                                              mwireinsul,
+                                                              "extinsul1LogVol"
+                                                              );
+
+    G4RotationMatrix rotinsy = G4RotationMatrix();
+    rotinsy.rotateY(82.*deg);
+    G4Transform3D rotinsy1 = G4Transform3D(rotinsy, extinsul1_pos);
+
+    new G4PVPlacement(rotinsy1,
+                      "extinsul1",
+                      extinsul1LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* extinsul2 = new G4Tubs("extinsul2",
+                                   extinsul2_dim.x(),
+                                   extinsul2_dim.y(),
+                                   extinsul2_dim.z(),
+                                   0.*deg,
+                                   360.*deg
+                                   );
+
+    G4LogicalVolume* extinsul2LogVol = new G4LogicalVolume(extinsul2,
+                                                              mwireinsul,
+                                                              "extinsul2LogVol"
+                                                              );
+
+    rotinsy.rotateY(16.*deg);
+    G4Transform3D rotinsy2 = G4Transform3D(rotinsy, extinsul2_pos);
+
+    new G4PVPlacement(rotinsy2,
+                      "extinsul2",
+                      extinsul2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* extinsul3 = new G4Tubs("extinsul3",
+                                      extinsul3_dim.x(),
+                                      extinsul3_dim.y(),
+                                      extinsul3_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* extinsul3LogVol = new G4LogicalVolume(extinsul3,
+                                                              musbinsul,
+                                                              "extinsul3LogVol"
+                                                              );
+
+    rotinsy.rotateY(-16.*deg);
+    G4Transform3D rotinsy3 = G4Transform3D(rotinsy, extinsul3_pos);
+
+    new G4PVPlacement(rotinsy3,
+                      "extinsul3",
+                      extinsul3LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* extinsul4 = new G4Tubs("extinsul4",
+                                      extinsul4_dim.x(),
+                                      extinsul4_dim.y(),
+                                      extinsul4_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* extinsul4LogVol = new G4LogicalVolume(extinsul4,
+                                                              musbinsul,
+                                                              "extinsul4LogVol"
+                                                              );
+
+    rotinsy.rotateY(16.*deg);
+    G4Transform3D rotinsy4 = G4Transform3D(rotinsy, extinsul4_pos);
+
+    new G4PVPlacement(rotinsy4,
+                      "extinsul4",
+                      extinsul4LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    // Wires from motherboard to external electronics
+    G4Tubs* extwire1 = new G4Tubs("extwire1",
+                                      extwire1_dim.x(),
+                                      extwire1_dim.y(),
+                                      extwire1_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* extwire1LogVol = new G4LogicalVolume(extwire1,
+                                                          mwirewire,
+                                                          "extwire1LogVol"
+                                                          );
+
+    G4RotationMatrix rotwirey = G4RotationMatrix();
+    rotwirey.rotateY(82.*deg);
+    G4Transform3D rotwirey1 = G4Transform3D(rotwirey, extwire1_pos);
+
+    new G4PVPlacement(rotwirey1,
+                      "extwire1",
+                      extwire1LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* extwire2 = new G4Tubs("extwire2",
+                                  extwire2_dim.x(),
+                                  extwire2_dim.y(),
+                                  extwire2_dim.z(),
+                                  0.*deg,
+                                  360.*deg
+                                  );
+
+    G4LogicalVolume* extwire2LogVol = new G4LogicalVolume(extwire2,
+                                                          mwirewire,
+                                                          "extwire2LogVol"
+                                                          );
+
+    rotwirey.rotateY(16.*deg);
+    G4Transform3D rotwirey2 = G4Transform3D(rotwirey, extwire2_pos);
+
+    new G4PVPlacement(rotwirey2,
+                      "extwire2",
+                      extwire2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* extwire3 = new G4Tubs("extwire3",
+                                      extwire3_dim.x(),
+                                      extwire3_dim.y(),
+                                      extwire3_dim.z(),
+                                      0.*deg,
+                                      360.*deg
+                                      );
+
+    G4LogicalVolume* extwire3LogVol = new G4LogicalVolume(extwire3,
+                                                          mwirewire,
+                                                          "extwire3LogVol"
+                                                          );
+    rotwirey.rotateY(-16.*deg);
+    G4Transform3D rotwirey3 = G4Transform3D(rotwirey, extwire3_pos);
+
+    new G4PVPlacement(rotwirey3,
+                      "extwire3",
+                      extwire3LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Tubs* extwire4 = new G4Tubs("extwire4",
+                                  extwire4_dim.x(),
+                                  extwire4_dim.y(),
+                                  extwire4_dim.z(),
+                                  0.*deg,
+                                  360.*deg
+                                  );
+
+    G4LogicalVolume* extwire4LogVol = new G4LogicalVolume(extwire4,
+                                                          mwirewire,
+                                                          "extwire4LogVol"
+                                                          );
+
+    rotwirey.rotateY(16.*deg);
+    G4Transform3D rotwirey4 = G4Transform3D(rotwirey, extwire4_pos);
+
+    new G4PVPlacement(rotwirey4,
+                      "extwire4",
+                      extwire4LogVol,
                       worldPhys,
                       false,
                       0
@@ -1140,76 +1523,76 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                          );
 
     new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y(), boxNub2_pos.z()),
-                                                     "boxNub2botSW",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y(), boxNub2_pos.z()),
+                      "boxNub2botSW",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y(), boxNub2_pos.z()),
-                                                     "boxNub2botSE",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y(), boxNub2_pos.z()),
+                      "boxNub2botSE",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z()),
-                                                     "boxNub2botNW",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z()),
+                      "boxNub2botNW",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z()),
-                                                     "boxNub2botNE",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z()),
+                      "boxNub2botNE",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y(), boxNub2_pos.z() + 8.7*cm),
-                                                     "boxNub2topSW",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y(), boxNub2_pos.z() + 8.7*cm),
+                      "boxNub2topSW",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y(), boxNub2_pos.z() + 8.7*cm),
-                                                     "boxNub2topSE",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y(), boxNub2_pos.z() + 8.7*cm),
+                      "boxNub2topSE",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement* pboxNub2topNW = new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z() + 8.7*cm),
-                                                     "boxNub2topNW",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+    new G4PVPlacement(0,
+                      G4ThreeVector(boxNub2_pos.x(), boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z() + 8.7*cm),
+                      "boxNub2topNW",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
-    G4PVPlacement* pboxNub2topNE = new G4PVPlacement(0,
-                                                     G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z() + 8.7*cm),
-                                                     "boxNub2topNE",
-                                                     boxNub2LogVol,
-                                                     worldPhys,
-                                                     false,
-                                                     0
-                                                     );
+    new G4PVPlacement(0,
+                      G4ThreeVector(boxNub2_pos.x() - 22.0*cm, boxNub2_pos.y() - 11.8*cm, boxNub2_pos.z() + 8.7*cm),
+                      "boxNub2topNE",
+                      boxNub2LogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Jack-stand to raise box from table
     // Made hollow to approximate
@@ -1236,13 +1619,13 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                                                            );
 
     new G4PVPlacement(0,
-                                                  G4ThreeVector(jackStand_pos.x(), jackStand_pos.y(), jackStand_pos.z()),
-                                                  "jackStand",
-                                                  jackStandLogVol,
-                                                  worldPhys,
-                                                  false,
-                                                  0
-                                                  );
+                      G4ThreeVector(jackStand_pos.x(), jackStand_pos.y(), jackStand_pos.z()),
+                      "jackStand",
+                      jackStandLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
 
     // Tabletop
     G4VSolid* tableSolid = new G4Box("tableSolid",
@@ -1324,6 +1707,68 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     motherStand_vis_att->SetForceSolid(true);
     motherStand_vis_att->SetVisibility(true);
     motherStandLogVol -> SetVisAttributes(motherStand_vis_att);
+
+    // Insulation and wires from Motherboard
+
+    G4VisAttributes* motherInsul12_vis_att = new G4VisAttributes(G4Color(0.2, 0.35, 0.35, 0.30));
+    motherInsul12_vis_att->SetForceSolid(true);
+    motherInsul12_vis_att->SetVisibility(true);
+    motherInsul12LogVol -> SetVisAttributes(motherInsul12_vis_att);
+
+    G4VisAttributes* motherInsul34_vis_att = new G4VisAttributes(G4Color(0.45, 0.35, 0.35, 0.30));
+    motherInsul34_vis_att->SetForceSolid(true);
+    motherInsul34_vis_att->SetVisibility(true);
+    motherInsul34LogVol -> SetVisAttributes(motherInsul34_vis_att);
+
+    G4VisAttributes* motherwire12_vis_att = new G4VisAttributes(G4Color(0.8, 0.35, 0., 0.60));
+    motherwire12_vis_att->SetForceSolid(true);
+    motherwire12_vis_att->SetVisibility(true);
+    motherwire12LogVol -> SetVisAttributes(motherwire12_vis_att);
+
+    G4VisAttributes* motherwire34_vis_att = new G4VisAttributes(G4Color(0.8, 0.35, 0., 0.60));
+    motherwire34_vis_att->SetForceSolid(true);
+    motherwire34_vis_att->SetVisibility(true);
+    motherwire34LogVol -> SetVisAttributes(motherwire34_vis_att);
+
+    G4VisAttributes* extinsul1_vis_att = new G4VisAttributes(G4Color(0.2, 0.35, 0.35, 0.30));
+    extinsul1_vis_att->SetForceSolid(true);
+    extinsul1_vis_att->SetVisibility(true);
+    extinsul1LogVol -> SetVisAttributes(extinsul1_vis_att);
+
+    G4VisAttributes* extinsul2_vis_att = new G4VisAttributes(G4Color(0.2, 0.35, 0.35, 0.30));
+    extinsul2_vis_att->SetForceSolid(true);
+    extinsul2_vis_att->SetVisibility(true);
+    extinsul2LogVol -> SetVisAttributes(extinsul2_vis_att);
+
+    G4VisAttributes* extinsul3_vis_att = new G4VisAttributes(G4Color(0.45, 0.35, 0.35, 0.30));
+    extinsul3_vis_att->SetForceSolid(true);
+    extinsul3_vis_att->SetVisibility(true);
+    extinsul3LogVol -> SetVisAttributes(extinsul3_vis_att);
+
+    G4VisAttributes* extinsul4_vis_att = new G4VisAttributes(G4Color(0.45, 0.35, 0.35, 0.30));
+    extinsul4_vis_att->SetForceSolid(true);
+    extinsul4_vis_att->SetVisibility(true);
+    extinsul4LogVol -> SetVisAttributes(extinsul4_vis_att);
+
+    G4VisAttributes* extwire1_vis_att = new G4VisAttributes(G4Color(0.8, 0.35, 0., 0.60));
+    extwire1_vis_att->SetForceSolid(true);
+    extwire1_vis_att->SetVisibility(true);
+    extwire1LogVol -> SetVisAttributes(extwire1_vis_att);
+
+    G4VisAttributes* extwire2_vis_att = new G4VisAttributes(G4Color(0.8, 0.35, 0., 0.60));
+    extwire2_vis_att->SetForceSolid(true);
+    extwire2_vis_att->SetVisibility(true);
+    extwire2LogVol -> SetVisAttributes(extwire2_vis_att);
+
+    G4VisAttributes* extwire3_vis_att = new G4VisAttributes(G4Color(0.8, 0.35, 0., 0.60));
+    extwire3_vis_att->SetForceSolid(true);
+    extwire3_vis_att->SetVisibility(true);
+    extwire3LogVol -> SetVisAttributes(extwire3_vis_att);
+
+    G4VisAttributes* extwire4_vis_att = new G4VisAttributes(G4Color(0.8, 0.35, 0., 0.60));
+    extwire4_vis_att->SetForceSolid(true);
+    extwire4_vis_att->SetVisibility(true);
+    extwire4LogVol -> SetVisAttributes(extwire4_vis_att);
 
     // USB components
 
