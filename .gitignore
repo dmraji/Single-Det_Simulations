@@ -44,6 +44,9 @@ HEMI_Sim/output/*.root
 /docs/doxygen/html
 /docs/doxygen/latex
 
+# Output Files
+output/*
+
 # Etc.
 Dan's Code/*
 =======

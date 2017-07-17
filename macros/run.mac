@@ -5,7 +5,7 @@
 /event/verbose 0
 
 # Tracking secondary electrons (On/Off)
-/PRISM/tracking/trackElectrons Off
+/PRISM/tracking/trackElectrons On
 
 # Change dimension of the detectors (default is 1 1 1)
 #/PRISM/geo/cubedim 0.5 0.5 0.5
@@ -40,4 +40,4 @@
 /PRISM/output/printBinary Off
 
 # Beam on, run this many particles
-/run/beamOn 560000
+/run/beamOn 56000

@@ -49,6 +49,7 @@ using namespace CLHEP;
    mwirewire(0),
    mwireconn(0),
    mdethousing(0),
+   madhesive(0),
    mstand(0),
    mscrew(0),
    mbox(0),
@@ -84,6 +85,10 @@ using namespace CLHEP;
    // Lexan housing of detector
    dethousing_dim(G4ThreeVector(0.7*cm, 0.7*cm, 0.9*cm)),
    dethousing_pos(G4ThreeVector(0.*cm, 0.*cm, -0.2*cm)),
+
+   // Silicone adhesive within detector housing
+   adhesive_dim(G4ThreeVector(0.05*cm, 0.05*cm, 0.05*cm)),
+   adhesive_pos(G4ThreeVector(0.55*cm, 0.55*cm, 0.45*cm)),
 
    // Stands and screws for motherboard
    motherStand_dim(G4ThreeVector(0.20*cm, 0.25*cm, 0.95*cm)),
@@ -277,6 +282,13 @@ void DetectorConstruction::ConstructMaterials(){
 
     // Lexan for detector housing
     mdethousing = nist->FindOrBuildMaterial("G4_POLYCARBONATE");
+
+    // Silicone for adhesive
+    G4Material* Silicone = new G4Material("Silicone", 1.06*g/cm3, 2);
+    Silicone->AddElement(H, 6);
+    Silicone->AddElement(C, 2);
+
+    madhesive = Silicone;
 
     // Steel for screws and jack
     steel = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL");
@@ -504,6 +516,89 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                       G4ThreeVector(dethousing_pos.x(), dethousing_pos.y(), dethousing_pos.z()),
                       "dethousing",
                       dethousingLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    G4Box* adhesiveSolid = new G4Box("adhesiveSolid",
+                                     adhesive_dim.x(),
+                                     adhesive_dim.y(),
+                                     adhesive_dim.z()
+                                     );
+
+    G4LogicalVolume* adhesiveLogVol = new G4LogicalVolume(adhesiveSolid,
+                                                          madhesive,
+                                                          "adhesiveLogVol"
+                                                          );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x(), adhesive_pos.y(), adhesive_pos.z()),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x() - 1.1*cm, adhesive_pos.y(), adhesive_pos.z()),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x(), adhesive_pos.y() - 1.1*cm, adhesive_pos.z()),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x() - 1.1*cm, adhesive_pos.y() - 1.1*cm, adhesive_pos.z()),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x(), adhesive_pos.y(), adhesive_pos.z() - 0.9*cm),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x() - 1.1*cm, adhesive_pos.y(), adhesive_pos.z() - 0.9*cm),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x(), adhesive_pos.y() - 1.1*cm, adhesive_pos.z() - 0.9*cm),
+                      "adhesive",
+                      adhesiveLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(adhesive_pos.x() - 1.1*cm, adhesive_pos.y() - 1.1*cm, adhesive_pos.z() - 0.9*cm),
+                      "adhesive",
+                      adhesiveLogVol,
                       worldPhys,
                       false,
                       0
@@ -1681,12 +1776,12 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     detector_vis_att->SetVisibility(true);
     logvol -> SetVisAttributes(detector_vis_att);
 
-    G4VisAttributes* asic_vis_att = new G4VisAttributes(G4Color(0.7, 0., 0.7, 0.30));
+    G4VisAttributes* asic_vis_att = new G4VisAttributes(G4Color(0.8, 0., 0.7, 0.30));
     asic_vis_att->SetForceSolid(true);
     asic_vis_att->SetVisibility(true);
     asicLogVol -> SetVisAttributes(asic_vis_att);
 
-    G4VisAttributes* motherb_vis_att = new G4VisAttributes(G4Color(0.7, 0., 0.7, 0.30));
+    G4VisAttributes* motherb_vis_att = new G4VisAttributes(G4Color(0.8, 0., 0.7, 0.30));
     motherb_vis_att->SetForceSolid(true);
     motherb_vis_att->SetVisibility(true);
     motherbLogVol -> SetVisAttributes(motherb_vis_att);
@@ -1695,6 +1790,11 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     dethousing_vis_att->SetForceSolid(true);
     dethousing_vis_att->SetVisibility(true);
     dethousingLogVol -> SetVisAttributes(dethousing_vis_att);
+
+    G4VisAttributes* adhesive_vis_att = new G4VisAttributes(G4Color(0.5, 0., 0.9, 0.40));
+    adhesive_vis_att->SetForceSolid(true);
+    adhesive_vis_att->SetVisibility(true);
+    adhesiveLogVol -> SetVisAttributes(adhesive_vis_att);
 
     // Stands and screws for Motherboard
 

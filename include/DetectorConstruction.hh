@@ -69,6 +69,7 @@ protected:
 		G4Material* mmotherb;
 		G4Material* mcoppermother;
 		G4Material* mdethousing;
+		G4Material* madhesive;
 		G4Material* mstand;
 		G4Material* steel;
 		G4Material* mscrew;
@@ -114,6 +115,10 @@ protected:
 		// Lexan housing for detector
 		G4ThreeVector dethousing_dim;
 		G4ThreeVector dethousing_pos;
+
+		// Silicone adhesive within detector housing
+		G4ThreeVector adhesive_dim;
+		G4ThreeVector adhesive_pos;
 
 		// Stands and screws holding motherboard off of bottom of box
 		G4ThreeVector motherStand_dim;
