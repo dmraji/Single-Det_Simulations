@@ -10,6 +10,8 @@
 #include "G4SDManager.hh"
 #include "SensitiveDetector.hh"
 
+#include "G4DigiManager.hh"
+
 using namespace CLHEP;
 
 //==================================================================================================

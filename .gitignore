@@ -16,8 +16,7 @@ TODO
 *.npy
 
 # Output and response files
-/output/*.bin
-/output/*.npy
+/output/*
 /responses
 
 # Executable files
@@ -44,8 +43,14 @@ HEMI_Sim/output/*.root
 /docs/doxygen/html
 /docs/doxygen/latex
 
-# Output Files
-output/*
+# Src and Include files that aren't ready
+/src/Digi.cc
+/src/Digitizer.cc
+/src/DigitizerMessenger.cc
+/include/Digi.hh
+/include/Digitizer.hh
+/include/DigitizerMessenger.hh
+
 
 # Etc.
 Dan's Code/*
