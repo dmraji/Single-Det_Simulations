@@ -33,10 +33,10 @@ public:
     vector<G4double> GetDOItuple();
 
     // Depth of interaction (binned)
-    vector<G4int> DOIbintuple;
-    void FillDOIbintuple(G4int);
+    vector<G4double> DOIbintuple;
+    void FillDOIbintuple(G4double);
     void ClearDOIbintuple();
-    vector<G4int> GetDOIbintuple();
+    vector<G4double> GetDOIbintuple();
 
     // Detector ID
     vector<G4int> DetIDtuple;
@@ -81,16 +81,16 @@ public:
     vector<G4int> GetHPindextuple();
 
 		// Phi
-		vector<G4int> phituple;
-		void Fillphituple(G4int);
+		vector<G4double> phituple;
+		void Fillphituple(G4double);
 		void Clearphituple();
-		vector<G4int> Getphituple();
+		vector<G4double> Getphituple();
 
 		// Theta
-		vector<G4int> thetatuple;
-		void Fillthetatuple(G4int);
+		vector<G4double> thetatuple;
+		void Fillthetatuple(G4double);
 		void Clearthetatuple();
-		vector<G4int> Getthetatuple();
+		vector<G4double> Getthetatuple();
 
 		// Time
     vector<G4float> Timetuple;

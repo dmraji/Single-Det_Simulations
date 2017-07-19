@@ -88,10 +88,8 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*){
     //G4ThreeVector detcent = DetectorConstruction::Instance()->GetDetCenters()[atoi(aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()) + 1];
     G4ThreeVector detcent = G4ThreeVector(0.*cm, 0.*cm, 0.*cm);
     G4ThreeVector intpos = aStep->GetPostStepPoint()->GetPosition();
-    //cout << intpos << "\n";
     G4double doi = intpos.z() + .5*cm;
     // /detcent.mag() + 0.500*cm;
-    cout << intpos.z() + .5*cm << "\n";
     if      (doi < 0.) {newHit->SetDOI(0. *mm);}
     else if (doi > 10.){newHit->SetDOI(10.*mm);}
     else {newHit->SetDOI(doi);}

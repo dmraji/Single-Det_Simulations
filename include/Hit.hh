@@ -30,8 +30,8 @@ public:
     void SetProcess     (G4int procname)       {fProc = procname;}
     void SetDOI         (G4double doi)         {fDOI = doi;}
     void SetHPindex     (G4int hpindex)        {fHP = hpindex;}
-    void SetPhi         (G4int phi)            {fPhi = phi;}
-    void SetTheta       (G4int theta)          {fTheta = theta;}
+    void SetPhi         (G4double phi)            {fPhi = phi;}
+    void SetTheta       (G4double theta)          {fTheta = theta;}
     void SetTime        (G4float time_)        {fTime = time_;}
 
     // Get methods
@@ -41,15 +41,15 @@ public:
     G4int GetProcess() const   {return fProc;}
     G4double GetDOI() const    {return fDOI;}
     G4int GetHPindex() const   {return fHP;}
-    G4int GetPhi() const       {return fPhi;}
-    G4int GetTheta() const     {return fTheta;}
+    G4double GetPhi() const    {return fPhi;}
+    G4double GetTheta() const  {return fTheta;}
     G4float GetTime() const    {return fTime;}
 
 private:
 
-    G4int         fTrackID, fHP, fPhi, fTheta, fProc, fVol;
+    G4int         fTrackID, fHP, fProc, fVol;
     G4float       fEnergy;
-    G4double      fDOI;
+    G4double      fDOI, fPhi, fTheta;
     G4float       fTime;
 
 };

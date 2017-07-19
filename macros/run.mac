@@ -33,11 +33,11 @@
 /PRISM/angles/theta 90
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_cone_phi0_theta90
+/PRISM/output/filename output_662keV_1Det_coneWide_phi0_theta90
 
 #Print to text or binary format
 /PRISM/output/printText On
 /PRISM/output/printBinary Off
 
 # Beam on, run this many particles
-/run/beamOn 100000
+/run/beamOn 8000000

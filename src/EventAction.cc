@@ -92,17 +92,20 @@ void EventAction::FillTuples(const G4Event* evt_){
 
             // Bin the DOI values into 1mm wide bins
             G4double doi = (*HC)[i]->GetDOI();
-            G4int doibin = 0;
-            if      (doi <  1.0*mm)                       {doibin = 1; }   // These first two are the most common, put
-            else if (doi >  9.0*mm)                       {doibin = 10;}   //   them at the beginning to avoid scanning all statements
-            else if (doi >= 1.0*mm && doi < 2.0*mm){doibin = 2;}
-            else if (doi >= 2.0*mm && doi < 3.0*mm){doibin = 3;}
-            else if (doi >= 3.0*mm && doi < 4.0*mm){doibin = 4;}
-            else if (doi >= 4.0*mm && doi < 5.0*mm){doibin = 5;}
-            else if (doi >= 5.0*mm && doi < 6.0*mm){doibin = 6;}
-            else if (doi >= 6.0*mm && doi < 7.0*mm){doibin = 7;}
-            else if (doi >= 7.0*mm && doi < 8.0*mm){doibin = 8;}
-            else if (doi >= 8.0*mm && doi < 9.0*mm){doibin = 9;}
+            G4double doibin = 0;
+            // if      (doi <  1.0*mm)                {doibin = 1; }   // These first two are the most common, put
+            // else if (doi >  9.0*mm)                {doibin = 10;}   //   them at the beginning to avoid scanning all statements
+            // else if (doi >= 1.0*mm && doi < 2.0*mm){doibin = 2;}
+            // else if (doi >= 2.0*mm && doi < 3.0*mm){doibin = 3;}
+            // else if (doi >= 3.0*mm && doi < 4.0*mm){doibin = 4;}
+            // else if (doi >= 4.0*mm && doi < 5.0*mm){doibin = 5;}
+            // else if (doi >= 5.0*mm && doi < 6.0*mm){doibin = 6;}
+            // else if (doi >= 6.0*mm && doi < 7.0*mm){doibin = 7;}
+            // else if (doi >= 7.0*mm && doi < 8.0*mm){doibin = 8;}
+            // else if (doi >= 8.0*mm && doi < 9.0*mm){doibin = 9;}
+
+						// Adjusting binnning to include real doi values
+						doibin = doi;
 
             runaction->FillDOIbintuple(doibin);
 
