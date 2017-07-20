@@ -137,11 +137,11 @@ SourceInfo PrimaryGeneratorAction::NearFieldSource(G4double theta_, G4double phi
 	theta = theta_;
 
 	// Isotropic rays
-	// G4ThreeVector dir = GetIsotropicMomentumDirection();
+	G4ThreeVector dir = GetIsotropicMomentumDirection();
 
 	// Cone beam
-	G4double ang = atan(5.*cm / dist_) * (180. / CLHEP::pi);
-	G4ThreeVector dir = (GetConeMomentumDirection(ang)).rotateY(phi*deg).rotateZ(theta*deg);
+	// G4double ang = atan(5.*cm / dist_) * (180. / CLHEP::pi);
+	// G4ThreeVector dir = (GetConeMomentumDirection(ang)).rotateY(phi*deg).rotateZ(theta*deg);
 
 	// Get position using theta, phi, and distance
 	G4ThreeVector pos(dist_*cos(theta*(pi/180))*sin(phi*(pi/180)),

@@ -57,6 +57,7 @@ using namespace CLHEP;
    mboxnubs(0),
    mjack(0),
    mtable(0),
+   mtablesteel(0),
    mwall(0),
    world_dim(10*m),                                               // default world is a 10 m radius sphere
    detector_dim(G4ThreeVector(0.5*cm, 0.5*cm, 0.5*cm)),           // default detector is 1 cc cube (use half sizes)
@@ -198,11 +199,14 @@ using namespace CLHEP;
 
    // Other environment components
 
-   jackStand_dim(G4ThreeVector(6.*cm, 6.*cm, 9.5*cm)),
+   jackStand_dim(G4ThreeVector(6.*cm, 7.*cm, 9.5*cm)),
    jackStand_pos(G4ThreeVector(13.936*cm, 3.428*cm, -12.58*cm)),
 
-   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 2.*cm)),                    // tabletop with dimensions 60cm by 25cm by 3cm
-   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -24.08*cm)),                  // tabletop positioned at -20.08cm along z-axis
+   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 1.55*cm)),                  // tabletop with dimensions 60cm by 25cm by 3cm
+   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -23.63*cm)),                  // tabletop positioned at -20.08cm along z-axis
+
+   tableSteel_dim(G4ThreeVector(50.*cm, 20.*cm, 0.75*cm)),
+   tableSteel_pos(G4ThreeVector(0.*cm, 0.*cm, -25.93*cm)),
 
    wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),                      // wall with dimensions 80cm by 10cm by 200cm
    wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                         // wall positioned at -35cm along the y-axis
@@ -295,6 +299,7 @@ void DetectorConstruction::ConstructMaterials(){
 
     mscrew = steel;
     mjack = steel;
+    mtablesteel = steel;
 
     // Materials for wiring
     musbinsul = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
@@ -1744,6 +1749,26 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                       0
                       );
 
+    G4VSolid* tableSteelSolid = new G4Box("tableSteelSolid",
+                                          tableSteel_dim.x(),
+                                          tableSteel_dim.y(),
+                                          tableSteel_dim.z()
+                                          );
+
+    G4LogicalVolume* tableSteelLogVol = new G4LogicalVolume(tableSteelSolid,
+                                                            mtablesteel,
+                                                            "tableSteelLogVol"
+                                                            );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(tableSteel_pos.x(), tableSteel_pos.y(), tableSteel_pos.z()),
+                      "tableSteel",
+                      tableSteelLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
     // Wall
     G4VSolid* wallSolid = new G4Box("wallSolid",
                                      wall_dim.x(),
@@ -1966,10 +1991,15 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     table_vis_att->SetVisibility(true);
     tableLogVol -> SetVisAttributes(table_vis_att);
 
-    // G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(50., 1., 1., 0.10));
-    // wall_vis_att->SetForceSolid(true);
-    // wall_vis_att->SetVisibility(true);
-    // wallLogVol -> SetVisAttributes(wall_vis_att);
+    G4VisAttributes* tableSteel_vis_att = new G4VisAttributes(G4Color(0.45, 0.55, 0., 0.08));
+    tableSteel_vis_att->SetForceSolid(true);
+    tableSteel_vis_att->SetVisibility(true);
+    tableSteelLogVol -> SetVisAttributes(tableSteel_vis_att);
+
+    G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(0.2, 0.2, 0.2, 0.025));
+    wall_vis_att->SetForceSolid(true);
+    wall_vis_att->SetVisibility(true);
+    wallLogVol -> SetVisAttributes(wall_vis_att);
 
     // World
 

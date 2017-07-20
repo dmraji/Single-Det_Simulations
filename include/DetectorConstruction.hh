@@ -82,6 +82,7 @@ protected:
 		G4Material* mboxnubs;
 		G4Material* mjack;
 		G4Material* mtable;
+		G4Material* mtablesteel;
 		G4Material* mwall;
 
     G4double world_dim;          // World is a sphere so we need radius
@@ -232,6 +233,9 @@ protected:
 
 		G4ThreeVector tableTop_dim;
 		G4ThreeVector tableTop_pos;
+
+		G4ThreeVector tableSteel_dim;
+		G4ThreeVector tableSteel_pos;
 
 		G4ThreeVector wall_dim;
 		G4ThreeVector wall_pos;
