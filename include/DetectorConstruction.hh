@@ -83,6 +83,7 @@ protected:
 		G4Material* mjack;
 		G4Material* mtable;
 		G4Material* mtablesteel;
+		G4Material* mnimbin;
 		G4Material* mwall;
 
     G4double world_dim;          // World is a sphere so we need radius
@@ -236,6 +237,9 @@ protected:
 
 		G4ThreeVector tableSteel_dim;
 		G4ThreeVector tableSteel_pos;
+
+		G4ThreeVector nimBin_dim;
+		G4ThreeVector nimBin_pos;
 
 		G4ThreeVector wall_dim;
 		G4ThreeVector wall_pos;

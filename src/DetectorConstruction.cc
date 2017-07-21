@@ -202,14 +202,17 @@ using namespace CLHEP;
    jackStand_dim(G4ThreeVector(6.*cm, 7.*cm, 9.5*cm)),
    jackStand_pos(G4ThreeVector(13.936*cm, 3.428*cm, -12.58*cm)),
 
-   tableTop_dim(G4ThreeVector(60.*cm, 25.*cm, 1.55*cm)),                  // tabletop with dimensions 60cm by 25cm by 3cm
-   tableTop_pos(G4ThreeVector(0.*cm, 0.*cm, -23.63*cm)),                  // tabletop positioned at -20.08cm along z-axis
+   tableTop_dim(G4ThreeVector(25.*cm, 60.*cm, 1.55*cm)),                  // tabletop with dimensions 60cm by 25cm by 3cm
+   tableTop_pos(G4ThreeVector(22.*cm, -30.*cm, -23.63*cm)),                  // tabletop positioned at -20.08cm along z-axis
 
-   tableSteel_dim(G4ThreeVector(50.*cm, 20.*cm, 0.75*cm)),
-   tableSteel_pos(G4ThreeVector(0.*cm, 0.*cm, -25.93*cm)),
+   tableSteel_dim(G4ThreeVector(20.*cm, 20.*cm, 0.75*cm)),
+   tableSteel_pos(G4ThreeVector(19*cm, 0.*cm, -25.93*cm)),
 
-   wall_dim(G4ThreeVector(80.*cm, 10.*cm, 200.*cm)),                      // wall with dimensions 80cm by 10cm by 200cm
-   wall_pos(G4ThreeVector(0.*cm, -200*cm, 0.*cm))                         // wall positioned at -35cm along the y-axis
+   nimBin_dim(G4ThreeVector(8.*cm, 22.*cm, 20.*cm)),
+   nimBin_pos(G4ThreeVector(42.*cm, 4.*cm, -2.08*cm)),
+
+   wall_dim(G4ThreeVector(10.*cm, 80.*cm, 100.*cm)),                      // wall with dimensions 80cm by 10cm by 200cm
+   wall_pos(G4ThreeVector(85.*cm, 0.*cm, 0.*cm))                         // wall positioned at -35cm along the y-axis
 {
    // Create a new messenger class
    detectorconstructionmessenger = new DetectorConstructionMessenger(this);
@@ -321,8 +324,15 @@ void DetectorConstruction::ConstructMaterials(){
     mbox = Al;
     mthread = Al;
     mboxnubs = Al;
-    mtable = Al;
     mstand = Al;
+    mnimbin = Al;
+
+    G4Material* wood = new G4Material("wood", 0.9*g/cm3,  3);
+    wood->AddElement(H, 4);
+    wood->AddElement(O, 1);
+    wood->AddElement(C, 2);
+
+    mtable = wood;
 
     mwall = nist->FindOrBuildMaterial("G4_CONCRETE");
 
@@ -1769,6 +1779,27 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
                       0
                       );
 
+    // NIM Bin
+    G4VSolid* nimBinSolid = new G4Box("nimBinSolid",
+                                      nimBin_dim.x(),
+                                      nimBin_dim.y(),
+                                      nimBin_dim.z()
+                                      );
+
+    G4LogicalVolume* nimBinLogVol = new G4LogicalVolume(nimBinSolid,
+                                                        mnimbin,
+                                                        "nimBinLogVol"
+                                                        );
+
+    new G4PVPlacement(0,
+                      G4ThreeVector(nimBin_pos.x(), nimBin_pos.y(), nimBin_pos.z()),
+                      "nimBin",
+                      nimBinLogVol,
+                      worldPhys,
+                      false,
+                      0
+                      );
+
     // Wall
     G4VSolid* wallSolid = new G4Box("wallSolid",
                                      wall_dim.x(),
@@ -1979,25 +2010,30 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld() {
     boxNub2_vis_att->SetVisibility(true);
     boxNub2LogVol -> SetVisAttributes(boxNub2_vis_att);
 
-    // Outer geometry
+    // Outer geometry - all set to wireframe
 
     G4VisAttributes* jackStand_vis_att = new G4VisAttributes(G4Color(0.45, 0.45, 0.40, 0.25));
-    jackStand_vis_att->SetForceSolid(true);
+    jackStand_vis_att->SetForceWireframe(true);
     jackStand_vis_att->SetVisibility(true);
     jackStandLogVol -> SetVisAttributes(jackStand_vis_att);
 
     G4VisAttributes* table_vis_att = new G4VisAttributes(G4Color(0.45, 0.55, 0., 0.22));
-    table_vis_att->SetForceSolid(true);
+    table_vis_att->SetForceWireframe(true);
     table_vis_att->SetVisibility(true);
     tableLogVol -> SetVisAttributes(table_vis_att);
 
     G4VisAttributes* tableSteel_vis_att = new G4VisAttributes(G4Color(0.45, 0.55, 0., 0.08));
-    tableSteel_vis_att->SetForceSolid(true);
+    tableSteel_vis_att->SetForceWireframe(true);
     tableSteel_vis_att->SetVisibility(true);
     tableSteelLogVol -> SetVisAttributes(tableSteel_vis_att);
 
-    G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(0.2, 0.2, 0.2, 0.025));
-    wall_vis_att->SetForceSolid(true);
+    G4VisAttributes* nimBin_vis_att = new G4VisAttributes(G4Color(0.80, 0.75, 0.05, 0.08));
+    nimBin_vis_att->SetForceWireframe(true);
+    nimBin_vis_att->SetVisibility(true);
+    nimBinLogVol -> SetVisAttributes(nimBin_vis_att);
+
+    G4VisAttributes* wall_vis_att = new G4VisAttributes(G4Color(0.5, 0.2, 0.5, 0.08));
+    wall_vis_att->SetForceWireframe(true);
     wall_vis_att->SetVisibility(true);
     wallLogVol -> SetVisAttributes(wall_vis_att);
 

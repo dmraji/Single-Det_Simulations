@@ -54,5 +54,6 @@ HEMI_Sim/output/*.root
 
 # Etc.
 Dan's Code/*
+digiCode/*
 =======
 /docs/doxygen/latex

@@ -29,15 +29,15 @@
 #/PRISM/source/farfieldringsource
 
 # Angle of source
-/PRISM/angles/phi 0
+/PRISM/angles/phi 90
 /PRISM/angles/theta 90
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_coneWide_phi0_theta90
+/PRISM/output/filename output_122keV_1Det_isotropic_phi90_theta90
 
 #Print to text or binary format
 /PRISM/output/printText On
 /PRISM/output/printBinary Off
 
 # Beam on, run this many particles
-/run/beamOn 8000000
+/run/beamOn 100000000
