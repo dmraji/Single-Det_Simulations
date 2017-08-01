@@ -16,14 +16,48 @@
 /PRISM/healpix/SetUpHEALPix
 
 # Use near field source (provide a distance)
-/PRISM/source/nearfieldsource 1 m
+/PRISM/source/nearfieldsource 0.1 m
+
+# Initial angle of source
+/PRISM/angles/phi 0
+/PRISM/angles/theta 90
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_cone_response_phi045_theta180270
+/PRISM/output/filename output_662keV_1Det_isotropic_phi0_theta90
 
 #Print to text or binary format
 /PRISM/output/printText On
 /PRISM/output/printBinary Off
 
 # Loop through angles
-/control/loop macros/response/sendOffAng.mac angDeg 1 91 1.
+/control/loop macros/response/sendOffAngCs137.mac angDeg 1 181 15.
+
+# ..........ooooooooooOOOOOOOOOOoooooooooo..........
+
+# Change energy for Co-57 run
+/gun/energy 122 keV
+
+# Initial angle of source
+/PRISM/angles/phi 0
+/PRISM/angles/theta 90
+
+# Change output file name
+/PRISM/output/filename output_122keV_1Det_cone_response_phi0_theta90
+
+# Loop through angles
+/control/loop macros/response/sendOffAngCo57.mac angDeg 1 181 30.
+
+# ..........ooooooooooOOOOOOOOOOoooooooooo..........
+
+# Change energy for Am-241 run
+/gun/energy 59.54 keV
+
+# Initial angle of source
+/PRISM/angles/phi 0
+/PRISM/angles/theta 90
+
+# Change output file name
+/PRISM/output/filename output_60keV_1Det_cone_response_phi0_theta90
+
+# Loop through angles
+/control/loop macros/response/sendOffAngAm241.mac angDeg 1 181 30.
