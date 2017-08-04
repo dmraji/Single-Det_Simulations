@@ -16,7 +16,7 @@ TODO
 *.npy
 
 # Output and response files
-/output/*
+#/output/*
 /responses
 
 # Executable files

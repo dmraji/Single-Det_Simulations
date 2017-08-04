@@ -1,9 +1,8 @@
 #------------------
 
 Required software:
-Geant4.10.2.p1
+Geant4.10.2.p01
 CMake 3.5+
-Python 2.7.12 (Anaconda 4.1.1)
 healpy
 
 #------------------
@@ -76,43 +75,11 @@ Scanning dependencies of target PRISM
 
 #------------------
 
-Python tools:
+- Macro description:
 
-- HistogramCodedApertureResponse.py will read into the response output files and histogram the data into the system response matrix.
-It will then save the matrix to a .npy file. The syntax to call the script looks like:
+RunAng.mac -> records data for one isotope energy on a track in multiple outputs,
+		then moves onto the next track angle. Can be configured to loop
+		through multiple isotope energies.
 
-$python HistogramCodedApertureResponse.py <outputfilename.bin> <energy in keV> <DOI setting (noDOI or DOI)>
-
-
-- HistogramCodedApertureOutput.py will perform the same function as the Response histogrammer but for single simulation outputs.
-It will save the generated array toa .npy file. The syntax to call the script looks like:
-
-$python HistogramCodedApertureOutput.py <outputfilename.bin> <energy in keV> <DOI setting (noDOI or DOI)>
-
-
-- CodedApertureReconstruction.py is used to perform the coded aperture reconstruction of either a column of the system response,
-or a user provided data file. The user must provide the system response matrix, the incident energy, the DOI setting, and an optional
-data file. If no data file is provided, the column index used must be specified in the code with the "hpindex" variable. An example call looks like:
-
-$python CodedApertureReconstruction.py <systemresponsefilename.npy> <energy in keV> <DOI setting (noDOI or DOI)> <datafilename.npy>
-
-
-- KleinNishina.py is used to plot the Klien-Nishina differential scattering cross-section. It can be run with
-
-$python KleinNishina.py
-
-
-- ComptonEnergyDepTest.py is used to check the ratio of the first energy deposition to the second for sequences with initial energies
-above and below the cutoff of 256 keV. 1000 sequences for 200 keV and 662 keV initial gamma ray energies are available. To run:
-
-$python ComptonEnergyDepTest.py
-
-
-- ComptonReconstruction.py is used to parse the binary output files, select coincident events, sequence, and perform Compton cone back
-projection including Klein-Nishina and lever arm weighting. To run:
-
-$python ComptonReconstruction.py <outputfilename.bin>
-
-#------------------
-
-
+PointBeams.mac -> records data for one isotope energy in one output, with the beam
+			cycling through a number of points around the detector.

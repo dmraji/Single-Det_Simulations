@@ -23,14 +23,14 @@
 /PRISM/angles/theta 90
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_isotropic_phi0_theta90
+/PRISM/output/filename output_662keV_1Det_isotropic_phi0_theta90_30min
 
 #Print to text or binary format
 /PRISM/output/printText On
 /PRISM/output/printBinary Off
 
 # Loop through angles
-/control/loop macros/response/sendOffAngCs137.mac angDeg 1 181 15.
+#/control/loop macros/response/sendOffAngCs137.mac angDeg 1 181 30.
 
 # ..........ooooooooooOOOOOOOOOOoooooooooo..........
 
@@ -45,7 +45,7 @@
 /PRISM/output/filename output_122keV_1Det_cone_response_phi0_theta90
 
 # Loop through angles
-/control/loop macros/response/sendOffAngCo57.mac angDeg 1 181 30.
+#/control/loop macros/response/sendOffAngCo57.mac angDeg 1 181 30.
 
 # ..........ooooooooooOOOOOOOOOOoooooooooo..........
 
@@ -60,4 +60,19 @@
 /PRISM/output/filename output_60keV_1Det_cone_response_phi0_theta90
 
 # Loop through angles
-/control/loop macros/response/sendOffAngAm241.mac angDeg 1 181 30.
+#/control/loop macros/response/sendOffAngAm241.mac angDeg 1 181 30.
+
+# ..........ooooooooooOOOOOOOOOOoooooooooo..........
+
+# Change energy for Ba-133 run
+/gun/energy 356 keV
+
+# Initial angle of source
+/PRISM/angles/phi 0
+/PRISM/angles/theta 90
+
+# Change output file name
+/PRISM/output/filename output_356keV_1Det_cone_response_phi0_theta90
+
+# Loop through angles
+/control/loop macros/response/sendOffAngBa133.mac angDeg 1 181 30.

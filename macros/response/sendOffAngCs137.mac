@@ -8,7 +8,7 @@
 #/PRISM/angles/theta {thetaAng}
 
 # Change output file name
-/PRISM/output/filename output_662keV_1Det_isotropic_phi{phiAng}_theta90
+/PRISM/output/filename output_662keV_1Det_isotropic_phi{phiAng}_theta90_30min
 
 # Particles
-/run/beamOn 223776000
+/run/beamOn 671328000
